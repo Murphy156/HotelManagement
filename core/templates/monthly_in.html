@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sql测试</title>
+</head>
+<body>
+<div align="center" style="margin-top: 40px;">
+    <form name="form1"     method="POST">
+        name =<input type="text" placeholder="name" name="name" value="{{ var1  }}">
+        room =<input type="text" placeholder="room" name="room" value="{{ var2  }}">
+        water =<input type="text" placeholder="water" name="water" value="{{ var3  }}">
+        electricity =<input type="text" placeholder="electricity" name="electricity" value="{{ var4  }}">
+        rent =<input type="text" placeholder="rent" name="rent" value="{{ var5  }}">
+        pay_time =<input type="text" placeholder="pay_time" name="pay_time" value="{{ var6  }}">
+        ext_1 =<input type="text" placeholder="ext_1" name="ext_1" value="{{ var7 }}">
+        ext_2 =<input type="text" placeholder="ext_2" name="ext_2" value="{{ var8}}">
+        <input type="submit" value="提交" onclick="">
+    </form>
+
+</div>
+{% if message %}
+    <p style="color:red">{{ message }}</p>
+    {% endif %}
+</body>
