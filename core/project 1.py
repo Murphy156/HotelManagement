@@ -1,12 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
+
 # noinspection PyUnresolvedReferences
+
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request
 # noinspection PyUnresolvedReferences
 import pymysql
-
 import sys
-sys.path.append('D:/house/roomManagement/conf/connection')
+# sys.path.append('D:/house/roomManagement/conf/connection')
+sys.path.append('../conf/connection')
 print(sys.path)
+
 
 from conf.connection import get_conn
 
@@ -26,6 +31,11 @@ data = DataStore()
 #     return render_template('room_in.html')
 
 # 显示每月流水的html
+@app.route('/', methods=['GET'])
+def index():
+    return op_month()
+
+# 显示每月流水的html
 @app.route('/monthIn', methods=['GET'])
 def op_month():
     return render_template('monthly_in.html')
@@ -38,13 +48,18 @@ def add_monthly():
     building = request.form['building']
     room = request.form['room']
     water = request.form['water']
-    w_c = request.form['w_c']
+    # w_c = request.form['w_c']
+    w_c = 1
     electricity = request.form['electricity']
-    e_c = request.form['e_c']
-    ref_rent = request.form['ref_rent']
+    # e_c = request.form['e_c']
+    e_c = 2
+    # ref_rent = request.form['ref_rent']
+    ref_rent = 100
     rent = request.form['rent']
-    year = request.form['year']
-    month = request.form['month']
+    # year = request.form['year']
+    year = 100
+    # month = request.form['month']
+    month = 11
     ext_1 = request.form['ext_1']
     ext_2 = request.form['ext_2']
     try:

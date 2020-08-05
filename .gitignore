@@ -1,0 +1,16 @@
+# OS X nonsense
+.DS_Store
+._*
+
+# Python compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Intellij project files
+.idea/
+*.iml
+
+# custom file
+cluster_name.yaml
+
