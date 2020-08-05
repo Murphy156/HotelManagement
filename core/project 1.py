@@ -30,7 +30,7 @@ data = DataStore()
 # def op_room():
 #     return render_template('room_in.html')
 
-# 显示每月流水的html
+# 首页 自动跳转到每月流水录入模块
 @app.route('/', methods=['GET'])
 def index():
     return op_month()
