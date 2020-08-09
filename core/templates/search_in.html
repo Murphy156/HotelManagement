@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z租客信息录入与查询</title>
+</head>
+<body>
+<div id="container" style="width:1000px">
+<div id="header" style="background-color:#FFA500;">
+    <h1 style="margin-bottom:0;">租客信息录入和查询</h1></div>
+
+<div id="menu" style="background-color:#DC143C;height:400px;width:100px;float:left;">
+    <b>菜单</b>
+</div>
+<div id="search" style="background-color:#B0C4DE;height:50px;width:900px;float:left">
+    <form name="表格一"  method="post">
+        <input type="text" placeholder="请输入名字或者房间号" name="sear" value="{{ var1  }}">
+        <input type="submit" value="搜索" onclick="">
+    </form>
+</div>
+
+<div id="result" style="background-color:#000080;height：800px;width:900px;float:left">
+    <table border="1">
+        <tr>
+        <th>name</th>
+        <th>room</th>
+        <th>rent</th>
+        <th>deposit</th>
+        <th>idcard</th>
+        <th>check_in</th>
+        <th>check_out</th>
+        <th>contact</th>
+        <th>living_number</th>
+        <th>ext_1</th>
+        <th>ext_2</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td>{{ i[7] }}</td>
+                <td>{{ i[8] }}</td>
+                <td>{{ i[9] }}</td>
+                <td>{{ i[10] }}</td>
+            </tr>
+        {% endfor %}
+    </table>>
+
+
+</div>>
+
+</div>
+</body>
+</html>
