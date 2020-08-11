@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z租客信息录入与查询</title>
+</head>
+<body>
+<div id="container" style="width:1200px">
+<div id="header" style="background-color:#FFA500;">
+    <h1 style="margin-bottom:0;">租客信息录入和查询</h1></div>
+
+<div id="menu" style="background-color:#DC143C;height:400px;width:100px;float:left;">
+    <b>菜单</b>
+</div>
+<div id="search" style="background-color:#B0C4DE;height:50px;width:1100px;float:left">
+    <form name="上传列表"  method="post">
+        <select name="sear1" id="first" onchange="nextChange()">
+            <option selected="selected"></option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+
+        <select name="sear2" id="second">
+            <option></option>
+        </select>
+        <input type="submit" value="搜索" onclick="" >
+<script>
+    function nextChange()
+    {
+        var first = document.getElementById("first");
+        var second = document.getElementById("second");
+        second.options.length = 0; // 清除second下拉框的所有内容
+        if(first.selectedIndex == 1)
+        {
+            second.options.add(new Option("101", "101", false, true));
+            second.options.add(new Option("102", "102"));
+            second.options.add(new Option("103", "103"));
+            second.options.add(new Option("104", "104"));
+            second.options.add(new Option("105", "105"));
+            second.options.add(new Option("106", "106"));
+            second.options.add(new Option("107", "107"));
+            second.options.add(new Option("108", "108"));
+            second.options.add(new Option("201", "201"));
+            second.options.add(new Option("202", "202"));
+            second.options.add(new Option("203", "203"));
+            second.options.add(new Option("204", "204"));
+            second.options.add(new Option("205", "205"));
+            second.options.add(new Option("206", "206"));
+            second.options.add(new Option("207", "207"));
+            second.options.add(new Option("208", "208"));
+            second.options.add(new Option("301", "301"));
+            second.options.add(new Option("302", "302"));
+            second.options.add(new Option("303", "303"));
+            second.options.add(new Option("304", "304"));
+            second.options.add(new Option("305", "305"));
+            second.options.add(new Option("306", "306"));
+            second.options.add(new Option("307", "307"));
+            second.options.add(new Option("308", "308"));
+            second.options.add(new Option("401", "401"));
+            second.options.add(new Option("402", "402"));
+            second.options.add(new Option("403", "403"));
+            second.options.add(new Option("404", "404"));// 默认选中区
+        }
+
+        if(first.selectedIndex == 2)
+        {
+            second.options.add(new Option("101", "101", false, true));
+            second.options.add(new Option("102", "102"));
+            second.options.add(new Option("201", "201"));
+            second.options.add(new Option("202", "202"));
+            second.options.add(new Option("301", "301"));
+            second.options.add(new Option("302", "302"));
+            second.options.add(new Option("401", "401"));
+            second.options.add(new Option("402", "402"));
+            second.options.add(new Option("501", "501"));  // 默认选中区
+            second.options.add(new Option("502", "502"));
+        }
+        if(first.selectedIndex == 3)
+        {
+            second.options.add(new Option("1", "1", false, true));
+            second.options.add(new Option("2", "2"));
+            second.options.add(new Option("3", "3"));
+        }
+        if(first.selectedIndex == 4)
+        {
+            second.options.add(new Option("1", "1", false, true));
+            second.options.add(new Option("2", "2"));
+        }
+    }
+
+</script>
+
+    </form>
+</div>
+
+<div id="result" style="background-color:#F0F8FF;height：800px;width:1100px;float:left">
+    <table border="1">
+        <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>room</th>
+        <th>rent</th>
+        <th>deposit</th>
+        <th>idcard</th>
+        <th>check_in</th>
+        <th>check_out</th>
+        <th>contact</th>
+        <th>living_number</th>
+        <th>CreateTime</th>
+        <th>UpdataTime</th>
+        <th>ext_1</th>
+        <th>ext_2</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td>{{ i[7] }}</td>
+                <td>{{ i[8] }}</td>
+                <td>{{ i[9] }}</td>
+                <td>{{ i[10] }}</td>
+                <td>{{ i[11] }}</td>
+                <td>{{ i[12] }}</td>
+                <td>{{ i[13] }}</td>
+            </tr>
+        {% endfor %}
+    </table>>
+
+
+</div>>
+
+</div>
+</body>
+</html>
