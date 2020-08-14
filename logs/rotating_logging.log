@@ -1,0 +1,374 @@
+2020-08-14 16:34:15 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:34:15 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:34:15 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:34:15 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:34:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:34:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:34:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:34:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:27] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:34:35 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:34:35] "[33mGET /getRoomInfo?region=A HTTP/1.1[0m" 404 -
+2020-08-14 16:35:15 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:35:15 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:35:15 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:35:15 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:35:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:20] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:35:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:21] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:35:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:21] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:35:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:35:21] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:38:30 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:38:30 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:38:30 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:38:30 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:38:32 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:32] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:38:32 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:32] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:38:32 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:32] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:38:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:33] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:38:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:33] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:38:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:33] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:38:35 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:38:35] "[35m[1mGET /getRoomInfo?region=A HTTP/1.1[0m" 500 -
+2020-08-14 16:38:58 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:38:58 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:38:58 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:38:58 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:39:03 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:03] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:39:05 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:39:05] "[35m[1mGET /getRoomInfo?region=B HTTP/1.1[0m" 500 -
+2020-08-14 16:40:49 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:40:49 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:40:49 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:40:49 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:40:54 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:40:54] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:40:54 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:40:54] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:40:54 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:40:54] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:44:01 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:44:01 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:44:02 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:44:02 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:44:19 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:44:19 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:44:20 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:44:20 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:44:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:44:22] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:45:30 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:45:30 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:45:30 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:45:30 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:45:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:45:33] "[33mGET /getRoomInfo?region=B HTTP/1.1[0m" 404 -
+2020-08-14 16:45:57 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:45:57] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:45:57 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:45:57] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:45:57 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:45:57] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:46:42 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:46:42 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:46:43 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:46:43 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:46:44 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:44] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:46:44 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:44] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:46:44 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:44] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:46:45 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:45] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:46:45 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:45] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:46:45 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:46:45] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:56:23 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:56:23 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:56:24 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:56:24 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:56:34 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:56:34] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:56:34 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:56:34] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:56:34 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:56:34] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:56:37 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:56:37] "[33mGET /getRoomNum?region=B HTTP/1.1[0m" 404 -
+2020-08-14 16:58:53 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 16:58:53 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 16:58:54 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 16:58:54 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 16:59:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:59:00] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 16:59:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:59:00] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 16:59:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:59:00] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 16:59:02 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 16:59:02] "[33mGET /getRoomNum?region=B HTTP/1.1[0m" 404 -
+2020-08-14 17:00:48 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:00:48 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:00:49 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:00:49 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:01:08 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:01:08 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:01:08 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:01:08 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:01:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:21] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:01:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:22] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:01:22 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:22] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:01:24 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:24] "[33mGET /getRoomNum?region=B HTTP/1.1[0m" 404 -
+2020-08-14 17:01:57 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:01:57 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:01:57 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:01:57 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:01:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:01:59] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:02:01 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:02:01] "[33mGET /getRoomNum?region=B HTTP/1.1[0m" 404 -
+2020-08-14 17:04:07 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:04:07 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:04:07 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:04:07 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:04:12 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:04:12] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:04:12 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:04:12] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:04:12 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:04:12] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:04:14 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:04:14] "[33mGET /getRoomNum?region=A HTTP/1.1[0m" 404 -
+2020-08-14 17:07:23 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:07:23 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:07:23 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:07:23 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:07:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:07:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 17:07:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:07:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 17:07:26 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:07:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 17:07:28 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:07:28] "[33mGET /api/v1/getRoomNum?region=A HTTP/1.1[0m" 404 -
+2020-08-14 17:18:49 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:18:49 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:18:50 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:18:50 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:18:53 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:18:53] "[37mGET / HTTP/1.1[0m" 200 -
+2020-08-14 17:19:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:19:20] "[33mGET /api/v1/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:19:31 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:19:31] "[33mGET /api/v1/getRoomNum/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:20:03 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:20:03 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:20:03 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:20:03 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:20:06 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:20:06] "[35m[1mGET /api/v1/getRoomNum/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:20:43 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/run.py', reloading
+2020-08-14 17:20:43 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:20:43 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:20:43 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:21:01 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:21:01 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:21:02 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:21:02 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:21:08 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-14 17:21:08 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:21:08 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:21:08 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:21:09 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:21:09] "[33mGET /api/v1/getRoomNum/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:21:14 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:21:14] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:24:50 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-14 17:24:50 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:24:50 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:24:50 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:24:55 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:24:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:24:55 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:24:55 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:24:58 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:24:58] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:27:47 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/run.py', reloading
+2020-08-14 17:27:47 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:27:47 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:27:47 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:38:14 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:38:14 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:38:14 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:38:14 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:38:17 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:38:17] "[33mGET /api/v1/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:39:19 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/run.py', reloading
+2020-08-14 17:39:19 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:45:50 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:45:50 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:45:50 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:45:50 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:45:55 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:45:55] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:46:11 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:46:11 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:46:11 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:46:11 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:46:13 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:46:13] "[33mGET /api/v1/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:46:30 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/run.py', reloading
+2020-08-14 17:46:30 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:46:31 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:46:31 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:46:32 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:46:32 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:46:33 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:46:33 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:46:35 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:46:35] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:47:09 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:47:09 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:47:09 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:47:09 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:47:11 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:47:11] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:48:10 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-14 17:48:10 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:48:48 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:48:48 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:48:48 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:48:48 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:48:50 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:48:50] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:49:52 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:49:52 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:49:53 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:49:53 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:49:55 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:49:55] "[33mGET /api/v1/getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:50:11 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:50:11] "[33mGET /getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:50:54 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:50:54 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:50:54 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:50:54 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:50:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:50:56] "[33mGET /getRoomNum HTTP/1.1[0m" 404 -
+2020-08-14 17:50:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:50:59] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:52:05 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:52:05 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:52:06 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:52:06 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:52:08 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:52:08] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:52:16 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-14 17:52:16 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:52:41 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:52:41 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:52:42 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:52:42 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:52:44 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:52:44] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:54:55 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:54:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:54:56 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:54:56 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:54:59] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:55:14 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:55:14 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:55:14 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:55:14 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:56:17 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:56:17 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:56:17 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:56:17 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:56:19 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 17:56:19] "[35m[1mGET /api/v1/getRoomNum HTTP/1.1[0m" 500 -
+2020-08-14 17:56:41 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:56:41 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:56:41 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:56:41 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 17:57:20 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 17:57:20 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 17:57:21 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 17:57:21 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 18:01:50 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-14 18:01:50 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 21:37:42 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 21:37:42 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 21:37:43 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:37:43] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 21:38:35 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 21:38:35 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 21:38:35 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 21:38:35 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 21:38:38 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:38:38] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 21:38:38 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:38:38] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 21:38:38 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:38:38] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 21:38:41 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 21:38:41 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:38:41] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 21:40:14 [INFO] [common.py:55] getRoomNum result is ： {"0": "101", "1": "102", "2": "201", "3": "202", "4": "301", "5": "302", "6": "401", "7": "402", "8": "501", "9": "502"}
+2020-08-14 21:40:14 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:40:14] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 21:42:31 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 21:42:31 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 21:42:31 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 21:42:31 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 21:42:42 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:42:42] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 21:42:42 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:42:42] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 21:42:42 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:42:42] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 21:42:51 [INFO] [common.py:55] getRoomNum result is ： {"0": "101", "1": "102", "2": "201", "3": "202", "4": "301", "5": "302", "6": "401", "7": "402", "8": "501", "9": "502"}
+2020-08-14 21:42:51 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:42:51] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 21:43:46 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2", "2": "3"}
+2020-08-14 21:43:46 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:43:46] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-14 21:50:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:27] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 21:50:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:27] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 21:50:27 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:27] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 21:50:35 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 21:50:35 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:35] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 21:50:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:56] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 21:50:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:56] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 21:50:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:56] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 21:50:59 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 21:50:59 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:50:59] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 21:57:40 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:57:40] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 21:57:40 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:57:40] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 21:57:40 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:57:40] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 21:57:54 [INFO] [common.py:55] getRoomNum result is ： {"0": "101", "1": "102", "2": "201", "3": "202", "4": "301", "5": "302", "6": "401", "7": "402", "8": "501", "9": "502"}
+2020-08-14 21:57:54 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:57:54] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 21:58:49 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2", "2": "3"}
+2020-08-14 21:58:49 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 21:58:49] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-14 22:00:04 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:00:04] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:00:04 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:00:04] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:00:04 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:00:04] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:00:06 [INFO] [common.py:55] getRoomNum result is ： {"0": "101", "1": "102", "2": "201", "3": "202", "4": "301", "5": "302", "6": "401", "7": "402", "8": "501", "9": "502"}
+2020-08-14 22:00:06 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:00:06] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 22:01:16 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2"}
+2020-08-14 22:01:16 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:16] "[37mGET /api/v1/common/getRoomNum?region=D HTTP/1.1[0m" 200 -
+2020-08-14 22:01:35 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 22:01:35 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:35] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 22:01:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:56] "[31m[1mPOST /dataManagement/userManagement HTTP/1.1[0m" 405 -
+2020-08-14 22:01:58 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:58] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:01:58 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:58] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:01:58 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:01:58] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:02:29 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2", "2": "3"}
+2020-08-14 22:02:29 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:02:29] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-14 22:09:16 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:09:16] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:09:16 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:09:16] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:09:16 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:09:16] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:10:02 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:10:02] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:10:02 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:10:02] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:10:02 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:10:02] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:30:16 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-14 22:30:16 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-14 22:30:16 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-14 22:30:16 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-14 22:30:18 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:30:18] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:30:18 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:30:18] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:30:18 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:30:18] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:32:46 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:32:46] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:32:46 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:32:46] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 22:32:46 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:32:46] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:50:48 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:50:48] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 22:50:48 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:50:48] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 22:50:48 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 22:50:48] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 23:06:52 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:06:52] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 23:06:52 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:06:52] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 23:06:52 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:06:52] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 23:07:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:33] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 23:07:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:33] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 23:07:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:33] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 23:07:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:33] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 23:07:34 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:34] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 23:07:34 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:07:34] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 23:08:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:00] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-14 23:08:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:00] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-14 23:08:00 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:00] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-14 23:08:13 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 23:08:13 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:13] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 23:08:21 [INFO] [common.py:55] getRoomNum result is ： {"0": "101", "1": "102", "2": "201", "3": "202", "4": "301", "5": "302", "6": "401", "7": "402", "8": "501", "9": "502"}
+2020-08-14 23:08:21 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:21] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-14 23:08:29 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2", "2": "3"}
+2020-08-14 23:08:29 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:29] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-14 23:08:33 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 23:08:33 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:08:33] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-14 23:10:56 [INFO] [common.py:55] getRoomNum result is ： {"0": "1", "1": "2"}
+2020-08-14 23:10:56 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:10:56] "[37mGET /api/v1/common/getRoomNum?region=D HTTP/1.1[0m" 200 -
+2020-08-14 23:11:20 [INFO] [common.py:55] getRoomNum result is ： {"0": "102", "1": "103", "2": "104", "3": "105", "4": "106", "5": "107", "6": "108", "7": "201", "8": "202", "9": "203", "10": "204", "11": "205", "12": "206", "13": "207", "14": "208", "15": "301", "16": "302", "17": "303", "18": "304", "19": "305", "20": "306", "21": "307", "22": "308", "23": "401", "24": "402", "25": "403", "26": "404"}
+2020-08-14 23:11:20 [INFO] [_internal.py:113] 127.0.0.1 - - [14/Aug/2020 23:11:20] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -

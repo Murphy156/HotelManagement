@@ -11,7 +11,7 @@ from conf.connection import get_conn
 
 
 import sys
-sys.path.append('D:/house/roomManagement/conf/connection')
+sys.path.append('../conf/connection')
 print(sys.path)
 
 app = Flask(__name__, template_folder='templates/')

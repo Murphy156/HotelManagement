@@ -98,7 +98,7 @@ def ABCD_draweccharts() -> Bar:
         Bar()
             .add_xaxis(["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"])
             .add_yaxis("A_monthly", y_axis=data_A)
-            .set_global_opts(title_opts=opts.TitleOpts(title="A栋的2020年每月收入", subtitle="每月流水", pos_top="1%", pos_left="5%"),
+            .set_global_opts(title_opts=opts.TitleOpts(title="A栋的2020年每月收入", subtitle="每月流水", pos_top="lsh_test.html%", pos_left="5%"),
                              legend_opts=opts.LegendOpts(type_="scroll", pos_left="22%", pos_top="2%"))
     )
     # 设置B栋的展示图
@@ -106,7 +106,7 @@ def ABCD_draweccharts() -> Bar:
         Bar()
             .add_xaxis(["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"])
             .add_yaxis("B_monthly", y_axis=data_B)
-            .set_global_opts(title_opts=opts.TitleOpts(title="B栋的2020年每月收入", subtitle="每月流水", pos_top="1%", pos_left="55%"),
+            .set_global_opts(title_opts=opts.TitleOpts(title="B栋的2020年每月收入", subtitle="每月流水", pos_top="lsh_test.html%", pos_left="55%"),
                              legend_opts=opts.LegendOpts(type_="scroll", pos_left="72%", pos_top="2%"))
     )
     # 设置C栋的展示图

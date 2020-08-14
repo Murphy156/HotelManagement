@@ -18,7 +18,7 @@ from conf.connection import get_conn
 import cgi, cgitb
 
 import sys
-sys.path.append('D:/house/roomManagement/conf/connection')
+sys.path.append('../conf/connection')
 print(sys.path)
 
 app = Flask(__name__, template_folder='templates/')
@@ -30,7 +30,7 @@ data = DataStore()
 
 @app.route('/tenant_sear', methods=['GET'])
 def show_sear_te():
-    return render_template('test111.html')
+    return render_template('search_in.html')
 
 @app.route('/tenant_sear', methods=['POST'])
 def hand_sear_te():
@@ -47,7 +47,7 @@ def hand_sear_te():
     cur.execute(sql)
     u = cur.fetchall()
     conn.close()
-    return render_template('test111.html', u=u)
+    return render_template('search_in.html', u=u)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8888)

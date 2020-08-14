@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="./static/css/framework.css" rel="stylesheet">
+    <script type="text/javascript" src="./static/js/framework.js"></script>
+</head>
+<body onload="initTree()">
+    <div class="header">
+		<h2>神策-管理系统</h2>
+	</div>
+
+    <div class="mainBox">
+		<div class="leftBox">
+			<div style="float:left;width: 300px; height: 590px;">
+                <ol class="tree" id="olTree">
+                <li>
+                   <label class="folderOne">数据大盘</label>
+                   <ol>
+                        <li class="file folderTwo"><a href="#">区域分析</a></li>
+                        <li class="file folderTwo"><a href="#">单元分析</a></li>
+                   </ol>
+                </li>
+                <li>
+                   <label class="folderOne" >数据管理</label>
+                   <ol>
+                       <li class="file folderTwo"><a href="/dataManagement/userManagement">用户信息管理</a></li>
+                   </ol>
+                </li>
+                </ol>
+            </div>
+		</div>
+		<div class="rightBox">
+			<div class="slideBtn" onclick="slideBtn()">伸缩</div>
+            <h1>Welcome!</h1>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

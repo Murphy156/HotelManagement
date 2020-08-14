@@ -25,6 +25,11 @@
 - Mysql5.7
 - Nginx1.14.0
 
+### pip dependency
+pip install PyYAML
+pip install PyMySQL
+
+
 
 ###环境初始化
 ####Mysql
