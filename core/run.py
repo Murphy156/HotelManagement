@@ -6,8 +6,7 @@
 # @File : run.py 
 
 from flask import Flask, render_template
-import logging.config
-import yaml
+
 
 
 app = Flask(__name__, template_folder='templates/', static_folder='templates/static')
@@ -16,10 +15,7 @@ app.config['JSON_SORT_KEYS'] = False
 def userManagement():
     return render_template('userManagement.html')
 
-
 @app.route('/dataAnalysis')
-
-
 
 @app.route('/')
 def index():

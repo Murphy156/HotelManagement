@@ -27,8 +27,11 @@
 
 ### pip dependency
 ```
-pip install PyYAML
-pip install PyMySQL
+pip3 install PyYAML
+pip3 install PyMySQL
+pip3 install flask_restful
+pip3 install flask
+
 ```
 
 ###环境初始化
