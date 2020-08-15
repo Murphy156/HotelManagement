@@ -21,7 +21,7 @@ api = Api(common)
 class Common(Resource):
 
     def __init__(self):
-        conf = yaml.load(open('../conf/config.yaml'), Loader=yaml.FullLoader)
+        conf = yaml.load(open('../conf/config.yaml',encoding='UTF-8'), Loader=yaml.FullLoader)
         self._conf = conf
         self.db = DbObject(self._conf['db_conf'])
 
