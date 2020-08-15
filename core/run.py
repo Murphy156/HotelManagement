@@ -8,10 +8,10 @@
 from flask import Flask, render_template
 import logging.config
 import yaml
-from core.main.utils.common import common
+
 
 app = Flask(__name__, template_folder='templates/', static_folder='templates/static')
-
+app.config['JSON_SORT_KEYS'] = False
 @app.route('/dataManagement/userManagement')
 def userManagement():
     return render_template('userManagement.html')
@@ -29,7 +29,10 @@ if __name__ == '__main__':
     print("start!")
 
     # Blueprints
+    from core.main.utils.common import common
     app.register_blueprint(common, url_prefix='/api/v1')
+    from core.main.dataManagement.tenantManagement import tenantManagement
+    app.register_blueprint(tenantManagement, url_prefix='/api/v1')
 
     app.run(host = "0.0.0.0", port=8888, debug=True)
 

@@ -43,18 +43,13 @@ function slideBtn() {
     }
 }
 
-//function getRoomNum1() {
-//    var obj=document.getElementById("region");
-//    $.get("/api/v1/common/getRoomNum?region=" +region,function(data,status){
-//        console.log("数据: " + data + "\n状态: " + status);
-//    }
-//}
-
 //获取房间号
 function getRoomNum() {
     var obj = document.getElementById('region');
     var index = obj.selectedIndex;
     var region = obj.options[index].value;
+    var roomNumSelections = document.getElementById("roomNum");
+    roomNumSelections.options.length=0;
     console.log(region)
 //    发起向服务端的请求
     xmlhttp=new XMLHttpRequest();
@@ -69,16 +64,75 @@ function getRoomNum() {
             //使用JSON.parse方法将json字符串解析称为json对象
             var response = xmlhttp.responseText
             roomNumJson = JSON.parse(response);
-            console.log(roomNumJson)
+            var optionstring = "";
+            for (var item in roomNumJson)
+            {
+                //设置下拉列表中的值的属性
+                var option = document.createElement("option");
+                option.value = roomNumJson[item];
+                option.text= roomNumJson[item];
+                //将option增加到下拉列表中。
+                roomNumSelections.options.add(option);
+                optionstring += "<option value=\""+ roomNumJson[item] +"\" >"+ roomNumJson[item] +"</option>";
+            }
+            console.log(optionstring)
         }
     }
-
     xmlhttp.open("GET","/api/v1/common/getRoomNum?region=" +region,true);
     xmlhttp.send();
+}
 
-    for(var i=0; i < roomNumJson.length; i++){
-    　　for(var key in roomNumJson[i]){
-    　　　　console.log(key+':'+roomNumJson[i][key]);
-    　　}
+
+function dynamic_table(rawData) {
+//    set header
+    headers = rawData.header;
+    tbl_header = "<tr>";
+    for (var key in headers) {
+        tbl_header += "<th>" + headers[key] + "</th>";
     }
+    tbl_header += "<th>操作</th></tr>";
+    console.log(tbl_header);
+
+//    set body
+    body = rawData.body;
+    tbl_body = "";
+    var button = '<td><input type="button" name="edit" value="编辑" onclick="editUser()"><input type="button" name="delete" value="删除" onclick="deleteUser()"></td>'
+    for (index in body) {
+        var rowID = '<tr id="{id}">'
+        rowID = rowID.format({id:body[index]['id']})
+//        tbl_body += "<tr>";
+        for (var key in headers) {
+            tbl_body += "<td>" + body[index][key] + "</td>";
+        }
+        tbl_body += button + "</tr>";
+    }
+    console.log(tbl_body);
+
+    table_output = tbl_header + tbl_body;
+    return table_output;
+}
+
+
+String.prototype.format = function(args) {
+    var result = this;
+    if (arguments.length > 0) {
+        if (arguments.length == 1 && typeof (args) == "object") {
+            for (var key in args) {
+                if(args[key]!=undefined){
+                    var reg = new RegExp("({" + key + "})", "g");
+                    result = result.replace(reg, args[key]);
+                }
+            }
+        }
+        else {
+            for (var i = 0; i < arguments.length; i++) {
+                if (arguments[i] != undefined) {
+                    //var reg = new RegExp("({[" + i + "]})", "g");//这个在索引大于9时会有问题
+                    var reg = new RegExp("({)" + i + "(})", "g");
+                    result = result.replace(reg, arguments[i]);
+             }
+          }
+       }
+   }
+   return result;
 }

@@ -12,7 +12,6 @@ from flask_restful import Resource, Api
 from core.main.utils.db.db_helper import *
 import logging.config
 import yaml
-import json
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
 
@@ -39,6 +38,7 @@ class Common(Resource):
             whereStr += f"and building = '{region}'"
 
         sql = f"select * from room_information {whereStr}"
+        LOG.info("sql is : " + sql)
         res = self.db.execute(sql)
         return res
 
@@ -51,8 +51,8 @@ class Common(Resource):
         for room in room_list:
             roomNumDict[num] = room['room']
             num += 1
-        roomNum = json.dumps(roomNumDict)
-        LOG.info("getRoomNum result is ： " + roomNum)
+        LOG.info("sql result is ： " + str(roomNumDict))
+        roomNum = jsonify(roomNumDict)
         return roomNum
 
 
