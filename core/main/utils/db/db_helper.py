@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*
 
+# noinspection PyUnresolvedReferences
 import sys
+# noinspection PyUnresolvedReferences
 import os
 import time
+# noinspection PyUnresolvedReferences
 import datetime
 import traceback
 import pymysql
 import logging
-
+# noinspection PyUnresolvedReferences
+import xlrd
 LOG = logging.getLogger(name="rotatingFileLogger")
 
+#
 CURSOR_MODE = 0
 DICTCURSOR_MODE = 1
 SSCURSOR_MODE = 2
@@ -29,7 +34,7 @@ class DbObject(object):
         self._dbconn = None
         self._dbcursor = None
         self.conndb()
-
+    #
     def conndb(self):
         try:
             self._dbconn = pymysql.connect(host=self._dbconfig['host'], user=self._dbconfig['user'], password=self._dbconfig['password'], \
@@ -38,7 +43,7 @@ class DbObject(object):
         except Exception as err:
             LOG.error(traceback.format_exc())
             raise err
-
+    #
     def reconndb(self):
         try:
             if time.time() > self._dblastconntime + self._dbconninterval:
@@ -101,7 +106,7 @@ class DbObject(object):
                 else:
                     line = self._dbcursor.executemany(sqltext, args)
         except Exception as err:
-            LOG.error(f"execute sql failed,the sql is : {sqltext}",err)
+            LOG.error(f"execute sql failed,the sql is : {sqltext}", err)
             # 重连DB
             self.reconndb()
             # 再次执行sql
@@ -137,3 +142,5 @@ class DbObject(object):
         self._dbcursor.close()
 
         return data
+
+# 写的这些类可以通用吗

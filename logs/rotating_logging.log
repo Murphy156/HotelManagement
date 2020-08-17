@@ -1612,3 +1612,58 @@
 2020-08-17 14:42:21 [WARNING] [_internal.py:113]  * Debugger is active!
 2020-08-17 14:42:21 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
 2020-08-17 14:42:21 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 15:32:39 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 15:32:39 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 15:32:39 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 15:32:39 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 15:32:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:32:59] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-17 15:32:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:32:59] "[36mGET /static/css/framework.css HTTP/1.1[0m" 304 -
+2020-08-17 15:32:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:32:59] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-17 15:32:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:32:59] "[36mGET /static/js/framework.js HTTP/1.1[0m" 304 -
+2020-08-17 15:32:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:32:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-08-17 15:33:01 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:33:01] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-17 15:33:18 [INFO] [common.py:46] sql is : select * from room_information where 1 = 1 and building = 'A'
+2020-08-17 15:33:19 [INFO] [common.py:59] sql result is £∫ {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404'}
+2020-08-17 15:33:19 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:33:19] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-17 15:33:33 [INFO] [tenantManagement.py:89] sql is : select * from tenant where 1 = 1 and building = 'A'and room = '102'
+2020-08-17 15:33:33 [INFO] [tenantManagement.py:92] sql result is : [{'id': 2, 'name': 'π˘÷“÷“', 'building': 'A', 'room': '102', 'rent': '300', 'deposit': '300', 'idcard': '520201198401124430', 'check_in': '20200312', 'check_out': '', 'contact': '15599549429', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'UpdateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'ext_1': '', 'ext_2': ''}, {'id': 3, 'name': 'ΩØ¥Û∑…', 'building': 'A', 'room': '102', 'rent': '300', 'deposit': '300', 'idcard': '520221198502171426', 'check_in': '20200312', 'check_out': '', 'contact': '15599548928', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'UpdateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'ext_1': '', 'ext_2': ''}]
+2020-08-17 15:33:33 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:33:33] "[37mGET /api/v1/tenant/getUserInfo?region=A&roomNum=102 HTTP/1.1[0m" 200 -
+2020-08-17 15:33:43 [INFO] [tenantManagement.py:89] sql is : select * from tenant where 1 = 1 and building = 'A'and room = '102'
+2020-08-17 15:33:44 [INFO] [tenantManagement.py:92] sql result is : [{'id': 2, 'name': 'π˘÷“÷“', 'building': 'A', 'room': '102', 'rent': '300', 'deposit': '300', 'idcard': '520201198401124430', 'check_in': '20200312', 'check_out': '', 'contact': '15599549429', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'UpdateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'ext_1': '', 'ext_2': ''}, {'id': 3, 'name': 'ΩØ¥Û∑…', 'building': 'A', 'room': '102', 'rent': '300', 'deposit': '300', 'idcard': '520221198502171426', 'check_in': '20200312', 'check_out': '', 'contact': '15599548928', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'UpdateTime': datetime.datetime(2020, 8, 11, 10, 27, 22), 'ext_1': '', 'ext_2': ''}]
+2020-08-17 15:33:44 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 15:33:44] "[37mGET /api/v1/tenant/getUserInfo?region=A&roomNum=102 HTTP/1.1[0m" 200 -
+2020-08-17 16:01:33 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:01:34 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:01:34 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:01:34 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 16:03:33 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 16:03:33] "[35m[1mGET /api/v1/tenant/exitUser HTTP/1.1[0m" 500 -
+2020-08-17 16:07:37 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:07:38 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:07:38 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:07:38 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 16:07:59 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 16:07:59] "[35m[1mGET /api/v1/tenant/exitUser HTTP/1.1[0m" 500 -
+2020-08-17 16:26:58 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:27:00 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:27:00 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:27:00 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 16:27:18 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 16:27:18] "[35m[1mGET /api/v1/tenant/exitUser HTTP/1.1[0m" 500 -
+2020-08-17 16:32:30 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:32:32 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:32:32 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:32:32 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 16:32:50 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 16:32:50] "[37mGET /api/v1/tenant/addExcel HTTP/1.1[0m" 200 -
+2020-08-17 16:33:55 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-17 16:33:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:33:57 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:33:57 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:33:57 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 16:36:00 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 16:36:00] "[37mGET /api/v1/tenant/addExcel HTTP/1.1[0m" 200 -
+2020-08-17 16:57:51 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 16:57:52 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 16:57:52 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 16:57:52 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 17:00:01 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 17:00:01] "[37mGET /api/v1/tenant/deleteUser?building=A&name=¡ı’¬ª™&room=101 HTTP/1.1[0m" 200 -
+2020-08-17 17:03:12 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-17 17:03:13 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-17 17:03:13 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-17 17:03:13 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-17 17:03:39 [INFO] [_internal.py:113] 127.0.0.1 - - [17/Aug/2020 17:03:39] "[37mGET /api/v1/tenant/deleteUser?building=A&name=¡ı’¬ª™&room=101 HTTP/1.1[0m" 200 -

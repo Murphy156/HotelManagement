@@ -9,7 +9,8 @@
 from flask import Flask, request, jsonify
 from flask import Blueprint
 from flask_restful import Resource, Api
-
+# noinspection PyUnresolvedReferences
+import xlrd
 from core.main.utils.db.db_helper import *
 from core.main.utils.common import Common
 import logging.config
@@ -47,7 +48,12 @@ class TenantManagement(Resource):
         elif(operation == 'addUser'):
             return self.addUser()
         elif(operation == 'exitUser'):
-            return  self.exitUser()
+            return self.exitUser()
+        elif(operation == 'addExcel()'):
+            return self.addExcel()
+        elif(operation == 'deleteUser()'):
+            return self.deleteUser()
+
 
     def post(self):
         pass
@@ -69,9 +75,53 @@ class TenantManagement(Resource):
         res = self._common.db.execute(sql, [name, building, room, contact, rent, deposit, idcard, check_in, check_out, living_number])
         LOG.info("sql result is : " + str(res))
 
+    # 问题 就是db的不适用性
+    def addExcel(self):
+        tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
+        sheet = tenant.sheet_by_name("tenant_sheet1")
+        for i in range(2, sheet.nrows):
+            name = sheet.cell(i, 0).value
+            building = sheet.cell(i, 1).value
+            room = sheet.cell(i, 2).value
+            rent = sheet.cell(i, 3).value
+            deposit = sheet.cell(i, 4).value
+            idcard = sheet.cell(i, 5).value
+            check_in = sheet.cell(i, 6).value
+            check_out = sheet.cell(i, 7).value
+            contact = sheet.cell(i, 8).value
+            living_number = sheet.cell(i, 9).value
+            value = (name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number)
+            sql = "INSERT INTO tenant(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            LOG.info(f"sql is : {sql}")
+            res = self._common.db.execute(sql, value)
+            LOG.info("sql result is : " + str(res))
+    # 提交的问题
+    def deleteUser(self):
+        building = request.args.get("building")
+        room = request.args.get("roomNum")
+        name = request.args.get("name")
+        sql = f"DELETE FROM tenant WHERE building = '{building}' AND room = '{room}' AND name = '{name}'"
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("sql result is : " + str(res))
 
+    #
+    def exitUser(self):
+        building = request.args.get("building")
+        room = request.args.get("roomNum")
+        name = request.args.get("name")
+        contact = request.args.get("contact")
+        rent = request.args.get("rent")
+        deposit = request.args.get("deposit")
+        idcard = request.args.get("idcard")
+        check_in = request.args.get("check_in")
+        check_out = request.args.get("check_out")
+        living_number = request.args.get("living_number")
+        value = (name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number)
+        sql = "UPDATE tenant SET(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE name= '{name}' "
+        self._common.db.execute(sql, value)
 
-    # 获取用户信息
+    # 获取用户数据
     def getUserInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")
