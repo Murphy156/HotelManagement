@@ -5,7 +5,9 @@
 # @Email : shuohualee@126.com
 # @File : common.py 
 
+# noinspection PyUnresolvedReferences
 from flask import Flask, request,jsonify
+# noinspection PyUnresolvedReferences
 from flask import Blueprint,views
 from flask_restful import Resource, Api
 
@@ -20,22 +22,25 @@ api = Api(common)
 
 class Common(Resource):
 
+    # 构造函数
     def __init__(self):
-        conf = yaml.load(open('../conf/config.yaml',encoding='UTF-8'), Loader=yaml.FullLoader)
+        conf = yaml.load(open('../conf/config.yaml', encoding='UTF-8'), Loader=yaml.FullLoader)
         self._conf = conf
         self.db = DbObject(self._conf['db_conf'])
 
-    def get(self,operation):
+    #接收get请求
+    def get(self, operation):
         if (operation == 'getRoomNum'):
             return self.getRoomNum()
-
+    #接收post请求
     def post(self):
         pass
 
+    #获取房间信息
     def getRoomInfo(self, region = None):
-        whereStr = "where 1 = 1 "
+        whereStr = "where 1 = 1"
         if not region is None:
-            whereStr += f"and building = '{region}'"
+            whereStr += f" and building = '{region}'"
 
         sql = f"select * from room_information {whereStr}"
         LOG.info("sql is : " + sql)

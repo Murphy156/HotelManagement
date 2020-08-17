@@ -5,16 +5,18 @@
 # @Email : shuohualee@126.com
 # @File : tenantManagement.py
 
-from flask import Flask, request,jsonify
+# noinspection PyUnresolvedReferences
+from flask import Flask, request, jsonify
 from flask import Blueprint
 from flask_restful import Resource, Api
 
 from core.main.utils.db.db_helper import *
 from core.main.utils.common import Common
 import logging.config
+
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
-
+#
 tenantManagement = Blueprint('TenantManagement', __name__)
 api = Api(tenantManagement)
 
@@ -34,21 +36,46 @@ USREINFO_HEADER = {
 
 class TenantManagement(Resource):
 
+    # 构造函数
     def __init__(self):
+        # 实例化Common类
         self._common = Common()
 
-    def get(self,operation):
+    def get(self, operation):
         if (operation == 'getUserInfo'):
             return self.getUserInfo()
+        elif(operation == 'addUser'):
+            return self.addUser()
+        elif(operation == 'exitUser'):
+            return  self.exitUser()
 
     def post(self):
         pass
+
+    # 添加用户
+    def addUser(self):
+        building = request.args.get("building")
+        room = request.args.get("roomNum")
+        name = request.args.get("name")
+        contact = request.args.get("contact")
+        rent = request.args.get("rent")
+        deposit = request.args.get("deposit")
+        idcard = request.args.get("idcard")
+        check_in = request.args.get("check_in")
+        check_out = request.args.get("check_out")
+        living_number = request.args.get("living_number")
+        sql = 'INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql, [name, building, room, contact, rent, deposit, idcard, check_in, check_out, living_number])
+        LOG.info("sql result is : " + str(res))
+
+
 
     # 获取用户信息
     def getUserInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")
-
+        #
         whereStr = "where 1 = 1 "
         if (not region is None) and (region != '') and (region != '所有'):
             whereStr += f"and building = '{region}'"
@@ -56,6 +83,7 @@ class TenantManagement(Resource):
             whereStr += f"and room = '{room}'"
 
         sql = f"select * from tenant {whereStr}"
+        #
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
 
@@ -63,22 +91,24 @@ class TenantManagement(Resource):
         outputData = self.formatUserInfoOutput(res)
         return jsonify(outputData)
 
+    # 生成动态表格
     def formatUserInfoOutput(self,userInfo):
         rows = []
+        #
         for user in userInfo:
             user['CreateTime'] = str(user['CreateTime'])
             row = {}
-            for key,value in USREINFO_HEADER.items():
+            for key, value in USREINFO_HEADER.items():
                 row[key] = user[key]
             rows.append(row)
-
+        #
         outputData = {
-            'header' : USREINFO_HEADER,
-            'body' : rows
+            'header': USREINFO_HEADER,
+            'body': rows
         }
         return outputData
 
-
+#
 api.add_resource(TenantManagement, '/tenant/<operation>')
 
 

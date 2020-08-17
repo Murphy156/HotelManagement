@@ -27,6 +27,7 @@ if __name__ == '__main__':
     # Blueprints
     from core.main.utils.common import common
     app.register_blueprint(common, url_prefix='/api/v1')
+
     from core.main.dataManagement.tenantManagement import tenantManagement
     app.register_blueprint(tenantManagement, url_prefix='/api/v1')
 

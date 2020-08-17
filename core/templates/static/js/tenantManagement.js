@@ -62,3 +62,7 @@ editUser = function() {
     var id = $(this).attr("id")
     console.log(id)
 }
+
+addUser = function() {
+    console.log("add user!")
+}
