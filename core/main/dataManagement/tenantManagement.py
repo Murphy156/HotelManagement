@@ -47,11 +47,11 @@ class TenantManagement(Resource):
             return self.getUserInfo()
         elif(operation == 'addUser'):
             return self.addUser()
-        elif(operation == 'exitUser'):
-            return self.exitUser()
-        elif(operation == 'addExcel()'):
+        elif(operation == 'editUser'):
+            return self.editUser()
+        elif(operation == 'addExcel'):
             return self.addExcel()
-        elif(operation == 'deleteUser()'):
+        elif(operation == 'deleteUser'):
             return self.deleteUser()
 
 
@@ -95,6 +95,8 @@ class TenantManagement(Resource):
             LOG.info(f"sql is : {sql}")
             res = self._common.db.execute(sql, value)
             LOG.info("sql result is : " + str(res))
+
+
     # 提交的问题
     def deleteUser(self):
         building = request.args.get("building")
@@ -106,7 +108,8 @@ class TenantManagement(Resource):
         LOG.info("sql result is : " + str(res))
 
     #
-    def exitUser(self):
+    def editUser(self):
+        id = request.args.get("id")
         building = request.args.get("building")
         room = request.args.get("roomNum")
         name = request.args.get("name")
@@ -118,7 +121,7 @@ class TenantManagement(Resource):
         check_out = request.args.get("check_out")
         living_number = request.args.get("living_number")
         value = (name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number)
-        sql = "UPDATE tenant SET(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE name= '{name}' "
+        sql = f"UPDATE tenant SET(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
         self._common.db.execute(sql, value)
 
     # 获取用户数据

@@ -1959,3 +1959,13 @@
 2020-08-18 15:22:45 [WARNING] [_internal.py:113]  * Debugger is active!
 2020-08-18 15:22:46 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
 2020-08-18 15:22:46 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-18 15:53:30 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\utils\\common.py', reloading
+2020-08-18 15:53:30 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 15:53:31 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 15:53:31 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-18 15:53:31 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-18 16:03:21 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-18 16:03:21 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 16:03:23 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 16:03:23 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-18 16:03:23 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)

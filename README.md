@@ -27,7 +27,7 @@
 
 ### pip dependency
 ```
-pip3 install PyYAML
+pip3 install --ignore-installed PyYAML
 pip3 install PyMySQL
 pip3 install flask_restful
 pip3 install flask

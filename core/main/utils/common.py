@@ -57,9 +57,13 @@ class Common(Resource):
         for room in room_list:
             roomNumDict[num] = room['room']
             num += 1
-        LOG.info("sql result is ： " + str(roomNumDict))
-        roomNum = jsonify(roomNumDict)
-        return roomNum
+        res = {
+            'code' : 0,
+            'msg' : "success",
+            'data' : roomNumDict
+        }
+        LOG.info("sql result is ： " + str(res))
+        return jsonify(res)
 
 
 api.add_resource(Common, '/common/<operation>')
