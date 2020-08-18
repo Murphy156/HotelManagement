@@ -15,12 +15,9 @@ LOG = logging.getLogger(name="rotatingFileLogger")
 
 
 conf = yaml.load(open('../conf/config.yaml'), Loader=yaml.FullLoader)
+common = Common()
+
+sql = "insert into lsh_test(name) values ('test')"
+common.db.execute(sql)
 
 
-list1 = ["101", "102", "201", "202", "301", "302", "401", "402", "501", "502"]
-
-dict1 = {}
-for i in range(len(list1)):
-    dict1[i] = list1[i]
-
-print(dict1)

@@ -49,9 +49,9 @@ class TenantManagement(Resource):
             return self.addUser()
         elif(operation == 'exitUser'):
             return self.exitUser()
-        elif(operation == 'addExcel()'):
+        elif(operation == 'addExcel'):
             return self.addExcel()
-        elif(operation == 'deleteUser()'):
+        elif(operation == 'deleteUser'):
             return self.deleteUser()
 
 
@@ -95,6 +95,8 @@ class TenantManagement(Resource):
             LOG.info(f"sql is : {sql}")
             res = self._common.db.execute(sql, value)
             LOG.info("sql result is : " + str(res))
+
+
     # 提交的问题
     def deleteUser(self):
         building = request.args.get("building")

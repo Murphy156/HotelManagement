@@ -46,7 +46,8 @@ getUserInfo = function() {
 
     $.get(url,function(data,status){
         if(status == 'success') {
-            var tblInfoCode = dynamic_table(data)
+            var button = '<td><input type="button" id = "editUser" name="editUser" value="编辑" onclick="editUser()"><input type="button" id = "deleteUser" name="deleteUser" value="删除" onclick="deleteUser()"></td>'
+            var tblInfoCode = dynamic_table(data, button)
             console.log(tblInfoCode)
             $("#userInfoTbl").html(tblInfoCode);
         } else {
@@ -56,13 +57,62 @@ getUserInfo = function() {
 }
 
 editUser = function() {
-    var x = $(this).parent().parent().find("td");
-    var y = x.eq(0).text()
-    var data = $(this)
-    var id = $(this).attr("id")
-    console.log(id)
+    $('#editUser').click(function(){
+        alert("编辑用户(样式和新增用户一样)");
+    })
+
+
+
 }
 
 addUser = function() {
-    console.log("add user!")
+    $('#addUser').click(function(){
+        $('#addUserWindow').removeAttr('hidden');
+    })
+    //确认
+    $('#btn_addUser_ok').click(function(){
+        $('#addUserWindow').attr('hidden','hidden');
+        //一些操作
+    })
+    //取消
+    $('#btn_addUser_cancel').click(function(){
+        $('#addUserWindow').attr('hidden','hidden');
+    })
+}
+
+importUser = function() {
+    $('#importUser').click(function(){
+        $('#importUserWindow').removeAttr('hidden');
+    })
+    //导入模板
+    $('#bnt_import_user').click(function(){
+        alert("弹窗，选择excel导入");
+        //todo
+    })
+    //取消
+    $('#btn_import_cancel').click(function(){
+        $('#importUserWindow').attr('hidden','hidden');
+    })
+}
+
+downloadTemplate = function() {
+    $('#a_download_template').click(function(){
+        alert("弹出下载模板框");
+    })
+}
+
+
+deleteUser = function(){
+    $('#deleteUser').click(function(){
+        $('#deleteUserWindow').removeAttr('hidden');
+    })
+    //确认
+    $('#btn_delUser_ok').click(function(){
+        $('#deleteUserWindow').attr('hidden','hidden');
+        //一些操作
+    })
+    //取消
+    $('#btn_delUser_cancel').click(function(){
+        $('#deleteUserWindow').attr('hidden','hidden');
+    })
 }

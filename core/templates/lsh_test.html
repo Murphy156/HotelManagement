@@ -1,133 +1,80 @@
-<!DOCTYPE html>
-<html >
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+        <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Demo</title>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <style>
-        .el-table-add-row {
-            margin-top: 10px;
-            width: 100%;
-            height: 34px;
-            border: 1px dashed #c1c1cd;
-            border-radius: 3px;
-            cursor: pointer;
-            justify-content: center;
-            display: flex;
-            line-height: 34px;
-        }
-    </style>
-</head>
-
-<body>
-        <table width="600"border="1"cellspacing="0">
-
-        <thead>
-
-        <tr>
-
-        <th>编号</th>
-
-        <th>姓名</th>
-
-        <th>职位</th>
-
-        <th>操作</th>
-
-        </tr>
-
-        </thead>
-
-        <tbody id="tbMain"></tbody>
-
-        </table>
-
-        <script type="text/javascript">
-
-        //模拟bai一段JSON数据，du实际要从数据库中读取
-
-        varper=[
-
-        {id:001,name:'张珊',job:'学生zhi'},
-
-        {id:002,name:'李斯',job:'教师'},
-
-        {id:003,name:'王武dao',job:'经理'}
-
-        ];
-
-        window.onload=function(){
-
-            vartbody=document.getElementById('tbMain');
-
-            for(vari=0;i<per.length;i++){//遍历一下json数据
-
-            vartrow=getDataRow(per[i]);//定义一个方法,返回tr数据
-
-            tbody.appendChild(trow);
-
-        }
-
-
-
-         function getDataRow(h){
-
-            varrow=document.createElement('tr');//创建行
-
-            varidCell=document.createElement('td');//创建第一列id
-
-            idCell.innerHTML=h.id;//填充数据
-
-            row.appendChild(idCell);//加入行，下面类似
-
-            varnameCell=document.createElement('td');//创建第二列name
-
-            nameCell.innerHTML=h.name;
-
-            row.appendChild(nameCell);
-
-            varjobCell=document.createElement('td');//创建第三列job
-
-            jobCell.innerHTML=h.job;
-
-            row.appendChild(jobCell);
-
-            //到这里，json中的数据已经添加到表格中，下面为每行末尾添加删除按钮
-
-            vardelCell=document.createElement('td');//创建第四列，操作列
-
-            row.appendChild(delCell);
-
-            varbtnDel=document.createElement('input');//创建一个input控件
-
-            btnDel.setAttribute('type','button');//type="button"
-
-            btnDel.setAttribute('value','删除');
-
-            //删除操作
-
-            btnDel.οnclick=function(){
-
-                if(confirm("确定删除这一行嘛？")){
-
-                    //找到按钮所在行的节点，然后删掉这一行
-
-                    this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-
-                    //btnDel-td-tr-tbody-删除(tr)
-
-                    //刷新网页还原。实际操作中，还要删除数据库中数据，实现真正删除
-
-                }
-
-            }
-            delCell.appendChild(btnDel);//把删除按钮加入td，别忘了
-            return row;//返回tr数据
-         }
-        </script>
-</body>
-
-</html>
+		<style type="text/css">
+		    .widget {
+		        z-index: 9999;
+		        position: fixed;
+		        top: 0;
+		        left: 0;
+		        right: 0;
+		        bottom: 0;
+		        background: rgba(0,0,0,.5);
+		    }
+		    .widget .body {
+		        width: 300px;
+		        background: #fff;
+		        padding: 20px 10px;
+		        border-radius: 2px;
+		        border: 1px solid #ccc;
+		        text-align: center;
+		        position: absolute;
+		        font-size: 14px;
+		        top: 50%;
+		        left: 50%;
+		        transform: translate(-50%, -50%);
+		    }
+		    .widget .body .btns {
+		        margin-top: 20px;
+		    }
+		    .widget .body .btns a.btn-cancel {
+		        color: #fff;
+		        background: #ccc;
+		    }
+		    .widget .body .btns a {
+		        background: inherit;
+		        background-color: rgba(68, 181, 73, 1);
+		        border: none;
+		        border-radius: 2px;
+		        color: #fff;
+		        font-size: 14px;
+		        display: inline-block;
+		        padding: 8px 25px;
+		        cursor: pointer;
+		        margin-left: 10px;
+		    }
+	</style>
+			</head>
+			<body>
+				<button id="rollback">点击弹窗</button>
+				<!--自定义弹窗-->
+					<div class="widget widget1"  id="window" hidden="hidden">
+					    <div class="body">
+					        <div class="msg">确定要撤销审核？</div>
+					        <div class="btns">
+					            <a href="javascript:void(0);" class="btn-cancel" id="btn_cancel">取 消</a>
+					            <a href="javascript:void(0);" class="btn-confirm" id="btn_ok">确 定</a>
+					        </div>
+					    </div>
+					</div>
+			</body>
+		</html>
+	<script type="text/javascript">
+		$(function(){
+	        $('#rollback').click(function(){
+	            $('#window').removeAttr('hidden');
+	        })
+	        //确认
+	        $('#btn_ok').click(function(){
+	            $('#window').attr('hidden','hidden');
+	        	//一些操作
+	        })
+	        //取消
+	        $('#btn_cancel').click(function(){
+	            $('#window').attr('hidden','hidden');
+	        })
+		})
+	</script>

@@ -83,7 +83,7 @@ function getRoomNum() {
 }
 
 
-function dynamic_table(rawData) {
+function dynamic_table(rawData, operationBtn) {
 //    set header
     headers = rawData.header;
     tbl_header = "<tr>";
@@ -96,7 +96,6 @@ function dynamic_table(rawData) {
 //    set body
     body = rawData.body;
     tbl_body = "";
-    var button = '<td><input type="button" name="edit" value="编辑" onclick="editUser()"><input type="button" name="delete" value="删除" onclick="deleteUser()"></td>'
     for (index in body) {
         var rowID = '<tr id="{id}">'
         rowID = rowID.format({id:body[index]['id']})
@@ -104,7 +103,7 @@ function dynamic_table(rawData) {
         for (var key in headers) {
             tbl_body += "<td>" + body[index][key] + "</td>";
         }
-        tbl_body += button + "</tr>";
+        tbl_body += operationBtn + "</tr>";
     }
     console.log(tbl_body);
 
