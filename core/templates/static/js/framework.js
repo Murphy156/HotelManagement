@@ -34,54 +34,33 @@ function slideBtn() {
     var status = $('.leftBox').css("display");
     if (status == 'none') {
         $('.rightBox').css("marginLeft", "0");
-        $(this).css("background",
-                "red");
+        $(this).css("background", "red");
     } else {
         $('.rightBox').css("marginLeft", "241px");
-        $(this).css("background",
-                "green");
+        $(this).css("background", "green");
     }
 }
 
 //获取房间号
-function getRoomNum() {
-    var obj = document.getElementById('region');
-    var index = obj.selectedIndex;
-    var region = obj.options[index].value;
-    var roomNumSelections = document.getElementById("roomNum");
-    roomNumSelections.options.length=0;
-    console.log(region)
-//    发起向服务端的请求
-    xmlhttp=new XMLHttpRequest();
+getRoomNum = function() {
+    var region = $('#region option:selected').val();
+    var url = "/api/v1/common/getRoomNum?region=" +region;
+    console.log(url);
 
-    var roomNumJson = ""
-    //给ajax设置事件(这里最多感知4[1-4]个状态)
-    xmlhttp.onreadystatechange = function(){
-        //5.获取响应
-        //responseText        以字符串的形式接收服务器返回的信息
-//        console.log(xmlhttp.readyState);
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            //使用JSON.parse方法将json字符串解析称为json对象
-            var response = xmlhttp.responseText
-            roomNumJson = JSON.parse(response);
-            var optionstring = "";
-            for (var item in roomNumJson)
-            {
-                //设置下拉列表中的值的属性
-                var option = document.createElement("option");
-                option.value = roomNumJson[item];
-                option.text= roomNumJson[item];
-                //将option增加到下拉列表中。
-                roomNumSelections.options.add(option);
-                optionstring += "<option value=\""+ roomNumJson[item] +"\" >"+ roomNumJson[item] +"</option>";
+    $.get(url,function(data,status){
+        if(status == 'success') {
+            console.log(data)
+            var roomNumList = data.data
+            var optionstring = ""
+            for (var item in roomNumList) {
+                optionstring += "<option value=\""+ roomNumList[item] +"\" >"+ roomNumList[item] +"</option>";
             }
-            console.log(optionstring)
+            $("#roomNum").html(optionstring);
+        } else {
+            alert("无数据")
         }
-    }
-    xmlhttp.open("GET","/api/v1/common/getRoomNum?region=" +region,true);
-    xmlhttp.send();
+    });
 }
-
 
 function dynamic_table(rawData, operationBtn) {
 //    set header

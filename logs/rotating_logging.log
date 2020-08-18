@@ -1889,3 +1889,167 @@
 2020-08-18 09:34:45 [INFO] [tenantManagement.py:139] sql is : select * from tenant where 1 = 1 and building = 'B'and room = '101'
 2020-08-18 09:34:45 [INFO] [tenantManagement.py:142] sql result is : [{'id': 76, 'name': '唐少玉', 'building': 'B', 'room': '101', 'rent': '1800', 'deposit': '3600', 'idcard': '452323197905053448', 'check_in': '202005', 'check_out': '', 'contact': '', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 17, 16, 38, 3), 'UpdateTime': datetime.datetime(2020, 8, 17, 16, 38, 3), 'ext_1': '', 'ext_2': ''}]
 2020-08-18 09:34:45 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:34:45] "[37mGET /api/v1/tenant/getUserInfo?region=B&roomNum=101 HTTP/1.1[0m" 200 -
+2020-08-18 09:38:44 [INFO] [tenantManagement.py:139] sql is : select * from tenant where 1 = 1 and building = 'B'and room = '101'
+2020-08-18 09:38:44 [INFO] [tenantManagement.py:142] sql result is : [{'id': 76, 'name': '唐少玉', 'building': 'B', 'room': '101', 'rent': '1800', 'deposit': '3600', 'idcard': '452323197905053448', 'check_in': '202005', 'check_out': '', 'contact': '', 'living_number': '2', 'CreateTime': datetime.datetime(2020, 8, 17, 16, 38, 3), 'UpdateTime': datetime.datetime(2020, 8, 17, 16, 38, 3), 'ext_1': '', 'ext_2': ''}]
+2020-08-18 09:38:44 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:44] "[37mGET /api/v1/tenant/getUserInfo?region=B&roomNum=101 HTTP/1.1[0m" 200 -
+2020-08-18 09:38:47 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:47] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 09:38:47 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:47] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 09:38:47 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:47] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 09:38:47 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:47] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 09:38:47 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 09:38:47] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:19:14 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-18 10:19:14 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 10:19:14 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 10:19:14 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-18 10:19:41 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-18 10:19:41 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 10:19:42 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 10:19:42 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-18 10:20:15 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-18 10:20:15 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 10:20:15 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 10:20:15 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-18 10:20:28 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:28] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:20:28 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:28] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:20:28 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:28] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:20:28 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:28] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:20:28 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:28] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:20:30 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'B'
+2020-08-18 10:20:30 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '101', 1: '102', 2: '201', 3: '202', 4: '301', 5: '302', 6: '401', 7: '402', 8: '501', 9: '502'}}
+2020-08-18 10:20:30 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:20:30] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:21:41 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:41] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:21:44 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'B'
+2020-08-18 10:21:44 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '101', 1: '102', 2: '201', 3: '202', 4: '301', 5: '302', 6: '401', 7: '402', 8: '501', 9: '502'}}
+2020-08-18 10:21:44 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:21:44] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-18 10:22:19 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'D'
+2020-08-18 10:22:19 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2'}}
+2020-08-18 10:22:19 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:22:19] "[37mGET /api/v1/common/getRoomNum?region=D HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:26:11 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:11] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:26:14 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'B'
+2020-08-18 10:26:14 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '101', 1: '102', 2: '201', 3: '202', 4: '301', 5: '302', 6: '401', 7: '402', 8: '501', 9: '502'}}
+2020-08-18 10:26:14 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:14] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-18 10:26:44 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/utils/common.py', reloading
+2020-08-18 10:26:44 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 10:26:44 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 10:26:44 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-18 10:26:49 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:49] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:26:49 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'D'
+2020-08-18 10:26:49 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2'}}
+2020-08-18 10:26:49 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:49] "[37mGET /api/v1/common/getRoomNum?region=D HTTP/1.1[0m" 200 -
+2020-08-18 10:26:51 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-18 10:26:51 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-18 10:26:51 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-18 10:26:51 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-18 10:26:56 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:56] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:26:56 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:56] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:56 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:56] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:26:56 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:56] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:26:56 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:26:56] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:27:00 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'C'
+2020-08-18 10:27:00 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2', 2: '3'}}
+2020-08-18 10:27:00 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:27:00] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-18 10:27:22 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'D'
+2020-08-18 10:27:22 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2'}}
+2020-08-18 10:27:22 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:27:22] "[37mGET /api/v1/common/getRoomNum?region=D HTTP/1.1[0m" 200 -
+2020-08-18 10:29:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:21] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:29:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:21] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:21] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:21] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:29:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:21] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:29:33 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'B'
+2020-08-18 10:29:34 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '101', 1: '102', 2: '201', 3: '202', 4: '301', 5: '302', 6: '401', 7: '402', 8: '501', 9: '502'}}
+2020-08-18 10:29:34 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:34] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:29:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:29:53] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:30:04 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'C'
+2020-08-18 10:30:04 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2', 2: '3'}}
+2020-08-18 10:30:04 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:30:04] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:12] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:53] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:31:54 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:54] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:54 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:54] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:31:54 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:54] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:31:54 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:31:54] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:12] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:32:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:12] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:12] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:12] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:12 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:12] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:13 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:13] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:32:13 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:13] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:13 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:13] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:13 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:13] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:13 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:13] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:21 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'C'
+2020-08-18 10:32:21 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2', 2: '3'}}
+2020-08-18 10:32:21 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:21] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:39] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-18 10:32:40 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:40] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:40 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:40] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-18 10:32:40 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:40] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:40 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:40] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-18 10:32:42 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'C'
+2020-08-18 10:32:42 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2', 2: '3'}}
+2020-08-18 10:32:42 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:42] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
+2020-08-18 10:32:52 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'A'
+2020-08-18 10:32:52 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404'}}
+2020-08-18 10:32:52 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:32:52] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-18 10:41:53 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1
+2020-08-18 10:41:53 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404', 27: '101', 28: '102', 29: '201', 30: '202', 31: '301', 32: '302', 33: '401', 34: '402', 35: '501', 36: '502', 37: '1', 38: '2', 39: '3', 40: '1', 41: '2', 42: ''}}
+2020-08-18 10:41:53 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:41:53] "[37mGET /api/v1/common/getRoomNum?building=B HTTP/1.1[0m" 200 -
+2020-08-18 10:42:14 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1
+2020-08-18 10:42:14 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404', 27: '101', 28: '102', 29: '201', 30: '202', 31: '301', 32: '302', 33: '401', 34: '402', 35: '501', 36: '502', 37: '1', 38: '2', 39: '3', 40: '1', 41: '2', 42: ''}}
+2020-08-18 10:42:14 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:42:14] "[37mGET /api/v1/common/getRoomNum?building=C HTTP/1.1[0m" 200 -
+2020-08-18 10:42:27 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'C'
+2020-08-18 10:42:27 [INFO] [common.py:65] sql result is ： {'code': 0, 'msg': 'success', 'data': {0: '1', 1: '2', 2: '3'}}
+2020-08-18 10:42:27 [INFO] [_internal.py:113] 127.0.0.1 - - [18/Aug/2020 10:42:27] "[37mGET /api/v1/common/getRoomNum?region=C HTTP/1.1[0m" 200 -
