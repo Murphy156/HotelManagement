@@ -9,6 +9,7 @@
 from flask import Flask, request, jsonify
 from flask import Blueprint
 from flask_restful import Resource, Api
+import json
 # noinspection PyUnresolvedReferences
 import xlrd
 from core.main.utils.db.db_helper import *
@@ -45,8 +46,6 @@ class TenantManagement(Resource):
     def get(self, operation):
         if (operation == 'getUserInfo'):
             return self.getUserInfo()
-        elif(operation == 'addUser'):
-            return self.addUser()
         elif(operation == 'editUser'):
             return self.editUser()
         elif(operation == 'addExcel'):
@@ -55,11 +54,20 @@ class TenantManagement(Resource):
             return self.deleteUser()
 
 
-    def post(self):
-        pass
+    def post(self, operation):
+        if (operation == 'addUser'):
+            return self.addUser()
 
     # 添加用户
     def addUser(self):
+        requestData = request.data.decode("utf-8")
+        reqDataDict = json.loads(requestData)
+        res = request
+        print(reqDataDict)
+        return 0
+
+        '''
+        
         building = request.args.get("building")
         room = request.args.get("roomNum")
         name = request.args.get("name")
@@ -74,6 +82,7 @@ class TenantManagement(Resource):
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql, [name, building, room, contact, rent, deposit, idcard, check_in, check_out, living_number])
         LOG.info("sql result is : " + str(res))
+        '''
 
     # 问题 就是db的不适用性
     def addExcel(self):
