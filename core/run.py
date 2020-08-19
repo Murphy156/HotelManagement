@@ -15,6 +15,14 @@ app.config['JSON_SORT_KEYS'] = False
 def userManagement():
     return render_template('userManagement.html')
 
+@app.route('/dataManagement/roomManagement')
+def roomManagement():
+    return render_template('roomManagement.html')
+
+@app.route('/dataManagement/monthlyManagement')
+def monthlyManagement():
+    return render_template('monthlyManagement.html')
+
 @app.route('/dataAnalysis')
 
 @app.route('/')
@@ -31,6 +39,12 @@ if __name__ == '__main__':
     from core.main.dataManagement.tenantManagement import tenantManagement
     app.register_blueprint(tenantManagement, url_prefix='/api/v1')
 
-    app.run(host = "0.0.0.0", port=8888, debug=True)
+    from core.main.dataManagement.roomManagement import roomManagement
+    app.register_blueprint(roomManagement, url_prefix='/api/v1')
 
+    from core.main.dataManagement.monthlyManagement import monthlyManagement
+    app.register_blueprint(monthlyManagement, url_prefix='/api/v1')
+
+
+    app.run(host = "0.0.0.0", port=8888, debug=True)
     print("running!")

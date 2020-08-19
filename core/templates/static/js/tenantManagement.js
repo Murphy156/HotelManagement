@@ -33,8 +33,19 @@ addUser = function() {
     })
     //确认
     $('#btn_addUser_ok').click(function(){
+        var building = $("#building").val();
+        var name = $("#name").val();
+        var room = $("#room").val();
+        var rent = $("#rent").val();
+        var deposit = $("#deposit").val();
+        var idcard = $("#idcard").val();
+        var check_in = $("#check_in").val();
+        var contact = $("#contact").val();
+        var living_number = $("#living_number").val();
+        var url = "/api/v1/tenant/addUser?building=" +building + "&roomNum=" + room + "&name=" + name  + "&rent=" + rent + "&deposit=" + deposit + "&idcard=" + idcard + "&check_in=" + check_in + "&contact=" + contact + "&living_number=" + living_number;
+        console.log(url);
+        $.post(url);
         $('#addUserWindow').attr('hidden','hidden');
-        //一些操作
     })
     //取消
     $('#btn_addUser_cancel').click(function(){

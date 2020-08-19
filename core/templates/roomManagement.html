@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户信息管理</title>
+    <title>房屋信息管理</title>
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
-    <script type="text/javascript" src="../static/js/tenantManagement.js"></script>
+    <script type="text/javascript" src="../static/js/roomManagement.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="initTree()">
@@ -42,9 +42,9 @@
 		</div>
 		<div class="rightBox">
 			<div class="slideBtn" onclick="slideBtn()">伸缩</div>
-            <h1>用户信息管理</h1>
+            <h1>房屋信息管理</h1>
 
-            <div id="userManagement_filter">
+            <div id="roomManagement_filter">
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -64,73 +64,71 @@
                         <option value="onRent">onRent</option>
                         <option value="offRent">offRent</option>
                     </select>
-                    <input type="button" value="查询" onclick="getUserInfo()">
+                    <input type="button" value="查询" onclick="getRoomInfo()">
                     <div>
-                        <input type="button" id="addUser" name="addUser" value="添加" onclick="addUser()">
-                        <input type="button" id="importUser" name="importUser" value="导入" onclick="importUser()">
+                        <input type="button" id="addRoom" name="addRoom" value="添加" onclick="addRoom()">
+                        <input type="button" id="importRoom" name="importRoom" value="导入" onclick="importRoom()">
                     </div>
-                    <div id="userInfo">
-                        <table id="userInfoTbl" border="1">
+                    <div id="roomInfo">
+                        <table id="roomInfoTbl" border="1">
                         </table>
                     </div>
 
                     <!--删除弹窗-->
-                    <div class="widget widget1"  id="deleteUserWindow" hidden="hidden">
+                    <div class="widget widget1"  id="deleteRoomWindow" hidden="hidden">
                         <div class="body">
                             <div class="msg">确定要删除？</div>
                             <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_delUser_cancel">取 消</a>
-                                <a href="javascript:void(0);" class="btn-confirm" id="btn_delUser_ok">确 定</a>
+                                <a href="javascript:void(0);" class="btn-cancel" id="btn_delRoom_cancel">取 消</a>
+                                <a href="javascript:void(0);" class="btn-confirm" id="btn_delRoom_ok">确 定</a>
                             </div>
                         </div>
                     </div>
 
                     <!--新增弹窗-->
-                    <div class="widget widget1"  id="addUserWindow" hidden="hidden">
+                    <div class="widget widget1"  id="addRoomWindow" hidden="hidden">
                         <div class="body">
                             <div>
-                                用户名 <input type="text" id="name" name="name">
-                            </div>
-                            <div>
-                                区域 <input type="text" id="building" name="building">
+                                栋号 <input type="text" id="building" name="building">
                             </div>
                             <div>
                                 房间号 <input type="text" id="room" name="room">
                             </div>
+                            <div>
+                                面积 <input type="text" id="area" name="area">
+                            </div>
                              <div>
+                                空调 <input type="text" id="air_condition" name="air_condition">
+                            </div>
+                             <div>
+                                热水器 <input type="text" id="heater" name="heater">
+                            </div>
+                             <div>
+                                其他 <input type="text" id="other" name="other">
+                            </div>
+                            <div>
                                 租金 <input type="text" id="rent" name="rent">
                             </div>
-                             <div>
-                                押金 <input type="text" id="deposit" name="deposit">
-                            </div>
-                             <div>
-                                身份证号 <input type="text" id="idcard" name="idcard">
-                            </div>
                             <div>
-                                入住时间 <input type="text" id="check_in" name="check_in">
+                                参考租金 <input type="text" id="remark" name="remark">
                             </div>
-                            <div>
-                                手机号 <input type="text" id="contact" name="contact">
-                            </div>
-                            <div>
-                                入住人数 <input type="text" id="living_number" name="living_number">
-                            </div>
+
                             <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_addUser_cancel">取 消</a>
-                                <a href="javascript:void(0);" class="btn-confirm" id="btn_addUser_ok">保 存</a>
+                                <a href="javascript:void(0);" class="btn-cancel" id="btn_addRoom_cancel">取 消</a>
+                                <a href="javascript:void(0);" class="btn-confirm" id="btn_addRoom_ok">保 存</a>
                             </div>
                         </div>
-                    </div>
+                    </div>:
 
                     <!--导入弹窗-->
-                    <div class="widget widget1"  id="importUserWindow" hidden="hidden">
+                    <div class="widget widget1"  id="importRoomWindow" hidden="hidden">
                         <div class="body">
                             <div class="msg">导入记录</div>
                             <div>
                                 <a href="javascript:downloadTemplate();" id="a_download_template">下载模板</a>
                             </div>
                             <div>
-                                <input type="button" id = "bnt_import_user" value="开始上传">
+                                <input type="button" id = "bnt_import_room" value="开始上传">
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(0);" class="btn-cancel" id="btn_import_cancel">取 消</a>

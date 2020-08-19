@@ -145,7 +145,7 @@ class TenantManagement(Resource):
         return jsonify(outputData)
 
     # 生成动态表格
-    def formatUserInfoOutput(self,userInfo):
+    def formatUserInfoOutput(self, userInfo):
         rows = []
         #
         for user in userInfo:
