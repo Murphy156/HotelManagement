@@ -42,9 +42,39 @@ addUser = function() {
         var check_in = $("#check_in").val();
         var contact = $("#contact").val();
         var living_number = $("#living_number").val();
-        var url = "/api/v1/tenant/addUser?building=" +building + "&roomNum=" + room + "&name=" + name  + "&rent=" + rent + "&deposit=" + deposit + "&idcard=" + idcard + "&check_in=" + check_in + "&contact=" + contact + "&living_number=" + living_number;
+        var postData = {
+            "building":building,
+            "room":room,
+            "name":name,
+            "rent":rent,
+            "deposit":deposit,
+            "idcard":idcard,
+            "check_in":check_in,
+            "contact":contact,
+            "living_number":living_number
+        }
+//        var url = "/api/v1/tenant/addUser?building=" +building + "&roomNum=" + room + "&name=" + name  + "&rent=" + rent + "&deposit=" + deposit + "&idcard=" + idcard + "&check_in=" + check_in + "&contact=" + contact + "&living_number=" + living_number;
+        var url = "/api/v1/tenant/addUser"
         console.log(url);
-        $.post(url);
+        console.log(postData);
+
+        $.ajax({
+             //请求类型，这里为POST
+             type: 'POST',
+             //你要请求的api的URL
+             url: url ,
+             //数据类型，这里我用的是json
+             contentType: "application/json",
+             dataType: "json",
+             data: JSON.stringify(postData), //data: {key:value},
+             //添加额外的请求头
+             success: function(data){
+               //函数参数 "data" 为请求成功服务端返回的数据
+               console.log(data)
+               return data;
+            },
+        });
+
         $('#addUserWindow').attr('hidden','hidden');
     })
     //取消

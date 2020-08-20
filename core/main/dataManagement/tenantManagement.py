@@ -9,6 +9,7 @@
 from flask import Flask, request, jsonify
 from flask import Blueprint
 from flask_restful import Resource, Api
+import json
 # noinspection PyUnresolvedReferences
 import xlrd
 from core.main.utils.db.db_helper import *
@@ -45,8 +46,6 @@ class TenantManagement(Resource):
     def get(self, operation):
         if (operation == 'getUserInfo'):
             return self.getUserInfo()
-        elif(operation == 'addUser'):
-            return self.addUser()
         elif(operation == 'editUser'):
             return self.editUser()
         elif(operation == 'addExcel'):
@@ -55,25 +54,26 @@ class TenantManagement(Resource):
             return self.deleteUser()
 
 
-    def post(self):
-        pass
+    def post(self, operation):
+        if (operation == 'addUser'):
+            return self.addUser()
 
     # 添加用户
     def addUser(self):
-        building = request.args.get("building")
-        room = request.args.get("roomNum")
-        name = request.args.get("name")
-        contact = request.args.get("contact")
-        rent = request.args.get("rent")
-        deposit = request.args.get("deposit")
-        idcard = request.args.get("idcard")
-        check_in = request.args.get("check_in")
-        check_out = request.args.get("check_out")
-        living_number = request.args.get("living_number")
-        sql = 'INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
+
+        sql = 'INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         LOG.info(f"sql is : {sql}")
-        res = self._common.db.execute(sql, [name, building, room, contact, rent, deposit, idcard, check_in, check_out, living_number])
+        res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
+
+
 
     # 问题 就是db的不适用性
     def addExcel(self):

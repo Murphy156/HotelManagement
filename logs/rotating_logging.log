@@ -2098,6 +2098,7 @@
 2020-08-19 20:23:41 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:23:41] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
 2020-08-19 20:24:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:24:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=�º���&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
 2020-08-19 20:24:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:24:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=�º���&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+<<<<<<< HEAD
 2020-08-19 23:00:16 [INFO] [_internal.py:113]  * Restarting with stat
 2020-08-19 23:00:17 [WARNING] [_internal.py:113]  * Debugger is active!
 2020-08-19 23:00:17 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
@@ -2165,3 +2166,430 @@
 2020-08-19 23:17:41 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:17:41] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
 2020-08-19 23:18:00 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:18:00] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
 2020-08-19 23:18:03 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:18:03] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+=======
+2020-08-19 22:57:39 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 22:57:39 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:01:06 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:01:06 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:01:06 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:01:06 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:01:22 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:22] "[37mGET / HTTP/1.1[0m" 200 -
+2020-08-19 23:01:22 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:22] "[36mGET /static/css/framework.css HTTP/1.1[0m" 304 -
+2020-08-19 23:01:22 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:22] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:01:24 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:24] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:01:24 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:24] "[36mGET /static/css/popupWindow.css HTTP/1.1[0m" 304 -
+2020-08-19 23:01:24 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:01:24] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:02:02 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:02:02] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=909&name=lsh&rent=100&deposit=100&idcard=111111&check_in=2020-08-19&contact=17762312312&living_number=1 HTTP/1.1[0m" 500 -
+2020-08-19 23:02:02 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:02:02] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=909&name=lsh&rent=100&deposit=100&idcard=111111&check_in=2020-08-19&contact=17762312312&living_number=1 HTTP/1.1[0m" 500 -
+2020-08-19 23:14:37 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/dataManagement/tenantManagement.py', reloading
+2020-08-19 23:14:37 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:14:38 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:14:38 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:20:07 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/dataManagement/tenantManagement.py', reloading
+2020-08-19 23:20:07 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:20:08 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:20:08 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:27:57 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:27:57 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:27:57 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:27:57 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:28:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=909&name=lsh&rent=100&deposit=100&idcard=111111&check_in=2020-08-19&contact=17762312312&living_number=1 HTTP/1.1[0m" 500 -
+2020-08-19 23:28:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=909&name=lsh&rent=100&deposit=100&idcard=111111&check_in=2020-08-19&contact=17762312312&living_number=1 HTTP/1.1[0m" 500 -
+2020-08-19 23:28:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=909&name=lsh&rent=100&deposit=100&idcard=111111&check_in=2020-08-19&contact=17762312312&living_number=1 HTTP/1.1[0m" 500 -
+2020-08-19 23:28:16 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:28:16 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:28:16 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:28:16 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:28:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:27] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:28:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:27] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:28:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:27] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:28:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:27] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:28:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:27] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:28:34 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:34] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-19 23:28:34 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:28:34] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-19 23:29:27 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:29:27 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:29:27 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:29:27 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:29:34 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/dataManagement/tenantManagement.py', reloading
+2020-08-19 23:29:34 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:29:35 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:29:35 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:29:36 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:29:36] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:29:36 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:29:36] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:29:36 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:29:36] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:30:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:26] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:30:30 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:30] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:30:30 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:30] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:30:57 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:57] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:30:57 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:57] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:30:57 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:30:57] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:17 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:17] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:17 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:17] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:20 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:20] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:41 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:41] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:32:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:32:45] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-19 23:34:36 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:34:36 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:34:36 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:34:36 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:41:54 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:41:54 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:41:55 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:41:55 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:42:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:42:04] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:42:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:42:04] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:42:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:42:04] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:42:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:42:04] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:42:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:42:04] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:49:43 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:49:43 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:49:44 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:49:44 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:49:44 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:44] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:49:44 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:44] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:49:44 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:44] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:49:44 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:44] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:49:44 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:44] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:49:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:45] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:49:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:45] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:49:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:45] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:49:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:45] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:49:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:49:45] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:51:10 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/dataManagement/tenantManagement.py', reloading
+2020-08-19 23:51:10 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:51:11 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:51:11 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:51:26 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:51:26 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:51:27 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:51:27 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:52:45 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:52:45 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:52:46 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:52:46 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+2020-08-19 23:53:31 [INFO] [_internal.py:113]  * Detected change in '/Users/robust/Desktop/李硕华的东东/中山东东/code/HotelManagement/core/main/dataManagement/tenantManagement.py', reloading
+2020-08-19 23:53:31 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:53:32 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:53:32 [INFO] [_internal.py:113]  * Debugger PIN: 405-795-190
+>>>>>>> 2600f5d0d42611b39209abe1fb406a70eb70665d
+2020-08-20 09:18:14 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:18:15 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:18:15 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:18:15 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:18:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:18:41] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:19:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:19:09] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=�º���&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+2020-08-20 09:19:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:19:09] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=�º���&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+2020-08-20 09:31:24 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:31:26 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:31:26 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:31:26 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:31:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:31:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:26] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:26] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:30] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:31:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:30] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:30] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:30] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:30] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:31 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:31] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:31:32 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:32] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:31:35 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:35] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:31:36 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:36] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:36 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:36] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:36 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:36] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:36 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:36] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:38] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:31:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:38] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:38] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:38] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:38] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:41] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:31:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:41] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:31:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:41] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:41] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:31:41 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:31:41] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:32:39 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:32:39] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:33:33 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:33] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:33:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:34] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:33:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:34] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:33:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:34] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:33:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:34] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-20 09:33:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:33:34] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-20 09:35:00 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:35:01 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:35:01 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:35:01 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-20 09:35:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:05] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-20 09:35:18 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:35:18 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:35:19 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:35:19 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:35:19 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:35:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:35:28] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:35:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:35:56 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:35:56 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:35:56 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:36:00 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:36:00] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:36:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:36:04] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:36:05 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:36:05] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:37:18 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:37:18] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:40:54 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:40:55 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:40:55 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:40:55 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:41:20 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:41:21 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:41:21 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:41:21 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:41:29 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:41:29] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:41:30 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:41:30] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:41:34 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:41:34] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:51:03 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:51:04 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:51:04 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:51:04 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:51:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:09] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:51:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:09] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:51:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:09] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:51:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:09] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:51:09 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:09] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:51:29 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:29] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:51:29 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:51:29] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:52:10 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:10] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-20 09:52:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:12] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:52:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:12] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:52:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:12] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:52:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:12] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:52:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:12] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:52:17 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:17] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:52:17 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:52:17] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:54:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:54:56 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:54:56 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:54:56 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:54:59] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 09:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:54:59] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 09:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:54:59] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 09:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:54:59] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 09:54:59 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:54:59] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 09:55:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:55:12] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:55:12 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 09:55:12] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 09:57:55 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:57:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:57:56 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:57:56 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:57:56 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:58:10 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:58:10 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:58:11 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:58:11 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:58:11 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:58:27 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:58:27 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:58:28 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:58:28 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:58:28 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:59:07 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:59:07 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:59:09 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:59:09 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:59:09 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:59:22 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:59:22 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:59:23 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:59:23 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:59:23 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 09:59:53 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 09:59:53 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 09:59:54 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 09:59:54 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 09:59:54 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:03:44 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:03:44 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:03:45 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:03:45 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:03:45 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:05:21 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:05:21 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:05:21 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:05:21 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:05:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:26] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:05:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:26] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:05:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:26] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:05:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:26] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:05:26 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:26] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:05:39 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:39] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:05:39 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:05:39] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:06:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:06:56 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:06:56 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:06:56 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:06:58 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:06:58] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:06:58 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:06:58] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:06:58 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:06:58] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:06:58 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:06:58] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:06:58 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:06:58] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:07:10 [INFO] [tenantManagement.py:69] sql is : INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:07:10 [INFO] [tenantManagement.py:69] sql is : INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:07:11 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:07:11] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:07:11 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:07:11] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:08:37 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:08:37 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:08:38 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:08:38 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:08:38 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:08:49 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:08:49 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:08:51 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:08:51 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:08:51 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:09:15 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:09:16 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:09:16 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:09:16 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:09:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:19] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:09:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:19] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:09:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:19] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:09:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:19] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:09:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:19] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:09:32 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:32] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:09:32 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:09:32] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:17:00 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:17:01 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:17:01 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:17:01 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:17:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:04] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:17:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:04] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:17:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:04] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:17:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:04] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:17:04 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:04] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:17:16 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:16] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:17:16 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:17:16] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:22:12 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:22:13 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:22:13 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:22:13 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:22:18 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:18] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:22:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:19] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:22:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:19] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:22:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:19] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:22:19 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:19] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:22:32 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:32] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:22:32 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:22:32] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:23:39 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:23:39 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:23:40 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:23:40 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:23:40 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:23:44 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:23:45 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:23:45 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:23:45 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:23:49 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:23:49] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:23:49 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:23:49] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:23:49 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:23:49] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:23:49 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:23:49] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:23:49 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:23:49] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:24:01 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:24:01 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,contact,rent,deposit,idcard,check_in,check_out,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:24:02 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:24:02] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:24:02 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:24:02] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:26:21 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:26:21 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:26:22 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:26:22 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:26:22 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:27:10 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:27:11 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:27:11 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:27:11 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:27:14 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:14] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:27:14 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:14] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:27:14 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:14] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:27:14 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:14] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:27:14 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:14] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:27:26 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:27:26 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:27:27 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:27] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:27:27 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:27:27] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:30:14 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:30:16 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:30:16 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:30:16 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:30:20 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:30:20] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:30:21 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:30:21] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:30:21 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:30:21] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:30:21 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:30:21] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:30:21 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:30:21] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:31:38 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:34:02 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:34:02] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:34:24 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:35:36 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:35:36] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:36:22 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:36:23 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:36:23 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:36:23 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:36:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:28] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:36:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:28] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:36:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:28] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:36:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:28] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:36:28 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:28] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:36:43 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:36:43 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:36:44 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:44] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:36:44 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:36:44] "[35m[1mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 500 -
+2020-08-20 10:43:08 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:43:09 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:43:09 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:43:09 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:43:13 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:43:13] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:43:13 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:43:13] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:43:13 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:43:13] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:43:13 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:43:13] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:43:13 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:43:13] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:43:24 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:43:24 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,check_out,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:45:32 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:45:33 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:45:33 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:45:33 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-20 10:45:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:38] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-20 10:45:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:38] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-20 10:45:38 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:38] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-20 10:45:39 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:39] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-20 10:45:39 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:39] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-20 10:45:50 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:45:50 [INFO] [tenantManagement.py:71] sql is : INSERT INTO tenant(name,building,room,rent,deposit,idcard,check_in,contact,living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2020-08-20 10:45:50 [INFO] [tenantManagement.py:73] sql result is : ()
+2020-08-20 10:45:50 [INFO] [tenantManagement.py:73] sql result is : ()
+2020-08-20 10:45:50 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:50] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 10:45:50 [INFO] [_internal.py:113] 127.0.0.1 - - [20/Aug/2020 10:45:50] "[37mPOST /api/v1/tenant/addUser HTTP/1.1[0m" 200 -
+2020-08-20 10:47:55 [INFO] [_internal.py:113]  * Detected change in 'D:\\HOTELManagement\\HotelManagement\\core\\main\\dataManagement\\tenantManagement.py', reloading
+2020-08-20 10:47:55 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-20 10:47:57 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-20 10:47:57 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-20 10:47:57 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)

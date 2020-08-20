@@ -16,16 +16,6 @@ def userManagement():
     return render_template('userManagement.html')
 
 @app.route('/dataAnalysis')
-@app.route('/dataManagement/roomManagement')
-def roomManagement():
-    return render_template('roomManagement.html')
-
-@app.route('/dataAnalysis')
-@app.route('/dataManagement/monthlyManagement')
-def monthlyManagement():
-    return render_template('monthlyManagement.html')
-
-@app.route('/dataAnalysis')
 
 @app.route('/')
 def index():
