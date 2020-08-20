@@ -46,17 +46,19 @@ class TenantManagement(Resource):
     def get(self, operation):
         if (operation == 'getUserInfo'):
             return self.getUserInfo()
-        elif(operation == 'editUser'):
-            return self.editUser()
-        elif(operation == 'addExcel'):
-            return self.addExcel()
-        elif(operation == 'deleteUser'):
-            return self.deleteUser()
+
+
 
 
     def post(self, operation):
         if (operation == 'addUser'):
             return self.addUser()
+        elif (operation == 'deleteUser'):
+            return self.deleteUser()
+        elif (operation == 'editUser'):
+            return self.editUser()
+        elif (operation == 'addExcel'):
+            return self.addExcel()
 
     # 添加用户
     def addUser(self):
@@ -99,30 +101,26 @@ class TenantManagement(Resource):
 
     # 提交的问题
     def deleteUser(self):
-        building = request.args.get("building")
-        room = request.args.get("roomNum")
-        name = request.args.get("name")
-        sql = f"DELETE FROM tenant WHERE building = '{building}' AND room = '{room}' AND name = '{name}'"
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        id = reqDataDict.values
+        sql = f"DELETE FROM tenant WHERE id = '{id}'"
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))
 
-    #
+    # 获取id的方法（问题）
     def editUser(self):
-        id = request.args.get("id")
-        building = request.args.get("building")
-        room = request.args.get("roomNum")
-        name = request.args.get("name")
-        contact = request.args.get("contact")
-        rent = request.args.get("rent")
-        deposit = request.args.get("deposit")
-        idcard = request.args.get("idcard")
-        check_in = request.args.get("check_in")
-        check_out = request.args.get("check_out")
-        living_number = request.args.get("living_number")
-        value = (name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number)
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
         sql = f"UPDATE tenant SET(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
-        self._common.db.execute(sql, value)
+        self._common.db.execute(sql, data)
 
     # 获取用户数据
     def getUserInfo(self):

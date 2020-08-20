@@ -47,7 +47,9 @@ class RoomManagement(Resource):
     def get(self, operation):
         if (operation == 'getRoomInfo'):
             return self.getRoomInfo()
-        elif (operation == 'addRoom'):
+
+    def post(self, operation):
+        if (operation == 'addRoom'):
             return self.addRoom()
         elif (operation == 'editRoom'):
             return self.editRoom()
@@ -55,9 +57,6 @@ class RoomManagement(Resource):
             return self.addRoomExcel()
         elif (operation == 'deleteRoom'):
             return self.deleteRoom()
-
-    def post(self):
-        pass
 
     def addRoom(self):
         building = request.args.get("building")
@@ -74,8 +73,8 @@ class RoomManagement(Resource):
         LOG.info("sql result is : " + str(res))
 
     def addRoomExcel(self):
-        tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\room_information.xlsx')
-        sheet = tenant.sheet_by_name("room_sheet1")
+        room = xlrd.open_workbook(r'D:\house\roomManagement\core\room_information.xlsx')
+        sheet = room.sheet_by_name("room_sheet1")
         for i in range(2, sheet.nrows):
             building = sheet.cell(i, 0).value
             room = sheet.cell(i, 1).value
@@ -132,7 +131,7 @@ class RoomManagement(Resource):
         res = self._common.db.execute(sql)
 
         LOG.info("sql result is : " + str(res))
-        outputData = self.formatUserInfoOutput(res)
+        outputData = self.formatRoomInfoOutput(res)
         return jsonify(outputData)
 
     def formatRoomInfoOutput(self, roomInfo):

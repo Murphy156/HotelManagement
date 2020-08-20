@@ -50,18 +50,18 @@ class MonthlyManagement(Resource):
     def get(self, operation):
         if (operation == 'getMonthlyInfo'):
             return self.getMonthlyInfo()
-        elif(operation == 'addMonthly'):
+
+
+
+    def post(self, operation):
+        if (operation == 'addMonthly'):
             return self.addMonthly()
-        elif(operation == 'editMonthly'):
+        elif (operation == 'editMonthly'):
             return self.editMonthly()
-        elif(operation == 'addMonthlyExcel'):
+        elif (operation == 'addMonthlyExcel'):
             return self.addMonthlyExcel()
-        elif(operation == 'deleteMonthly'):
+        elif (operation == 'deleteMonthly'):
             return self.deleteMonthly()
-
-
-    def post(self):
-        pass
 
     def addMonthly(self):
         year = request.args.get("year")
@@ -131,7 +131,7 @@ class MonthlyManagement(Resource):
         sql = f"UPDATE monthly SET(year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
         self._common.db.execute(sql, value)
 
-    # 获取用户数据
+    # 获取每月数据
     def getMonthlyInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")

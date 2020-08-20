@@ -61,7 +61,7 @@ getRoomNum = function() {
         }
     });
 }
-
+# 生成动态表格
 function dynamic_table(rawData, operationBtn) {
 //    set header
     headers = rawData.header;
