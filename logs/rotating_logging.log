@@ -2098,3 +2098,70 @@
 2020-08-19 20:23:41 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:23:41] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
 2020-08-19 20:24:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:24:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=³ÂºÆÏÍ&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
 2020-08-19 20:24:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 20:24:04] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=³ÂºÆÏÍ&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+2020-08-19 23:00:16 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:00:17 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:00:17 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-19 23:00:17 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:00:18 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:18] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:00:19 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:19] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:00:19 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:19] "[37mGET /static/js/tenantManagement.js HTTP/1.1[0m" 200 -
+2020-08-19 23:00:19 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:19] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:00:19 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:19] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:00:49 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:49] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=³ÂºÆÏÍ&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+2020-08-19 23:00:49 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:00:49] "[35m[1mPOST /api/v1/tenant/addUser?building=A&roomNum=101&name=³ÂºÆÏÍ&rent=1100&deposit=1100&idcard=442000199907292977&check_in=20200202&contact=18942907533&living_number=4 HTTP/1.1[0m" 500 -
+2020-08-19 23:06:37 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:06:38 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:06:38 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-19 23:06:38 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:06:40 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:40] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:06:40 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:40] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:40 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:40] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:40 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:40] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:06:40 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:40] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[37mGET /dataManagement/monthlyManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[33mGET /static/js/monthlyManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:06:53 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:53] "[33mGET /static/js/monthlyManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[37mGET /static/css/framework.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[37mGET /static/css/popupWindow.css HTTP/1.1[0m" 200 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[37mGET /static/js/framework.js HTTP/1.1[0m" 200 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:06:55 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:55] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:06:57 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:57] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:06:59 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:06:59] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:07:12 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:07:12] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:07:12 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:07:12] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:07:12 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:07:12] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:07:14 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:07:14] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:10:07 [INFO] [_internal.py:113]  * Restarting with stat
+2020-08-19 23:10:08 [WARNING] [_internal.py:113]  * Debugger is active!
+2020-08-19 23:10:08 [INFO] [_internal.py:113]  * Debugger PIN: 215-460-894
+2020-08-19 23:10:08 [INFO] [_internal.py:113]  * Running on http://0.0.0.0:8888/ (Press CTRL+C to quit)
+2020-08-19 23:10:09 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:10:09] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:10:11 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:10:11] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:10:12 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:10:12] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:10:27 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:10:27] "[37mGET / HTTP/1.1[0m" 200 -
+2020-08-19 23:10:45 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:10:45] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:11:07 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'A'
+2020-08-19 23:11:07 [INFO] [common.py:65] sql result is £º {'code': 0, 'msg': 'success', 'data': {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404'}}
+2020-08-19 23:11:07 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:07] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-19 23:11:18 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:18] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:11:22 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:22] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:11:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:26] "[37mGET /dataManagement/roomManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:11:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:26] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:11:26 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:26] "[33mGET /static/js/roomManagement.js HTTP/1.1[0m" 404 -
+2020-08-19 23:11:38 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'A'
+2020-08-19 23:11:38 [INFO] [common.py:65] sql result is £º {'code': 0, 'msg': 'success', 'data': {0: '102', 1: '103', 2: '104', 3: '105', 4: '106', 5: '107', 6: '108', 7: '201', 8: '202', 9: '203', 10: '204', 11: '205', 12: '206', 13: '207', 14: '208', 15: '301', 16: '302', 17: '303', 18: '304', 19: '305', 20: '306', 21: '307', 22: '308', 23: '401', 24: '402', 25: '403', 26: '404'}}
+2020-08-19 23:11:38 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:11:38] "[37mGET /api/v1/common/getRoomNum?region=A HTTP/1.1[0m" 200 -
+2020-08-19 23:12:48 [INFO] [common.py:47] sql is : select * from room_information where 1 = 1 and building = 'B'
+2020-08-19 23:12:48 [INFO] [common.py:65] sql result is £º {'code': 0, 'msg': 'success', 'data': {0: '101', 1: '102', 2: '201', 3: '202', 4: '301', 5: '302', 6: '401', 7: '402', 8: '501', 9: '502'}}
+2020-08-19 23:12:48 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:12:48] "[37mGET /api/v1/common/getRoomNum?region=B HTTP/1.1[0m" 200 -
+2020-08-19 23:14:04 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:14:04] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:14:06 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:14:06] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:17:41 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:17:41] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
+2020-08-19 23:18:00 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:18:00] "[37mGET /dataManagement/userManagement HTTP/1.1[0m" 200 -
+2020-08-19 23:18:03 [INFO] [_internal.py:113] 127.0.0.1 - - [19/Aug/2020 23:18:03] "[33mGET /dataManagement/tenantManagement HTTP/1.1[0m" 404 -
