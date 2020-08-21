@@ -114,8 +114,8 @@ deleteRoom = function(){
     $('#btn_delRoom_ok').click(function(){
         var id = $("#id").val();
         var postData = {
-            "id" = id
-        }
+            "id" : id
+        };
         var url = "/api/v1/tenant/deleteRoom"
         console.log(url);
         console.log(postData);
