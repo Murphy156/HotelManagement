@@ -98,3 +98,12 @@ a{
 	display: block;
 }
 
+#unitRoomanalysis
+{
+    display:flex
+}
+
+#unitRoomanalysis div
+{
+	flex:1;
+}

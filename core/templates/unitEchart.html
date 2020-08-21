@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单元数据分析</title>
+    <link rel="stylesheet" href="../static/css/framework.css">
+    <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <script type="text/javascript" src="../static/js/framework.js"></script>
+    <script type="text/javascript" src="../static/js/unitEchart.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body onload="initTree">
+     <div class="header">
+		<h2>神策-管理系统</h2>
+	</div>
+
+     <div class="mainBox">
+         <div class="leftBox" style="float:left;background-color:#FFD700">
+			<div style="float:left;width: 300px; height: 590px;">
+                <ol id="olTree">
+                <li>
+                   <label>数据大盘</label>
+                   <ol>
+                        <li><a href="#">区域分析</a></li>
+                        <li><a href="#">单元分析</a></li>
+                   </ol>
+                </li>
+                <li>
+                    <label>数据管理</label>
+                    <ol>
+                       <li><a href="/dataManagement/userManagement">用户信息管理</a></li>
+                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                       <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                    </ol>
+                </li>
+                </ol>
+            </div>
+         </div>
+
+         <div class="rightBox">
+             <div calss="slideBtn" onclick="slideBtn()">伸缩</div>
+             <h1>单元数据分析</h1>
+
+             <div id="unitChoose">
+                 <b>日期</b>
+                 <input type="text" id="texDate" onclick="showyearmonth()">
+                 <b>区域</b>
+                 <select name="region" id="region" onchange="getRoomNum()">
+                        <option selected="selected">所有</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                 </select>
+                 <b>Num</b>
+                 <select name="roomNum" id="roomNum">
+                        <option></option>
+                 </select>
+                 <input type="button" value="查询" onclick="getRoomInformation()">
+
+             </div>
+             //CSS中设置一下下列模块横向摆放
+             <div id="unitRoomanalysis">
+                 <div>div1</div>
+                 <div>div2</div>
+                 <div>idv3</div>
+                 <div>div4</div>
+                 <div>div5</div>
+                 <div>idv6</div>
+             </div>
+             //css中设置一下下列模块横向摆放
+             <div id="singleanalysis">
+                 <div>按月收入</div>
+                 <div>入住人信息</div>
+             </div>
+         </div>
+     </div>
+</body>
+</html>
