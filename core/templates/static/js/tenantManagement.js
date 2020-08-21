@@ -18,9 +18,15 @@ getUserInfo = function() {
     });
 }
 
-editUser = function() {
+editUser = function(obj) {
+    var selectedTr = obj;
+    if (confirm("确定要修改吗?")) {
+//        获取当前行
+        var row = selectedTr.parentNode.parentNode;
+//        获取当前行第一个单元格的value值
+        var id = row.cells[0].childNodes[0].nodeValue;
+
     $('#addUserWindow').removeAttr('hidden');
-    //确认
     $('#btn_addUser_ok').click(function(){
         var building = $("#building").val();
         var name = $("#name").val();
@@ -40,7 +46,8 @@ editUser = function() {
             "idcard":idcard,
             "check_in":check_in,
             "contact":contact,
-            "living_number":living_number
+            "living_number":living_number,
+            "id" : id
         }
         var url = "/api/v1/tenant/editUser"
         console.log(url);
@@ -65,6 +72,7 @@ editUser = function() {
 
         $('#addUserWindow').attr('hidden','hidden');
     })
+    }
     //取消
     $('#btn_addUser_cancel').click(function(){
         $('#addUserWindow').attr('hidden','hidden');

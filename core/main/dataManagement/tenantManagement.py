@@ -104,8 +104,11 @@ class TenantManagement(Resource):
         requestData = request.data.decode("utf-8")
         # 对jason字符串格式数据，解析为dict格式
         reqDataDict = json.loads(requestData)
-        id = reqDataDict.values
-        sql = f"DELETE FROM tenant WHERE id = '{id}'"
+        id = []
+        for item in reqDataDict.keys():
+            id.append(reqDataDict[item])
+        id1 = ''.join(id)
+        sql = f"DELETE FROM tenant WHERE id = '{id1}'"
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))
