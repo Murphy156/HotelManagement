@@ -61,7 +61,7 @@ getRoomNum = function() {
         }
     });
 }
-# 生成动态表格
+// 生成动态表格
 function dynamic_table(rawData, operationBtn) {
 //    set header
     headers = rawData.header;
@@ -70,21 +70,21 @@ function dynamic_table(rawData, operationBtn) {
         tbl_header += "<th>" + headers[key] + "</th>";
     }
     tbl_header += "<th>操作</th></tr>";
-    console.log(tbl_header);
+//    console.log(tbl_header);
 
 //    set body
     body = rawData.body;
     tbl_body = "";
     for (index in body) {
-        var rowID = '<tr id="{id}">'
+        var rowID = '<tr>'
         rowID = rowID.format({id:body[index]['id']})
 //        tbl_body += "<tr>";
         for (var key in headers) {
-            tbl_body += "<td>" + body[index][key] + "</td>";
+            tbl_body += "<td value=\"" + body[index][key] + "\">" + body[index][key] + "</td>";
         }
         tbl_body += operationBtn + "</tr>";
     }
-    console.log(tbl_body);
+//    console.log(tbl_body);
 
     table_output = tbl_header + tbl_body;
     return table_output;

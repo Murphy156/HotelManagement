@@ -8,7 +8,7 @@ getUserInfo = function() {
 
     $.get(url,function(data,status){
         if(status == 'success') {
-            var button = '<td><input type="button" id = "editUser" name="editUser" value="编辑" onclick="editUser()"><input type="button" id = "deleteUser" name="deleteUser" value="删除" onclick="deleteUser()"></td>'
+            var button = '<td><input type="button" id = "editUser" name="editUser" value="编辑" onclick="editUser()"><input type="button" id = "deleteUser" name="deleteUser" value="删除" onclick="deleteUser(this)"></td>'
             var tblInfoCode = dynamic_table(data, button)
             console.log(tblInfoCode)
             $("#userInfoTbl").html(tblInfoCode);
@@ -19,9 +19,7 @@ getUserInfo = function() {
 }
 
 editUser = function() {
-    $('#editUser').click(function(){
-        $('#addUserWindow').removeAttr('hidden');
-    })
+    $('#addUserWindow').removeAttr('hidden');
     //确认
     $('#btn_addUser_ok').click(function(){
         var building = $("#building").val();
@@ -74,9 +72,7 @@ editUser = function() {
 }
 
 addUser = function() {
-    $('#addUser').click(function(){
-        $('#addUserWindow').removeAttr('hidden');
-    })
+    $('#addUserWindow').removeAttr('hidden');
     //确认
     $('#btn_addUser_ok').click(function(){
         var building = $("#building").val();
@@ -99,7 +95,6 @@ addUser = function() {
             "contact":contact,
             "living_number":living_number
         }
-//      var url = "/api/v1/tenant/addUser?building=" +building + "&roomNum=" + room + "&name=" + name  + "&rent=" + rent + "&deposit=" + deposit + "&idcard=" + idcard + "&check_in=" + check_in + "&contact=" + contact + "&living_number=" + living_number;
         var url = "/api/v1/tenant/addUser"
         console.log(url);
         console.log(postData);
@@ -130,9 +125,7 @@ addUser = function() {
 }
 
 importUser = function() {
-    $('#importUser').click(function(){
-        $('#importUserWindow').removeAttr('hidden');
-    })
+    $('#importUserWindow').removeAttr('hidden');
     //导入模板
     $('#bnt_import_user').click(function(){
         alert("弹窗，选择excel导入");
@@ -145,22 +138,21 @@ importUser = function() {
 }
 
 downloadTemplate = function() {
-    $('#a_download_template').click(function(){
-        alert("弹出下载模板框");
-    })
+    alert("弹出下载模板框");
 }
 
 
-deleteUser = function(){
-    $('#deleteUser').click(function(){
-        $('#deleteUserWindow').removeAttr('hidden');
-    })
-    //确认
-    $('#btn_delUser_ok').click(function(){
-        var id = $("#id").val();
+deleteUser = function(obj){
+    var selectedTr = obj;
+    if (confirm("确定要删除吗?")) {
+//        获取当前行
+        var row = selectedTr.parentNode.parentNode;
+//        获取当前行第一个单元格的value值
+        var id = row.cells[0].childNodes[0].nodeValue;
+        console.log(id);
         var postData = {
-            "id" = id
-        }
+            "id" : id
+        };
         var url = "/api/v1/tenant/deleteUser"
         console.log(url);
         console.log(postData);
@@ -180,11 +172,5 @@ deleteUser = function(){
                return data;
             },
         });
-        $('#deleteUserWindow').attr('hidden','hidden');
-
-    })
-    //取消
-    $('#btn_delUser_cancel').click(function(){
-        $('#deleteUserWindow').attr('hidden','hidden');
-    })
+    }
 }

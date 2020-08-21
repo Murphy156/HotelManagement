@@ -11,9 +11,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__, template_folder='templates/', static_folder='templates/static')
 app.config['JSON_SORT_KEYS'] = False
-@app.route('/dataManagement/userManagement')
+@app.route('/dataManagement/tenantManagement')
 def userManagement():
-    return render_template('userManagement.html')
+    return render_template('tenantManagement.html')
 
 @app.route('/dataManagement/roomManagement')
 def roomManagement():
@@ -45,7 +45,6 @@ if __name__ == '__main__':
 
     from core.main.dataManagement.monthlyManagement import monthlyManagement
     app.register_blueprint(monthlyManagement, url_prefix='/api/v1')
-
 
     app.run(host = "0.0.0.0", port=8888, debug=True)
     print("running!")
