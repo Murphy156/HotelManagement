@@ -2,7 +2,7 @@
 getMonthlyInfo = function() {
     var region = $('#region option:selected').val();
     var room = $('#roomNum option:selected').val();
-    var url = "/api/v1/tenant/getMonthlyInfo?region=" +region + "&roomNum=" + room;
+    var url = "/api/v1/monthly/getMonthlyInfo?region=" +region + "&roomNum=" + room;
     console.log(url);
 
     $.get(url,function(data,status){
@@ -61,7 +61,7 @@ addMonthly = function() {
             "ref_rent":rent,
             "rent":rent
         }
-        var url = "/api/v1/tenant/addMonthly"
+        var url = "/api/v1/monthly/addMonthly"
         console.log(url);
         console.log(postData);
 
@@ -122,7 +122,7 @@ deleteMonthly = function(){
         var postData = {
             "id" = id
         }
-        var url = "/api/v1/tenant/deleteMonthly"
+        var url = "/api/v1/monthly/deleteMonthly"
         console.log(url);
         console.log(postData);
         $.ajax({

@@ -1,8 +1,8 @@
-//获取用户信息
+//获取房间信息
 getRoomInfo = function() {
     var region = $('#region option:selected').val();
     var room = $('#roomNum option:selected').val();
-    var url = "/api/v1/tenant/getRoomInfo?region=" +region + "&roomNum=" + room;
+    var url = "/api/v1/room_information/getRoomInfo?region=" +region + "&roomNum=" + room;
     console.log(url);
 
     $.get(url,function(data,status){
@@ -55,7 +55,7 @@ addRoom = function() {
             "rent":rent,
             "remark":remark
         }
-        var url = "/api/v1/tenant/addRoom"
+        var url = "/api/v1/room_information/addRoom"
         console.log(url);
         console.log(postData);
 
@@ -116,7 +116,7 @@ deleteRoom = function(){
         var postData = {
             "id" = id
         }
-        var url = "/api/v1/tenant/deleteRoom"
+        var url = "/api/v1/room_information/deleteRoom"
         console.log(url);
         console.log(postData);
         $.ajax({

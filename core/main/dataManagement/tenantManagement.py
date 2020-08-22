@@ -122,8 +122,20 @@ class TenantManagement(Resource):
         data = []
         for item in reqDataDict.keys():
             data.append(reqDataDict[item])
-        sql = f"UPDATE tenant SET(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
-        self._common.db.execute(sql, data)
+        id = data[0]
+        building = data[1]
+        room = data[2]
+        name = data[3]
+        rent = data[4]
+        deposit = data[5]
+        idcard = data[6]
+        check_in = data[7]
+        contact = data[8]
+        living_number = data[9]
+        sql = f"UPDATE tenant SET name ='{name}',building = '{building}',room = '{room}',rent = '{rent}',deposit = '{deposit}',idcard = '{idcard}',check_in = '{check_in}',contact = '{contact}', living_number = '{living_number}'  WHERE id= '{id}' "
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("sql result is : " + str(res))
 
     # 获取用户数据
     def getUserInfo(self):
@@ -161,6 +173,8 @@ class TenantManagement(Resource):
             'body': rows
         }
         return outputData
+
+
 
 #
 api.add_resource(TenantManagement, '/tenant/<operation>')

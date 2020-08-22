@@ -137,11 +137,11 @@ class RoomManagement(Resource):
     def formatRoomInfoOutput(self, roomInfo):
         rows = []
         #
-        for user in roomInfo:
-            user['CreateTime'] = str(user['CreateTime'])
+        for room in roomInfo:
+            room['CreateTime'] = str(room['CreateTime'])
             row = {}
             for key, value in USREINFO_HEADER.items():
-                row[key] = user[key]
+                row[key] = room[key]
             rows.append(row)
         #
         outputData = {

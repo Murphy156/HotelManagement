@@ -1,4 +1,3 @@
-
 //获取用户信息
 getUserInfo = function() {
     var region = $('#region option:selected').val();
@@ -8,7 +7,7 @@ getUserInfo = function() {
 
     $.get(url,function(data,status){
         if(status == 'success') {
-            var button = '<td><input type="button" id = "editUser" name="editUser" value="编辑" onclick="editUser()"><input type="button" id = "deleteUser" name="deleteUser" value="删除" onclick="deleteUser(this)"></td>'
+            var button = '<td><input type="button" id = "editUser" name="editUser" value="编辑" onclick="editUser(this)"><input type="button" id = "deleteUser" name="deleteUser" value="删除" onclick="deleteUser(this)"></td>'
             var tblInfoCode = dynamic_table(data, button)
             console.log(tblInfoCode)
             $("#userInfoTbl").html(tblInfoCode);
@@ -26,6 +25,7 @@ editUser = function(obj) {
 //        获取当前行第一个单元格的value值
         var id = row.cells[0].childNodes[0].nodeValue;
 
+
     $('#addUserWindow').removeAttr('hidden');
     $('#btn_addUser_ok').click(function(){
         var building = $("#building").val();
@@ -38,6 +38,7 @@ editUser = function(obj) {
         var contact = $("#contact").val();
         var living_number = $("#living_number").val();
         var postData = {
+            "id":id,
             "building":building,
             "room":room,
             "name":name,
@@ -46,12 +47,12 @@ editUser = function(obj) {
             "idcard":idcard,
             "check_in":check_in,
             "contact":contact,
-            "living_number":living_number,
-            "id" : id
-        }
+            "living_number":living_number
+
+    };
         var url = "/api/v1/tenant/editUser"
         console.log(url);
-        console.log(postData);
+        //console.log(postData);
 
         $.ajax({
              //请求类型，这里为POST
@@ -62,6 +63,7 @@ editUser = function(obj) {
              contentType: "application/json",
              dataType: "json",
              data: JSON.stringify(postData), //data: {key:value},
+             //data: JSON.stringify(postData2),
              //添加额外的请求头
              success: function(data){
                //函数参数 "data" 为请求成功服务端返回的数据
@@ -72,7 +74,7 @@ editUser = function(obj) {
 
         $('#addUserWindow').attr('hidden','hidden');
     })
-    }
+}
     //取消
     $('#btn_addUser_cancel').click(function(){
         $('#addUserWindow').attr('hidden','hidden');
