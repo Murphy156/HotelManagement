@@ -235,15 +235,18 @@ function upload() {
         $("#file").click();
         $('#file').change(function (e) {
          var fileName = e.target.files[0];//js 获取文件对象
-         if(fileName !== undefined){
+         UpladFile(fileName);
+        /*if(fileName !== undefined){
            var file_typename =   fileName.name.substring(fileName.name.lastIndexOf('.'));
-           if (file_typename === '.xlsx' || file_typename === '.xls') {$("#filename").css("display","block");$("#filename").val(fileName.name);
-           UpladFile(fileName);
+           if (file_typename == '.xlsx' || file_typename == '.xls') {
+           $("#filename").css("display","block");
+           $("#filename").val(fileName.name);
+
            }else {
             console.log("请选择正确的文件类型！")
             }
          }else{
        console.log("请选择正确的文件！")
-        }
+        }*/
 });
 }

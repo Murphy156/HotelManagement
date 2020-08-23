@@ -7,7 +7,7 @@ getRoomInfo = function() {
 
     $.get(url,function(data,status){
         if(status == 'success') {
-            var button = '<td><input type="button" id = "editRoom" name="editRoom" value="编辑" onclick="editRoom()"><input type="button" id = "deleteRoom" name="deleteRoom" value="删除" onclick="deleteRoom()"></td>'
+            var button = '<td><input type="button" id = "editRoom" name="editRoom" value="编辑" onclick="editRoom(this)"><input type="button" id = "deleteRoom" name="deleteRoom" value="删除" onclick="deleteRoom(this)"></td>'
             var tblInfoCode = dynamic_table(data, button)
             console.log(tblInfoCode)
             $("#roomInfoTbl").html(tblInfoCode);
@@ -17,19 +17,67 @@ getRoomInfo = function() {
     });
 }
 
-editRoom = function() {
-    $('#editRoom').click(function(){
-        $('#addRoomWindow').removeAttr('hidden');
-    })
-    //确认
+editRoom = function(obj) {
+    var selectedTr = obj;
+    if (confirm("确定要修改吗?")) {
+//        获取当前行
+        var row = selectedTr.parentNode.parentNode;
+//        获取当前行第一个单元格的value值
+        var id = row.cells[0].childNodes[0].nodeValue;
+
+
+    $('#addRoomWindow').removeAttr('hidden');
     $('#btn_addRoom_ok').click(function(){
+        var building = $("#building").val();
+        var room = $("#room").val();
+        var area = $("#area").val();
+        var air_condition = $("#air_condition").val();
+        var heater = $("#heater").val();
+        var other = $("#other").val();
+        var rent = $("#rent").val();
+        var remark = $("#remark").val();
+        var postData = {
+            "id":id,
+            "building":building,
+            "room":room,
+            "area":area,
+            "air_condition":air_condition,
+            "heater":heater,
+            "other":other,
+            "rent":rent,
+            "remark":remark
+    };
+        var url = "/api/v1/room_information/editRoom"
+        console.log(url);
+        //console.log(postData);
+
+        $.ajax({
+             //请求类型，这里为POST
+             type: 'POST',
+             //你要请求的api的URL
+             url: url ,
+             //数据类型，这里我用的是json
+             contentType: "application/json",
+             dataType: "json",
+             data: JSON.stringify(postData), //data: {key:value},
+             //data: JSON.stringify(postData2),
+             //添加额外的请求头
+             success: function(data){
+               //函数参数 "data" 为请求成功服务端返回的数据
+               console.log(data)
+               return data;
+            },
+        });
+
         $('#addRoomWindow').attr('hidden','hidden');
     })
+}
     //取消
     $('#btn_addRoom_cancel').click(function(){
         $('#addRoomWindow').attr('hidden','hidden');
     })
 }
+
 
 addRoom = function() {
     $('#addRoom').click(function(){
@@ -106,23 +154,18 @@ downloadTemplate = function() {
 }
 
 
-deleteRoom = function(){
-    $('#deleteRoom').click(function(){
-        $('#deleteRoomWindow').removeAttr('hidden');
-    })
-    //确认
-    $('#btn_delRoom_ok').click(function(){
-        var id = $("#id").val();
+deleteRoom = function(obj){
+    var selectedTr = obj;
+    if (confirm("确定要删除吗?")) {
+//        获取当前行
+        var row = selectedTr.parentNode.parentNode;
+//        获取当前行第一个单元格的value值
+        var id = row.cells[0].childNodes[0].nodeValue;
+        console.log(id);
         var postData = {
-<<<<<<< HEAD
-            "id" = id
-        }
-        var url = "/api/v1/room_information/deleteRoom"
-=======
             "id" : id
         };
-        var url = "/api/v1/tenant/deleteRoom"
->>>>>>> 5c16344daf8e860517f3bfddd0f736c014548777
+        var url = "/api/v1/room_information/deleteRoom"
         console.log(url);
         console.log(postData);
         $.ajax({
@@ -141,11 +184,5 @@ deleteRoom = function(){
                return data;
             },
         });
-        $('#deleteRoomWindow').attr('hidden','hidden');
-
-    })
-    //取消
-    $('#btn_delRoom_cancel').click(function(){
-        $('#deleteRoomWindow').attr('hidden','hidden');
-    })
+    }
 }
