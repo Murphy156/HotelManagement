@@ -137,19 +137,44 @@ addUser = function() {
 importUser = function() {
     $('#importUserWindow').removeAttr('hidden');
     //导入模板
-    $('#bnt_import_user').click(function(){
+    $('#upload').on('click', function(){
         alert("弹窗，选择excel导入");
-        //todo
-    })
+        var formData = new FormData();
+        var name = $("#addExcel").val();
+        formData.append("file",$("addExcel")[0].files[0]);
+        formData.append("name",name);
+        var url = "/api/v1/tenant/importUser"
+
+         $.ajax({
+                    url: url,
+                    type: "post",
+                    async: false,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend:function(){
+		            console.log("正在进行，请稍候");
+		        },
+		        success : function(responseStr) {
+		            if(responseStr=="01"){
+		                alert("导入成功");
+		            }else{
+		                alert("导入失败");
+		            }
+		        }
+
+          });
+
+    });
     //取消
     $('#btn_import_cancel').click(function(){
         $('#importUserWindow').attr('hidden','hidden');
     })
 }
 
-downloadTemplate = function() {
-    alert("弹出下载模板框");
-}
+//downloadTemplate = function() {
+//    alert("弹出下载模板框");
+//}
 
 
 deleteUser = function(obj){

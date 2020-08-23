@@ -15,6 +15,10 @@ import xlrd
 from core.main.utils.db.db_helper import *
 from core.main.utils.common import Common
 import logging.config
+# noinspection PyUnresolvedReferences
+from django.shortcuts import render
+# noinspection PyUnresolvedReferences
+from openpyxl import load_workbook
 
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
@@ -78,8 +82,10 @@ class TenantManagement(Resource):
 
 
     # 问题 就是db的不适用性
-    def addExcel(self):
-        tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
+    def importUser(self):
+        #tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
+        uploadedFile = request.FILES.get('file')
+        tenant = load_workbook(uploadedFile)
         sheet = tenant.sheet_by_name("tenant_sheet1")
         for i in range(2, sheet.nrows):
             name = sheet.cell(i, 0).value
@@ -173,6 +179,7 @@ class TenantManagement(Resource):
             'body': rows
         }
         return outputData
+
 
 
 
