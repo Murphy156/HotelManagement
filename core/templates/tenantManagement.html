@@ -64,8 +64,9 @@
                     <div>
                         <input type="button" id="addUser" name="addUser" value="添加" onclick="addUser()">
 
-                        <input type="file" name="upload", id="addExcel">
-                        <input type="button" value="上传" id="upload">
+                        <input type="file" id="file" name="myfile" style="display: none" />
+                        <input type="text" id="filename" style="display:none"></span>
+                        <input type="button" onclick="upload()" value="选择文件上传" />
 
                     </div>
                     <div id="userInfo">
