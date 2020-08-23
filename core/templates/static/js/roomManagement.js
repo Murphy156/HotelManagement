@@ -114,9 +114,15 @@ deleteRoom = function(){
     $('#btn_delRoom_ok').click(function(){
         var id = $("#id").val();
         var postData = {
+<<<<<<< HEAD
             "id" = id
         }
         var url = "/api/v1/room_information/deleteRoom"
+=======
+            "id" : id
+        };
+        var url = "/api/v1/tenant/deleteRoom"
+>>>>>>> 5c16344daf8e860517f3bfddd0f736c014548777
         console.log(url);
         console.log(postData);
         $.ajax({
