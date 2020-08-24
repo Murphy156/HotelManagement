@@ -46,5 +46,14 @@ if __name__ == '__main__':
     from core.main.dataManagement.monthlyManagement import monthlyManagement
     app.register_blueprint(monthlyManagement, url_prefix='/api/v1')
 
+    from core.main.dataEchart.regionEchart import regionEchart
+    app.register_blueprint(regionEchart, url_prefix='/api/v1')
+
+    from core.main.dataEchart.globalAnalysis import globalAnalysis
+    app.register_blueprint(globalAnalysis, url_prefix='/api/v1')
+
+    from core.main.dataEchart.unitEchart import unitEchart
+    app.register_blueprint(unitEchart, url_prefix='/api/v1')
+
     app.run(host = "0.0.0.0", port=8888, debug=True)
     print("running!")

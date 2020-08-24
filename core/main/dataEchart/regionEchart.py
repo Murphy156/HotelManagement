@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
+# @Time : 2020/8/24 10:11 上午
+# @Author : lijunhua
+# @Email : 634134551@qq.com
+# @File : regionEchart.py
+
+# noinspection PyUnresolvedReferences
+import json
+# noinspection PyUnresolvedReferences
+from flask import Flask, request, jsonify, send_file
+from flask import Blueprint
+from flask_restful import Resource, Api
+from core.main.utils.db.db_helper import *
+from core.main.utils.common import Common
+import logging.config
+
+logging.config.fileConfig("../conf/logging.conf")
+LOG = logging.getLogger(name="rotatingFileLogger")
+#
+regionEchart = Blueprint('RegionEchart ', __name__)
+api = Api(regionEchart)
+
+class RegionEchart(Resource):
+
+    def __init__(self):
+        # 实例化Common类
+        self._common = Common()
+
+    def get(self, operation):
+        if (operation == 'yearIncome'):
+            return self.yearIncome()
+        elif (operation == 'monthIncome'):
+            return self.monthIncome()
+        elif (operation == 'aveHousePri'):
+            return self.aveHousePri()
+        elif (operation == 'regMonInc'):
+            return self.regMonInc()
+        elif (operation == 'incClafi'):
+            return self.incClafi()
+
+
+
+    def post(self, operation):
+        if (operation == 'yearIncome'):
+            return self.yearIncome()
+        elif (operation == 'monthIncome'):
+            return self.monthIncome()
+        elif (operation == 'aveHousePri'):
+            return self.aveHousePri()
+        elif (operation == 'regMonInc'):
+            return self.regMonInc()
+        elif (operation == 'incClafi'):
+            return self.incClafi()
+
+    # 某区域的年总收入数值加bar状图
+    def yearIncome(self):
+        # 注意这里接收前端返回的年份和区域号，月份
+        # 这里取出的是哪一年哪个区域全年的各月收入数据
+        m_sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        LOG.info(f"sql is : {m_sql}")
+        data1 = self._common.db.execute(m_sql)
+        LOG.info("sql result is : " + str(data1))
+        # 这里取出来的是哪一年，哪个区域全年总收入
+        s_sql = 'select year ,sum(rent) as sum_rent from monthly where building = "A" and year = "2020"'
+        LOG.info(f"sql is : {s_sql}")
+        data2 = self._common.db.execute(s_sql)
+        LOG.info("sql result is : " + str(data2))
+
+    # 某区域的当月收入
+    def monthIncome(self):
+        # 要传入年，月，区域参数
+        # 返回month当前列的最大值
+        # 这里要加一个年份的数据选择
+        M_sql = 'select month from monthly where year = "2020" order by month desc limit 1'
+        LOG.info(f"sql is : {M_sql}")
+        data1 = self._common.db.execute(M_sql)
+        a = data1[0]
+        #data2返回的是当月月份值
+        data2 = []
+        for item in a.keys():
+            data2.append(a[item])
+        LOG.info("sql result is : " + str(data2))
+        # 返回区域的当月总收入 ,还要从前端获取一个building的值
+        A_sql = f"select month ,sum(rent) as sum_rent from monthly where month = '{data2}' and building = 'A' "
+        LOG.info(f"sql is : {A_sql}")
+        #data3返回的是当月的总收入
+        data3 = self._common.db.execute(A_sql)
+        LOG.info("sql result is : " + str(data3))
+        # 这里需要引入区域号
+        w_sql = f"select month ,sum(w_c) as sum_w_c from monthly where month = '{data2}' and building = 'A' "
+        LOG.info(f"sql is : {w_sql}")
+        #data4返回的是当月的水费
+        data4 = self._common.db.execute(w_sql)
+        LOG.info("sql result is : " + str(data4))
+        # 这里需要引入区域号
+        e_sql = f"select month ,sum(e_c) as sum_e_c from monthly where month = '{data2}' and building = 'A' "
+        LOG.info(f"sql is : {e_sql}")
+        # data5返回的是当月的电费
+        data5 = self._common.db.execute(e_sql)
+        LOG.info("sql result is : " + str(data5))
+
+    #某区域的房间均价
+    def aveHousePri(self):
+        # 挑选某一区域，某个年月的均价,要传入年，月，区域参数
+        a_sql = "select avg(rent) from monthly where building = 'A' AND month = '7' AND year = '2020'"
+        LOG.info(f"sql is : {a_sql}")
+        #这里的data返回的是某一年，月，区域的平均房价
+        data = self._common.db.execute(a_sql)
+        LOG.info("sql result is : " + str(data))
+
+    # 可出租房间数
+    def kechuzu(self):
+        pass
+
+    #某区域某年按月总收入
+    def regMonInc(self):
+        # 这里执行的是某年，某区域全年的按月总收入数据，输入年份 区域参数
+        sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        LOG.info(f"sql is : {sql}")
+        # 这里的data返回的是某一年，某区域的按月总收入
+        data = self._common.db.execute(sql)
+        LOG.info("sql result is : " + str(data))
+
+    #某年某区域的收入分类比
+    def incClafi(self):
+        # 这里返回的是，某年，某区域每月的房租收入，传入区域和年份
+        A_sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        LOG.info(f"sql is : {A_sql}")
+        # 这里的data返回的是某一年，某区域的按月总收入
+        data1 = self._common.db.execute(A_sql)
+        LOG.info("sql result is : " + str(data1))
+
+        # 这里返回的还是，某年，某区域每月的电费收入，传入区域和年份
+        e_sql = 'select month ,sum(e_c) as sum_e_c from monthly where building = "A" AND year = "2020" group by month'
+        LOG.info(f"sql is : {e_sql}")
+        # 这里的data返回的是某一年，某区域的按月电费收入
+        data2 = self._common.db.execute(e_sql)
+        LOG.info("sql result is : " + str(data2))
+
+        # 这里返回的还是，某年，某区域每月的水费收入，传入区域和年份
+        w_sql = 'select month ,sum(w_c) as sum_w_c from monthly where building = "A" AND year = "2020" group by month'
+        LOG.info(f"sql is : {w_sql}")
+        # 这里的data返回的是某一年，某区域的按月水费收入
+        data3 = self._common.db.execute(w_sql)
+        LOG.info("sql result is : " + str(data3))
+
+
+
+api.add_resource(RegionEchart, '/region/<operation>')
