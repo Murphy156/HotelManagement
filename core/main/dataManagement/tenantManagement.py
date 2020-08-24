@@ -6,7 +6,7 @@
 # @File : tenantManagement.py
 
 # noinspection PyUnresolvedReferences
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask import Blueprint
 from flask_restful import Resource, Api
 import json
@@ -61,8 +61,8 @@ class TenantManagement(Resource):
             return self.deleteUser()
         elif (operation == 'editUser'):
             return self.editUser()
-        elif (operation == 'addExcel'):
-            return self.addExcel()
+        elif (operation == 'importUser'):
+            return self.importUser()
 
     # 添加用户
     def addUser(self):
@@ -84,7 +84,8 @@ class TenantManagement(Resource):
     # 问题 就是db的不适用性
     def importUser(self):
         #tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
-        uploadedFile = request.FILES.get('file')
+        uploadedFile = request.files.get('file')
+        #f = xlrd.open_workbook(uploadedFile)
         tenant = load_workbook(uploadedFile)
         sheet = tenant.sheet_by_name("tenant_sheet1")
         for i in range(2, sheet.nrows):

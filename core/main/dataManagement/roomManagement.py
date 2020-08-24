@@ -10,6 +10,7 @@ from flask import Flask, request, jsonify
 from flask import Blueprint
 # noinspection PyUnresolvedReferences
 from flask_restful import Resource, Api
+import json
 # noinspection PyUnresolvedReferences
 import xlrd
 # noinspection PyUnresolvedReferences
@@ -59,17 +60,16 @@ class RoomManagement(Resource):
             return self.deleteRoom()
 
     def addRoom(self):
-        building = request.args.get("building")
-        room = request.args.get("room")
-        area = request.args.get("area")
-        air_condition = request.args.get("air_condition")
-        rent = request.args.get("rent")
-        heater = request.args.get("heater")
-        other = request.args.get("other")
-        remark = request.args.get("remark")
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
         sql = 'INSERT INTO room_information(building,room,area,air_condition,rent,heater,other,remark) VALUE (%s,%s,%s,%s,%s,%s,%s,%s)'
         LOG.info(f"sql is : {sql}")
-        res = self._common.db.execute(sql, [building, room, area, air_condition, rent, heater, other, remark])
+        res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
 
     def addRoomExcel(self):
@@ -92,27 +92,39 @@ class RoomManagement(Resource):
 
         # 提交的问题
     def deleteRoom(self):
-        building = request.args.get("building")
-        room = request.args.get("roomNum")
-        sql = f"DELETE FROM room_information WHERE building = '{building}' AND room = '{room}' "
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        id = []
+        for item in reqDataDict.keys():
+            id.append(reqDataDict[item])
+        id1 = ''.join(id)
+        sql = f"DELETE FROM room_information WHERE id = '{id1}' "
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))
 
     def editRoom(self):
-        id = request.args.get("id")
-        building = request.args.get("building")
-        room = request.args.get("room")
-        area = request.args.get("area")
-        air_condition = request.args.get("air_condition")
-        rent = request.args.get("rent")
-        heater = request.args.get("heater")
-        other = request.args.get("other")
-        remark = request.args.get("remark")
-        value = (building, room, area, air_condition, heater, other, rent, remark)
-        sql = f"UPDATE room_information SET(building, room, area, air_condition, heater, other, rent, remark) VALUE (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
-        self._common.db.execute(sql, value)
-
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
+        id = data[0]
+        building = data[1]
+        room = data[2]
+        area = data[3]
+        air_condition = data[4]
+        rent = data[5]
+        heater = data[6]
+        other = data[7]
+        remark = data[8]
+        sql = f"UPDATE room_information SET building = '{building}' ,room = '{room}' ,area = '{area}' , air_condition = '{air_condition}' ,rent = '{rent}' ,heater = '{heater}' ,other = '{other}' ,remark = '{remark}' WHERE id='{id}'"
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("sql result is : " + str(res))
 
 # 获取用户数据
     def getRoomInfo(self):

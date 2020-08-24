@@ -11,6 +11,8 @@ from flask import Blueprint
 # noinspection PyUnresolvedReferences
 from flask_restful import Resource, Api
 # noinspection PyUnresolvedReferences
+import json
+# noinspection PyUnresolvedReferences
 import xlrd
 # noinspection PyUnresolvedReferences
 from core.main.utils.db.db_helper import *
@@ -64,20 +66,16 @@ class MonthlyManagement(Resource):
             return self.deleteMonthly()
 
     def addMonthly(self):
-        year = request.args.get("year")
-        month = request.args.get("month")
-        name = request.args.get("name")
-        building = request.args.get("building")
-        room = request.args.get("room")
-        water = request.args.get("water")
-        w_c = request.args.get("w_c")
-        electricity = request.args.get("electricity")
-        e_c = request.args.get("e_c")
-        ref_rent = request.args.get("ref_rent")
-        rent = request.args.get("rent")
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
         sql = 'INSERT INTO monthly(year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         LOG.info(f"sql is : {sql}")
-        res = self._common.db.execute(sql, [year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent])
+        res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
 
     # 问题 就是db的不适用性
@@ -105,31 +103,43 @@ class MonthlyManagement(Resource):
 
     # 提交的问题
     def deleteMonthly(self):
-        building = request.args.get("building")
-        room = request.args.get("roomNum")
-        name = request.args.get("name")
-        sql = f"DELETE FROM monthly WHERE building = '{building}' AND room = '{room}' AND name = '{name}'"
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        id = []
+        for item in reqDataDict.keys():
+            id.append(reqDataDict[item])
+        id1 = ''.join(id)
+        sql = f"DELETE FROM monthly WHERE id = '{id1}'"
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))
 
     #
     def editMonthly(self):
-        id = request.args.get("id")
-        year = request.args.get("year")
-        month = request.args.get("month")
-        name = request.args.get("name")
-        building = request.args.get("building")
-        room = request.args.get("room")
-        water = request.args.get("water")
-        w_c = request.args.get("w_c")
-        electricity = request.args.get("electricity")
-        e_c = request.args.get("e_c")
-        ref_rent = request.args.get("ref_rent")
-        rent = request.args.get("rent")
-        value = (year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent)
-        sql = f"UPDATE monthly SET(year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id= '{id}' "
-        self._common.db.execute(sql, value)
+        # 获取post的传输数据，并使用utf-8编码为字符串
+        requestData = request.data.decode("utf-8")
+        # 对jason字符串格式数据，解析为dict格式
+        reqDataDict = json.loads(requestData)
+        data = []
+        for item in reqDataDict.keys():
+            data.append(reqDataDict[item])
+        id = data[0]
+        year = data[1]
+        month = data[2]
+        name = data[3]
+        building = data[4]
+        room = data[5]
+        water = data[6]
+        w_c = data[7]
+        electricity = data[8]
+        e_c = data[9]
+        ref_rent = data[10]
+        rent = data[11]
+        sql = f"UPDATE tenant SET year ='{year}',month = '{month}',name = '{name}',building = '{building}',room = '{room}',water = '{water}',w_c = '{w_c}',electricity = '{electricity}', e_c = '{e_c}',ref_rent = '{ref_rent}',rent = '{rent}' WHERE id= '{id}' "
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("sql result is : " + str(res))
 
     # 获取每月数据
     def getMonthlyInfo(self):

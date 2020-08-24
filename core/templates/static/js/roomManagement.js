@@ -80,9 +80,8 @@ editRoom = function(obj) {
 
 
 addRoom = function() {
-    $('#addRoom').click(function(){
-        $('#addRoomWindow').removeAttr('hidden');
-    })
+    $('#addRoomWindow').removeAttr('hidden');
+
     //确认
     $('#btn_addRoom_ok').click(function(){
         var building = $("#building").val();
@@ -131,7 +130,7 @@ addRoom = function() {
         $('#addRoomWindow').attr('hidden','hidden');
     })
 }
-
+//注意这个函数名跟后端不同
 importRoom = function() {
     $('#importRoom').click(function(){
         $('#importRoomWindow').removeAttr('hidden');
@@ -186,3 +185,4 @@ deleteRoom = function(obj){
         });
     }
 }
+

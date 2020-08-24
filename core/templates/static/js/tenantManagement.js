@@ -211,9 +211,10 @@ deleteUser = function(obj){
 }
 
 function UpladFile(fileObj) {
+                // 通过FormData将文件转成二进制数据
                 var form = new FormData(); // FormData 对象
                 form.append("file", fileObj); // 文件对象
-                url = "/api/v1/tenant/importUser"
+                url = "/api/v1/tenant/importUser";
                 $.ajax({
                     url: url,                      //url地址
                     type: 'POST',                 //上传方式
@@ -236,6 +237,7 @@ function upload() {
         $('#file').change(function (e) {
          var fileName = e.target.files[0];//js 获取文件对象
          UpladFile(fileName);
+
         /*if(fileName !== undefined){
            var file_typename =   fileName.name.substring(fileName.name.lastIndexOf('.'));
            if (file_typename == '.xlsx' || file_typename == '.xls') {
