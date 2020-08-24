@@ -54,12 +54,24 @@ class UnitEchart(Resource):
             return self.getUserInfo()
 
     def post(self, operation):
-        pass
+        if (operation == 'roomAllInc'):
+            return self.roomAllInc()
+        elif (operation == 'roomRent'):
+            return self.roomRent()
+        elif (operation == 'waterConsum'):
+            return self.waterConsum()
+        elif (operation == 'elecConsum'):
+            return self.elecConsum()
+        elif (operation == 'getUserInfo'):
+            return self.getUserInfo()
 
     # 某个房间的年总收入
     def roomAllInc(self):
         # 这里SQL语句执行的是某个房间的年总收入， 需要传入区域，房间号，年份
-        sql = 'select year, sum(rent) as sum_rent from monthly where building = "A" and room = "104" and year = "2020" '
+        region = request.args.get("region")
+        year = request.args.get("yearData")
+        room = request.args.get("roomNum")
+        sql = F'select year, sum(rent) as sum_rent from monthly WHERE building = "{region}" AND room = "{room}" AMD year = "{year} '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
@@ -67,7 +79,9 @@ class UnitEchart(Resource):
     # 获取月租金
     def roomRent(self):
         # 这里获取某个房间的月租金,需要传入区域号和房间号
-        sql = 'select rent from room_information where building = "A" AND room = "104"'
+        region = request.args.get("region")
+        room = request.args.get("roomNum")
+        sql = f'select rent from room_information where building = "{region}" AND room = "{room}"'
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
@@ -75,7 +89,11 @@ class UnitEchart(Resource):
     # 获取某月某区域某房间的用水量
     def waterConsum(self):
         # 这里获取某个房间的用水量， 需要传入区域号，房间号，年份，和月份
-        sql = 'select water from monthly where building = "A" AND room = "104" AND year = "2020" AND month = "5" '
+        region = request.args.get("region")
+        year = request.args.get("yearData")
+        room = request.args.get("roomNum")
+        month = request.args.get("monthData")
+        sql = f'select water from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
@@ -83,7 +101,11 @@ class UnitEchart(Resource):
     # 获取某月某区域某房间的用电量
     def elecConsum(self):
         # 这里获取某个房间的用电量， 需要传入区域号，房间号，年份，和月份
-        sql = 'select electricity from monthly where building = "A" AND room = "104" AND year = "2020" AND month = "5" '
+        region = request.args.get("region")
+        year = request.args.get("yearData")
+        room = request.args.get("roomNum")
+        month = request.args.get("monthData")
+        sql = f'select electricity from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))

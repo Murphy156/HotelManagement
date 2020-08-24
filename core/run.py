@@ -23,6 +23,18 @@ def roomManagement():
 def monthlyManagement():
     return render_template('monthlyManagement.html')
 
+@app.route('/dataEchart/globalAnalysis')
+def globalAnalysis():
+    return render_template('globalAnalysis.html')
+
+@app.route('/dataEchart/regionEchart')
+def regionEchart():
+    return render_template('monthlyManagement.html')
+
+@app.route('/dataEchart/unitEchart')
+def monthlyManagement():
+    return render_template('unitEchart.html')
+
 
 @app.route('/dataAnalysis')
 

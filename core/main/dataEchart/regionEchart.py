@@ -30,8 +30,16 @@ class RegionEchart(Resource):
     def get(self, operation):
         if (operation == 'yearIncome'):
             return self.yearIncome()
-        elif (operation == 'monthIncome'):
-            return self.monthIncome()
+        elif (operation == 'yearIncome_bar'):
+            return self.yearIncome_bar()
+        elif (operation == 'reture_month'):
+            return self.reture_month()
+        elif (operation == 'allMonth'):
+            return self.allMonth()
+        elif (operation == 'monWater'):
+            return self.monWater()
+        elif (operation == 'monelec'):
+            return self.monelec()
         elif (operation == 'aveHousePri'):
             return self.aveHousePri()
         elif (operation == 'regMonInc'):
@@ -44,8 +52,16 @@ class RegionEchart(Resource):
     def post(self, operation):
         if (operation == 'yearIncome'):
             return self.yearIncome()
-        elif (operation == 'monthIncome'):
-            return self.monthIncome()
+        elif (operation == 'yearIncome_bar'):
+            return self.yearIncome_bar()
+        elif (operation == 'reture_month'):
+            return self.reture_month()
+        elif (operation == 'allMonth'):
+            return self.allMonth()
+        elif (operation == 'monWater'):
+            return self.monWater()
+        elif (operation == 'monelec'):
+            return self.monelec()
         elif (operation == 'aveHousePri'):
             return self.aveHousePri()
         elif (operation == 'regMonInc'):
@@ -53,26 +69,35 @@ class RegionEchart(Resource):
         elif (operation == 'incClafi'):
             return self.incClafi()
 
-    # 某区域的年总收入数值加bar状图
+
+    # 某区域的年总收入数值
     def yearIncome(self):
-        # 注意这里接收前端返回的年份和区域号，月份
-        # 这里取出的是哪一年哪个区域全年的各月收入数据
-        m_sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        # 注意这里接收前端返回的年份和区域号
+        region = request.args.get("region")
+        year = request.args.get("texyear")
+        m_sql = f'select year ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}"'
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
         LOG.info("sql result is : " + str(data1))
+
+
+    # 某区域的年总收入bar
+    def yearIncome_bar(self):
         # 这里取出来的是哪一年，哪个区域全年总收入
-        s_sql = 'select year ,sum(rent) as sum_rent from monthly where building = "A" and year = "2020"'
+        region = request.args.get("region")
+        year = request.args.get("texyear")
+        s_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" and year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data2 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data2))
 
-    # 某区域的当月收入
-    def monthIncome(self):
+    # 返回当前月份
+    def reture_month(self):
         # 要传入年，月，区域参数
         # 返回month当前列的最大值
         # 这里要加一个年份的数据选择
-        M_sql = 'select month from monthly where year = "2020" order by month desc limit 1'
+        year = request.args.get("texyear")
+        M_sql = f'select month from monthly where year = "{year}" order by month desc limit 1'
         LOG.info(f"sql is : {M_sql}")
         data1 = self._common.db.execute(M_sql)
         a = data1[0]
@@ -81,20 +106,34 @@ class RegionEchart(Resource):
         for item in a.keys():
             data2.append(a[item])
         LOG.info("sql result is : " + str(data2))
+        return data2
+
+    # 返回的是某区域当月的总收入
+    def allMonth(self):
         # 返回区域的当月总收入 ,还要从前端获取一个building的值
-        A_sql = f"select month ,sum(rent) as sum_rent from monthly where month = '{data2}' and building = 'A' "
+        data2 = self.reture_month
+        region = request.args.get("region")
+        A_sql = f"select month ,sum(rent) as sum_rent from monthly where month = '{data2}' and building = '{region}' "
         LOG.info(f"sql is : {A_sql}")
         #data3返回的是当月的总收入
         data3 = self._common.db.execute(A_sql)
         LOG.info("sql result is : " + str(data3))
-        # 这里需要引入区域号
-        w_sql = f"select month ,sum(w_c) as sum_w_c from monthly where month = '{data2}' and building = 'A' "
+
+    # 返回的是某区域当月的水费
+    def monWater(self):
+        data2 = self.reture_month
+        region = request.args.get("region")
+        w_sql = f"select month ,sum(w_c) as sum_w_c from monthly where month = '{data2}' and building = '{region}' "
         LOG.info(f"sql is : {w_sql}")
         #data4返回的是当月的水费
         data4 = self._common.db.execute(w_sql)
         LOG.info("sql result is : " + str(data4))
-        # 这里需要引入区域号
-        e_sql = f"select month ,sum(e_c) as sum_e_c from monthly where month = '{data2}' and building = 'A' "
+
+    # 返回的是某区域当月的电费
+    def monelec(self):
+        data2 = self.reture_month
+        region = request.args.get("region")
+        e_sql = f"select month ,sum(e_c) as sum_e_c from monthly where month = '{data2}' and building = '{region}' "
         LOG.info(f"sql is : {e_sql}")
         # data5返回的是当月的电费
         data5 = self._common.db.execute(e_sql)

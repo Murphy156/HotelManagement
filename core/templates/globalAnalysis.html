@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>整体数据分析</title>
+    <link rel="stylesheet" href="../static/css/framework.css">
+    <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <script type="text/javascript" src="../static/js/framework.js"></script>
+    <script type="text/javascript" src="../static/js/globalAnalysis.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body onload="initTree()">
+    <div class="header">
+		<h2>神策-管理系统</h2>
+	</div>
+
+    <div class="mainBox">
+        <div class="leftBox" style="float:left;background-color:#FFD700">
+			<div style="float:left;width: 300px; height: 590px;">
+                <ol id="olTree">
+                <li>
+                   <label>数据大盘</label>
+                   <ol>
+                        <li><a href="#">区域分析</a></li>
+                        <li><a href="#">单元分析</a></li>
+                   </ol>
+                </li>
+                <li>
+                   <label>数据管理</label>
+                  <ol>
+                       <li><a href="/dataManagement/userManagement">用户信息管理</a></li>
+                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                       <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                   </ol>
+                </li>
+                </ol>
+            </div>
+		</div>
+        <div class="leftBox">
+            <div calss="slideBtn" onclick="slideBtn()">伸缩</div>
+            <h1>整体数据分析</h1>
+
+            <div id="yearchoose">
+                <b>年份</b>
+                <input type="text" id="yearch" placeholder="请输入年份">
+                <input type="button" value="查询" onclick="showEcharts()">
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
