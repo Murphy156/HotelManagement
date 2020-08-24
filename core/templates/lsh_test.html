@@ -1,70 +1,16 @@
+<!DOCTYPE html>
 <html>
- <head>
-<meta charset="UTF-8">
-	 <title>Js获取 table当前行的值</title>
-<script language = "javascript" >
-var selectedTr = null;
-
-function c1(obj) {
-	selectedTr = obj;
-    obj.style.backgroundColor = 'blue';
-    if (selectedTr != null) {
-    	selectedTr.style.removeAttribute("backgroundColor");
-    }
-}
-
-function check() {
-    if (selectedTr != null) {
-        var str = selectedTr.cells[0].childNodes[0].value;
-        document.getElementById("lab").innerHTML = str;
-    } else {
-        alert("请选择一行");
-    }
-}
-
-function del() {
-    if (selectedTr != null) {
-        if (confirm("确定要删除吗?")) {
-            alert(selectedTr.cells[0].childNodes[0].value);
-            var tbody = selectedTr.parentNode;
-            tbody.removeChild(selectedTr);
-        }
-    } else {
-        alert("请选择一行");
-    }
-}
-
-</script>
- </head>
- <body>
-   单击选中Tr，高亮显示，再单击取消选选中。
-  <input type="button" value="选中的是哪一行？" onclick="check()" />
-  <input type="button" value="删除选中行" onclick="del()" />
-
-  <table width="100%" border="1" cellspacing="0" cellpadding="0" id="tab">
-   <tbody>
-    <tr onclick="c1(this);" bgcolor="#cccccc">
-     <td><input type="text" value="11" />　</td>
-     <td><input type="text" value="12" /></td>
-    </tr>
-    <tr onclick="c1(this);" bgcolor="#e0e0e0">
-     <td><input type="text" value="21" />　</td>
-     <td><input type="text" value="22" /></td>
-    </tr>
-    <tr onclick="c1(this);" bgcolor="#cccccc">
-     <td><input type="text" value="31" />　</td>
-     <td><input type="text" value="32" /></td>
-    </tr>
-    <tr onclick="c1(this);" bgcolor="#e0e0e0">
-     <td><input type="text" value="41" />　</td>
-     <td><input type="text" value="42" /></td>
-    </tr>
-    <tr onclick="c1(this);" bgcolor="#cccccc">
-     <td><input type="text" value="51" />　</td>
-     <td><input type="text" value="52" />　</td>
-    </tr>
-   </tbody>
-  </table>
-  <label id="lab"></label>
- </body>
+    <head>
+            <meta charset="utf-8">
+                <title>第一个 ECharts 实例</title>
+                <!-- 引入 echarts.js -->
+                <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+                <script type="text/javascript" src="./static/js/lsh_test.js"></script>
+    </head>
+    <body>
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="main" style="width: 600px;height:400px;">
+                    <input type="button" onclick="test()" value="测试Echarts" />
+                </div>
+    </body>
 </html>
