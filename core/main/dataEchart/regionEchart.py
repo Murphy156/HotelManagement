@@ -46,6 +46,10 @@ class RegionEchart(Resource):
             return self.regMonInc()
         elif (operation == 'incClafi'):
             return self.incClafi()
+        elif (operation == 'electClafi'):
+            return self.electClafi()
+        elif (operation == 'wateClafi'):
+            return self.wateClafi()
 
 
 
@@ -68,18 +72,23 @@ class RegionEchart(Resource):
             return self.regMonInc()
         elif (operation == 'incClafi'):
             return self.incClafi()
+        elif (operation == 'electClafi'):
+            return self.electClafi()
+        elif (operation == 'wateClafi'):
+            return self.wateClafi()
 
 
     # 某区域的年总收入数值
     def yearIncome(self):
         # 注意这里接收前端返回的年份和区域号
         region = request.args.get("region")
-        year = request.args.get("texyear")
+        year = request.args.get("year")
         m_sql = f'select year ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}"'
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
         LOG.info("sql result is : " + str(data1))
         data = data1[0]
+        LOG.info("data : " + str(data))
         return jsonify(data)
 
 
@@ -87,7 +96,7 @@ class RegionEchart(Resource):
     def yearIncome_bar(self):
         # 这里取出来的是哪一年，哪个区域全年总收入
         region = request.args.get("region")
-        year = request.args.get("texyear")
+        year = request.args.get("year")
         s_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" and year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data2 = self._common.db.execute(s_sql)
@@ -100,7 +109,7 @@ class RegionEchart(Resource):
         # 要传入年，月，区域参数
         # 返回month当前列的最大值
         # 这里要加一个年份的数据选择
-        year = request.args.get("texyear")
+        year = request.args.get("year")
         M_sql = f'select month from monthly where year = "{year}" order by month desc limit 1'
         LOG.info(f"sql is : {M_sql}")
         data1 = self._common.db.execute(M_sql)
@@ -152,7 +161,10 @@ class RegionEchart(Resource):
     #某区域的房间均价
     def aveHousePri(self):
         # 挑选某一区域，某个年月的均价,要传入年，月，区域参数
-        a_sql = "select avg(rent) from monthly where building = 'A' AND month = '7' AND year = '2020'"
+        region = request.args.get("region")
+        month = request.args.get("month")
+        year = request.arg.get("year")
+        a_sql = f"select avg(rent) from monthly where building = '{region}' AND month = '{month}' AND year = '{year}'"
         LOG.info(f"sql is : {a_sql}")
         #这里的data返回的是某一年，月，区域的平均房价
         data1 = self._common.db.execute(a_sql)
@@ -166,7 +178,9 @@ class RegionEchart(Resource):
     #某区域某年按月总收入
     def regMonInc(self):
         # 这里执行的是某年，某区域全年的按月总收入数据，输入年份 区域参数
-        sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        region = request.args.get("region")
+        year = request.arg.get("year")
+        sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" group by month'
         LOG.info(f"sql is : {sql}")
         # 这里的data返回的是某一年，某区域的按月总收入
         data1 = self._common.db.execute(sql)
@@ -177,7 +191,9 @@ class RegionEchart(Resource):
     #某年某区域的收入分类比
     def incClafi(self):
         # 这里返回的是，某年，某区域每月的房租收入，传入区域和年份
-        A_sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
+        region = request.args.get("region")
+        year = request.arg.get("year")
+        A_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" group by month'
         LOG.info(f"sql is : {A_sql}")
         # 这里的data返回的是某一年，某区域的按月总收入
         data1 = self._common.db.execute(A_sql)
@@ -185,22 +201,28 @@ class RegionEchart(Resource):
         data = data1[0]
         return jsonify(data)
 
-        # 这里返回的还是，某年，某区域每月的电费收入，传入区域和年份
-        e_sql = 'select month ,sum(e_c) as sum_e_c from monthly where building = "A" AND year = "2020" group by month'
+    # 这里返回的还是，某年，某区域每月的电费收入，传入区域和年份
+    def electClafi(self):
+        region = request.args.get("region")
+        year = request.arg.get("year")
+        e_sql = f'select month ,sum(e_c) as sum_e_c from monthly where building = "{region}" AND year = "{year}" group by month'
         LOG.info(f"sql is : {e_sql}")
         # 这里的data返回的是某一年，某区域的按月电费收入
         data2 = self._common.db.execute(e_sql)
         LOG.info("sql result is : " + str(data2))
-        data = data1[0]
+        data = data2[0]
         return jsonify(data)
 
-        # 这里返回的还是，某年，某区域每月的水费收入，传入区域和年份
-        w_sql = 'select month ,sum(w_c) as sum_w_c from monthly where building = "A" AND year = "2020" group by month'
+    # 这里返回的还是，某年，某区域每月的水费收入，传入区域和年份
+    def wateClafi(self):
+        region = request.args.get("region")
+        year = request.arg.get("year")
+        w_sql = f'select month ,sum(w_c) as sum_w_c from monthly where building = "{region}" AND year = "{year}" group by month'
         LOG.info(f"sql is : {w_sql}")
         # 这里的data返回的是某一年，某区域的按月水费收入
         data3 = self._common.db.execute(w_sql)
         LOG.info("sql result is : " + str(data3))
-        data = data1[0]
+        data = data3[0]
         return jsonify(data)
 
 

@@ -179,7 +179,7 @@ deleteMonthly = function(obj){
         var postData = {
             "id" : id
         };
-        var url = "/api/v1/monthly/deleteMonthly"
+        var url = "/api/v1/monthly/deleteMonthly "
         console.log(url);
         console.log(postData);
         $.ajax({

@@ -51,7 +51,7 @@ class GlobalAnalysis(Resource):
     # 某一年全部物业的总收入
     def allIncome(self):
         #这里接入年份选择的数据
-        year = request.args.get("yearch")
+        year = request.args.get("year")
         s_sql = f"select year ,sum(rent) as sum_rent from monthly where year = '{year}' "
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
@@ -62,7 +62,7 @@ class GlobalAnalysis(Resource):
     # 房租收入
     def rentIncome(self):
         # 这里接入年份选择的数据
-        year = request.args.get("yearch")
+        year = request.args.get("year")
         s_sql = f"select year ,sum(rent) as sum_rent from monthly where year = '{year}'"
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
@@ -86,7 +86,7 @@ class GlobalAnalysis(Resource):
     # 全部物业总收入中按月收入分析
     def allIncomeMon(self):
         # 这里接入年份选择的数据
-        year = request.args.get("yearch")
+        year = request.args.get("year")
         m_sql = f'select month ,sum(rent) as sum_rent from monthly where year = "{year}" group by month'
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
@@ -101,7 +101,7 @@ class GlobalAnalysis(Resource):
     # 各区域占比
     def regionCompar(self):
         # 这里接入年份选择的数据
-        year = request.args.get("yearch")
+        year = request.args.get("year")
         A_sql = f'select year ,sum(rent) as sum_rent from monthly where year = "{year}" group by building'
         LOG.info(f"sql is : {A_sql}")
         data1 = self._common.db.execute(A_sql)

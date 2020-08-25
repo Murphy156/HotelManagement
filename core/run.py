@@ -29,7 +29,7 @@ def globalAnalysis():
 
 @app.route('/dataEchart/regionEchart')
 def regionEchart():
-    return render_template('monthlyManagement.html')
+    return render_template('regionEchart.html')
 
 @app.route('/dataEchart/unitEchart')
 def unitEchart():
