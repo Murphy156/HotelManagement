@@ -52,6 +52,8 @@ class UnitEchart(Resource):
             return self.elecConsum()
         elif (operation == 'getUserInfo'):
             return self.getUserInfo()
+        elif (operation == 'roomincClafi'):
+            return self.roomincClafi()
 
     def post(self, operation):
         if (operation == 'roomAllInc'):
@@ -64,6 +66,8 @@ class UnitEchart(Resource):
             return self.elecConsum()
         elif (operation == 'getUserInfo'):
             return self.getUserInfo()
+        elif (operation == 'roomincClafi'):
+            return self.roomincClafi()
 
     # 某个房间的年总收入
     def roomAllInc(self):
@@ -71,12 +75,12 @@ class UnitEchart(Resource):
         region = request.args.get("region")
         year = request.args.get("year")
         room = request.args.get("room")
-        sql = F'select year, sum(rent) as sum_rent from monthly WHERE building = "{region}" AND room = "{room}" AMD year = "{year} '
+        sql = f'select year, sum(rent) as sum_rent from monthly WHERE building = "{region}" AND room = "{room}" AND year = "{year}" '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
-        LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        LOG.info("data1 : " + str(data1))
+
+        return jsonify(data1)
 
     # 获取月租金
     def roomRent(self):
@@ -87,8 +91,7 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 获取某月某区域某房间的用水量
     def waterConsum(self):
@@ -101,8 +104,7 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 获取某月某区域某房间的用电量
     def elecConsum(self):
@@ -115,15 +117,44 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 本年闲置时间
     def idle(self):
         pass
 
+    def curaStat(self):
+        pass
 
-# 获取入住人信息数据
+    # 这里返回的是 某一年，某一区域，某个房间：1、全年每月收入，2、全年每月水费收入，3、全年每月电费收入
+    def roomincClafi(self):
+        region = request.args.get("region")
+        year = request.args.get("year")
+        room = request.args.get("room")
+        A_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" AND room = "{room}" group by month'
+        LOG.info(f"sql is : {A_sql}")
+        # 这里的data1返回的是某一年，某一区域，某个房间的按月总收入
+        data1 = self._common.db.execute(A_sql)
+        LOG.info("data1 : " + str(data1))
+
+        # 这里的data2返回的是某一年，某一区域，某个房间的按月电费总收入
+        e_sql = f'select month ,sum(e_c) as sum_e_c from monthly where building = "{region}" AND year = "{year}" AND room = "{room}" group by month'
+        LOG.info(f"sql is : {e_sql}")
+        data2 = self._common.db.execute(e_sql)
+        LOG.info("data2 : " + str(data2))
+
+        # 这里的data3返回的是某一年，某一区域，某个房间的按月水费总收入
+        w_sql = f'select month ,sum(w_c) as sum_w_c from monthly where building = "{region}" AND year = "{year}" AND room = "{room}" group by month'
+        LOG.info(f"sql is : {w_sql}")
+        data3 = self._common.db.execute(w_sql)
+        LOG.info("data3 : " + str(data3))
+        data = data1 + data2 + data3
+        LOG.info("data : " + str(data))
+        return jsonify(data)
+
+
+
+    # 获取入住人信息数据
     def getUserInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")

@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/unitEchart.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body onload="initTree">
      <div class="header">
@@ -61,19 +62,37 @@
                  <input type="button" value="查询" onclick="getRoomInformation()">
 
              </div>
-             //CSS中设置一下下列模块横向摆放
+
              <div id="unitRoomanalysis">
-                 <div>div1</div>
-                 <div>div2</div>
-                 <div>idv3</div>
-                 <div>div4</div>
-                 <div>div5</div>
-                 <div>idv6</div>
+                 <div id="roYearInc">
+                     <input type="button" onclick="roYeIn()" value="房间年总收入">
+                 </div>
+
+                 <div id="monRent">
+                     <input type="button" onclick="monRen()" value="月租金">
+                 </div>
+
+                 <div id="monEclet">
+                     <input type="button" onclick="monelectricity()" value="月用电量">
+                 </div>
+
+                 <div id="monWat">
+                     <input type="button" onclick="monWater()" value="月用水量">
+                 </div>
+
+                 <div id="idle">
+                     <input type="button" onclick="Idle()" value="闲置天数">
+                 </div>
+
+                 <div id="curSta">
+                     <input type="button" onclick="cursta()" value="当前房屋状态">
+                 </div>
+
              </div>
-             //css中设置一下下列模块横向摆放
+
              <div id="singleanalysis">
-                 <div>按月收入</div>
-                 <div>入住人信息</div>
+                 <div id="roomIncClafi"><input type="button" onclick="roIncClafi()" value="按月收入"></div>
+                 <div id="teInfo"><input type="button" onclick="tenantInfo()" value="入住人信息"></div>
              </div>
          </div>
      </div>
