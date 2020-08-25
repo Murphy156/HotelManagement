@@ -79,6 +79,8 @@ class RegionEchart(Resource):
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
         LOG.info("sql result is : " + str(data1))
+        data = data1[0]
+        return jsonify(data)
 
 
     # 某区域的年总收入bar
@@ -90,6 +92,8 @@ class RegionEchart(Resource):
         LOG.info(f"sql is : {s_sql}")
         data2 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data2))
+        data = data2[0]
+        return jsonify(data)
 
     # 返回当前月份
     def reture_month(self):
@@ -118,6 +122,8 @@ class RegionEchart(Resource):
         #data3返回的是当月的总收入
         data3 = self._common.db.execute(A_sql)
         LOG.info("sql result is : " + str(data3))
+        data = data3[0]
+        return jsonify(data)
 
     # 返回的是某区域当月的水费
     def monWater(self):
@@ -128,6 +134,8 @@ class RegionEchart(Resource):
         #data4返回的是当月的水费
         data4 = self._common.db.execute(w_sql)
         LOG.info("sql result is : " + str(data4))
+        data = data4[0]
+        return jsonify(data)
 
     # 返回的是某区域当月的电费
     def monelec(self):
@@ -138,6 +146,8 @@ class RegionEchart(Resource):
         # data5返回的是当月的电费
         data5 = self._common.db.execute(e_sql)
         LOG.info("sql result is : " + str(data5))
+        data = data5[0]
+        return jsonify(data)
 
     #某区域的房间均价
     def aveHousePri(self):
@@ -145,9 +155,10 @@ class RegionEchart(Resource):
         a_sql = "select avg(rent) from monthly where building = 'A' AND month = '7' AND year = '2020'"
         LOG.info(f"sql is : {a_sql}")
         #这里的data返回的是某一年，月，区域的平均房价
-        data = self._common.db.execute(a_sql)
-        LOG.info("sql result is : " + str(data))
-
+        data1 = self._common.db.execute(a_sql)
+        LOG.info("sql result is : " + str(data1))
+        data = data1[0]
+        return jsonify(data)
     # 可出租房间数
     def kechuzu(self):
         pass
@@ -158,8 +169,10 @@ class RegionEchart(Resource):
         sql = 'select month ,sum(rent) as sum_rent from monthly where building = "A" AND year = "2020" group by month'
         LOG.info(f"sql is : {sql}")
         # 这里的data返回的是某一年，某区域的按月总收入
-        data = self._common.db.execute(sql)
-        LOG.info("sql result is : " + str(data))
+        data1 = self._common.db.execute(sql)
+        LOG.info1("sql result is : " + str(data1))
+        data = data1[0]
+        return jsonify(data)
 
     #某年某区域的收入分类比
     def incClafi(self):
@@ -169,6 +182,8 @@ class RegionEchart(Resource):
         # 这里的data返回的是某一年，某区域的按月总收入
         data1 = self._common.db.execute(A_sql)
         LOG.info("sql result is : " + str(data1))
+        data = data1[0]
+        return jsonify(data)
 
         # 这里返回的还是，某年，某区域每月的电费收入，传入区域和年份
         e_sql = 'select month ,sum(e_c) as sum_e_c from monthly where building = "A" AND year = "2020" group by month'
@@ -176,6 +191,8 @@ class RegionEchart(Resource):
         # 这里的data返回的是某一年，某区域的按月电费收入
         data2 = self._common.db.execute(e_sql)
         LOG.info("sql result is : " + str(data2))
+        data = data1[0]
+        return jsonify(data)
 
         # 这里返回的还是，某年，某区域每月的水费收入，传入区域和年份
         w_sql = 'select month ,sum(w_c) as sum_w_c from monthly where building = "A" AND year = "2020" group by month'
@@ -183,6 +200,8 @@ class RegionEchart(Resource):
         # 这里的data返回的是某一年，某区域的按月水费收入
         data3 = self._common.db.execute(w_sql)
         LOG.info("sql result is : " + str(data3))
+        data = data1[0]
+        return jsonify(data)
 
 
 

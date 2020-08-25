@@ -32,7 +32,7 @@ def regionEchart():
     return render_template('monthlyManagement.html')
 
 @app.route('/dataEchart/unitEchart')
-def monthlyManagement():
+def unitEchart():
     return render_template('unitEchart.html')
 
 
