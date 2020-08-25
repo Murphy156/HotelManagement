@@ -87,8 +87,14 @@ class RegionEchart(Resource):
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        LOG.info("data : " + str(data))
+        s_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" and year = "{year}" group by month'
+        LOG.info(f"sql is : {s_sql}")
+        data2 = self._common.db.execute(s_sql)
+        LOG.info("sql result is : " + str(data2))
+        data = data1 + data2
+        LOG.info("sql result is : " + str(data))
+        #data = data1[0]
+        #LOG.info("data : " + str(data))
         return jsonify(data)
 
 
@@ -101,8 +107,8 @@ class RegionEchart(Resource):
         LOG.info(f"sql is : {s_sql}")
         data2 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data2))
-        data = data2[0]
-        return jsonify(data)
+
+        return jsonify(data2)
 
     # 返回当前月份
     def reture_month(self):
