@@ -107,3 +107,36 @@ a{
 {
 	flex:1;
 }
+
+#upBox div
+{
+	flex:1;
+}
+
+
+#upBox
+{
+    display:flex
+}
+
+#midBox div
+{
+	flex:1;
+}
+
+
+#midBox
+{
+    display:flex
+}
+
+#botBox div
+{
+	flex:1;
+}
+
+
+#botBox
+{
+    display:flex
+}

@@ -78,3 +78,39 @@ roIncClafi = function(){
         }
     });
 }
+
+// 这里返回的值是某一区域，某一房间的房屋状态
+cursta = function(){
+    var myChart = echarts.init(document.getElementById('curSta'));
+    var region = $('#region option:selected').val();
+    var room = $('#roomNum').val();
+    var url = "/api/v1/unit/curaStat?region=" + region + "&room=" + room;
+    console.log(url);
+
+    $.get(url,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+        }else {
+            alert("无数据")
+        }
+    });
+}
+
+
+//获取用户信息
+tenantInfo = function() {
+    var region = $('#region option:selected').val();
+    var room = $('#roomNum option:selected').val();
+    var url = "/api/v1/unit/getUserInfo?region=" +region + "&roomNum=" + room;
+    console.log(url);
+
+    $.get(url,function(data,status){
+        if(status == 'success') {
+            var tblInfoCode = dynamic_table(data)
+            console.log(tblInfoCode)
+            $("#userInfoTbl").html(tblInfoCode);
+        } else {
+            alert("无数据")
+        }
+    });
+}

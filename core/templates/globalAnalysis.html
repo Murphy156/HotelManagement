@@ -37,7 +37,7 @@
                 </ol>
             </div>
 		</div>
-        <div class="leftBox">
+        <div>
             <div calss="slideBtn" onclick="slideBtn()">伸缩</div>
             <h1>整体数据分析</h1>
 
@@ -48,11 +48,45 @@
             </div>
 
             <div id="upBox">
-                <div id="tolInc"><input type="button" id="tolincome()" value="年总收入"></div>
-                <div id="rentInc"><input type="button" id="rentinc()" value="房租收入"></div>
-                <div id="roomQual"><input type="button" id="roomqual()" value="可用房间数"></div>
-                <div id="shopQual"><input type="button" id="shopqual()" value="可租铺位数"></div>
-                <div id="onRent"><input type="button" id="onrent()" value="当前出租率"></div>
+                <div id="tolInc">
+                    <input type="button" onclick="tolincome()" value="年总收入">
+                </div>
+
+                <div id="rentInc">
+                    <input type="button" onclick="rentinc()" value="房租收入">
+                </div>
+
+                <div id="roomQual">
+                    <input type="button" onclick="roomqual()" value="可用房间数">
+                </div>
+
+                <div id="shopQual">
+                    <input type="button" onclick="shopqual()" value="可租铺位数">
+                </div>
+
+                <div id="onRent">
+                    <input type="button" onclick="onrent()" value="当前出租率">
+                </div>
+            </div>
+
+            <div id="midBox">
+                <div id="monlInc">
+                    <input type="button" onclick="monlinc()" value="按月收入分析">
+                </div>
+
+                <div id="inCom">
+                    <input type="button" onclick="incom()" value="收入同比">
+                </div>
+            </div>
+
+            <div id="botBox">
+                <div id="regiPro">
+                    <input type="button" onclick="regipro()" value="各区域的收入占比">
+                </div>
+
+                <div id="rateComp">
+                    <input type="button" onclick="ratecomp()" value="出租率同比">
+                </div>
             </div>
         </div>
     </div>
