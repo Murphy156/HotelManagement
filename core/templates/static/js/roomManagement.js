@@ -36,6 +36,7 @@ editRoom = function(obj) {
         var other = $("#other").val();
         var rent = $("#rent").val();
         var remark = $("#remark").val();
+        var state = $("#state").val();
         var postData = {
             "id":id,
             "building":building,
@@ -45,7 +46,8 @@ editRoom = function(obj) {
             "heater":heater,
             "other":other,
             "rent":rent,
-            "remark":remark
+            "remark":remark,
+            "state":state
     };
         var url = "/api/v1/room_information/editRoom"
         console.log(url);
@@ -92,6 +94,7 @@ addRoom = function() {
         var other = $("#other").val();
         var rent = $("#rent").val();
         var remark = $("#remark").val();
+        var state = $("#state").val();
         var postData = {
             "building":building,
             "room":room,
@@ -100,7 +103,8 @@ addRoom = function() {
             "heater":heater,
             "other":other,
             "rent":rent,
-            "remark":remark
+            "remark":remark,
+            "state":state
         }
         var url = "/api/v1/room_information/addRoom"
         console.log(url);

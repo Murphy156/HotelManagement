@@ -54,6 +54,10 @@ class UnitEchart(Resource):
             return self.getUserInfo()
         elif (operation == 'roomincClafi'):
             return self.roomincClafi()
+        elif (operation == 'curaStat'):
+            return self.curaStat()
+        elif (operation == 'idle'):
+            return self.idle()
 
     def post(self, operation):
         if (operation == 'roomAllInc'):
@@ -68,6 +72,10 @@ class UnitEchart(Resource):
             return self.getUserInfo()
         elif (operation == 'roomincClafi'):
             return self.roomincClafi()
+        elif (operation == 'curaStat'):
+            return self.curaStat()
+        elif (operation == 'idle'):
+            return self.idle()
 
     # 某个房间的年总收入
     def roomAllInc(self):
@@ -123,8 +131,15 @@ class UnitEchart(Resource):
     def idle(self):
         pass
 
+    # 这里返回的是某一年，某个区域，某个房间，，某个月的房屋状态
     def curaStat(self):
-        pass
+        region = request.args.get("region")
+        room = request.args.get("room")
+        sql = f'select state from room_information where building = "{region}" AND room = "{room}" '
+        LOG.info(f"sql is : {sql}")
+        data = self._common.db.execute(sql)
+        LOG.info("data : " + str(data))
+        return jsonify(data)
 
     # 这里返回的是 某一年，某一区域，某个房间：1、全年每月收入，2、全年每月水费收入，3、全年每月电费收入
     def roomincClafi(self):

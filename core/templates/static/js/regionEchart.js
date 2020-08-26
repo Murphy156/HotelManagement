@@ -75,10 +75,36 @@ monthCome = function(){
 
 //这里得到的数据是收入分类占比
 incClaFi = function(){
-    var myChart = echarts.init(document.getElementById('incClafi'));
+     var myChart = echarts.init(document.getElementById('incClafi'));
      var region = $('#region option:selected').val();
      var year = $('#texyear').val();
      var url = "/api/v1/region/incClafi?region=" +region+ "&year=" + year;
+     console.log(url);
+
+     $.get(url,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+        }
+     });
+}
+
+rentAlRate = function(){
+     var myChart = echarts.init(document.getElementById('Rentalrate'));
+     var region = $('#region option:selected').val();
+     var url = "/api/v1/region/roRentRate?region=" +region;
+     console.log(url);
+
+     $.get(url,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+        }
+     });
+}
+
+roomNumb = function(){
+     var myChart = echarts.init(document.getElementById('roomnumb'));
+     var region = $('#region option:selected').val();
+     var url = "/api/v1/region/roomNumb?region=" +region;
      console.log(url);
 
      $.get(url,function(data,status){

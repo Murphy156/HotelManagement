@@ -63,7 +63,7 @@ monWater = function(){
     });
 }
 
-// 这里得到的数据是某一区域，某一房间，某一时间的用水量
+// 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
 roIncClafi = function(){
     var myChart = echarts.init(document.getElementById('roomIncClafi'));
     var region = $('#region option:selected').val();

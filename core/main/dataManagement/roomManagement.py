@@ -35,6 +35,7 @@ USREINFO_HEADER = {
     'air_condition': '空调',
     'heater': '热水器',
     'other': '其他',
+    'state': '房屋状态',
     'CreateTime': '登记时间'
 }
 
@@ -67,7 +68,7 @@ class RoomManagement(Resource):
         data = []
         for item in reqDataDict.keys():
             data.append(reqDataDict[item])
-        sql = 'INSERT INTO room_information(building,room,area,air_condition,rent,heater,other,remark) VALUE (%s,%s,%s,%s,%s,%s,%s,%s)'
+        sql = 'INSERT INTO room_information(building,room,area,air_condition,rent,heater,other,remark,state) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
@@ -84,8 +85,9 @@ class RoomManagement(Resource):
             other = sheet.cell(i, 5).value
             rent = sheet.cell(i, 6).value
             remark = sheet.cell(i, 7).value
-            value = (building, room, area, air_condition, heater, other, rent, remark)
-            sql = "INSERT INTO room_information(building, room, area, air_condition, heater, other, rent, remark) VALUE (%s,%s,%s,%s,%s,%s,%s,%s)"
+            state = sheet.cell(i, 8).value
+            value = (building, room, area, air_condition, heater, other, rent, remark, state)
+            sql = "INSERT INTO room_information(building, room, area, air_condition, heater, other, rent, remark, state) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
             LOG.info(f"sql is : {sql}")
             res = self._common.db.execute(sql, value)
             LOG.info("sql result is : " + str(res))
@@ -121,7 +123,8 @@ class RoomManagement(Resource):
         heater = data[6]
         other = data[7]
         remark = data[8]
-        sql = f"UPDATE room_information SET building = '{building}' ,room = '{room}' ,area = '{area}' , air_condition = '{air_condition}' ,rent = '{rent}' ,heater = '{heater}' ,other = '{other}' ,remark = '{remark}' WHERE id='{id}'"
+        state = data[9]
+        sql = f"UPDATE room_information SET building = '{building}' ,room = '{room}' ,area = '{area}' , air_condition = '{air_condition}' ,rent = '{rent}' ,heater = '{heater}' ,other = '{other}' ,remark = '{remark}' ,state = '{state}' WHERE id='{id}'"
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))

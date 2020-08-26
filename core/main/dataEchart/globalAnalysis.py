@@ -37,6 +37,16 @@ class GlobalAnalysis(Resource):
             return self.allIncomeMon()
         elif (operation == 'regionCompar'):
             return self.regionCompar()
+        elif (operation == 'roomQuantity'):
+            return self.roomQuantity()
+        elif (operation == 'shopQuantity'):
+            return self.shopQuantity()
+        elif (operation == 'rentalRate'):
+            return self.rentalRate()
+        elif (operation == 'reveCompar'):
+            return self.reveCompar()
+        elif (operation == 'renRateCompar'):
+            return self.renRateCompar()
 
     def post(self, operation):
         if (operation == 'allIncome'):
@@ -47,6 +57,16 @@ class GlobalAnalysis(Resource):
             return self.allIncomeMon()
         elif (operation == 'regionCompar'):
             return self.regionCompar()
+        elif (operation == 'roomQuantity'):
+            return self.roomQuantity()
+        elif (operation == 'shopQuantity'):
+            return self.shopQuantity()
+        elif (operation == 'rentalRate'):
+            return self.rentalRate()
+        elif (operation == 'reveCompar'):
+            return self.reveCompar()
+        elif (operation == 'renRateCompar'):
+            return self.renRateCompar()
 
     # 某一年全部物业的总收入
     def allIncome(self):
@@ -56,8 +76,7 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 房租收入
     def rentIncome(self):
@@ -67,21 +86,73 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
-    # 可租房间数
+    # 可租房间数,返回的是一个数字
     def roomQuantity(self):
-        # 在房屋管理表中获取
-        pass
+        # 取A栋的房间数
+        A_sql = f"select count(building) from room_information where building = 'A'"
+        LOG.info(f"sql is : {A_sql}")
+        data1 = self._common.db.execute(A_sql)
+        LOG.info("A_sql result is : " + str(data1))
+        a = data1[0]
+        dat1 = a['count(building)']
+        LOG.info("dat1  : " + str(dat1))
+        # 取B栋的房间数
+        B_sql = f"select count(building) from room_information where building = 'B'"
+        LOG.info(f"sql is : {B_sql}")
+        data2 = self._common.db.execute(B_sql)
+        LOG.info("B_sql result is : " + str(data2))
+        b = data2[0]
+        dat2 = b['count(building)']
+        LOG.info("dat2 : " + str(dat2))
+        # 取C栋的房间数
+        D_sql = f"select count(building) from room_information where building = 'D'"
+        LOG.info(f"sql is : {D_sql}")
+        data3 = self._common.db.execute(D_sql)
+        LOG.info("D_sql result is : " + str(data3))
+        c = data3[0]
+        dat3 = c['count(building)']
+        LOG.info("dat3 : " + str(dat3))
+        sum = dat1+dat2+dat3
+        LOG.info("sum : " + str(sum))
+        return jsonify(sum)
 
-    # 可租铺位
+    # 可租铺位，返回的是一个数字
     def shopQuantity(self):
-        pass
+        sql = f"select count(building) from room_information where building = 'C'"
+        LOG.info(f"sql is : {sql}")
+        data = self._common.db.execute(sql)
+        LOG.info("data : " + str(data))
+        c = data[0]
+        dat = c['count(building)']
+        LOG.info("dat : " + str(dat))
+        return jsonify(dat)
 
     # 当前出租率
     def rentalRate(self):
-        pass
+        # 这里计算的是已经出租的房间数
+        A_sql = f"select count(building) from room_information where state = 'on' "
+        LOG.info(f"sql is : {A_sql}")
+        data1 = self._common.db.execute(A_sql)
+        LOG.info("data1 : " + str(data1))
+        a = data1[0]
+        dat1 = a['count(building)']
+        LOG.info("dat1 : " + str(dat1))
+        # 这里计算的是全部的房间数
+        B_sql = f"select count(building) from room_information "
+        LOG.info(f"sql is : {B_sql}")
+        data2 = self._common.db.execute(B_sql)
+        LOG.info("data2 : " + str(data2))
+        b = data2[0]
+        dat2 = b['count(building)']
+        LOG.info("dat2 : " + str(dat2))
+        # 这里计算的是出租率
+        rat = dat1/dat2
+        LOG.info("rat : " + str(rat))
+        rate = str(rat*100) + '%'
+        LOG.info("rate : " + str(rate))
+        return jsonify(rate)
 
     # 全部物业总收入中按月收入分析
     def allIncomeMon(self):
@@ -91,12 +162,17 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {m_sql}")
         data1 = self._common.db.execute(m_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 收入对比
     def reveCompar(self):
-        pass
+        year = request.args.get("year")
+        s_sql = f'select month ,sum(rent) as sum_rent from monthly where year = "{year}" group by month'
+        LOG.info(f"sql is : {s_sql}")
+        data1 = self._common.db.execute(s_sql)
+        LOG.info("data1 : " + str(data1))
+        #下面代码用来表示下年数据的
+        return jsonify(data1)
 
     # 各区域占比
     def regionCompar(self):
@@ -106,8 +182,7 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {A_sql}")
         data1 = self._common.db.execute(A_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        return jsonify(data1)
 
     # 出租率比较
     def renRateCompar(self):
