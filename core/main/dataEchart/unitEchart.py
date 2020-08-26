@@ -87,8 +87,8 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("data1 : " + str(data1))
-
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 获取月租金
     def roomRent(self):
@@ -99,7 +99,8 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 获取某月某区域某房间的用水量
     def waterConsum(self):
@@ -112,7 +113,8 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 获取某月某区域某房间的用电量
     def elecConsum(self):
@@ -125,7 +127,8 @@ class UnitEchart(Resource):
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(data1))
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 本年闲置时间
     def idle(self):
@@ -137,8 +140,9 @@ class UnitEchart(Resource):
         room = request.args.get("room")
         sql = f'select state from room_information where building = "{region}" AND room = "{room}" '
         LOG.info(f"sql is : {sql}")
-        data = self._common.db.execute(sql)
-        LOG.info("data : " + str(data))
+        data1 = self._common.db.execute(sql)
+        LOG.info("data : " + str(data1))
+        data = data1[0]
         return jsonify(data)
 
     # 这里返回的是 某一年，某一区域，某个房间：1、全年每月收入，2、全年每月水费收入，3、全年每月电费收入

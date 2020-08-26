@@ -131,8 +131,8 @@ class RegionEchart(Resource):
         #这里的data返回的是某一年，月，区域的平均房价
         data1 = self._common.db.execute(a_sql)
         LOG.info("data1 : " + str(data1))
-        data = data1[0]
-        LOG.info("data : " + str(data))
+        dat = data1[0]
+        data = dat['avg(rent)']
         return jsonify(data)
 
     # 可出租房间数

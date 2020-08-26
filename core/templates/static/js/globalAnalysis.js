@@ -1,3 +1,4 @@
+
 //这里返回全部物业年的总收入
 tolincome = function(){
     var myChart = echarts.init(document.getElementById('tolInc'));
@@ -8,6 +9,9 @@ tolincome = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var toltal = data['sum_rent'];//这里返回全部物业的总收入
+            console.log(toltal)
+
         }
         else {
             alert("无数据")
@@ -25,6 +29,8 @@ rentinc = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var toltal = data['sum_rent'];//这里返回房租的总收入
+            console.log(toltal)
         }
         else {
             alert("无数据")
@@ -41,6 +47,7 @@ roomqual = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data;//直接返回房间数
         }
         else {
             alert("无数据")
@@ -57,6 +64,7 @@ shopqual = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data;// 这里直接返回商铺数
         }
         else {
             alert("无数据")
@@ -74,11 +82,21 @@ onrent = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data;//这里直接返回出租率
         }
         else {
             alert("无数据")
         }
     });
+}
+
+totalinc = function(data){
+    var a = data;
+    var x = new Array();
+    for (i = 0;i<a.length;i++){
+        x[i] = a[i].sum_rent;
+    }
+    return x;
 }
 
 // 这里返回全部物业总收入中按月收入分析
@@ -91,6 +109,8 @@ monlinc = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = totalinc(data);
+            console.log(a)
         }
         else {
             alert("无数据")
@@ -109,6 +129,8 @@ incom = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = totalinc(data);
+            console.log(a)
         }
         else {
             alert("无数据")
@@ -117,7 +139,7 @@ incom = function(){
 }
 
 
-// 这里返回收入对比
+// 这里返回各区域收入对比
 regipro = function(){
     var myChart = echarts.init(document.getElementById('regiPro'));
     var year = $('#yearch').val();
@@ -127,6 +149,8 @@ regipro = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = totalinc(data);
+            console.log(a)
         }
         else {
             alert("无数据")

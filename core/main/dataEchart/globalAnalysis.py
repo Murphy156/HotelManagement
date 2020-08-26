@@ -76,7 +76,8 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 房租收入
     def rentIncome(self):
@@ -86,7 +87,8 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        return jsonify(data1)
+        data = data1[0]
+        return jsonify(data)
 
     # 可租房间数,返回的是一个数字
     def roomQuantity(self):

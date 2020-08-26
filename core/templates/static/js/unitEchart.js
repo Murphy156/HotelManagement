@@ -10,6 +10,8 @@ roYeIn = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data['sum_rent'];
+            console.log(a)
         }
     });
 }
@@ -25,6 +27,8 @@ monRen = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data['rent'];
+            console.log(a)
         }
     });
 }
@@ -42,6 +46,8 @@ monelectricity = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data['electricity'];
+            console.log(a)
         }
     });
 }
@@ -59,8 +65,48 @@ monWater = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data['water'];
+            console.log(a)
         }
     });
+}
+
+//这里返回的是 按月房租（专用于incClaFi（））
+rentMon = function(data){
+    var a = data;
+    var x = new Array();
+    for (i = 0;i<a.length/3;i++){
+        x[i] = a[i].sum_rent;
+    }
+    return x;
+}
+
+//这里返回的是 按月电费（专用于incClaFi（））
+elect = function(data){
+     var a = data;
+     var x = new Array();
+     for (i = a.length/3;i<2*a.length/3;i++){
+         x[i] = a[i].sum_e_c;
+     }
+     var y = new Array();
+     for (i=0;i<a.length/3;i++){
+        y[i]=x[i+a.length/3];
+     }
+     return y;
+}
+
+//这里返回的是 按月水费（专用于incClaFi（））
+water = function(data){
+    var a = data;
+     var x = new Array();
+     for (i = 2*a.length/3;i<a.length;i++){
+         x[i] = a[i].sum_w_c;
+     }
+     var y = new Array();
+     for (i=0;i<a.length/3;i++){
+        y[i]=x[i+2*a.length/3];
+     }
+     return y;
 }
 
 // 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
@@ -75,6 +121,13 @@ roIncClafi = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var rent = rentMon(data);//这里返回的是按月房租收入
+            console.log(rent)
+            var elec_c = elect(data);//这里返回的是按月电费收入
+            console.log(elec_c)
+            var wate_c = water(data);//这里返回的是按月水费收入
+            console.log(wate_c)
+
         }
     });
 }
@@ -90,6 +143,8 @@ cursta = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            var a = data['state'];
+            console.log(a)
         }else {
             alert("无数据")
         }
