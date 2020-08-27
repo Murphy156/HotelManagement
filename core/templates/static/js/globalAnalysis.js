@@ -1,8 +1,21 @@
+//这里是查询启动函数
+showEcharts = function(){
+    var year = $('#yearch').val();
+    tolincome(year);
+    rentinc(year);
+    roomqual();
+    shopqual();
+    onrent();
+    monlinc(year);
+    incom(year);
+    regipro(year);
+}
+
 
 //这里返回全部物业年的总收入
-tolincome = function(){
+tolincome = function(year){
     var myChart = echarts.init(document.getElementById('tolInc'));
-    var year = $('#yearch').val();
+    /*var year = $('#yearch').val();*/
     var url = "/api/v1/globalanalysis/allIncome?year=" +year;
     console.log(url);
 
@@ -20,9 +33,9 @@ tolincome = function(){
 }
 
 // 这里返回全部房租年的总收入
-rentinc = function(){
+rentinc = function(year){
     var myChart = echarts.init(document.getElementById('rentInc'));
-    var year = $('#yearch').val();
+    /*var year = $('#yearch').val();*/
     var url = "/api/v1/globalanalysis/rentIncome?year=" +year;
     console.log(url);
 
@@ -100,9 +113,9 @@ totalinc = function(data){
 }
 
 // 这里返回全部物业总收入中按月收入分析
-monlinc = function(){
+monlinc = function(year){
     var myChart = echarts.init(document.getElementById('monlInc'));
-    var year = $('#yearch').val();
+    /*var year = $('#yearch').val();*/
     var url = "/api/v1/globalanalysis/allIncomeMon?year=" +year;
     console.log(url);
 
@@ -120,9 +133,9 @@ monlinc = function(){
 
 
 // 这里返回收入对比
-incom = function(){
+incom = function(year){
     var myChart = echarts.init(document.getElementById('inCom'));
-    var year = $('#yearch').val();
+    /*var year = $('#yearch').val();*/
     var url = "/api/v1/globalanalysis/reveCompar?year=" +year;
     console.log(url);
 
@@ -140,9 +153,9 @@ incom = function(){
 
 
 // 这里返回各区域收入对比
-regipro = function(){
+regipro = function(year){
     var myChart = echarts.init(document.getElementById('regiPro'));
-    var year = $('#yearch').val();
+    /*var year = $('#yearch').val();*/
     var url = "/api/v1/globalanalysis/regionCompar?year=" +year;
     console.log(url);
 
