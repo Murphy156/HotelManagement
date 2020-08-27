@@ -1,3 +1,17 @@
+// 查询启动函数
+getRegionInfo = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#texyear').val();
+    var month = $('#texmonth').val();
+    yearIncome(region,year);
+    nowIncome(region,year);
+    aveRoomPri(region,year,month);
+    monthCome(region,year);
+    incClaFi(region,year);
+    rentAlRate(region);
+    roomNumb(region);
+}
+
 // 这里返回一个收入总数
 sum = function(data){
     var a = data;
@@ -39,10 +53,10 @@ regiMon2 = function(data){
 }
 
 // 得到的数据是 某年某区域 1、年总收入，2、每月收入
-yearIncome = function(){
+yearIncome = function(region,year){
     var myChart = echarts.init(document.getElementById('yearincome'));
-    var region = $('#region option:selected').val();
-    var year = $('#texyear').val();
+    /*var region = $('#region option:selected').val();
+    var year = $('#texyear').val();*/
     var url1 = "/api/v1/region/yearIncome?region=" +region+ "&year=" + year;
     console.log(url1);
 
@@ -60,10 +74,10 @@ yearIncome = function(){
 }
 
 //这里得到的数据是 某一区域，某一年：1、当月总收入，2、当月总电费，3、当月总水费
-nowIncome = function(){
+nowIncome = function(region,year){
     var myChart = echarts.init(document.getElementById('nowincome'));
-    var region = $('#region option:selected').val();
-    var year = $('#texyear').val();
+    /*var region = $('#region option:selected').val();
+    var year = $('#texyear').val();*/
     var url = "/api/v1/region/allMonth?region=" +region+ "&year=" + year;
     console.log(url);
 
@@ -84,11 +98,11 @@ nowIncome = function(){
     });
 }
 //这里得到的数据是 某一区域，某一年，某一月：1、某月客房均价
-aveRoomPri = function(){
+aveRoomPri = function(region,year,month){
     var myChart = echarts.init(document.getElementById('averRoomPri'));
-    var region = $('#region option:selected').val();
+    /*var region = $('#region option:selected').val();
     var year = $('#texyear').val();
-    var month = $('#texmonth').val();
+    var month = $('#texmonth').val();*/
     var url = "/api/v1/region/aveHousePri?region=" +region+ "&year=" + year + "&month=" + month;
     console.log(url);
 
@@ -101,10 +115,10 @@ aveRoomPri = function(){
 }
 
 //这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
-monthCome = function(){
+monthCome = function(region,year){
      var myChart = echarts.init(document.getElementById('monthcome'));
-     var region = $('#region option:selected').val();
-     var year = $('#texyear').val();
+     /*var region = $('#region option:selected').val();
+     var year = $('#texyear').val();*/
      var url = "/api/v1/region/regMonInc?region=" +region+ "&year=" + year;
      console.log(url);
 
@@ -155,10 +169,10 @@ water = function(data){
      return y;
 }
 //这里得到的数据是收入分类占比
-incClaFi = function(){
+incClaFi = function(region,year){
      var myChart = echarts.init(document.getElementById('incClafi'));
-     var region = $('#region option:selected').val();
-     var year = $('#texyear').val();
+     /*var region = $('#region option:selected').val();
+     var year = $('#texyear').val();*/
      var url = "/api/v1/region/incClafi?region=" +region+ "&year=" + year;
      console.log(url);
 
@@ -176,9 +190,9 @@ incClaFi = function(){
 }
 
 //这里返回的是出租率
-rentAlRate = function(){
+rentAlRate = function(region){
      var myChart = echarts.init(document.getElementById('Rentalrate'));
-     var region = $('#region option:selected').val();
+     /*var region = $('#region option:selected').val();*/
      var url = "/api/v1/region/roRentRate?region=" +region;
      console.log(url);
 
@@ -190,15 +204,18 @@ rentAlRate = function(){
      });
 }
 
-roomNumb = function(){
+//这里返回的是某区域的房间数
+roomNumb = function(region){
      var myChart = echarts.init(document.getElementById('roomnumb'));
-     var region = $('#region option:selected').val();
+     /*var region = $('#region option:selected').val();*/
      var url = "/api/v1/region/roomNumb?region=" +region;
      console.log(url);
 
      $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
+            a = data['count(building)'];
+            console.log(a)
         }
      });
 }

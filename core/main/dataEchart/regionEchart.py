@@ -140,8 +140,9 @@ class RegionEchart(Resource):
         region = request.args.get("region")
         sql = f"select count(building) from room_information where state = 'on' and building = '{region}' "
         LOG.info(f"sql is : {sql}")
-        data = self._common.db.execute(sql)
-        LOG.info("data : " + str(data))
+        data1 = self._common.db.execute(sql)
+        LOG.info("data : " + str(data1))
+        data = data1[0]
         return jsonify(data)
 
     # 房屋出租率

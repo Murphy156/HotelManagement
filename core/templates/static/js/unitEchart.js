@@ -1,9 +1,25 @@
-//这里得到的数据是某一区域，某一年，某一房间号：年总收入
-roYeIn = function(){
-    var myChart = echarts.init(document.getElementById('roYearInc'));
+// 查询启动函数
+getRoomInformation = function(){
     var region = $('#region option:selected').val();
     var year = $('#yearDate').val();
     var room = $('#roomNum').val();
+    var month = $('#monthData').val();
+    roYeIn(region,year,room);
+    monRen(region,room);
+    monelectricity(region,year,room,month);
+    monWater(region,year,room,month);
+    roIncClafi(region,year,room);
+    cursta(region,room);
+    tenantInfo(region,room);
+
+}
+
+//这里得到的数据是某一区域，某一年，某一房间号：年总收入
+roYeIn = function(region,year,room){
+    var myChart = echarts.init(document.getElementById('roYearInc'));
+    /*var region = $('#region option:selected').val();
+    var year = $('#yearDate').val();
+    var room = $('#roomNum').val();*/
     var url = "/api/v1/unit/roomAllInc?region=" + region + "&year=" + year +  "&room=" + room;
     console.log(url);
 
@@ -17,10 +33,10 @@ roYeIn = function(){
 }
 
 // 这里得到的数据是某一区域，某一房间的参考租金
-monRen = function(){
+monRen = function(region,room){
     var myChart = echarts.init(document.getElementById('monRent'));
-    var region = $('#region option:selected').val();
-    var room = $('#roomNum').val();
+    /*var region = $('#region option:selected').val();
+    var room = $('#roomNum').val();*/
     var url = "/api/v1/unit/roomRent?region=" + region +  "&room=" + room;
     console.log(url);
 
@@ -34,12 +50,12 @@ monRen = function(){
 }
 
 // 这里得到的数据是某一区域，某一房间，某一时间的用电量
-monelectricity = function(){
+monelectricity = function(region,year,room,month){
     var myChart = echarts.init(document.getElementById('monEclet'));
-    var region = $('#region option:selected').val();
+    /*var region = $('#region option:selected').val();
     var year = $('#yearDate').val();
     var room = $('#roomNum').val();
-    var month = $('#monthData').val();
+    var month = $('#monthData').val();*/
     var url = "/api/v1/unit/elecConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
 
@@ -53,12 +69,12 @@ monelectricity = function(){
 }
 
 // 这里得到的数据是某一区域，某一房间，某一时间的用水量
-monWater = function(){
+monWater = function(region,year,room,month){
     var myChart = echarts.init(document.getElementById('monWat'));
-    var region = $('#region option:selected').val();
+    /*var region = $('#region option:selected').val();
     var year = $('#yearDate').val();
     var room = $('#roomNum').val();
-    var month = $('#monthData').val();
+    var month = $('#monthData').val();*/
     var url = "/api/v1/unit/waterConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
 
@@ -110,11 +126,11 @@ water = function(data){
 }
 
 // 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
-roIncClafi = function(){
+roIncClafi = function(region,year,room){
     var myChart = echarts.init(document.getElementById('roomIncClafi'));
-    var region = $('#region option:selected').val();
+   /* var region = $('#region option:selected').val();
     var year = $('#yearDate').val();
-    var room = $('#roomNum').val();
+    var room = $('#roomNum').val();*/
     var url = "/api/v1/unit/roomincClafi?region=" + region + "&year=" + year + "&room=" + room;
     console.log(url);
 
@@ -133,10 +149,10 @@ roIncClafi = function(){
 }
 
 // 这里返回的值是某一区域，某一房间的房屋状态
-cursta = function(){
+cursta = function(region,room){
     var myChart = echarts.init(document.getElementById('curSta'));
-    var region = $('#region option:selected').val();
-    var room = $('#roomNum').val();
+    /*var region = $('#region option:selected').val();
+    var room = $('#roomNum').val();*/
     var url = "/api/v1/unit/curaStat?region=" + region + "&room=" + room;
     console.log(url);
 
@@ -153,9 +169,9 @@ cursta = function(){
 
 
 //获取用户信息
-tenantInfo = function() {
-    var region = $('#region option:selected').val();
-    var room = $('#roomNum option:selected').val();
+tenantInfo = function(region,room) {
+    /*var region = $('#region option:selected').val();
+    var room = $('#roomNum option:selected').val();*/
     var url = "/api/v1/unit/getUserInfo?region=" +region + "&roomNum=" + room;
     console.log(url);
 
