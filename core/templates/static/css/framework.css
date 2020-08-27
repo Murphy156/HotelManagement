@@ -43,7 +43,7 @@ a{
 
 .mainBox .leftBox {
 	height: 100%;
-	width: 240px;
+	width: 10%;
 	float: left;
 	overflow: auto;
 	/*以上设置是重点必须的*/

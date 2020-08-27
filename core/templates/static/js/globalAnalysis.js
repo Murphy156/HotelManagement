@@ -1,16 +1,21 @@
+show_global_data = function() {
+    tolincome();
+}
+
 
 //这里返回全部物业年的总收入
 tolincome = function(){
-    var myChart = echarts.init(document.getElementById('tolInc'));
-    var year = $('#yearch').val();
+//    var myChart = echarts.init(document.getElementById('tolInc'));
+    var year = $('#global_year_choose option:selected').val();
     var url = "/api/v1/globalanalysis/allIncome?year=" +year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var toltal = data['sum_rent'];//这里返回全部物业的总收入
-            console.log(toltal)
+            var totalIncome = data['sum_rent'];//这里返回全部物业的总收入
+            var totalIncomeHtml = "<h1>总收入：" + totalIncome + "元</h1>";
+            $("#global_total_income").html(totalIncomeHtml);
 
         }
         else {
