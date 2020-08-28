@@ -1,16 +1,13 @@
-// 查询启动函数
-getRegionInfo = function(){
-    var region = $('#region option:selected').val();
-    var year = $('#texyear').val();
-    var month = $('#texmonth').val();
-    yearIncome(region,year);
-    nowIncome(region,year);
-    aveRoomPri(region,year,month);
-    monthCome(region,year);
-    incClaFi(region,year);
-    rentAlRate(region);
-    roomNumb(region);
+show_reigon_data = function(){
+    yearIncome();
+    nowIncome();
+    aveRoomPri();
+    rentAlRate();
+    roomNumb();
+    monthCome();
+    incClaFi();
 }
+
 
 // 这里返回一个收入总数
 sum = function(data){
@@ -53,10 +50,9 @@ regiMon2 = function(data){
 }
 
 // 得到的数据是 某年某区域 1、年总收入，2、每月收入
-yearIncome = function(region,year){
-    var myChart = echarts.init(document.getElementById('yearincome'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#texyear').val();*/
+yearIncome = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#texyear option:selected').val();
     var url1 = "/api/v1/region/yearIncome?region=" +region+ "&year=" + year;
     console.log(url1);
 
@@ -67,17 +63,20 @@ yearIncome = function(region,year){
             console.log(sum1)
             mon = regiMon1(data); //mon是每月收入
             console.log(mon)
+            var totalIncomeHtml = "<h1>年总收入：" + sum1 + "元</h1>";
+            $("#yearincome").html(totalIncomeHtml);
         }
-        $("#test1").html(sum1);
+        else {
+            alert("无数据")
+        }
 
     });
 }
 
 //这里得到的数据是 某一区域，某一年：1、当月总收入，2、当月总电费，3、当月总水费
-nowIncome = function(region,year){
-    var myChart = echarts.init(document.getElementById('nowincome'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#texyear').val();*/
+nowIncome = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#texyear option:selected').val();
     var url = "/api/v1/region/allMonth?region=" +region+ "&year=" + year;
     console.log(url);
 
@@ -90,19 +89,20 @@ nowIncome = function(region,year){
             console.log(w_c)
             var e_c = data[2].sum_e_c;
             console.log(e_c)
+            var totalIncomeHtml = "<h1>当月总收入：" + mo_rent + "元</h1>"  + "<h2>当月电费：" + e_c + "元</h2>" + "<h3>当月水费" + w_c + "元</h3>";
+            $("#nowincome").html(totalIncomeHtml);
         }
-        //$(#"show").html(y);
+
         else {
             alert("无数据")
         }
     });
 }
 //这里得到的数据是 某一区域，某一年，某一月：1、某月客房均价
-aveRoomPri = function(region,year,month){
-    var myChart = echarts.init(document.getElementById('averRoomPri'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#texyear').val();
-    var month = $('#texmonth').val();*/
+aveRoomPri = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#texyear option:selected').val();
+    var month = $('#texmonth option:selected').val();
     var url = "/api/v1/region/aveHousePri?region=" +region+ "&year=" + year + "&month=" + month;
     console.log(url);
 
@@ -110,15 +110,19 @@ aveRoomPri = function(region,year,month){
         if(status == 'success'){
             console.log(data)  //数据形式：{'avg(rent)': 433.64285714285717}
             average = data; //data是直接返回来的值
+            var totalIncomeHtml = "<h1>客房均价：" + average + "元</h1>";
+            $("#averRoomPri").html(totalIncomeHtml);
+        }
+        else {
+            alert("无数据")
         }
     });
 }
 
 //这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
-monthCome = function(region,year){
-     var myChart = echarts.init(document.getElementById('monthcome'));
-     /*var region = $('#region option:selected').val();
-     var year = $('#texyear').val();*/
+monthCome = function(){
+     var region = $('#region option:selected').val();
+     var year = $('#texyear option:selected').val();
      var url = "/api/v1/region/regMonInc?region=" +region+ "&year=" + year;
      console.log(url);
 
@@ -127,6 +131,63 @@ monthCome = function(region,year){
             console.log(data)
             mon = regiMon2(data); //mon是每月收入
             console.log(mon)
+            var x = new Array();
+            for (i = 0;i<mon.length;i++){
+                x[i] = i+1;
+            }
+            console.log(x)
+            var myChart = echarts.init(document.getElementById('monthcome'));
+            var option = {
+            backgroundColor: "#F0FFFF",
+            title: {
+                text: '按月收入分析',
+                left: "center",
+                textStyle: {
+                    fontSize: 30
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:200px;height:100px;;',
+                trigger: 'axis',
+                axisPointer: {
+                   type: "shadow"
+                }
+            },
+            legend: {
+                data:x
+            },
+            xAxis: {
+                type: "category",
+                data: x,
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            yAxis: {
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            series: [{
+                name: '每月收入',
+                type: 'bar',
+                data: mon
+            },
+            {
+                name: '每月收入',
+                type: 'line',
+                data: mon,
+                itemStyle : { normal: {label : {show: true,textStyle: {
+                color: '#333',
+                fontSize: 30
+            }}}}
+            }]
+        };
+        myChart.setOption(option);
         }
      });
 }
@@ -169,10 +230,9 @@ water = function(data){
      return y;
 }
 //这里得到的数据是收入分类占比
-incClaFi = function(region,year){
-     var myChart = echarts.init(document.getElementById('incClafi'));
-     /*var region = $('#region option:selected').val();
-     var year = $('#texyear').val();*/
+incClaFi = function(){
+     var region = $('#region option:selected').val();
+     var year = $('#texyear option:selected').val();
      var url = "/api/v1/region/incClafi?region=" +region+ "&year=" + year;
      console.log(url);
 
@@ -185,14 +245,137 @@ incClaFi = function(region,year){
             console.log(elec_c)
             var wate_c = water(data);//这里返回的是按月水费收入
             console.log(wate_c)
-        }
-     });
+            var x = new Array();
+            for (i = 0;i<rent.length;i++){
+                x[i] = i+1;
+            }
+            console.log(x)
+            var myChart = echarts.init(document.getElementById('incClafi'));
+            var option = {
+            backgroundColor: "#F0FFFF",
+            title: {
+                text: '收入分类比',
+                left: "left",
+                textStyle: {
+                    fontSize: 30
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:250px;height:100px;;',
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['房租', '电费', '水费']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            yAxis: {
+                type: 'category',
+                data: x,
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            series: [
+            {
+                name: '房租',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: rent,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false,
+                            position: 'inside',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
+
+            },
+            {
+                name: '电费',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: elec_c,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            color:'	#FFFF00',
+                            show: false,
+                            position: 'insideRight',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                name: '水费',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'bottom'
+                },
+                data: wate_c,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false,
+                            position: 'insideRight',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
+            }
+
+                ]
+            };
+            myChart.setOption(option);
+            }
+        });
 }
 
 //这里返回的是出租率
-rentAlRate = function(region){
-     var myChart = echarts.init(document.getElementById('Rentalrate'));
-     /*var region = $('#region option:selected').val();*/
+rentAlRate = function(){
+     var region = $('#region option:selected').val();
      var url = "/api/v1/region/roRentRate?region=" +region;
      console.log(url);
 
@@ -200,14 +383,15 @@ rentAlRate = function(region){
         if(status == 'success'){
             console.log(data)
             var a = data; //这里返回的是出租率数据
+            var totalIncomeHtml = "<h1>出租率：" + a + "</h1>";
+            $("#Rentalrate").html(totalIncomeHtml);
         }
      });
 }
 
 //这里返回的是某区域的房间数
 roomNumb = function(region){
-     var myChart = echarts.init(document.getElementById('roomnumb'));
-     /*var region = $('#region option:selected').val();*/
+     var region = $('#region option:selected').val();
      var url = "/api/v1/region/roomNumb?region=" +region;
      console.log(url);
 
@@ -216,6 +400,8 @@ roomNumb = function(region){
             console.log(data)
             a = data['count(building)'];
             console.log(a)
+            var totalIncomeHtml = "<h1>房间数：" + a + "</h1>";
+            $("#roomNumb").html(totalIncomeHtml);
         }
      });
 }

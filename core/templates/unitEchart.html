@@ -5,12 +5,13 @@
     <title>单元数据分析</title>
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/unitEchart.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
-<body onload="initTree">
+<body onload="show_unit_data()">
      <div class="header">
 		<h2>神策-管理系统</h2>
 	</div>
@@ -38,15 +39,28 @@
             </div>
          </div>
 
-         <div class="rightBox">
-             <div calss="slideBtn" onclick="slideBtn()">伸缩</div>
-             <h1>单元数据分析</h1>
 
              <div id="unitChoose">
                  <b>年份</b>
-                 <input type="text" id="yearDate" placeholder="请输入年份">
+                 <select name="year" id="yearDate">
+                     <option value="2020">2020</option>
+                     <option value="2019">2019</option>
+                 </select>
                  <b>月份</b>
-                 <input type="text" id="monthData" placeholder="请输入月份">
+                 <select name="month" id="monthData">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                     <option value="9">9</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                 </select>
                  <b>区域</b>
                  <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -56,51 +70,40 @@
                         <option value="D">D</option>
                  </select>
                  <b>Num</b>
+
                  <select name="roomNum" id="roomNum">
                         <option></option>
                  </select>
-                 <input type="button" value="查询" onclick="getRoomInformation()">
-
+                 <input type="button" value="查询" onclick="show_unit_data()">
              </div>
 
-             <div id="unitRoomanalysis">
-                 <div id="roYearInc">
-                     <!--<input type="button" onclick="roYeIn()" value="房间年总收入">-->
-                 </div>
+            <div class="unitDataMidd" id="unitDataMidd">
+                <div id="unitDataMiddContent">
+                    <div id="roYearInc" onload="roYeIn()">1</div>
 
-                 <div id="monRent">
-                     <!--<input type="button" onclick="monRen()" value="月租金">-->
-                 </div>
+                    <div id="monRent" onload="monRen()">2</div>
 
-                 <div id="monEclet">
-                     <!--<input type="button" onclick="monelectricity()" value="月用电量">-->
-                 </div>
+                    <div id="monEclet" onload="monelectricity()">3</div>
 
-                 <div id="monWat">
-                     <!--<input type="button" onclick="monWater()" value="月用水量">-->
-                 </div>
+                    <div id="monWat" onload="monWater()">4</div>
 
-                 <div id="idle">
-                    <!-- <input type="button" onclick="Idle()" value="闲置天数">-->
-                 </div>
+                    <div id="idle">5</div>
 
-                 <div id="curSta">
-                     <!--<input type="button" onclick="cursta()" value="当前房屋状态">-->
-                 </div>
+                    <div id="curSta" onload="cursta()">6</div>
+                </div>
+            </div>
 
-             </div>
+            <div class="unitDataBott" id="unitDataBott">
+                <div id="unitDataBottContent">
+                    <div id="roomIncClafi" onload="roIncClafi"></div>
 
-             <div id="singleanalysis">
-                 <div id="roomIncClafi">
-                     <!--<input type="button" onclick="roIncClafi()" value="按月收入">-->
-                 </div>
-                 <div id="teInfo">
-                     <!--<input type="button" onclick="tenantInfo()" value="入住人信息">-->
-                     <table id="userInfoTbl" border="1">
-                     </table>
-                 </div>
-             </div>
-         </div>
+                    <div id="teInfo">
+                        <table id="userInfoTbl" border="1" onload="tenantInfo()">
+                        </table>
+                    </div>
+                </div>
+            </div>
+
      </div>
 </body>
 </html>

@@ -5,12 +5,14 @@
     <title>区域数据分析</title>
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/regionEchart.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
 </head>
-<body onload="initTree()">
+<body onload="show_reigon_data()">
     <div class="header">
 		<h2>神策-管理系统</h2>
 	</div>
@@ -37,57 +39,61 @@
                 </ol>
             </div>
 		</div>
-        <div calss="middleBox" >
-            <div calss="slideBtn" onclick="slideBtn()">伸缩</div>
-            <h1>区域数据分析</h1>
+
+
 
             <div id="regionChoose">
                     <b>年</b>
-                    <input type="text" id="texyear" placeholder="请输入年份">
+                    <select name="year" id="texyear">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
                     <b>月</b>
-                    <input type="text" id="texmonth" placeholder="请输入月份">
+                    <select name="month" id="texmonth">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                     <b>区域</b>
                     <select name="region" id="region" >
-                        <option selected="selected">所有</option>
+                        <!--<option selected="selected">所有</option>-->
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
-                    <input type="button" value="查询" onclick="getRegionInfo()">
+                    <input type="button" value="查询" onclick="show_region_data()">
+            </div>
+        <div class="dataAnaLeft" id="dataAnaLeft">
+            <div id="dataAnaLeftContent">
+                <div id="yearincome" onload="yearIncome()">1</div>
+
+                <div id="nowincome" onload="nowIncome()">2</div>
+
+                <div id="Rentalrate" onload="rentAlRate()">3</div>
+
+                <div id="averRoomPri" onload="aveRoomPri()">4</div>
+
+                <div id="roomNumb" onload="roomNumb()">5</div>
             </div>
 
-            <div id="yearincome" >
-                <!--<input type="button" onclick="yearIncome()" value="年总收入"/>-->
-
-                <div id="test1"></div>
-            </div>
-
-            <div id="nowincome">
-                <!--<input type="button" onclick="nowIncome()" value="当月数据"/>-->
-            </div>
-
-            <div id="Rentalrate">
-                <!--<input type="button" onclick="rentAlRate()" value="出租率"/>-->
-            </div>
-
-            <div id="averRoomPri">
-                <!--<input type="button" onclick="aveRoomPri()" value="客房均价"/>-->
-            </div>
-
-            <div id="roomnumb">
-                <!--<input type="button" onclick="roomNumb()" value="可出租的房间数"/>-->
-            </div>
         </div>
 
-        <div class="rightBox" style="float:right">
-            <div id="monthcome">
-                <!--<input type="button" onclick="monthCome()" value="按月总收入"/>-->
+        <div class="dataAnalyRight" id="dataAnalyRight">
+            <div id="dataAnalyRightContent" >
+                <div id="monthcome" onload="monthCome()">1</div>
+
+                <div id="incClafi" onload="incClaFi()">2</div>>
             </div>
-
-            <div id="incClafi">
-
-            </div>>
         </div>
     </div>
 

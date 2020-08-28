@@ -2,7 +2,7 @@
 .dataAnalysisTop{
     margin-top:3px;
     width:100%;
-    height:50px;
+    height:100px;
     border:1px solid black;
 }
 
@@ -18,13 +18,13 @@
     border:1px solid red;
     height:50%;
     float:left;
-    width:17%;
-    height:50px;;
+    width:500px;
+    height:100px;;
 }
 
 /* 图表布局 */
 .dataAnalysisMiddle{
-    margin-top:3px;
+    margin-top:50px;
     width:100%;
     height:100%;
     border:1px solid black;
@@ -42,6 +42,127 @@
     border:1px solid green;
     float:left;
     width:40%;
-    height:400px;
+    height:800px;
 }
+
+/* region指标布局 */
+.dataAnaLeft{
+    margin-top:3px;
+    width:100%;
+    height:200px;
+    border:1px solid black;
+}
+
+#dataAnaLeft{
+    text-align:center;
+}
+
+#dataAnaLeftContent{
+    width:100%;
+}
+
+#dataAnaLeftContent div{
+    border:1px solid red;
+    height:50%;
+    float:left;
+    width:500px;
+    height:200px;;
+}
+
+/* region图表布局 */
+
+.dataAnalyRight{
+    margin-top:100px;
+    width:100%;
+    height:100%;
+    border:1px solid black;
+}
+
+#dataAnalyRight{
+    text-align:center;
+}
+
+#dataAnalyRightContent{
+    width:100%;
+}
+
+
+
+#dataAnalyRightContent div{
+    margin-left:300px;
+    border:1px solid green;
+    float:left;
+    width:1000px;
+    height:1000px;
+}
+
+/*unit指标布局 */
+.unitDataMidd{
+    margin-top:3px;
+    width:100%;
+    height:100px;
+    border:1px solid black;
+}
+
+#unitDataMidd{
+    text-align:center;
+}
+
+#unitDataMiddContent{
+    width:100%;
+}
+
+#unitDataMiddContent div{
+    border:1px solid red;
+    height:50%;
+    float:left;
+    width:450px;
+    height:100px;
+}
+
+
+
+/* unit图表布局 */
+
+.unitDataBott{
+    margin-top:100px;
+    width:100%;
+    height:100%;
+    border:1px solid black;
+}
+
+#unitDataBott{
+    text-align:center;
+}
+
+#unitDataBottContent{
+    width:100%;
+}
+
+/*#unitDataBottContent div{
+    border:1px solid green;
+    float:left;
+    width:40%;
+    height:400px;
+}*/
+
+#roomIncClafi{
+    margin-left:1400px;
+    margin-top:100px;
+    border:1px solid green;
+    width:1400px;
+    height:1000px;
+}
+
+#teInfo{
+    margin-left:1000px;
+    margin-top:100px;
+    border:1px solid green;
+    width:2400px;
+    height:500px;
+}
+
+
+
+
 

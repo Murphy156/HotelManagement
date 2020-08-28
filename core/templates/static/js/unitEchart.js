@@ -1,25 +1,18 @@
-// 查询启动函数
-getRoomInformation = function(){
-    var region = $('#region option:selected').val();
-    var year = $('#yearDate').val();
-    var room = $('#roomNum').val();
-    var month = $('#monthData').val();
-    roYeIn(region,year,room);
-    monRen(region,room);
-    monelectricity(region,year,room,month);
-    monWater(region,year,room,month);
-    roIncClafi(region,year,room);
-    cursta(region,room);
-    tenantInfo(region,room);
-
+show_unit_data = function(){
+    roYeIn();
+    monRen();
+    monelectricity();
+    monWater();
+    cursta();
+    roIncClafi();
+    tenantInfo();
 }
 
 //这里得到的数据是某一区域，某一年，某一房间号：年总收入
-roYeIn = function(region,year,room){
-    var myChart = echarts.init(document.getElementById('roYearInc'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#yearDate').val();
-    var room = $('#roomNum').val();*/
+roYeIn = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#yearDate option:selected').val();
+    var room = $('#roomNum').val();
     var url = "/api/v1/unit/roomAllInc?region=" + region + "&year=" + year +  "&room=" + room;
     console.log(url);
 
@@ -28,15 +21,16 @@ roYeIn = function(region,year,room){
             console.log(data)
             var a = data['sum_rent'];
             console.log(a)
+            var totalIncomeHtml = "<h1>年总收入：" + a + "元</h1>";
+            $("#roYearInc").html(totalIncomeHtml);
         }
     });
 }
 
 // 这里得到的数据是某一区域，某一房间的参考租金
-monRen = function(region,room){
-    var myChart = echarts.init(document.getElementById('monRent'));
-    /*var region = $('#region option:selected').val();
-    var room = $('#roomNum').val();*/
+monRen = function(){
+    var region = $('#region option:selected').val();
+    var room = $('#roomNum').val();
     var url = "/api/v1/unit/roomRent?region=" + region +  "&room=" + room;
     console.log(url);
 
@@ -45,17 +39,18 @@ monRen = function(region,room){
             console.log(data)
             var a = data['rent'];
             console.log(a)
+            var totalIncomeHtml = "<h1>参考租金：" + a + "元</h1>";
+            $("#monRent").html(totalIncomeHtml);
         }
     });
 }
 
 // 这里得到的数据是某一区域，某一房间，某一时间的用电量
-monelectricity = function(region,year,room,month){
-    var myChart = echarts.init(document.getElementById('monEclet'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#yearDate').val();
+monelectricity = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
-    var month = $('#monthData').val();*/
+    var month = $('#monthData option:selected').val();
     var url = "/api/v1/unit/elecConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
 
@@ -64,17 +59,18 @@ monelectricity = function(region,year,room,month){
             console.log(data)
             var a = data['electricity'];
             console.log(a)
+            var totalIncomeHtml = "<h1>用电量：" + a + "度</h1>";
+            $("#monEclet").html(totalIncomeHtml);
         }
     });
 }
 
 // 这里得到的数据是某一区域，某一房间，某一时间的用水量
-monWater = function(region,year,room,month){
-    var myChart = echarts.init(document.getElementById('monWat'));
-    /*var region = $('#region option:selected').val();
-    var year = $('#yearDate').val();
+monWater = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
-    var month = $('#monthData').val();*/
+    var month = $('#monthData option:selected').val();
     var url = "/api/v1/unit/waterConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
 
@@ -83,6 +79,8 @@ monWater = function(region,year,room,month){
             console.log(data)
             var a = data['water'];
             console.log(a)
+            var totalIncomeHtml = "<h1>用水量：" + a + "吨</h1>";
+            $("#monWat").html(totalIncomeHtml);
         }
     });
 }
@@ -126,11 +124,10 @@ water = function(data){
 }
 
 // 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
-roIncClafi = function(region,year,room){
-    var myChart = echarts.init(document.getElementById('roomIncClafi'));
-   /* var region = $('#region option:selected').val();
-    var year = $('#yearDate').val();
-    var room = $('#roomNum').val();*/
+roIncClafi = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#yearDate option:selected').val();
+    var room = $('#roomNum').val();
     var url = "/api/v1/unit/roomincClafi?region=" + region + "&year=" + year + "&room=" + room;
     console.log(url);
 
@@ -143,16 +140,76 @@ roIncClafi = function(region,year,room){
             console.log(elec_c)
             var wate_c = water(data);//这里返回的是按月水费收入
             console.log(wate_c)
+            var x = new Array();
+            for (i = 0;i<rent.length;i++){
+                x[i] = i+1;
+            }
+            console.log(x)
+            var myChart = echarts.init(document.getElementById('roomIncClafi'));
+            var option = {
+                backgroundColor: "#F0FFFF",
+            title: {
+                text: '按月收入',
+                left: "center",
+                textStyle: {
+                    fontSize: 50
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:250px;height:300px;;',
+                trigger: 'axis',
+                axisPointer: {
+                   type: "shadow"
+                }
+            },
+            legend: {
+                data:x
+            },
+            xAxis: {
+                type: "category",
+                data: x,
+                axisLabel: {
+                    textStyle:{
+                        fontSize:30 
+                    }
+                }
+            },
+            yAxis: {
+                axisLabel: {
+                    textStyle:{
+                        fontSize:30
+                    }
+                }
+            },
+            series: [{
+                name: '房租',
+                type: 'bar',
+                data: rent,
+                color: '#4169E1',
 
+            },
+            {
+                name: '电费',
+                type: 'bar',
+                data: elec_c,
+                color:'	#FFA500'
+            },
+            {
+                name: '水费',
+                type: 'bar',
+                data: wate_c,
+                color:'#228B22'
+            }]
+            };
+            myChart.setOption(option);
         }
     });
 }
 
 // 这里返回的值是某一区域，某一房间的房屋状态
 cursta = function(region,room){
-    var myChart = echarts.init(document.getElementById('curSta'));
-    /*var region = $('#region option:selected').val();
-    var room = $('#roomNum').val();*/
+    var region = $('#region option:selected').val();
+    var room = $('#roomNum').val();
     var url = "/api/v1/unit/curaStat?region=" + region + "&room=" + room;
     console.log(url);
 
@@ -161,6 +218,8 @@ cursta = function(region,room){
             console.log(data)
             var a = data['state'];
             console.log(a)
+            var totalIncomeHtml = "<h1>房屋状态：" + a + "元</h1>";
+            $("#curSta").html(totalIncomeHtml);
         }else {
             alert("无数据")
         }
@@ -169,9 +228,9 @@ cursta = function(region,room){
 
 
 //获取用户信息
-tenantInfo = function(region,room) {
-    /*var region = $('#region option:selected').val();
-    var room = $('#roomNum option:selected').val();*/
+tenantInfo = function() {
+    var region = $('#region option:selected').val();
+    var room = $('#roomNum option:selected').val();
     var url = "/api/v1/unit/getUserInfo?region=" +region + "&roomNum=" + room;
     console.log(url);
 
