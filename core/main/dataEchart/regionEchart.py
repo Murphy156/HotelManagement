@@ -165,9 +165,10 @@ class RegionEchart(Resource):
         dat2 = b['count(building)']
         LOG.info("dat2 : " + str(dat2))
         # 这里是计算出租率的
-        rat = dat2 / dat1
+        rat = dat2 / dat1*100
         LOG.info("rat : " + str(rat))
-        rate = str(rat * 100) + '%'
+        rat1 = round(rat)
+        rate = str(rat1) + '%'
         LOG.info("rate : " + str(rate))
         return jsonify(rate)
 

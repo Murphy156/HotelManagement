@@ -7,6 +7,7 @@ show_global_data = function() {
     monlinc();
     incom();
     regipro();
+    rateComp();
 }
 
 
@@ -361,6 +362,84 @@ regipro = function(){
         }
         else {
             alert("无数据")
+        }
+    });
+}
+
+ratedeal = function(data){
+    var a = data;
+    var x = new Array();
+    for(i=0;i<a.length;i++){
+        x[i] = a[i].rate_c/43;
+    }
+
+
+    return x;
+}
+
+rateComp = function(){
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/renRateCompar?year=" +year;
+    console.log(url);
+
+    $.get(url,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            var a = ratedeal(data);
+            console.log(a)
+            var x = new Array();
+            for (i = 0;i<a.length;i++){
+                x[i] = i+1;
+            }
+            console.log(x)
+            var myChart = echarts.init(document.getElementById('rateCompara'));
+            var option = {
+            backgroundColor: "#F0FFFF",
+            title: {
+                text: '出租率同比',
+                left: "center",
+                textStyle: {
+                    fontSize: 30
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:250px;height:100px;;',
+                trigger: 'axis',
+                axisPointer: {
+                   type: "shadow"
+                }
+            },
+            legend: {
+                data:x
+            },
+            xAxis: {
+                type: "category",
+                data: x,
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            yAxis: {
+                axisLabel: {
+                    textStyle:{
+                        fontSize:25 
+                    }
+                }
+            },
+            series: [
+            {
+                name: '出租率',
+                type: 'line',
+                data: a,
+                itemStyle : { normal: {label : {show: false,textStyle: {
+                color: '#333',
+                fontSize: 30
+            }}}}
+            }]
+        };
+        myChart.setOption(option);
         }
     });
 }

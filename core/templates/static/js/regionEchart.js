@@ -1,4 +1,4 @@
-show_reigon_data = function(){
+show_region_data = function(){
     yearIncome();
     nowIncome();
     aveRoomPri();
@@ -17,8 +17,8 @@ sum = function(data){
     for (i = 0;i < a.length; i++){
         x[i] = a[i].sum_rent;
     }
-    sum = x[0];
-    return sum;
+    var y = x[0];
+    return y;
 }
 
 //这里实现的是每月收入（专用：yearIncome（））
@@ -61,8 +61,8 @@ yearIncome = function(){
             console.log(data)
             sum1 = sum(data); //sum1是年总收入
             console.log(sum1)
-            mon = regiMon1(data); //mon是每月收入
-            console.log(mon)
+            /*mon = regiMon1(data); //mon是每月收入
+            console.log(mon)*/
             var totalIncomeHtml = "<h1>年总收入：" + sum1 + "元</h1>";
             $("#yearincome").html(totalIncomeHtml);
         }

@@ -150,9 +150,10 @@ class GlobalAnalysis(Resource):
         dat2 = b['count(building)']
         LOG.info("dat2 : " + str(dat2))
         # 这里计算的是出租率
-        rat = dat1/dat2
+        rat = dat1/dat2*100
         LOG.info("rat : " + str(rat))
-        rate = str(rat*100) + '%'
+        rat1 = round(rat)
+        rate = str(rat1) + '%'
         LOG.info("rate : " + str(rate))
         return jsonify(rate)
 
@@ -188,7 +189,26 @@ class GlobalAnalysis(Resource):
 
     # 出租率比较
     def renRateCompar(self):
-        pass
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
+        LOG.info("dat1 : " + str(dat1))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        numb = data1['nums']
+        LOG.info("numb : " + str(numb))
+        #
+
+        rate = []
+        for i in range(numb):
+            A_sql = f'select count(*) as rate_c from (SELECT a.building, a.room, b.rent,a.ext_1 FROM room_information a LEFT JOIN (select * from monthly where month = "{i+1}" AND year = "{year}")  b ON a.building = b.building and a.room = b.room ) a where a.rent is not null  '
+            a = self._common.db.execute(A_sql)
+            rate.append(a[0])
+        LOG.info("rate : " + str(rate))
+
+        return jsonify(rate)
 
 
 
