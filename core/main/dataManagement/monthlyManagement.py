@@ -35,10 +35,10 @@ USREINFO_HEADER = {
     'room': '房间号',
     'water': '用水量',
     'w_c': '水费',
-    'electricity': '电量',
+    'electricity': '用电量',
     'e_c': '电费',
-    'ref_rent': '参考房租',
-    'rent': '房租',
+    'ref_rent': '房租',
+    'rent': '总费用',
     'CreateTime': '登记时间'
 }
 
@@ -145,12 +145,17 @@ class MonthlyManagement(Resource):
     def getMonthlyInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")
+        year = request.args.get("year")
+        month = request.args.get("month")
+
         #
-        whereStr = "where 1 = 1 "
+        whereStr = f"where 1 = 1 and year = {year}"
         if (not region is None) and (region != '') and (region != '所有'):
-            whereStr += f"and building = '{region}'"
-        if (not room is None) and (room != ''):
-            whereStr += f"and room = '{room}'"
+            whereStr += f" and building = '{region}'"
+        if (not room is None) and (room != '') and (room != '所有'):
+            whereStr += f" and room = '{room}'"
+        if (not month is None) and (month != '') and (month != 'all'):
+            whereStr += f" and month = '{month}'"
 
         sql = f"select * from monthly {whereStr}"
         #

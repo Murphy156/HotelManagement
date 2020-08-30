@@ -170,7 +170,7 @@ class GlobalAnalysis(Resource):
     # 收入对比
     def reveCompar(self):
         year = request.args.get("year")
-        s_sql = f'select month ,sum(rent) as sum_rent from monthly where year = "{year}" group by month'
+        s_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("data1 : " + str(data1))
@@ -199,22 +199,15 @@ class GlobalAnalysis(Resource):
         LOG.info("data1 : " + str(data1))
         numb = data1['nums']
         LOG.info("numb : " + str(numb))
-        #
-
         rate = []
         for i in range(numb):
-            A_sql = f'select count(*) as rate_c from (SELECT a.building, a.room, b.rent,a.ext_1 FROM room_information a LEFT JOIN (select * from monthly where month = "{i+1}" AND year = "{year}")  b ON a.building = b.building and a.room = b.room ) a where a.rent is not null  '
+            A_sql = f'select count(*) as rate_c from (SELECT a.building, a.room, b.rent,a.ext_1 FROM room_information a LEFT JOIN (select * from monthly where month = "{i+1}" AND year = "{year}")  b ON a.building = b.building and a.room = b.room ) a where a.rent is not null and a.rent > 0'
+            LOG.info(f"rent rate sql is : {A_sql}")
             a = self._common.db.execute(A_sql)
-            rate.append(a[0])
+            rent_rate = a[0]
+            rate.append(rent_rate)
         LOG.info("rate : " + str(rate))
 
         return jsonify(rate)
-
-
-
-
-
-
-
 
 api.add_resource(GlobalAnalysis, '/globalanalysis/<operation>')

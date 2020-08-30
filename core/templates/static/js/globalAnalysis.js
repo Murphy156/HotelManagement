@@ -135,7 +135,7 @@ monlinc = function(){
             var option = {
             backgroundColor: "#F0FFFF",
             title: {
-                text: '按月收入分析',
+                text: '按月总收入同比（元）',
                 left: "center",
                 textStyle: {
                     fontSize: 30
@@ -191,7 +191,7 @@ monlinc = function(){
 }
 
 
-// 这里返回收入对比
+// 返回纯房租收入对比
 incom = function(){
     var year = $('#global_year_choose option:selected').val();
     var url = "/api/v1/globalanalysis/reveCompar?year=" +year;
@@ -211,7 +211,7 @@ incom = function(){
             var option = {
             backgroundColor: "#F0FFFF",
             title: {
-                text: '收入同比',
+                text: '纯房租收入同比（元）',
                 left: "center",
                 textStyle: {
                     fontSize: 30
@@ -290,7 +290,7 @@ regipro = function(){
             var option = {
                 backgroundColor: "#2c343c",
                 title: {
-                    text: '各区域收入占比（万元）',
+                    text: '各区域收入占比（元）',
                     left: 'center',
                     top: 20,
                     textStyle: {
@@ -370,13 +370,12 @@ ratedeal = function(data){
     var a = data;
     var x = new Array();
     for(i=0;i<a.length;i++){
-        x[i] = a[i].rate_c/43;
+        x[i] = (a[i].rate_c / 43).toFixed(2);
     }
-
-
     return x;
 }
 
+//出租率同比
 rateComp = function(){
     var year = $('#global_year_choose option:selected').val();
     var url = "/api/v1/globalanalysis/renRateCompar?year=" +year;
@@ -385,10 +384,10 @@ rateComp = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var a = ratedeal(data);
-            console.log(a)
+            var rentRate = ratedeal(data);
+            console.log(rentRate)
             var x = new Array();
-            for (i = 0;i<a.length;i++){
+            for (i = 0; i<rentRate.length; i++){
                 x[i] = i+1;
             }
             console.log(x)
@@ -432,11 +431,12 @@ rateComp = function(){
             {
                 name: '出租率',
                 type: 'line',
-                data: a,
-                itemStyle : { normal: {label : {show: false,textStyle: {
-                color: '#333',
-                fontSize: 30
-            }}}}
+                data: rentRate,
+                data: rentRate,
+                itemStyle : { normal: {label : {show: true,textStyle: {
+                    color: '#333',
+                    fontSize: 30
+                }}}}
             }]
         };
         myChart.setOption(option);

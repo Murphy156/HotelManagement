@@ -29,12 +29,12 @@ USREINFO_HEADER = {
     'id': '序号',
     'building': '区域',
     'room': '房间',
-    'rent': '租金',
-    'remark': '参考押金',
+    'rent': '参考租金',
     'area': '面积',
     'air_condition': '空调',
     'heater': '热水器',
     'other': '其他',
+    'remark': '备注',
     'state': '房屋状态',
     'CreateTime': '登记时间'
 }
@@ -137,7 +137,7 @@ class RoomManagement(Resource):
         whereStr = "where 1 = 1 "
         if (not region is None) and (region != '') and (region != '所有'):
             whereStr += f"and building = '{region}'"
-        if (not room is None) and (room != ''):
+        if (not room is None) and (room != '') and (room != '所有'):
             whereStr += f"and room = '{room}'"
 
         sql = f"select * from room_information {whereStr}"

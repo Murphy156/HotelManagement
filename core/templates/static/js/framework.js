@@ -51,7 +51,7 @@ getRoomNum = function() {
         if(status == 'success') {
             console.log(data)
             var roomNumList = data.data
-            var optionstring = ""
+            var optionstring = '<option selected="selected">所有</option>'
             for (var item in roomNumList) {
                 optionstring += "<option value=\""+ roomNumList[item] +"\" >"+ roomNumList[item] +"</option>";
             }

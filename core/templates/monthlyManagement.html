@@ -37,10 +37,31 @@
             </div>
 		</div>
 		<div class="rightBox">
-			<div class="slideBtn" onclick="slideBtn()">伸缩</div>
-            <h1>用户信息管理</h1>
+<!--			<div class="slideBtn" onclick="slideBtn()">伸缩</div>-->
+            <h1>流水信息管理</h1>
 
             <div id="monthlyManagement_filter">
+                    <b>年</b>
+                    <select name="year" id="monthlyIncomeYear">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                    <b>月</b>
+                    <select name="month" id="monthlyIncomeMonth">
+                        <option value="all">所有</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -49,17 +70,11 @@
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
-                    <b>Num</b>
+                    <b>房间号</b>
                     <select name="roomNum" id="roomNum">
                         <option></option>
                     </select>
                     用户名<input type="text" name="name">
-                    手机号<input type="text" name="phone">
-                    状态
-                    <select name="status" id="status">
-                        <option value="onRent">onRent</option>
-                        <option value="offRent">offRent</option>
-                    </select>
                     <input type="button" value="查询" onclick="getMonthlyInfo()">
                     <div>
                         <input type="button" id="addMonthly" name="addMonthly" value="添加" onclick="addMonthly()">

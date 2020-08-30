@@ -51,9 +51,6 @@ class TenantManagement(Resource):
         if (operation == 'getUserInfo'):
             return self.getUserInfo()
 
-
-
-
     def post(self, operation):
         if (operation == 'addUser'):
             return self.addUser()
@@ -152,7 +149,7 @@ class TenantManagement(Resource):
         whereStr = "where 1 = 1 "
         if (not region is None) and (region != '') and (region != '所有'):
             whereStr += f"and building = '{region}'"
-        if (not room is None) and (room != ''):
+        if (not room is None) and (room != '') and (room != '所有'):
             whereStr += f"and room = '{room}'"
 
         sql = f"select * from tenant {whereStr}"

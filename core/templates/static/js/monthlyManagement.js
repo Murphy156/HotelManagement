@@ -2,7 +2,9 @@
 getMonthlyInfo = function() {
     var region = $('#region option:selected').val();
     var room = $('#roomNum option:selected').val();
-    var url = "/api/v1/monthly/getMonthlyInfo?region=" +region + "&roomNum=" + room;
+    var year = $('#monthlyIncomeYear option:selected').val();
+    var month = $('#monthlyIncomeMonth option:selected').val();
+    var url = "/api/v1/monthly/getMonthlyInfo?region=" +region + "&roomNum=" + room + "&year=" + year + "&month=" + month;
     console.log(url);
 
     $.get(url,function(data,status){
