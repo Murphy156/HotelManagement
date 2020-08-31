@@ -68,57 +68,25 @@ class RegionEchart(Resource):
         region = request.args.get("region")
         year = request.args.get("year")
         # 这里返回的是某一区域，某一年的全年总收入
-        m_sql = f'select year ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}"'
-        LOG.info(f"sql is : {m_sql}")
-        data1 = self._common.db.execute(m_sql)
-        LOG.info("sql result is : " + str(data1))
-        # 这里返回的是某一区域，某一年的全年收入按月分配
-        s_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" and year = "{year}" group by month'
-        LOG.info(f"sql is : {s_sql}")
-        data2 = self._common.db.execute(s_sql)
-        LOG.info("sql result is : " + str(data2))
-        data = data1 + data2
-        LOG.info("sql result is : " + str(data))
-        #data = data1[0]
-        #LOG.info("data : " + str(data))
-        return jsonify(data)
+        sumIncomeSql = f'select sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}"'
+        LOG.info(f"sql is : {sumIncomeSql}")
+        sumIncome = self._common.db.execute(sumIncomeSql)
+        LOG.info("sql result is : " + str(sumIncome))
+        res = sumIncome[0]['sum_rent']
+        return jsonify(res)
 
     # 返回的是某区域当月的总收入------------------------------------------------------------------------------------（实现函数）
     def allMonth(self):
-        # 返回区域的当月总收入 ,还要从前端获取一个building的值
-        #data2 = self.reture_month
-        year = request.args.get("year")
         region = request.args.get("region")
-        # 返回当前的月份
-        M_sql = f'select month from monthly where year = "{year}" order by month desc limit 1'
-        LOG.info(f"sql is : {M_sql}")
-        data1 = self._common.db.execute(M_sql)
-        a = data1[0]
-        data2 = []
-        for item in a.keys():
-            data2.append(a[item])
-        data = data2[0]
-
-        # data3返回的是当月的总收入
-        A_sql = f"select month ,sum(rent) as mon_rent from monthly where month = '{data}' and building = '{region}' "
+        year = request.args.get("year")
+        month = request.args.get("month")
+        #返回的是当月的总收入、电费总收入、水费总收入
+        A_sql = f"select sum(rent) as total_rent, sum(ref_rent) as rent_income, sum(w_c) as sum_w_c, sum(e_c) as sum_e_c from monthly where year = '{year}' and month = '{month}' and building = '{region}' "
         LOG.info(f"sql is : {A_sql}")
-        data3 = self._common.db.execute(A_sql)
-        LOG.info("data3 : " + str(data3))
-
-        # data4返回的是某区域当月的水费
-        w_sql = f"select month ,sum(w_c) as sum_w_c from monthly where month = '{data}' and building = '{region}' "
-        LOG.info(f"sql is : {w_sql}")
-        data4 = self._common.db.execute(w_sql)
-        LOG.info("data4 : " + str(data4))
-
-        # data5返回的是某区域当月的电费
-        e_sql = f"select month ,sum(e_c) as sum_e_c from monthly where month = '{data}' and building = '{region}' "
-        LOG.info(f"sql is : {e_sql}")
-        data5 = self._common.db.execute(e_sql)
-        LOG.info("data5 : " + str(data5))
-        data = data3 + data4 + data5
-        LOG.info("data : " + str(data))
-        return jsonify(data)
+        res = self._common.db.execute(A_sql)
+        LOG.info("data : " + str(res))
+        monthlyIncome = res[0]
+        return jsonify(monthlyIncome)
 
     #某区域的房间均价----------------------------------------------------------------------------------------------(实现函数)
     def aveHousePri(self):
@@ -126,14 +94,13 @@ class RegionEchart(Resource):
         region = request.args.get("region")
         month = request.args.get("month")
         year = request.args.get("year")
-        a_sql = f"select avg(rent) from monthly where building = '{region}' AND month = '{month}' AND year = '{year}'"
+        a_sql = f"select avg(ref_rent) as avg_price from monthly where building = '{region}' AND month = '{month}' AND year = '{year}'"
         LOG.info(f"sql is : {a_sql}")
         #这里的data返回的是某一年，月，区域的平均房价
-        data1 = self._common.db.execute(a_sql)
-        LOG.info("data1 : " + str(data1))
-        dat = data1[0]
-        data = dat['avg(rent)']
-        return jsonify(data)
+        avgRoomPrice = self._common.db.execute(a_sql)
+        LOG.info("data1 : " + str(avgRoomPrice))
+        avgRoomPrice = round(avgRoomPrice[0]['avg_price'],2)
+        return jsonify(avgRoomPrice)
 
     # 可出租房间数
     def roomNumb(self):

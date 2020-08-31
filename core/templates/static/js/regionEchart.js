@@ -58,12 +58,9 @@ yearIncome = function(){
 
     $.get(url1,function(data,status){
         if(status == 'success'){
-            console.log(data)
-            sum1 = sum(data); //sum1是年总收入
-            console.log(sum1)
-            /*mon = regiMon1(data); //mon是每月收入
-            console.log(mon)*/
-            var totalIncomeHtml = "<h1>年总收入：" + sum1 + "元</h1>";
+            console.log(data);
+            sumIncomeYear = data;
+            var totalIncomeHtml = "<h1>年总收入：" + sumIncomeYear + " 元</h1>";
             $("#yearincome").html(totalIncomeHtml);
         }
         else {
@@ -77,19 +74,18 @@ yearIncome = function(){
 nowIncome = function(){
     var region = $('#region option:selected').val();
     var year = $('#texyear option:selected').val();
-    var url = "/api/v1/region/allMonth?region=" +region+ "&year=" + year;
+    var month = $('#texmonth option:selected').val();
+    var url = "/api/v1/region/allMonth?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
-            console.log(data)  // 数据：[{'month': '7', 'mon_rent': 12142.0}, {'month': '7', 'sum_w_c': 45.0}, {'month': '7', 'sum_e_c': 2107.0}]
-            var mo_rent = data[0].mon_rent;
-            console.log(mo_rent)
-            var w_c = data[1].sum_w_c;
-            console.log(w_c)
-            var e_c = data[2].sum_e_c;
-            console.log(e_c)
-            var totalIncomeHtml = "<h1>当月总收入：" + mo_rent + "元</h1>"  + "<h2>当月电费：" + e_c + "元</h2>" + "<h3>当月水费" + w_c + "元</h3>";
+            console.log(data)
+            var m_total_income = data.total_rent;
+            var m_rent_income = data.rent_income;
+            var w_c = data.sum_w_c;
+            var e_c = data.sum_e_c;
+            var totalIncomeHtml = "<h1>当月总收入：" + m_total_income + "元</h1>"  + "<h2>当月房租收入：" + m_rent_income + "元</h2>" + "<h2>当月电费收入：" + e_c + "元</h2>" + "<h2>当月水费收入：" + w_c + "元</h2>";
             $("#nowincome").html(totalIncomeHtml);
         }
 
@@ -108,9 +104,9 @@ aveRoomPri = function(){
 
     $.get(url,function(data,status){
         if(status == 'success'){
-            console.log(data)  //数据形式：{'avg(rent)': 433.64285714285717}
-            average = data; //data是直接返回来的值
-            var totalIncomeHtml = "<h1>客房均价：" + average + "元</h1>";
+            console.log(data)
+            averageRoomPrice = data;
+            var totalIncomeHtml = "<h1>单元出租均价：" + averageRoomPrice + "元</h1>";
             $("#averRoomPri").html(totalIncomeHtml);
         }
         else {
@@ -254,7 +250,7 @@ incClaFi = function(){
             var option = {
             backgroundColor: "#F0FFFF",
             title: {
-                text: '收入分类比',
+                text: '按月各类型收入分析',
                 left: "left",
                 textStyle: {
                     fontSize: 30
@@ -277,7 +273,8 @@ incClaFi = function(){
                 containLabel: true
             },
             xAxis: {
-                type: 'value',
+                type: 'category',
+                data: x,
                 axisLabel: {
                     textStyle:{
                         fontSize:25 
@@ -285,8 +282,7 @@ incClaFi = function(){
                 }
             },
             yAxis: {
-                type: 'category',
-                data: x,
+                type: 'value',
                 axisLabel: {
                     textStyle:{
                         fontSize:25 

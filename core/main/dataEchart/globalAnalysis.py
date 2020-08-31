@@ -70,14 +70,14 @@ class GlobalAnalysis(Resource):
 
     # 某一年全部物业的总收入
     def allIncome(self):
-        #这里接入年份选择的数据
         year = request.args.get("year")
         s_sql = f"select year ,sum(rent) as sum_rent from monthly where year = '{year}' "
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        allIncomeRes = round((data1[0]['sum_rent'] / 10000),2)
+
+        return jsonify(allIncomeRes)
 
     # 房租收入
     def rentIncome(self):
@@ -87,42 +87,21 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        rentIncomeRes = round((data1[0]['sum_rent'] / 10000),2)
+        return jsonify(rentIncomeRes)
 
     # 可租房间数,返回的是一个数字
     def roomQuantity(self):
-        # 取A栋的房间数
-        A_sql = f"select count(building) from room_information where building = 'A'"
+        A_sql = f"select count(*) as total_room from room_information where is_shop = 'N'"
         LOG.info(f"sql is : {A_sql}")
-        data1 = self._common.db.execute(A_sql)
-        LOG.info("A_sql result is : " + str(data1))
-        a = data1[0]
-        dat1 = a['count(building)']
-        LOG.info("dat1  : " + str(dat1))
-        # 取B栋的房间数
-        B_sql = f"select count(building) from room_information where building = 'B'"
-        LOG.info(f"sql is : {B_sql}")
-        data2 = self._common.db.execute(B_sql)
-        LOG.info("B_sql result is : " + str(data2))
-        b = data2[0]
-        dat2 = b['count(building)']
-        LOG.info("dat2 : " + str(dat2))
-        # 取C栋的房间数
-        D_sql = f"select count(building) from room_information where building = 'D'"
-        LOG.info(f"sql is : {D_sql}")
-        data3 = self._common.db.execute(D_sql)
-        LOG.info("D_sql result is : " + str(data3))
-        c = data3[0]
-        dat3 = c['count(building)']
-        LOG.info("dat3 : " + str(dat3))
-        sum = dat1+dat2+dat3
-        LOG.info("sum : " + str(sum))
-        return jsonify(sum)
+        res = self._common.db.execute(A_sql)
+        LOG.info("A_sql result is : " + str(res))
+        total_room = res[0]['total_room']
+        return jsonify(total_room)
 
     # 可租铺位，返回的是一个数字
     def shopQuantity(self):
-        sql = f"select count(building) from room_information where building = 'C'"
+        sql = f"select count(building) from room_information where is_shop = 'Y'"
         LOG.info(f"sql is : {sql}")
         data = self._common.db.execute(sql)
         LOG.info("data : " + str(data))

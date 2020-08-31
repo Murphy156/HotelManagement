@@ -20,8 +20,8 @@ tolincome = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var totalIncome = data['sum_rent'];//这里返回全部物业的总收入
-            var totalIncomeHtml = "<h1>总收入：" + totalIncome + "元</h1>";
+            var totalIncome = data;//这里返回全部物业的总收入
+            var totalIncomeHtml = "<h1>总收入：" + totalIncome + " 万元</h1>";
             $("#global_total_income").html(totalIncomeHtml);
 
         }
@@ -31,7 +31,7 @@ tolincome = function(){
     });
 }
 
-// 这里返回全部房租年的总收入
+// 这里返回纯房租年总收入
 rentinc = function(){
     var year = $('#global_year_choose option:selected').val();
     var url = "/api/v1/globalanalysis/rentIncome?year=" +year;
@@ -40,9 +40,9 @@ rentinc = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var toltal = data['sum_rent'];//这里返回房租的总收入
+            var toltal = data;//这里返回房租的总收入
             console.log(toltal)
-            var toltalHtml = "<h1>房租收入：" + toltal + "元</h1>";
+            var toltalHtml = "<h1>房租收入：" + toltal + " 万元</h1>";
             $("#global_rent_income").html(toltalHtml);
         }
         else {
