@@ -105,8 +105,9 @@ aveRoomPri = function(){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            averageRoomPrice = data;
-            var totalIncomeHtml = "<h1>单元出租均价：" + averageRoomPrice + "元</h1>";
+            avgRoomPrice = data['avgRoomPrice'];
+            avgRoomIncome = data['avgRoomIncome']
+            var totalIncomeHtml =  "<h1>单元收入均价：" + avgRoomIncome + "元</h1>" + "<h2>单元纯房租收入均价：" + avgRoomPrice + "元</h2>";
             $("#averRoomPri").html(totalIncomeHtml);
         }
         else {
@@ -251,7 +252,7 @@ incClaFi = function(){
             backgroundColor: "#F0FFFF",
             title: {
                 text: '按月各类型收入分析',
-                left: "left",
+                left: "center",
                 textStyle: {
                     fontSize: 30
                 }
@@ -264,6 +265,8 @@ incClaFi = function(){
                 }
             },
             legend: {
+                left: 'center',
+                bottom: 'bottom',
                 data: ['房租', '电费', '水费']
             },
             grid: {

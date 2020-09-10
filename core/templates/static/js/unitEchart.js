@@ -3,6 +3,7 @@ show_unit_data = function(){
     monRen();
     monelectricity();
     monWater();
+    idleDay();
     cursta();
     roIncClafi();
     tenantInfo();
@@ -59,7 +60,7 @@ monelectricity = function(){
             console.log(data)
             var a = data['electricity'];
             console.log(a)
-            var totalIncomeHtml = "<h1>用电量：" + a + "度</h1>";
+            var totalIncomeHtml = "<h1>当月用电量：" + a + "度</h1>";
             $("#monEclet").html(totalIncomeHtml);
         }
     });
@@ -79,8 +80,29 @@ monWater = function(){
             console.log(data)
             var a = data['water'];
             console.log(a)
-            var totalIncomeHtml = "<h1>用水量：" + a + "吨</h1>";
+            var totalIncomeHtml = "<h1>当月用水量：" + a + "吨</h1>";
             $("#monWat").html(totalIncomeHtml);
+        }
+    });
+}
+
+
+//返回某一区域，某一房间，某一时间的房屋闲置天数
+idleDay = function(){
+    var region = $('#region option:selected').val();
+    var year = $('#yearDate option:selected').val();
+    var room = $('#roomNum').val();
+    var month = $('#monthData option:selected').val();
+    var url = "/api/v1/unit/waterConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
+    console.log("[API]get room idle day : " + url);
+
+    $.get(url,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            var a = data['water'];
+            console.log(a)
+            var totalIncomeHtml = "<h1>年闲置天数：" + "X" + "天</h1>";
+            $("#idle").html(totalIncomeHtml);
         }
     });
 }
@@ -125,13 +147,13 @@ water = function(data){
 
 // 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
 roIncClafi = function(){
-    var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
-    var room = $('#roomNum').val();
-    var url = "/api/v1/unit/roomincClafi?region=" + region + "&year=" + year + "&room=" + room;
-    console.log(url);
+     var region = $('#region option:selected').val();
+     var year = $('#yearDate option:selected').val();
+     var room = $('#roomNum').val();
+     var url = "/api/v1/unit/roomincClafi?region=" + region + "&year=" + year + "&room=" + room;
+     console.log(url);
 
-    $.get(url,function(data,status){
+     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
             var rent = rentMon(data);//这里返回的是按月房租收入
@@ -147,64 +169,129 @@ roIncClafi = function(){
             console.log(x)
             var myChart = echarts.init(document.getElementById('roomIncClafi'));
             var option = {
-                backgroundColor: "#F0FFFF",
+            backgroundColor: "#F0FFFF",
             title: {
-                text: '按月收入',
+                text: '房间按月总收入各类型占比分析',
                 left: "center",
                 textStyle: {
-                    fontSize: 50
+                    fontSize: 30
                 }
             },
             tooltip: {
-                extraCssText: 'width:250px;height:300px;;',
+                extraCssText: 'width:250px;height:100px;;',
                 trigger: 'axis',
-                axisPointer: {
-                   type: "shadow"
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                 }
             },
             legend: {
-                data:x
+                left: 'center',
+                bottom: 'bottom',
+                data: ['房租', '电费', '水费']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
             },
             xAxis: {
-                type: "category",
+                type: 'category',
                 data: x,
                 axisLabel: {
                     textStyle:{
-                        fontSize:30 
+                        fontSize:25 
                     }
                 }
             },
             yAxis: {
+                type: 'value',
                 axisLabel: {
                     textStyle:{
-                        fontSize:30
+                        fontSize:25 
                     }
                 }
             },
-            series: [{
+            series: [
+            {
                 name: '房租',
                 type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
                 data: rent,
-                color: '#4169E1',
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false,
+                            position: 'inside',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
 
             },
             {
                 name: '电费',
                 type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
                 data: elec_c,
-                color:'	#FFA500'
+                itemStyle: {
+                    normal: {
+                        label: {
+                            color:'	#FFFF00',
+                            show: false,
+                            position: 'insideRight',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
             },
             {
                 name: '水费',
                 type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    position: 'bottom'
+                },
                 data: wate_c,
-                color:'#228B22'
-            }]
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false,
+                            position: 'insideRight',//数据在中间显示
+                            formatter:'{c}',
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 30
+                            }
+                        }
+                    }
+                }
+            }
+
+                ]
             };
             myChart.setOption(option);
-        }
-    });
+            }
+        });
 }
+
 
 // 这里返回的值是某一区域，某一房间的房屋状态
 cursta = function(region,room){
@@ -216,9 +303,7 @@ cursta = function(region,room){
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var a = data['state'];
-            console.log(a)
-            var totalIncomeHtml = "<h1>房屋状态：" + a + "元</h1>";
+            var totalIncomeHtml = "<h1>房屋当前状态：" + data['state'] + "</h1>";
             $("#curSta").html(totalIncomeHtml);
         }else {
             alert("无数据")

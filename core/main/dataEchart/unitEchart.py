@@ -140,10 +140,13 @@ class UnitEchart(Resource):
         room = request.args.get("room")
         sql = f'select state from room_information where building = "{region}" AND room = "{room}" '
         LOG.info(f"sql is : {sql}")
-        data1 = self._common.db.execute(sql)
-        LOG.info("data : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        rs = self._common.db.execute(sql)
+        LOG.info("curaStat data : " + str(rs))
+        res = {}
+        res['state'] = '闲置'
+        if (rs[0]['state'] == 'on'):
+            res['state'] = '已租'
+        return jsonify(res)
 
     # 这里返回的是 某一年，某一区域，某个房间：1、全年每月收入，2、全年每月水费收入，3、全年每月电费收入
     def roomincClafi(self):

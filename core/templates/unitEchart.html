@@ -63,7 +63,7 @@
                  </select>
                  <b>区域</b>
                  <select name="region" id="region" onchange="getRoomNum()">
-                        <option selected="selected">所有</option>
+                        <option>请选择</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
@@ -86,7 +86,7 @@
 
                     <div id="monWat" onload="monWater()">4</div>
 
-                    <div id="idle">5</div>
+                    <div id="idle" onload="idleDay()">5</div>
 
                     <div id="curSta" onload="cursta()">6</div>
                 </div>
