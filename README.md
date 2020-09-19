@@ -41,9 +41,21 @@ pip3 install flask
 mysql -uXXXX -pXXX -h XXX.XXX.XXX.XXX -PXXXX < ./create_mysql_table.sql
 ```
 
+
+## 更新最新代码
+```
+cd /data/opt/HotelManagement/bin
+git pull origin master
+```
+
 ## 启动
 ```
-python ***.py
+bash /data/opt/HotelManagement/bin/start.sh
+```
+
+## 停止
+```
+bash /data/opt/HotelManagement/bin/stop.sh
 ```
 
 ## 相关文档
