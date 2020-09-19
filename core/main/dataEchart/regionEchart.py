@@ -94,22 +94,35 @@ class RegionEchart(Resource):
         region = request.args.get("region")
         month = request.args.get("month")
         year = request.args.get("year")
-        a_sql = f"select avg(ref_rent) as avg_price from monthly where building = '{region}' AND month = '{month}' AND year = '{year}'"
+
+        # 改区域房屋平均租金
+        a_sql = f"select avg(ref_rent) as avg_rent from monthly where  building = '{region}' and month = '{month}' and year = '{year}'"
         LOG.info(f"sql is : {a_sql}")
-        #这里的data返回的是某一年，月，区域的平均房价
         avgRoomPrice = self._common.db.execute(a_sql)
         LOG.info("data1 : " + str(avgRoomPrice))
-        avgRoomPrice = round(avgRoomPrice[0]['avg_price'],2)
-        return jsonify(avgRoomPrice)
+        avgRoomPrice = round(avgRoomPrice[0]['avg_rent'],2)
+
+        # 当月房租平均收入
+        sql = f"select avg(rent) as avg_income from monthly where  building = '{region}' and month = '{month}' and year = '{year}'"
+        LOG.info(f"sql is : {sql}")
+        avgRoomIncome = self._common.db.execute(sql)
+        LOG.info("avgRoomIncome : " + str(avgRoomIncome))
+        avgRoomIncome = round(avgRoomIncome[0]['avg_income'], 2)
+
+        res = {
+            'avgRoomPrice' : avgRoomPrice,
+            'avgRoomIncome' : avgRoomIncome
+        }
+        return jsonify(res)
 
     # 可出租房间数
     def roomNumb(self):
         region = request.args.get("region")
         sql = f"select count(building) from room_information where state = 'on' and building = '{region}' "
         LOG.info(f"sql is : {sql}")
-        data1 = self._common.db.execute(sql)
-        LOG.info("data : " + str(data1))
-        data = data1[0]
+        roomNum = self._common.db.execute(sql)
+        LOG.info("data : " + str(roomNum))
+        data = roomNum[0]
         return jsonify(data)
 
     # 房屋出租率
