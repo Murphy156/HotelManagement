@@ -21,7 +21,7 @@ tolincome = function(){
         if(status == 'success'){
             console.log(data)
             var totalIncome = data;//这里返回全部物业的总收入
-            var totalIncomeHtml = "<h1>总收入：" + totalIncome + " 万元</h1>";
+            var totalIncomeHtml = "<h4>总收入：" + totalIncome + " 万元</h4>";
             $("#global_total_income").html(totalIncomeHtml);
 
         }
@@ -42,7 +42,7 @@ rentinc = function(){
             console.log(data)
             var toltal = data;//这里返回房租的总收入
             console.log(toltal)
-            var toltalHtml = "<h1>房租收入：" + toltal + " 万元</h1>";
+            var toltalHtml = "<h4>房租收入：" + toltal + " 万元</h4>";
             $("#global_rent_income").html(toltalHtml);
         }
         else {
@@ -60,7 +60,7 @@ roomqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;//直接返回房间数
-            var numb = "<h1>可租房间：" + a + "间</h1>";
+            var numb = "<h4>可租房间：" + a + "间</h4>";
             $("#room_Number").html(numb);
         }
         else {
@@ -78,7 +78,7 @@ shopqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h1>可租铺位：" + a + "间</h1>";
+            var numb = "<h4>可租铺位：" + a + "间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
@@ -97,7 +97,7 @@ onrent = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;//这里直接返回出租率
-            var numb = "<h1>当前出租率：" + a + "</h1>";
+            var numb = "<h4>当前出租率：" + a + "</h4>";
             $("#rate").html(numb);
         }
         else {
@@ -115,7 +115,7 @@ totalinc = function(data){
     return x;
 }
 
-// 这里返回全部物业总收入中按月收入分析
+// 这里返回业全部物总收入中按月收入分析
 monlinc = function(){
     var year = $('#global_year_choose option:selected').val();
     var url = "/api/v1/globalanalysis/allIncomeMon?year=" +year;
@@ -138,7 +138,7 @@ monlinc = function(){
                 text: '按月总收入同比（元）',
                 left: "center",
                 textStyle: {
-                    fontSize: 30
+                    fontSize: 20
                 }
             },
             tooltip: {
@@ -155,16 +155,18 @@ monlinc = function(){
                 type: "category",
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [{
@@ -176,10 +178,11 @@ monlinc = function(){
                 name: '每月收入',
                 type: 'line',
                 data: a,
-                itemStyle : { normal: {label : {show: true,textStyle: {
-                color: '#333',
-                fontSize: 30
-            }}}}
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             }]
         };
         myChart.setOption(option);
@@ -214,7 +217,7 @@ incom = function(){
                 text: '纯房租收入同比（元）',
                 left: "center",
                 textStyle: {
-                    fontSize: 30
+                    fontSize: 20
                 }
             },
             tooltip: {
@@ -231,16 +234,18 @@ incom = function(){
                 type: "category",
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [{
@@ -260,10 +265,11 @@ incom = function(){
                 name: '每月收入',
                 type: 'line',
                 data: a,
-                itemStyle : { normal: {label : {show: true,textStyle: {
-                color: '#333',
-                fontSize: 30
-            }}}}
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             }]
         };
         myChart.setOption(option);
@@ -288,72 +294,44 @@ regipro = function(){
             console.log(a)
             var myChart = echarts.init(document.getElementById('regipro'));
             var option = {
-                backgroundColor: "#2c343c",
+                backgroundColor: "#F0FFFF",
                 title: {
                     text: '各区域收入占比（元）',
                     left: 'center',
                     top: 20,
                     textStyle: {
-                        color: '#ccc',
-                        fontSize: 30
+                        fontSize: 20
                     }
                 },
-
+                legend:{
+                    show:true,
+                    type:"plain",
+                    right:"4%",
+                    orient:"vertical"
+                },
                 tooltip: {
                     extraCssText: 'width:250px;height:100px;;',
                     trigger: 'item',
-                    formatter: '{a} <br/>{b} : {c} ({d}%)'
                 },
-
-                visualMap: {
-                    show: false,
-                    min: 80,
-                    max: 600,
-                    inRange: {
-                        colorLightness: [0, 1]
-                    }
-                },
-
-                 series: [
+                series: [
                     {
-
+                        name: '占比',
                         type: 'pie',
                         radius: '55%',
-                        center: ['50%', '50%'],
+                        center: ['40%', '50%'],
                         data: [
-                            {value: a[0], name: 'A栋'},
-                            {value: a[1], name: 'B栋'},
-                            {value: a[2], name: 'C栋'},
-                            {value: a[3], name: 'D栋'}
-
-                        ].sort(function (a, b) { return a.value - b.value; }),
-                        roseType: 'radius',
-                        label: {
-                            color: '#FF4500',
-                            textStyle: {
-                                color: '#ccc',
-                                fontSize: 30
+                            {value:a[0], name:'A栋'},
+                            {value:a[1], name:'B栋'},
+                            {value:a[2],name:'C栋'},
+                            {value:a[3],name:'D栋'}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
                             }
-                        },
-                        labelLine: {
-                            lineStyle: {
-                                color: '#FF4500'
-                            },
-                            smooth: 0.2,
-                            length: 10,
-                            length2: 20
-                        },
-                        itemStyle: {
-                            color: '#FF4500',
-                            shadowBlur: 200,
-                            shadowColor: '#FF4500'
-                        },
-                        animationType: 'scale',
-                        animationEasing: 'elasticOut',
-                        animationDelay: function (idx) {
-                            return Math.random() * 200;
                         }
-
                     }
                 ]
 
@@ -398,7 +376,7 @@ rateComp = function(){
                 text: '出租率同比',
                 left: "center",
                 textStyle: {
-                    fontSize: 30
+                    fontSize: 20
                 }
             },
             tooltip: {
@@ -415,16 +393,18 @@ rateComp = function(){
                 type: "category",
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [
@@ -433,10 +413,11 @@ rateComp = function(){
                 type: 'line',
                 data: rentRate,
                 data: rentRate,
-                itemStyle : { normal: {label : {show: true,textStyle: {
-                    color: '#333',
-                    fontSize: 30
-                }}}}
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             }]
         };
         myChart.setOption(option);

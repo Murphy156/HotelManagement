@@ -21,7 +21,7 @@ roYeIn = function(){
             console.log(data)
             var a = data['sum_rent'];
             console.log(a)
-            var totalIncomeHtml = "<h1>年总收入：" + a + "元</h1>";
+            var totalIncomeHtml = "<h4>年总收入：" + a + "元</h4>";
             $("#roYearInc").html(totalIncomeHtml);
         }
     });
@@ -39,7 +39,7 @@ monRen = function(){
             console.log(data)
             var a = data['rent'];
             console.log(a)
-            var totalIncomeHtml = "<h1>参考租金：" + a + "元</h1>";
+            var totalIncomeHtml = "<h4>参考租金：" + a + "元</h4>";
             $("#monRent").html(totalIncomeHtml);
         }
     });
@@ -59,7 +59,7 @@ monelectricity = function(){
             console.log(data)
             var a = data['electricity'];
             console.log(a)
-            var totalIncomeHtml = "<h1>用电量：" + a + "度</h1>";
+            var totalIncomeHtml = "<h4>" + month + "月用电量：" + a + "度</h4>";
             $("#monEclet").html(totalIncomeHtml);
         }
     });
@@ -79,7 +79,7 @@ monWater = function(){
             console.log(data)
             var a = data['water'];
             console.log(a)
-            var totalIncomeHtml = "<h1>用水量：" + a + "吨</h1>";
+            var totalIncomeHtml = "<h4>" + month + "月用水量：" + a + "吨</h4>";
             $("#monWat").html(totalIncomeHtml);
         }
     });
@@ -152,33 +152,38 @@ roIncClafi = function(){
                 text: '按月收入',
                 left: "center",
                 textStyle: {
-                    fontSize: 50
+                    fontSize: 20
                 }
             },
             tooltip: {
-                extraCssText: 'width:250px;height:300px;;',
+                extraCssText: 'width:250px;height:150px',
                 trigger: 'axis',
                 axisPointer: {
                    type: "shadow"
                 }
             },
             legend: {
-                data:x
+                show: true,
+                type:"plain",
+                data: ['房租', '电费', '水费'],
+                right: "4%"
             },
             xAxis: {
                 type: "category",
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:30 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 axisLabel: {
-                    textStyle:{
-                        fontSize:30
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [{
@@ -218,7 +223,7 @@ cursta = function(region,room){
             console.log(data)
             var a = data['state'];
             console.log(a)
-            var totalIncomeHtml = "<h1>房屋状态：" + a + "元</h1>";
+            var totalIncomeHtml = "<h4>房屋状态：" + a + "</h4>";
             $("#curSta").html(totalIncomeHtml);
         }else {
             alert("无数据")

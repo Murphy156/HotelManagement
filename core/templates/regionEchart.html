@@ -3,99 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>区域数据分析</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
-    <link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/regionEchart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 
 </head>
 <body onload="show_region_data()">
-    <div class="header">
-		<h2>神策-管理系统</h2>
-	</div>
 
-    <div class="mainBox" >
-		<div class="leftBox" style="float:left;background-color:#FFD700">
-			<div style="float:left;width: 300px; height: 590px;">
+<div class="container-fluid" style="background:aliceblue">
+    <h1>神策-管理系统</h1>
+        <div class="row" >
+			<div class="col-sm-2" style="margin-top: 40px;background: white">
                 <ol id="olTree">
                 <li>
-                   <label><a href="/dataEchart/globalAnalysis">数据大盘</a></label>
-                   <ol>
-                        <li><a href="/dataEchart/regionEchart">区域分析</a></li>
-                        <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
+                        <div id="demo1" class="collapse">
+                            <ol>
+                                <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
+                                <li><a href="/dataEchart/regionEchart">区域分析</a></li>
+                                <li><a href="/dataEchart/unitEchart">单元分析</a></li>
+                            </ol>
+                        </div>
                 </li>
                 <li>
-                   <label>数据管理</label>
-                  <ol>
-                       <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                       <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
-                   </ol>
+                   <a data-toggle="collapse" data-target="#demo2">数据管理</a>
+                        <div id="demo2" class="collapse">
+                            <ol>
+                                <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
+                                <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                                <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                            </ol>
+                        </div>
                 </li>
                 </ol>
             </div>
-		</div>
+            <div class="col-sm-10" id="right">
+                <div class="row" id="regionChoose">
+                    <div class="col-12">
+                            <b>年</b>
+                            <select name="year" id="texyear">
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                            <b>月</b>
+                            <select name="month" id="texmonth">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <b>区域</b>
+                            <select name="region" id="region" >
+                                <!--<option selected="selected">所有</option>-->
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                            <input type="button" value="查询" onclick="show_region_data()">
+                    </div>
+                </div>
+                <div class="row" id="dataAnaLeft">
+                    <div class="col-sm-2" style="margin-left: 20px;margin-top: 20px;background: white">
 
+                        <div style="background: lightblue;height: 100px;margin-top: 20px" id="yearincome" onload="yearIncome()"></div>
 
+                        <div style="background: lightblue;margin-top: 20px;height: 100px" id="nowincome" onload="nowIncome()"></div>
 
-            <div id="regionChoose">
-                    <b>年</b>
-                    <select name="year" id="texyear">
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                    </select>
-                    <b>月</b>
-                    <select name="month" id="texmonth">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
-                    <b>区域</b>
-                    <select name="region" id="region" >
-                        <!--<option selected="selected">所有</option>-->
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                    </select>
-                    <input type="button" value="查询" onclick="show_region_data()">
-            </div>
-        <div class="dataAnaLeft" id="dataAnaLeft">
-            <div id="dataAnaLeftContent">
-                <div id="yearincome" onload="yearIncome()">1</div>
+                        <div style="background: lightblue;margin-top: 20px;height: 100px" id="Rentalrate" onload="rentAlRate()"></div>
 
-                <div id="nowincome" onload="nowIncome()">2</div>
+                        <div style="background: lightblue;margin-top: 20px;height: 100px" id="averRoomPri" onload="aveRoomPri()"></div>
 
-                <div id="Rentalrate" onload="rentAlRate()">3</div>
+                        <div style="background: lightblue;margin-top: 20px;height: 100px" id="roomNumb" onload="roomNumb()"></div>
 
-                <div id="averRoomPri" onload="aveRoomPri()">4</div>
+                    </div>
 
-                <div id="roomNumb" onload="roomNumb()">5</div>
-            </div>
+                    <div class="col-sm-6" style="margin-top: 20px;margin-left:50px;background: white">
 
-        </div>
+                        <div style="height: 350px;margin-top: 20px;margin-left:25px;margin-right:25px" id="monthcome" onload="monthCome()"></div>
 
-        <div class="dataAnalyRight" id="dataAnalyRight">
-            <div id="dataAnalyRightContent" >
-                <div id="monthcome" onload="monthCome()">1</div>
+                        <div style="height: 350px;margin-top: 20px;margin-left:25px;margin-right:25px" id="incClafi" onload="incClaFi()"></div>
 
-                <div id="incClafi" onload="incClaFi()">2</div>>
-            </div>
-        </div>
-    </div>
+                    </div>
+                </div>
+            </div>>
+        </div>>
+</div>
 
 </body>
 </html>

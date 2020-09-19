@@ -3,73 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>整体数据分析</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
-    <link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">
+    <!--<link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">-->
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/globalAnalysis.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body onload="show_global_data()">
-    <div class="header">
-		<h2>神策-管理系统</h2>
-	</div>
 
-    <div class="mainBox">
-        <div class="leftBox" style="float:left;background-color:#FFD700">
-			<div style="float:left;width: 300px; height: 590px;">
-                <ol id="olTree">
+<div class="container-fluid" style="background:aliceblue">
+    <h1>神策-管理系统</h1>
+    <div class="row">
+        <div class="col-sm-2" style="margin-top: 40px;background: white">
+            <ol id="olTree">
                 <li>
-                   <label><a href="/dataEchart/globalAnalysis">数据大盘</a></label>
-                   <ol>
-                        <li><a href="/dataEchart/regionEchart">区域分析</a></li>
-                        <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
+                        <div id="demo1" class="collapse">
+                            <ol>
+                                <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
+                                <li><a href="/dataEchart/regionEchart">区域分析</a></li>
+                                <li><a href="/dataEchart/unitEchart">单元分析</a></li>
+                            </ol>
+                        </div>
                 </li>
                 <li>
-                   <label>数据管理</label>
-                  <ol>
-                       <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                       <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo2">数据管理</a>
+                        <div id="demo2" class="collapse">
+                            <ol>
+                                <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
+                                <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                                <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                            </ol>
+                        </div>
                 </li>
-                </ol>
-            </div>
-		</div>
-        <div>
-<!--            <div calss="slideBtn" onclick="slideBtn()">伸缩</div>-->
-<!--            <h1>整体数据分析</h1>-->
+            </ol>
+        </div>
 
-            <div id="yearchoose">
-                <b>年份</b>
-                <select name="year" id="global_year_choose">
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                </select>
-                <input type="button" value="查询" onclick="show_global_data()">
-            </div>
-
-            <div class="dataAnalysisTop" id="dataAnalysisTop">
-                <div id="dataAnalysisTopContent">
-                    <div onload = "tolincome()" id="global_total_income">1</div>
-                    <div onload = "rentinc()" id="global_rent_income">2</div>
-                    <div onload= "roomqual()" id="room_Number">3</div>
-                    <div onload= "shopqual()" id="shop_Number">4</div>
-                    <div onload= "onrent()" id="rate">5</div>
-                </div>
+        <div class="col-sm-10" id="right">
+            <div class="row" id="yearchoose">
+                <div class="col-12">
+                    <b>年份</b>
+                    <select name="year" id="global_year_choose">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                    <input type="button" value="查询" onclick="show_global_data()">
+                </div>>
             </div>
 
-            <div class="dataAnalysisMiddle" id="dataAnalysisMiddle">
-                <div id="dataAnalysisMiddleContent">
-                    <div id="monlInc" onload="monlinc()">1</div>
-                    <div id="incom" onload="incom()">2</div>
-                    <div id="regipro" onload="regipro()">3</div>
-                    <div id="rateCompara" onload="rateComp()">4</div>
-                </div>
+            <div class="row" id="dataAnalysisTop">
+                    <div class="col-2" style="background:lightblue;margin-left: 20px" onload = "tolincome()" id="global_total_income"></div>
+                    <div class="col-2" style="background:lightblue;margin-left: 10px" onload = "rentinc()" id="global_rent_income"></div>
+                    <div class="col-2" style="background:lightblue;margin-left: 10px" onload= "roomqual()" id="room_Number"></div>
+                    <div class="col-2" style="background:lightblue;margin-left: 10px" onload= "shopqual()" id="shop_Number"></div>
+                    <div class="col-2"  style="background:lightblue;margin-left: 10px" onload= "onrent()" id="rate"></div>
+            </div>
+
+
+            <div class="row" id="dataAnalysisMiddleContent">
+                <div class="col-6" style="height: 350px;margin-top: 20px" id="monlInc" onload="monlinc()"></div>
+                <div class="col-6" style="height: 350px;margin-top: 20px" id="incom" onload="incom()"></div>
+            </div>
+            <div class="row">
+                <div class="col-6" style="height: 350px;margin-top: 20px" id="regipro" onload="regipro()"></div>
+                <div class="col-6" style="height: 350px;margin-top: 20px" id="rateCompara" onload="rateComp()"></div>
             </div>
         </div>
-    </div>
+    </div>>
+</div>
 </body>
 </html>

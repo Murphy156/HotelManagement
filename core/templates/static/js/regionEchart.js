@@ -60,7 +60,7 @@ yearIncome = function(){
         if(status == 'success'){
             console.log(data);
             sumIncomeYear = data;
-            var totalIncomeHtml = "<h1>年总收入：" + sumIncomeYear + " 元</h1>";
+            var totalIncomeHtml = "<h4>年总收入：" + sumIncomeYear + " 元</h4>";
             $("#yearincome").html(totalIncomeHtml);
         }
         else {
@@ -85,7 +85,7 @@ nowIncome = function(){
             var m_rent_income = data.rent_income;
             var w_c = data.sum_w_c;
             var e_c = data.sum_e_c;
-            var totalIncomeHtml = "<h1>当月总收入：" + m_total_income + "元</h1>"  + "<h2>当月房租收入：" + m_rent_income + "元</h2>" + "<h2>当月电费收入：" + e_c + "元</h2>" + "<h2>当月水费收入：" + w_c + "元</h2>";
+            var totalIncomeHtml = "<h4>" + month + "月总收入：" + m_total_income + "元</h4>"  + "<h6>" + month + "月房租收入：" + m_rent_income + "元</h6>" + "<h6>" + month + "月电费收入：" + e_c + "元</h6>" + "<h6>" + month + "月水费收入：" + w_c + "元</h6>";
             $("#nowincome").html(totalIncomeHtml);
         }
 
@@ -106,7 +106,7 @@ aveRoomPri = function(){
         if(status == 'success'){
             console.log(data)
             averageRoomPrice = data;
-            var totalIncomeHtml = "<h1>单元出租均价：" + averageRoomPrice + "元</h1>";
+            var totalIncomeHtml = "<h4>" + region + "栋出租均价："+ averageRoomPrice + "元</h4>";
             $("#averRoomPri").html(totalIncomeHtml);
         }
         else {
@@ -137,9 +137,9 @@ monthCome = function(){
             backgroundColor: "#F0FFFF",
             title: {
                 text: '按月收入分析',
-                left: "center",
+                left: "left",
                 textStyle: {
-                    fontSize: 30
+                    fontSize: 20
                 }
             },
             tooltip: {
@@ -150,37 +150,44 @@ monthCome = function(){
                 }
             },
             legend: {
-                data:x
+                type:"plain",
+                show: true,
+                right: "4%",
+                width:"5%"
             },
             xAxis: {
                 type: "category",
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [{
                 name: '每月收入',
                 type: 'bar',
-                data: mon
+                data: mon,
+                color:"rgba(234, 149, 13, 1)"
             },
             {
                 name: '每月收入',
                 type: 'line',
                 data: mon,
-                itemStyle : { normal: {label : {show: true,textStyle: {
-                color: '#333',
-                fontSize: 30
-            }}}}
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             }]
         };
         myChart.setOption(option);
@@ -250,10 +257,10 @@ incClaFi = function(){
             var option = {
             backgroundColor: "#F0FFFF",
             title: {
-                text: '按月各类型收入分析',
+                text: '月各类型收入',
                 left: "left",
                 textStyle: {
-                    fontSize: 30
+                    fontSize: 20
                 }
             },
             tooltip: {
@@ -264,7 +271,8 @@ incClaFi = function(){
                 }
             },
             legend: {
-                data: ['房租', '电费', '水费']
+                data: ['房租', '电费', '水费'],
+                right: "4%"
             },
             grid: {
                 left: '3%',
@@ -276,17 +284,19 @@ incClaFi = function(){
                 type: 'category',
                 data: x,
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             yAxis: {
                 type: 'value',
                 axisLabel: {
-                    textStyle:{
-                        fontSize:25 
-                    }
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
                 }
             },
             series: [
@@ -379,7 +389,7 @@ rentAlRate = function(){
         if(status == 'success'){
             console.log(data)
             var a = data; //这里返回的是出租率数据
-            var totalIncomeHtml = "<h1>出租率：" + a + "</h1>";
+            var totalIncomeHtml = "<h4>" + region + "栋出租率：" + a + "</h4>";
             $("#Rentalrate").html(totalIncomeHtml);
         }
      });
@@ -396,7 +406,7 @@ roomNumb = function(region){
             console.log(data)
             a = data['count(building)'];
             console.log(a)
-            var totalIncomeHtml = "<h1>房间数：" + a + "</h1>";
+            var totalIncomeHtml = "<h4>" + region +"栋房间数：" + a + "间</h4>";
             $("#roomNumb").html(totalIncomeHtml);
         }
      });

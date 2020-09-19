@@ -3,106 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>单元数据分析</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
-    <link rel="stylesheet" href="../static/css/dataAnalysisLayout.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/unitEchart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body>
-     <div class="header">
-		<h2>神策-管理系统</h2>
-	</div>
-
-     <div class="mainBox">
-         <div class="leftBox" style="float:left;background-color:#FFD700">
-			<div style="float:left;width: 300px; height: 590px;">
-                <ol id="olTree">
+<div class="container-fluid" style="background:aliceblue">
+    <h1>神策-管理系统</h1>
+    <div class="row">
+        <div class="col-sm-2" style="margin-top: 40px;background: white;height:800px">
+            <ol id="olTree">
                 <li>
-                   <label><a href="/dataEchart/globalAnalysis">数据大盘</a></label>
-                   <ol>
-                        <li><a href="/dataEchart/regionEchart">区域分析</a></li>
-                        <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
+                    <div id="demo1" class="collapse">
+                        <ol>
+                            <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
+                            <li><a href="/dataEchart/regionEchart">区域分析</a></li>
+                            <li><a href="/dataEchart/unitEchart">单元分析</a></li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                    <label>数据管理</label>
-                    <ol>
-                       <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                       <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
-                    </ol>
+                    <a data-toggle="collapse" data-target="#demo2">数据管理</a>
+                    <div id="demo2" class="collapse">
+                        <ol>
+                            <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
+                            <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                            <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                        </ol>
+                    </div>
                 </li>
-                </ol>
-            </div>
-         </div>
-
-
-             <div id="unitChoose">
-                 <b>年份</b>
-                 <select name="year" id="yearDate">
-                     <option value="2020">2020</option>
-                     <option value="2019">2019</option>
-                 </select>
-                 <b>月份</b>
-                 <select name="month" id="monthData">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                     <option value="6">6</option>
-                     <option value="7">7</option>
-                     <option value="8">8</option>
-                     <option value="9">9</option>
-                     <option value="10">10</option>
-                     <option value="11">11</option>
-                     <option value="12">12</option>
-                 </select>
-                 <b>区域</b>
-                 <select name="region" id="region" onchange="getRoomNum()">
+            </ol>
+        </div>
+        <div class="col-sm-10" id="right">
+            <div class="row" id="regionChoose">
+                <div class="col-12">
+                    <b>年份</b>
+                    <select name="year" id="yearDate">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                    <b>月份</b>
+                    <select name="month" id="monthData">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <b>区域</b>
+                    <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
                         <option value="D">D</option>
-                 </select>
-                 <b>房间号</b>
-                 <select name="roomNum" id="roomNum">
+                    </select>
+                    <b>房间号</b>
+                    <select name="roomNum" id="roomNum">
                         <option></option>
-                 </select>
-                 <input type="button" value="查询" onclick="show_unit_data()">
-             </div>
-
-            <div class="unitDataMidd" id="unitDataMidd">
-                <div id="unitDataMiddContent">
-                    <div id="roYearInc" onload="roYeIn()">1</div>
-
-                    <div id="monRent" onload="monRen()">2</div>
-
-                    <div id="monEclet" onload="monelectricity()">3</div>
-
-                    <div id="monWat" onload="monWater()">4</div>
-
-                    <div id="idle">5</div>
-
-                    <div id="curSta" onload="cursta()">6</div>
+                    </select>
+                    <input type="button" value="查询" onclick="show_unit_data()">
                 </div>
             </div>
 
-            <div class="unitDataBott" id="unitDataBott">
-                <div id="unitDataBottContent">
-                    <div id="roomIncClafi" onload="roIncClafi"></div>
-
-                    <div id="teInfo">
-                        <table id="userInfoTbl" border="1" onload="tenantInfo()">
-                        </table>
-                    </div>
-                </div>
+            <div class="row"  id="unitDataMidd">
+                    <div class="col-2" style="background:lightblue;margin-top:40px" id="roYearInc" onload="roYeIn()"></div>
+                    <div class="col-2" style="background:lightskyblue;margin-top:40px" id="monRent" onload="monRen()"></div>
+                    <div class="col-2" style="background:lightblue;margin-top:40px" id="monEclet" onload="monelectricity()"></div>
+                    <div class="col-2" style="background:lightskyblue;margin-top:40px" id="monWat" onload="monWater()"></div>
+                    <div class="col-2" style="background:lightblue;margin-top:40px" id="idle"></div>
+                    <div class="col-2" style="background:lightskyblue;margin-top:40px" id="curSta" onload="cursta()"></div>
             </div>
 
-     </div>
+            <div class="row" id="unitDataBott">
+                    <div class="col-6" style="height: 350px;margin-top: 150px;margin-right:40px" id="roomIncClafi" onload="roIncClafi"></div>
+<!--                    <div id="teInfo">-->
+<!--                        <table id="userInfoTbl" border="1" onload="tenantInfo()"></table>-->
+<!--                    </div>-->
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,4 +1,11 @@
-/* 指标布局 */
+/*整体指标布局 */
+.mainBox{
+    margin-left:auto;
+    margin-right:auto;
+    width:1920px;
+    height:3050px;
+}
+
 .dataAnalysisTop{
     margin-top:3px;
     width:100%;
