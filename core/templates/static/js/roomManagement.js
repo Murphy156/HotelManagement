@@ -1,5 +1,6 @@
+"use strict"
 //获取房间信息
-getRoomInfo = function() {
+var getRoomInfo = function() {
     var region = $('#region option:selected').val();
     var room = $('#roomNum option:selected').val();
     var url = "/api/v1/room_information/getRoomInfo?region=" +region + "&roomNum=" + room;
@@ -17,7 +18,7 @@ getRoomInfo = function() {
     });
 }
 
-editRoom = function(obj) {
+var editRoom = function(obj) {
     var selectedTr = obj;
     if (confirm("确定要修改吗?")) {
 //        获取当前行
@@ -81,7 +82,7 @@ editRoom = function(obj) {
 }
 
 
-addRoom = function() {
+var addRoom = function() {
     $('#addRoomWindow').removeAttr('hidden');
 
     //确认
@@ -135,7 +136,7 @@ addRoom = function() {
     })
 }
 //注意这个函数名跟后端不同
-importRoom = function() {
+var importRoom = function() {
     $('#importRoom').click(function(){
         $('#importRoomWindow').removeAttr('hidden');
     })
@@ -150,14 +151,14 @@ importRoom = function() {
     })
 }
 
-downloadTemplate = function() {
+var downloadTemplate = function() {
     $('#a_download_template').click(function(){
         alert("弹出下载模板框");
     })
 }
 
 
-deleteRoom = function(obj){
+var deleteRoom = function(obj){
     var selectedTr = obj;
     if (confirm("确定要删除吗?")) {
 //        获取当前行
