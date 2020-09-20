@@ -26,11 +26,30 @@ var editUser = function (obj) {
 //        获取当前行第一个单元格的value值
         var id = row.cells[0].childNodes[0].nodeValue;
 
-
         $('#addUserWindow').removeAttr('hidden');
+        var name = row.cells[1].childNodes[0].nodeValue;
+        var building = row.cells[2].childNodes[0].nodeValue;
+        var room = row.cells[3].childNodes[0].nodeValue;
+        var rent = row.cells[4].childNodes[0].nodeValue;
+        var deposit = row.cells[5].childNodes[0].nodeValue;
+        var idcard = row.cells[6].childNodes[0].nodeValue;
+        var check_in = row.cells[7].childNodes[0].nodeValue;
+        var contact = row.cells[9].childNodes[0].nodeValue;
+        var living_number = row.cells[10].childNodes[0].nodeValue;
+        $("#name").val(name);
+        $("#building").val(building);
+        $("#room").val(room);
+        $("#rent").val(rent);
+        $("#deposit").val(deposit);
+        $("#idcard").val(idcard);
+        $("#check_in").val(check_in);
+        $("#contact").val(contact);
+        $("#living_number").val(living_number);
+
         $('#btn_addUser_ok').click(function () {
-            var building = $("#building").val();
+
             var name = $("#name").val();
+            var building = $("#building").val();
             var room = $("#room").val();
             var rent = $("#rent").val();
             var deposit = $("#deposit").val();

@@ -33,6 +33,7 @@ USREINFO_HEADER = {
     'room': '房间',
     'rent': '租金',
     'deposit': '押金',
+    'idcard': '身份证',
     'check_in': '入住时间',
     'check_out': '退租时间',
     'contact': '联系电话',

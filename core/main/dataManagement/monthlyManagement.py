@@ -136,7 +136,7 @@ class MonthlyManagement(Resource):
         e_c = data[9]
         ref_rent = data[10]
         rent = data[11]
-        sql = f"UPDATE tenant SET year ='{year}',month = '{month}',name = '{name}',building = '{building}',room = '{room}',water = '{water}',w_c = '{w_c}',electricity = '{electricity}', e_c = '{e_c}',ref_rent = '{ref_rent}',rent = '{rent}' WHERE id= '{id}' "
+        sql = f"UPDATE monthly SET year ='{year}',month = '{month}',name = '{name}',building = '{building}',room = '{room}',water = '{water}',w_c = '{w_c}',electricity = '{electricity}', e_c = '{e_c}',ref_rent = '{ref_rent}',rent = '{rent}' WHERE id= '{id}' "
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))

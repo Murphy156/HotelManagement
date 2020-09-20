@@ -117,14 +117,14 @@ class RoomManagement(Resource):
         id = data[0]
         building = data[1]
         room = data[2]
-        area = data[3]
-        air_condition = data[4]
-        rent = data[5]
+        rent = data[3]
+        area = data[4]
+        air_condition = data[5]
         heater = data[6]
         other = data[7]
         remark = data[8]
         state = data[9]
-        sql = f"UPDATE room_information SET building = '{building}' ,room = '{room}' ,area = '{area}' , air_condition = '{air_condition}' ,rent = '{rent}' ,heater = '{heater}' ,other = '{other}' ,remark = '{remark}' ,state = '{state}' WHERE id='{id}'"
+        sql = f"UPDATE room_information SET building = '{building}' ,room = '{room}',rent = '{rent}' ,area = '{area}' , air_condition = '{air_condition}',heater = '{heater}' ,other = '{other}' ,remark = '{remark}' ,state = '{state}' WHERE id='{id}'"
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
         LOG.info("sql result is : " + str(res))

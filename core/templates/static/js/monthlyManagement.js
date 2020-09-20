@@ -30,6 +30,29 @@ var editMonthly = function (obj) {
 
 
         $('#addMonthlyWindow').removeAttr('hidden');
+        var year = row.cells[1].childNodes[0].nodeValue;
+        var month = row.cells[2].childNodes[0].nodeValue;
+        var name = row.cells[3].childNodes[0].nodeValue;
+        var building = row.cells[4].childNodes[0].nodeValue;
+        var room = row.cells[5].childNodes[0].nodeValue;
+        var water = row.cells[6].childNodes[0].nodeValue;
+        var w_c = row.cells[7].childNodes[0].nodeValue;
+        var electricity = row.cells[8].childNodes[0].nodeValue;
+        var e_c = row.cells[9].childNodes[0].nodeValue;
+        var ref_rent = row.cells[10].childNodes[0].nodeValue;
+        var rent = row.cells[11].childNodes[0].nodeValue;
+        $("#year").val(year);
+        $("#month").val(month);
+        $("#name").val(name);
+        $("#building").val(building);
+        $("#room").val(room);
+        $("#water").val(water);
+        $("#w_c").val(w_c);
+        $("#electricity").val(electricity);
+        $("#e_c").val(e_c);
+        $("#ref_rent").val(ref_rent);
+        $("#rent").val(rent);
+
         $('#btn_addMonthly_ok').click(function () {
             var year = $("#year").val();
             var month = $("#month").val();
