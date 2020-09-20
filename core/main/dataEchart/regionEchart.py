@@ -170,7 +170,7 @@ class RegionEchart(Resource):
         # 这里返回的是，某年，某区域每月的房租收入，传入区域和年份
         region = request.args.get("region")
         year = request.args.get("year")
-        A_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" group by month'
+        A_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" group by month'
         LOG.info(f"sql is : {A_sql}")
         # 这里的data返回的是某一年，某区域的按月总收入
         data1 = self._common.db.execute(A_sql)
