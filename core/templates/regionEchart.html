@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>区域数据分析</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/regionEchart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 
@@ -19,7 +20,7 @@
 
 <div class="container-fluid" style="background:aliceblue;height: 1000px">
     <h1>神策-管理系统</h1>
-    <div class="row" >
+    <div class="row">
         <div class="col-sm-2" style="margin-top: 2%;background: white">
             <ol id="olTree">
                 <li>
@@ -68,7 +69,7 @@
                         <option value="12">12</option>
                     </select>
                     <b>区域</b>
-                    <select name="region" id="region" >
+                    <select name="region" id="region">
                         <!--<option selected="selected">所有</option>-->
                         <option value="A">A</option>
                         <option value="B">B</option>
@@ -81,28 +82,37 @@
             <div class="row" id="dataAnaLeft" style="height: 800px">
                 <div class="col-sm-2" style="margin-left: 2%;margin-top: 3%;background: white">
 
-                    <div style="background: lightblue;height: 18%;margin-top: 2%" id="yearincome" onload="yearIncome()"></div>
+                    <div style="background: lightblue;height: 18%;margin-top: 2%" id="yearincome"
+                         onload="yearIncome()"></div>
 
-                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="nowincome" onload="nowIncome()"></div>
+                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="nowincome"
+                         onload="nowIncome()"></div>
 
-                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="Rentalrate" onload="rentAlRate()"></div>
+                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="Rentalrate"
+                         onload="rentAlRate()"></div>
 
-                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="averRoomPri" onload="aveRoomPri()"></div>
+                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="averRoomPri"
+                         onload="aveRoomPri()"></div>
 
-                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="roomNumb" onload="roomNumb()"></div>
+                    <div style="background: lightblue;margin-top: 2%;height: 18%" id="roomNumb"
+                         onload="roomNumb()"></div>
 
                 </div>
 
                 <div class="col-sm-6" style="margin-top: 2%;margin-left:5%;background: white;height: 100%;width: 100%">
 
-                    <div style="width:100%;height: 40%;margin-top: 2%;margin-left:3%;margin-right:3%" id="monthcome" onload="monthCome()"></div>
+                    <div style="width:100%;height: 40%;margin-top: 2%;margin-left:3%;margin-right:3%" id="monthcome"
+                         onload="monthCome()"></div>
 
-                    <div style="width:100%;height: 50%;margin-top: 2%;margin-left:3%;margin-right:3%" id="incClafi" onload="incClaFi()"></div>
+                    <div style="width:100%;height: 50%;margin-top: 2%;margin-left:3%;margin-right:3%" id="incClafi"
+                         onload="incClaFi()"></div>
 
                 </div>
             </div>
-        </div>>
-    </div>>
+        </div>
+        >
+    </div>
+    >
 </div>
 
 </body>

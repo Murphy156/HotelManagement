@@ -2,45 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户信息管理</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/tenantManagement.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="initTree()">
-    <div class="header">
-		<h2>神策-管理系统</h2>
-	</div>
 
-    <div class="mainBox">
-		<div class="leftBox">
-			<div style="float:left;width: 300px; height: 590px;">
-                <ol id="olTree">
+<div class="container-fluid" style="background:aliceblue;height: 900px">
+    <h1>神策-管理系统</h1>
+    <div class="row">
+        <div class="col-sm-2" style="margin-top: 40px;background: white">
+            <ol id="olTree">
                 <li>
-                   <label><a href="/dataEchart/globalAnalysis">数据大盘</a></label>
-                   <ol>
-                        <li><a href="/dataEchart/reginoEchart">区域分析</a></li>
-                        <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
+                    <div id="demo1" class="collapse">
+                        <ol>
+                            <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
+                            <li><a href="/dataEchart/regionEchart">区域分析</a></li>
+                            <li><a href="/dataEchart/unitEchart">单元分析</a></li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                   <label>数据管理</label>
-                   <ol>
-                       <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                       <li><a href="/dataManagement/monthlyManagement">流水信息管理</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo2">数据管理</a>
+                    <div id="demo2" class="collapse">
+                        <ol>
+                            <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
+                            <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                            <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                        </ol>
+                    </div>
                 </li>
-                </ol>
-            </div>
-		</div>
-		<div class="rightBox">
-<!--			<div class="slideBtn" onclick="slideBtn()">伸缩</div>-->
-            <h1>用户信息管理</h1>
+            </ol>
+        </div>
 
-            <div id="userManagement_filter">
+        <div class="col-sm-10" id="right" style="height: 1000px">
+            <h3>用户信息管理</h3>
+            <div class="row">
+                <div class="col-2">
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -50,86 +57,100 @@
                         <option value="D">D区</option>
                     </select>
                     <b>房间号</b>
-                    <select name="roomNum" id="roomNum">
+                    <select name="roomNum" id="roomNum" >
                         <option></option>
                     </select>
-                    用户名<input type="text" name="name">
-                    手机号<input type="text" name="phone">
-                    状态
+                </div>
+
+                <div class="col-2">
+                    <input type="text" name="name" placeholder="用户名">
+                </div>
+                <div class="col-2">
+                    <input type="text" name="phone" placeholder="手机号">
+                </div>
+
+                <div class="col-2">
+                    <b>状态</b>
                     <select name="status" id="status">
                         <option value="onRent">在租</option>
                         <option value="offRent">已退租</option>
                     </select>
+                </div>
+                <div class="col-2">
                     <input type="button" value="查询" onclick="getUserInfo()">
-                    <div>
-                        <input type="button" id="addUser" name="addUser" value="添加" onclick="addUser()">
+                    <input type="button" id="addUser" name="addUser" value="添加" onclick="addUser()">
+                </div>
 
-                        <input type="file" id="file" name="myfile" style="display: none" />
-                        <input type="text" id="filename" style="display:none"></span>
-                        <input type="button" onclick="upload()" value="选择文件上传" />
-
-                    </div>
-                    <div id="userInfo">
-                        <table id="userInfoTbl" border="1">
-                        </table>
-                    </div>
-
-                    <!--新增弹窗-->
-                    <div class="widget widget1"  id="addUserWindow" hidden="hidden">
-                        <div class="body">
-                            <div>
-                                用户名 <input type="text" id="name" name="name">
-                            </div>
-                            <div>
-                                区域 <input type="text" id="building" name="building">
-                            </div>
-                            <div>
-                                房间号 <input type="text" id="room" name="room">
-                            </div>
-                             <div>
-                                租金 <input type="text" id="rent" name="rent">
-                            </div>
-                             <div>
-                                押金 <input type="text" id="deposit" name="deposit">
-                            </div>
-                             <div>
-                                身份证号 <input type="text" id="idcard" name="idcard">
-                            </div>
-                            <div>
-                                入住时间 <input type="text" id="check_in" name="check_in">
-                            </div>
-                            <div>
-                                手机号 <input type="text" id="contact" name="contact">
-                            </div>
-                            <div>
-                                入住人数 <input type="text" id="living_number" name="living_number">
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_addUser_cancel">取 消</a>
-                                <a href="javascript:void(0);" class="btn-confirm" id="btn_addUser_ok">保 存</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--导入弹窗-->
-                    <div class="widget widget1"  id="importUserWindow" hidden="hidden">
-                        <div class="body">
-                            <div class="msg">导入记录</div>
-                            <div>
-                                <a href="javascript:downloadTemplate();" id="a_download_template">下载模板</a>
-                            </div>
-                            <div>
-                                <input type="button" id = "bnt_import_user" value="开始上传">
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_import_cancel">取 消</a>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="col-1">
+                    <input type="file" id="file" name="myfile" style="display: none"/>
+                    <input type="text" id="filename" style="display:none"></span>
+                    <input type="button" onclick="upload()" value="选择文件上传"/>
+                </div>
             </div>
+
+            <div class="row" style="margin-top: 5%">
+                <div id="userInfo" style="margin-left: 8%">
+                    <table id="userInfoTbl" border="1">
+                    </table>
+                </div>
+            </div>
+                <!--新增弹窗-->
+                <div class="widget widget1" id="addUserWindow" hidden="hidden">
+                    <div class="body">
+                        <div>
+                            用户名 <input type="text" id="name" name="name">
+                        </div>
+                        <div>
+                            区域 <input type="text" id="building" name="building">
+                        </div>
+                        <div>
+                            房间号 <input type="text" id="room" name="room">
+                        </div>
+                        <div>
+                            租金 <input type="text" id="rent" name="rent">
+                        </div>
+                        <div>
+                            押金 <input type="text" id="deposit" name="deposit">
+                        </div>
+                        <div>
+                            身份证号 <input type="text" id="idcard" name="idcard">
+                        </div>
+                        <div>
+                            入住时间 <input type="text" id="check_in" name="check_in">
+                        </div>
+                        <div>
+                            手机号 <input type="text" id="contact" name="contact">
+                        </div>
+                        <div>
+                            入住人数 <input type="text" id="living_number" name="living_number">
+                        </div>
+                        <div class="btns">
+                            <a href="javascript:void(0);" class="btn-cancel" id="btn_addUser_cancel">取 消</a>
+                            <a href="javascript:void(0);" class="btn-confirm" id="btn_addUser_ok">保 存</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--导入弹窗-->
+                <div class="widget widget1" id="importUserWindow" hidden="hidden">
+                    <div class="body">
+                        <div class="msg">导入记录</div>
+                        <div>
+                            <a href="javascript:downloadTemplate();" id="a_download_template">下载模板</a>
+                        </div>
+                        <div>
+                            <input type="button" id="bnt_import_user" value="开始上传">
+                        </div>
+                        <div class="btns">
+                            <a href="javascript:void(0);" class="btn-cancel" id="btn_import_cancel">取 消</a>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
     </div>
+</div>
 
 </body>
 </html>

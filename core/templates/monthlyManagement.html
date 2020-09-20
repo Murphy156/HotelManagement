@@ -2,50 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>每月流水信息管理</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/monthlyManagement.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="initTree()">
-    <div class="header">
-		<h2>神策-管理系统</h2>
-	</div>
 
-    <div class="mainBox">
-		<div class="leftBox">
-			<div style="float:left;width: 300px; height: 590px;">
-                <ol id="olTree">
+<div class="container-fluid" style="background:aliceblue;height: 900px">
+    <h1>神策-管理系统</h1>
+    <div class="row">
+        <div class="col-sm-2" style="margin-top: 40px;background: white">
+            <ol id="olTree">
                 <li>
-                   <label><a href="/dataEchart/globalAnalysis">数据大盘</a></label>
-                   <ol>
-                        <li><a href="/dataEchart/regionEchart">区域分析</a></li>
-                        <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
+                    <div id="demo1" class="collapse">
+                        <ol>
+                            <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
+                            <li><a href="/dataEchart/regionEchart">区域分析</a></li>
+                            <li><a href="/dataEchart/unitEchart">单元分析</a></li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                   <label>数据管理</label>
-                  <ol>
-                       <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                       <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                       <li><a href="/dataManagement/monthlyManagement">流水信息管理</a></li>
-                   </ol>
+                    <a data-toggle="collapse" data-target="#demo2">数据管理</a>
+                    <div id="demo2" class="collapse">
+                        <ol>
+                            <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
+                            <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
+                            <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
+                        </ol>
+                    </div>
                 </li>
-                </ol>
-            </div>
-		</div>
-		<div class="rightBox">
-<!--			<div class="slideBtn" onclick="slideBtn()">伸缩</div>-->
-            <h1>流水信息管理</h1>
+            </ol>
+        </div>
 
-            <div id="monthlyManagement_filter">
+        <div class="col-sm-10" id="right" style="height: 1000px">
+            <h3>流水信息管理</h3>
+
+            <div class="row">
+                <div class="col-1">
                     <b>年</b>
                     <select name="year" id="monthlyIncomeYear">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                     </select>
+                </div>
+                <div class="col-1">
                     <b>月</b>
                     <select name="month" id="monthlyIncomeMonth">
                         <option value="all">所有</option>
@@ -62,6 +72,8 @@
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select>
+                </div>
+                <div class="col-1">
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -70,94 +82,104 @@
                         <option value="C">C</option>
                         <option value="D">D</option>
                     </select>
+                </div>
+                <div>
                     <b>房间号</b>
                     <select name="roomNum" id="roomNum">
                         <option></option>
                     </select>
-                    用户名<input type="text" name="name">
+                </div>
+
+                <div class="col-2">
+                    <input type="text" name="name" placeholder="姓名">
+                </div>
+
+                <div class="col-3">
                     <input type="button" value="查询" onclick="getMonthlyInfo()">
-                    <div>
-                        <input type="button" id="addMonthly" name="addMonthly" value="添加" onclick="addMonthly()">
-                        <input type="button" id="importMonthly" name="importMonthly" value="导入" onclick="importMonthly()">
-                    </div>
-                    <div id="monthlyInfo">
-                        <table id="monthlyInfoTbl" border="1">
-                        </table>
-                    </div>
-
-                    <!--删除弹窗-->
-                    <div class="widget widget1"  id="deleteMonthlyWindow" hidden="hidden">
-                        <div class="body">
-                            <div class="msg">确定要删除？</div>
-                            <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_delMonthly_cancel">取 消</a>
-                                <a href="javascript:void(0);" class="btn-confirm" id="btn_delMonthly_ok">确 定</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--新增弹窗-->
-                    <div class="widget widget1"  id="addMonthlyWindow" hidden="hidden">
-                        <div class="body">
-                            <div>
-                                年份 <input type="text" id="year" name="year">
-                            </div>
-                            <div>
-                                月份 <input type="text" id="month" name="month">
-                            </div>
-                            <div>
-                                姓名 <input type="text" id="name" name="name">
-                            </div>
-                             <div>
-                                栋号 <input type="text" id="building" name="building">
-                            </div>
-                             <div>
-                                房间号 <input type="text" id="room" name="room">
-                            </div>
-                             <div>
-                                水量 <input type="text" id="water" name="water">
-                            </div>
-                            <div>
-                                水费 <input type="text" id="w_c" name="w_c">
-                            </div>
-                            <div>
-                                电量 <input type="text" id="electricity" name="electricity">
-                            </div>
-                            <div>
-                                用电量 <input type="text" id="e_c" name="e_c">
-                            </div>
-                            <div>
-                                参考房租 <input type="text" id="ref_rent" name="ref_rent">
-                            </div>
-                            <div>
-                                房租 <input type="text" id="rent" name="rent">
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_addMonthly_cancel">取 消</a>
-                                <a href="javascript:void(0);" class="btn-confirm" id="btn_addMonthly_ok">保 存</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--导入弹窗-->
-                    <div class="widget widget1"  id="importMonthlyWindow" hidden="hidden">
-                        <div class="body">
-                            <div class="msg">导入记录</div>
-                            <div>
-                                <a href="javascript:downloadTemplate();" id="a_download_template">下载模板</a>
-                            </div>
-                            <div>
-                                <input type="button" id = "bnt_import_monthly" value="开始上传">
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(0);" class="btn-cancel" id="btn_import_cancel">取 消</a>
-                            </div>
-                        </div>
-                    </div>
-
+                    <input type="button" id="addMonthly" name="addMonthly" value="添加" onclick="addMonthly()">
+                    <input type="button" id="importMonthly" name="importMonthly" value="导入" onclick="importMonthly()">
+                </div>
             </div>
+            <div class="row" style="margin-top: 5%">
+                <div id="monthlyInfo" style="margin-left: 8%">
+                    <table id="monthlyInfoTbl" border="1">
+                    </table>
+                </div>
+            </div>
+            <!--删除弹窗-->
+            <div class="widget widget1" id="deleteMonthlyWindow" hidden="hidden">
+                <div class="body">
+                    <div class="msg">确定要删除？</div>
+                    <div class="btns">
+                        <a href="javascript:void(0);" class="btn-cancel" id="btn_delMonthly_cancel">取 消</a>
+                        <a href="javascript:void(0);" class="btn-confirm" id="btn_delMonthly_ok">确 定</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--新增弹窗-->
+            <div class="widget widget1" id="addMonthlyWindow" hidden="hidden">
+                <div class="body">
+                    <div>
+                        年份 <input type="text" id="year" name="year">
+                    </div>
+                    <div>
+                        月份 <input type="text" id="month" name="month">
+                    </div>
+                    <div>
+                        姓名 <input type="text" id="name" name="name">
+                    </div>
+                    <div>
+                        栋号 <input type="text" id="building" name="building">
+                    </div>
+                    <div>
+                        房间号 <input type="text" id="room" name="room">
+                    </div>
+                    <div>
+                        水量 <input type="text" id="water" name="water">
+                    </div>
+                    <div>
+                        水费 <input type="text" id="w_c" name="w_c">
+                    </div>
+                    <div>
+                        电量 <input type="text" id="electricity" name="electricity">
+                    </div>
+                    <div>
+                        用电量 <input type="text" id="e_c" name="e_c">
+                    </div>
+                    <div>
+                        参考房租 <input type="text" id="ref_rent" name="ref_rent">
+                    </div>
+                    <div>
+                        房租 <input type="text" id="rent" name="rent">
+                    </div>
+                    <div class="btns">
+                        <a href="javascript:void(0);" class="btn-cancel" id="btn_addMonthly_cancel">取 消</a>
+                        <a href="javascript:void(0);" class="btn-confirm" id="btn_addMonthly_ok">保 存</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--导入弹窗-->
+            <div class="widget widget1" id="importMonthlyWindow" hidden="hidden">
+                <div class="body">
+                    <div class="msg">导入记录</div>
+                    <div>
+                        <a href="javascript:downloadTemplate();" id="a_download_template">下载模板</a>
+                    </div>
+                    <div>
+                        <input type="button" id="bnt_import_monthly" value="开始上传">
+                    </div>
+                    <div class="btns">
+                        <a href="javascript:void(0);" class="btn-cancel" id="btn_import_cancel">取 消</a>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
+</div>
 
 </body>
 </html>

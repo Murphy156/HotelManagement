@@ -187,7 +187,7 @@ class UnitEchart(Resource):
         if (not room is None) and (room != ''):
             whereStr += f"and room = '{room}'"
 
-        sql = f"select * from tenant {whereStr}"
+        sql = f"select id, name, contact from tenant {whereStr}"
         #
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
