@@ -145,7 +145,7 @@ class UnitEchart(Resource):
         region = request.args.get("region")
         year = request.args.get("year")
         room = request.args.get("room")
-        A_sql = f'select month ,sum(rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" AND room = "{room}" group by month'
+        A_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where building = "{region}" AND year = "{year}" AND room = "{room}" group by month'
         LOG.info(f"sql is : {A_sql}")
         # 这里的data1返回的是某一年，某一区域，某个房间的按月总收入
         data1 = self._common.db.execute(A_sql)
