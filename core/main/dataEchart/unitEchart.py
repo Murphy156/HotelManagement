@@ -24,15 +24,7 @@ api = Api(unitEchart)
 USREINFO_HEADER = {
     'id': '序号',
     'name': '姓名',
-    'building': '区域',
-    'room': '房间',
-    'rent': '租金',
-    'deposit': '押金',
-    'check_in': '入住时间',
-    'check_out': '退租时间',
-    'contact': '联系电话',
-    'living_number': '入住人数',
-    'CreateTime': '登记时间'
+    'contact': '联系电话'
 }
 
 class UnitEchart(Resource):
@@ -203,7 +195,7 @@ class UnitEchart(Resource):
         rows = []
         #
         for user in userInfo:
-            user['CreateTime'] = str(user['CreateTime'])
+#            user['CreateTime'] = str(user['CreateTime'])
             row = {}
             for key, value in USREINFO_HEADER.items():
                 row[key] = user[key]
