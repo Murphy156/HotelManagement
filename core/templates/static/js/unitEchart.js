@@ -108,6 +108,16 @@ var idleDay = function () {
     });
 }
 
+//这里返回的使月份
+var monthCount = function(data){
+    var a = data;
+    var t = new Array();
+    for (var i = 0; i < a.length / 3; i++){
+        t[i] = a[i].month;
+    }
+    return t;
+}
+
 //这里返回的是 按月房租（专用于incClaFi（））
 var rentMon = function (data) {
     var a = data;
@@ -157,17 +167,19 @@ var roIncClafi = function () {
     $.get(url, function (data, status) {
         if (status == 'success') {
             console.log(data)
+            var monthC = monthCount(data);//这里返回的是月份
+            console.log(monthC)
             var rent = rentMon(data);//这里返回的是按月房租收入
             console.log(rent)
             var elec_c = elect(data);//这里返回的是按月电费收入
             console.log(elec_c)
             var wate_c = water(data);//这里返回的是按月水费收入
             console.log(wate_c)
-            var x = new Array();
-            for (var i = 0; i < rent.length; i++) {
-                x[i] = i + 1;
-            }
-            console.log(x)
+//            var x = new Array();
+//            for (var i = 0; i < rent.length; i++) {
+//                x[i] = i + 1;
+//            }
+//            console.log(x)
             var myChart = echarts.init(document.getElementById('roomIncClafi'));
             var option = {
                     backgroundColor: "#F0FFFF",
@@ -197,7 +209,7 @@ var roIncClafi = function () {
                 },
                 xAxis: {
                     type: 'category',
-                    data: x,
+                    data: monthC,
                     axisLabel: {
                         show: true,
                         color: "rgba(86, 72, 72, 1)",
