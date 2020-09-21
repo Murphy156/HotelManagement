@@ -46,7 +46,7 @@
         <div class="col-sm-10" id="right" style="height: 1000px">
             <h3>房屋信息管理</h3>
             <div class="row">
-                <div class="col-2">
+                <div class="col-12">
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected">所有</option>
@@ -55,29 +55,17 @@
                         <option value="C">C区</option>
                         <option value="D">D区</option>
                     </select>
-                </div>
-
-                <div class="col-2">
                     <b>房间号</b>
                     <select name="roomNum" id="roomNum">
                         <option></option>
                     </select>
-                </div>
-
-                <div class="col-2">
                     <b>状态</b>
                     <select name="status" id="status">
                         <option value="onRent">在租</option>
                         <option value="offRent">空置</option>
                     </select>
                     <input type="button" value="查询" onclick="getRoomInfo()">
-                </div>
-
-                <div class="col-2">
                     <input type="button" id="addRoom" name="addRoom" value="添加" onclick="addRoom()">
-                </div>
-
-                <div class="col-2">
                     <input type="file" id="importRoom" name="importRoom" value="导入" onclick="importRoom()">
                 </div>
             </div>
