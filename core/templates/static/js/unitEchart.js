@@ -1,13 +1,19 @@
 "use strict"
 var show_unit_data = function () {
-    roYeIn();
-    monRen();
-    monelectricity();
-    monWater();
-    idleDay();
-    cursta();
-    roIncClafi();
-    tenantInfo();
+    var room = $('#roomNum').val();
+    if (room != "please"){
+        roYeIn();
+        monRen();
+        monelectricity();
+        monWater();
+        idleDay();
+        cursta();
+        roIncClafi();
+        tenantInfo();
+    }
+    else {
+        alert("请输入房间号")
+    }
 }
 
 //这里得到的数据是某一区域，某一年，某一房间号：年总收入

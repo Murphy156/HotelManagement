@@ -63,6 +63,26 @@ var getRoomNum = function () {
         }
     });
 }
+//获取单元分析的房间号
+var getUniRoomNum = function () {
+    var region = $('#region option:selected').val();
+    var url = "/api/v1/common/getRoomNum?region=" + region;
+    console.log(url);
+
+    $.get(url, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            var roomNumList = data.data
+            var optionstring = '<option selected="selected" value="please">请选择</option>'
+            for (var item in roomNumList) {
+                optionstring += "<option value=\"" + roomNumList[item] + "\" >" + roomNumList[item] + "</option>";
+            }
+            $("#roomNum").html(optionstring);
+        } else {
+            alert("无数据")
+        }
+    });
+}
 
 // 生成动态表格
 function dynamic_table(rawData, operationBtn) {
