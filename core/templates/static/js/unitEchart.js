@@ -59,9 +59,14 @@ var monelectricity = function () {
     $.get(url, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var a = data['electricity'];
-            console.log(a)
-            var totalIncomeHtml = "<h4>" + month + "月用电量：" + a + "度</h4>";
+            if (data != "No Data"){
+                var a = data['e_c'];
+                console.log(a)
+                var totalIncomeHtml = "<h4>" + month + "月用电量：" + a + "元</h4>";
+            }
+            else {
+                var totalIncomeHtml = "<h4>" + month + "月用电量：" + data + "元</h4>";
+            }
             $("#monEclet").html(totalIncomeHtml);
         }
     });
@@ -79,9 +84,14 @@ var monWater = function () {
     $.get(url, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var a = data['water'];
-            console.log(a)
-            var totalIncomeHtml = "<h4>" + month + "月用水量：" + a + "吨</h4>";
+            if (data != "No Data"){
+                var a = data['w_c'];
+                console.log(a)
+                var totalIncomeHtml = "<h4>" + month + "月用水量：" + a + "元</h4>";
+            }
+            else {
+                var totalIncomeHtml = "<h4>" + month + "月用水量：" + data + "元</h4>";
+            }
             $("#monWat").html(totalIncomeHtml);
         }
     });
@@ -175,11 +185,6 @@ var roIncClafi = function () {
             console.log(elec_c)
             var wate_c = water(data);//这里返回的是按月水费收入
             console.log(wate_c)
-//            var x = new Array();
-//            for (var i = 0; i < rent.length; i++) {
-//                x[i] = i + 1;
-//            }
-//            console.log(x)
             var myChart = echarts.init(document.getElementById('roomIncClafi'));
             var option = {
                     backgroundColor: "#F0FFFF",

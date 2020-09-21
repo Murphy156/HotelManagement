@@ -101,12 +101,16 @@ class UnitEchart(Resource):
         year = request.args.get("year")
         room = request.args.get("room")
         month = request.args.get("month")
-        sql = f'select water from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
+        a = "No Data"
+        sql = f'select w_c from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
-        LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        if data1:
+            LOG.info("sql result is : " + str(data1))
+            data = data1[0]
+            return jsonify(data)
+        else:
+            return jsonify(a)
 
     # 获取某月某区域某房间的用电量
     def elecConsum(self):
@@ -115,12 +119,16 @@ class UnitEchart(Resource):
         year = request.args.get("year")
         room = request.args.get("room")
         month = request.args.get("month")
-        sql = f'select electricity from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
+        a = "No Data"
+        sql = f'select e_c from monthly where building = "{region}" AND room = "{room}" AND year = "{year}" AND month = "{month}" '
         LOG.info(f"sql is : {sql}")
         data1 = self._common.db.execute(sql)
-        LOG.info("sql result is : " + str(data1))
-        data = data1[0]
-        return jsonify(data)
+        if data1:
+            LOG.info("sql result is : " + str(data1))
+            data = data1[0]
+            return jsonify(data)
+        else:
+            return jsonify(a)
 
     # 本年闲置时间
     def idle(self):
