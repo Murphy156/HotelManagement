@@ -146,15 +146,20 @@ class TenantManagement(Resource):
     def getUserInfo(self):
         region = request.args.get("region")
         room = request.args.get("roomNum")
+        name = request.args.get("username")
+        contact = request.args.get("phone")
         #
         whereStr = "where 1 = 1 "
         if (not region is None) and (region != '') and (region != '所有'):
             whereStr += f"and building = '{region}'"
         if (not room is None) and (room != '') and (room != '所有'):
             whereStr += f"and room = '{room}'"
+        if (not name is None) and (name != '') :
+            whereStr += f"and name = '{name}'"
+        if (not contact is None) and (contact != '') :
+            whereStr += f"and contact = '{contact}'"
 
         sql = f"select * from tenant {whereStr}"
-        #
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql)
 

@@ -147,7 +147,7 @@ class MonthlyManagement(Resource):
         room = request.args.get("roomNum")
         year = request.args.get("year")
         month = request.args.get("month")
-
+        name = request.args.get("username")
         #
         whereStr = f"where 1 = 1 and year = {year}"
         if (not region is None) and (region != '') and (region != '所有'):
@@ -156,6 +156,8 @@ class MonthlyManagement(Resource):
             whereStr += f" and room = '{room}'"
         if (not month is None) and (month != '') and (month != 'all'):
             whereStr += f" and month = '{month}'"
+        if (not name is None) and (name != '') and (name != 'all'):
+            whereStr += f" and name = '{name}'"
 
         sql = f"select * from monthly {whereStr}"
         #

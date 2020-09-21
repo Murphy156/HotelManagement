@@ -3,7 +3,9 @@
 var getUserInfo = function () {
     var region = $('#region option:selected').val();
     var room = $('#roomNum option:selected').val();
-    var url = "/api/v1/tenant/getUserInfo?region=" + region + "&roomNum=" + room;
+    var contact = $("#phone").val();
+    var name = $("#username").val()
+    var url = "/api/v1/tenant/getUserInfo?region=" + region + "&roomNum=" + room + "&phone=" + contact + "&username=" + name;
     console.log(url);
 
     $.get(url, function (data, status) {

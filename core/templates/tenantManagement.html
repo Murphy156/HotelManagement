@@ -49,8 +49,9 @@
             <div class="row">
                 <div class="col-2">
                     <b>区域</b>
-                    <select name="region" id="region" onchange="getRoomNum()">
-                        <option selected="selected">所有</option>
+                    <select name="region" id="region" onchange="getRoomNum()" >
+                        <option selected="selected"></option>
+                        <option>所有</option>
                         <option value="A">A栋</option>
                         <option value="B">B栋</option>
                         <option value="C">C区</option>
@@ -63,10 +64,10 @@
                 </div>
 
                 <div class="col-2">
-                    <input type="text" name="name" placeholder="用户名">
+                    <input type="text" name="username" id="username" placeholder="用户名">
                 </div>
                 <div class="col-2">
-                    <input type="text" name="phone" placeholder="手机号">
+                    <input type="text" name="phone" id="phone" placeholder="手机号">
                 </div>
 
                 <div class="col-2">
