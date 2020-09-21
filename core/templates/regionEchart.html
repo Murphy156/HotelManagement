@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <link rel="stylesheet" href="../static/css/load.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/regionEchart.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -102,7 +103,12 @@
                 <div class="col-sm-6" style="margin-top: 2%;margin-left:5%;background: white;height: 100%;width: 100%">
 
                     <div style="width:100%;height: 40%;margin-top: 2%;margin-left:3%;margin-right:3%" id="monthcome"
-                         onload="monthCome()"></div>
+                         onload="monthCome()">
+                        <div class="loadingBox" id="box">
+                            <div class="innerBox"></div>
+                            <div class="outerBox"></div>
+                        </div>
+                    </div>
 
                     <div style="width:100%;height: 50%;margin-top: 2%;margin-left:3%;margin-right:3%" id="incClafi"
                          onload="incClaFi()"></div>

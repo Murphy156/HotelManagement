@@ -1,0 +1,34 @@
+@keyframes anim {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.loadingBox {
+    width: 80px;
+    height: 80px;
+    padding: 0px;
+    left: calc(50% - 80px);
+    top: calc(50% - 80px);
+    position: absolute;
+}
+.outerBox {
+    left: calc(10% - 3px);
+    top: calc(10% - 3px);
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    border-radius: 50%;
+    border: medium cornflowerblue solid;
+    border-right-color: transparent;
+    animation: anim 847ms cubic-bezier(.42, .61, .58, .41) infinite;
+}
+.innerBox {
+    left: calc(20% - 3px);
+    top: calc(20% - 3px);
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px cornflowerblue solid;
+    border-top-color: transparent;
+    animation: anim 971ms cubic-bezier(.42, .61, .58, .41) infinite;
+}
