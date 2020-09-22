@@ -95,7 +95,7 @@ a{
 	width: 1em;
 	position: absolute;
 	top: 40%;
-	left: 1;
+	left: 1px;
 	display: block;
 }
 
@@ -153,5 +153,6 @@ a{
 }
 
 .xifen{
+	font-weight: bold;
 	font-size: 15px;
 }
