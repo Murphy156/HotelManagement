@@ -20,28 +20,30 @@
     <h1>神策-管理系统</h1>
     <div class="row">
         <div class="col-sm-2" style="margin-top: 40px;background: white">
-            <ol id="olTree">
-                <li>
-                    <a data-toggle="collapse" data-target="#demo1">数据大盘</a>
-                    <div id="demo1" class="collapse">
-                        <ol>
-                            <li><a href="/dataEchart/globalAnalysis">总体分析</a></li>
-                            <li><a href="/dataEchart/regionEchart">区域分析</a></li>
-                            <li><a href="/dataEchart/unitEchart">单元分析</a></li>
-                        </ol>
-                    </div>
-                </li>
-                <li>
-                    <a data-toggle="collapse" data-target="#demo2">数据管理</a>
-                    <div id="demo2" class="collapse">
-                        <ol>
-                            <li><a href="/dataManagement/tenantManagement">用户信息管理</a></li>
-                            <li><a href="/dataManagement/roomManagement">房屋信息管理</a></li>
-                            <li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li>
-                        </ol>
-                    </div>
-                </li>
-            </ol>
+            <div style="margin-top: 8%;background: aliceblue">
+                <ul class="nav flex-column nav-tabs justify-content-center " id="olTree">
+                    <li>
+                        <ul class="nav nav-tabs"><a id="frist" class="text-primary" data-toggle="collapse" data-target="#demo1">数据大盘</a></ul>
+                        <div id="demo1" class="collapse">
+                            <ol>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataEchart/globalAnalysis">总体分析</a></li></ul></div>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataEchart/regionEchart">区域分析</a></li></ul></div>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataEchart/unitEchart">单元分析</a></li></ul></div>
+                            </ol>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="margin-top: 10px"><ul class="nav nav-tabs"><a id="frist2" class="text-primary" data-toggle="collapse" data-target="#demo2">数据管理</a></ul></div>
+                        <div id="demo2" class="collapse">
+                            <ol>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataManagement/tenantManagement">用户信息管理</a></li></ul></div>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataManagement/roomManagement">房屋信息管理</a></li></ul></div>
+                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a href="/dataManagement/monthlyManagement">每月流水信息管理</a></li></ul></div>
+                            </ol>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="col-sm-10" id="right" style="height: 1000px">
             <h3>房屋信息管理</h3>
