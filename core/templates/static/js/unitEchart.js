@@ -349,7 +349,7 @@ var tenantInfo = function () {
 
     $.get(url, function (data, status) {
         if (status == 'success') {
-            var tblInfoCode = dynamic_table(data)
+            var tblInfoCode = dynamic_unitable(data)
             console.log(tblInfoCode)
             $("#userInfoTbl").html(tblInfoCode);
         } else {

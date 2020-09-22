@@ -14,8 +14,8 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body onload="initTree()">
-
+<!--<body onload="initTree()">-->
+<body onload="getRoomNum()">
 <div class="container-fluid" style="background:aliceblue;height: 900px">
     <h1>神策-管理系统</h1>
     <div class="row">
@@ -55,9 +55,7 @@
                     </select>
                     <b>月</b>
                     <select name="month" id="monthlyIncomeMonth">
-                        <option selected="selected"></option>
-                        <option value="all">所有</option>
-                        <option value="1">1</option>
+                        <option selected="selected" value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -69,15 +67,16 @@
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
+                        <option value="all">所有</option>
                     </select>
                     <b>区域</b>
                     <select name="region" id="region" onchange="getRoomNum()">
-                        <option selected="selected"></option>
-                        <option>所有</option>
-                        <option value="A">A</option>
+<!--                        <option selected="selected"></option>-->
+                        <option selected="selected" value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
                         <option value="D">D</option>
+                        <option>所有</option>
                     </select>
                     <b>房间号</b>
                     <select name="roomNum" id="roomNum">
@@ -89,8 +88,8 @@
                     <input type="button" id="importMonthly" name="importMonthly" value="导入" onclick="importMonthly()">
             </div>
             <div class="row" style="margin-top: 5%">
-                <div id="monthlyInfo" style="margin-left: 8%">
-                    <table id="monthlyInfoTbl" border="1">
+                <div id="monthlyInfo" style="margin-left: 8%" class="table-responsive">
+                    <table id="monthlyInfoTbl" border="1" class="table table-dark table-hover">
                     </table>
                 </div>
             </div>

@@ -88,24 +88,53 @@ var getUniRoomNum = function () {
 function dynamic_table(rawData, operationBtn) {
 //    set header
     var headers = rawData.header;
-    var tbl_header = "<tr>";
+    var tbl_header = "<thead class='thead-dark'><tr>";
     for (var key in headers) {
         tbl_header += "<th>" + headers[key] + "</th>";
     }
-    tbl_header += "<th>操作</th></tr>";
+    tbl_header += "<th>操作</th></tr></thead>";
 //    console.log(tbl_header);
 
 //    set body
     var body = rawData.body;
     var tbl_body = "";
     for (var index in body) {
-        var rowID = '<tr>'
+        var rowID = '<tbody class=""><tr>'
         rowID = rowID.format({id: body[index]['id']})
 //        tbl_body += "<tr>";
         for (var key in headers) {
             tbl_body += "<td value=\"" + body[index][key] + "\">" + body[index][key] + "</td>";
         }
-        tbl_body += operationBtn + "</tr>";
+        tbl_body += operationBtn + "</tr></tbody>";
+    }
+//    console.log(tbl_body);
+
+    var table_output = tbl_header + tbl_body;
+    return table_output;
+}
+
+// 生成unitEchart动态表格
+function dynamic_unitable(rawData, operationBtn) {
+//    set header
+    var headers = rawData.header;
+    var tbl_header = "<thead class='thead-dark'><tr>";
+    for (var key in headers) {
+        tbl_header += "<th>" + headers[key] + "</th>";
+    }
+    tbl_header += "</tr></thead>";
+//    console.log(tbl_header);
+
+//    set body
+    var body = rawData.body;
+    var tbl_body = "";
+    for (var index in body) {
+        var rowID = '<tbody class=""><tr>'
+        rowID = rowID.format({id: body[index]['id']})
+//        tbl_body += "<tr>";
+        for (var key in headers) {
+            tbl_body += "<td value=\"" + body[index][key] + "\">" + body[index][key] + "</td>";
+        }
+        tbl_body += operationBtn + "</tr></tbody>";
     }
 //    console.log(tbl_body);
 
