@@ -11,6 +11,4 @@ __pycache__/
 .idea/
 *.iml
 
-# custom file
-cluster_name.yaml
 
