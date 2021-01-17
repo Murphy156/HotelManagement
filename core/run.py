@@ -35,6 +35,10 @@ def regionEchart():
 def unitEchart():
     return render_template('unitEchart.html')
 
+@app.route('/unpaidB/unpaidBill')
+def unpaid():
+    return render_template('unpaidBill.html')
+
 
 @app.route('/dataAnalysis')
 
@@ -66,6 +70,9 @@ if __name__ == '__main__':
 
     from core.main.dataEchart.unitEchart import unitEchart
     app.register_blueprint(unitEchart, url_prefix='/api/v1')
+
+    from core.main.unpaidB.unpaidBill import unpaidBill
+    app.register_blueprint(unpaidBill, url_prefix='/api/v1')
 
     app.run(host = "0.0.0.0", port=8888, debug=True)
     print("running!")
