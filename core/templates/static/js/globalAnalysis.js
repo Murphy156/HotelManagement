@@ -117,20 +117,38 @@ totalinc = function(data){
 
 // 这里返回业全部物总收入中按月收入分析
 monlinc = function(){
+    var new_data = new Array();
+    var old_data = new Array();
+    var current_month = new Array();
     var year = $('#global_year_choose option:selected').val();
-    var url = "/api/v1/globalanalysis/allIncomeMon?year=" +year;
-    console.log(url);
+    var for_year = $('#global_year_choose option:selected').val()-1;
+    var url1 = "/api/v1/globalanalysis/allIncomeMon?year=" +year;
+    var url2 = "/api/v1/globalanalysis/allIncomeMon?year=" +for_year;
+    console.log(url1);
+    console.log(url2);
 
-    $.get(url,function(data,status){
+    $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var a = totalinc(data);
-            console.log(a)
-            var x = new Array();
-            for (i = 0;i<a.length;i++){
-                x[i] = i+1;
+            new_data = totalinc(data);
+            console.log(new_data)
+            for (i = 0;i<new_data.length;i++){
+                current_month[i] = i+1;
             }
-            console.log(x)
+            console.log(current_month)
+            }
+        else {
+            alert("NO DATA")
+        }
+    });
+
+    $.get(url2,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            old_data = totalinc(data);
+            console.log(old_data)
+            console.log(new_data)
+
             var myChart = echarts.init(document.getElementById('monlInc'));
             var option = {
             backgroundColor: "#F0FFFF",
@@ -149,11 +167,11 @@ monlinc = function(){
                 }
             },
             legend: {
-                data:x
+                data:current_month
             },
             xAxis: {
                 type: "category",
-                data: x,
+                data: current_month,
                 axisLabel: {
                     show:true,
                     color:"rgba(86, 72, 72, 1)",
@@ -170,14 +188,21 @@ monlinc = function(){
                 }
             },
             series: [{
-                name: '每月收入',
+                name: year,
+                color:'#003366',
                 type: 'bar',
-                data: a
+                data: new_data,
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             },
             {
-                name: '每月收入',
-                type: 'line',
-                data: a,
+                name: for_year,
+                color:'#e5323e',
+                type: 'bar',
+                data: old_data,
                 label:{
                     show: true,
                     color:"rgba(86, 72, 72, 1)",
@@ -196,20 +221,40 @@ monlinc = function(){
 
 // 返回纯房租收入对比
 incom = function(){
+    var new_data = new Array();
+    var old_data = new Array();
+    var current_month = new Array();
     var year = $('#global_year_choose option:selected').val();
-    var url = "/api/v1/globalanalysis/reveCompar?year=" +year;
-    console.log(url);
+    var for_year = $('#global_year_choose option:selected').val()-1;
+    var url1 = "/api/v1/globalanalysis/reveCompar?year=" +year;
+    var url2 = "/api/v1/globalanalysis/reveCompar?year=" +for_year;
+    console.log(url1);
+    console.log(url2);
 
-    $.get(url,function(data,status){
+    $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var a = totalinc(data);
-            console.log(a)
-            var x = new Array();
-            for (i = 0;i<a.length;i++){
-                x[i] = i+1;
+            var new_data = totalinc(data);
+            console.log(new_data)
+            current_month = new Array();
+            for (i = 0;i<new_data.length;i++){
+                current_month[i] = i+1;
             }
-            console.log(x)
+            console.log(current_month)
+              }
+        else {
+            alert("无数据")
+        }
+    });
+
+    $.get(url2,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            old_data = totalinc(data);
+            console.log(old_data)
+            console.log(new_data)
+
+
             var myChart = echarts.init(document.getElementById('incom'));
             var option = {
             backgroundColor: "#F0FFFF",
@@ -228,11 +273,11 @@ incom = function(){
                 }
             },
             legend: {
-                data:x
+                data:current_month
             },
             xAxis: {
                 type: "category",
-                data: x,
+                data: current_month,
                 axisLabel: {
                     show:true,
                     color:"rgba(86, 72, 72, 1)",
@@ -249,22 +294,21 @@ incom = function(){
                 }
             },
             series: [{
-                name: '每月收入',
+                name: year,
+                color:'#003366',
                 type: 'bar',
-                data: a,
-                color: '#000080',
-
+                data: new_data,
+                label:{
+                    show: true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bolder"
+                }
             },
             {
-                name: '每月收入',
+                name: for_year,
+                color:'#e5323e',
                 type: 'bar',
-                data: 0,
-                color:'#333'
-            },
-            {
-                name: '每月收入',
-                type: 'line',
-                data: a,
+                data: old_data,
                 label:{
                     show: true,
                     color:"rgba(86, 72, 72, 1)",
