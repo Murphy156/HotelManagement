@@ -152,7 +152,7 @@ class GlobalAnalysis(Resource):
         s_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
-        LOG.info("data1 : " + str(data1))
+        LOG.info("reveComper1111111: " + str(data1))
         #下面代码用来表示下年数据的
         return jsonify(data1)
 

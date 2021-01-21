@@ -234,20 +234,19 @@ incom = function(){
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var new_data = totalinc(data);
+            new_data = totalinc(data);
             console.log(new_data)
-            current_month = new Array();
             for (i = 0;i<new_data.length;i++){
                 current_month[i] = i+1;
             }
             console.log(current_month)
-              }
+            }
         else {
-            alert("无数据")
+            alert("NO DATA")            //避免中文输入
         }
     });
 
-    $.get(url2,function(data,status){
+    $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
             old_data = totalinc(data);
