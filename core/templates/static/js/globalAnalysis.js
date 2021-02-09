@@ -167,7 +167,10 @@ monlinc = function(){
                 }
             },
             legend: {
-                data:current_month
+                 show:true,
+                 type:"plain",
+                 right:"4%",
+                 orient:"vertical"
             },
             xAxis: {
                 type: "category",
@@ -272,7 +275,10 @@ incom = function(){
                 }
             },
             legend: {
-                data:current_month
+                 show:true,
+                 type:"plain",
+                 right:"4%",
+                 orient:"vertical"
             },
             xAxis: {
                 type: "category",
