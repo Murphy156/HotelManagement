@@ -115,7 +115,7 @@ var aveRoomPri = function () {
     });
 }
 
-//这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
+//这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计 hahh
 var monthCome = function () {
     var new_data = new Array();
     var old_data = new Array();
