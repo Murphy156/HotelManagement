@@ -17,7 +17,7 @@ import logging.config
 
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
-#
+
 regionEchart = Blueprint('RegionEchart ', __name__)
 api = Api(regionEchart)
 
