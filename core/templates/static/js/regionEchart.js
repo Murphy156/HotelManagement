@@ -434,7 +434,7 @@ var roomNumb = function (region) {
     $.get(url, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var a = data['count(building)']+1;
+            var a = data['count(building)'];
             console.log(a)
             var totalIncomeHtml = "<h4>" + region + "栋房间数：" + a + "间</h4>";
             $("#roomNumb").html(totalIncomeHtml);
