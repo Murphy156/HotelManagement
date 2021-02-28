@@ -197,7 +197,7 @@ monlinc = function(){
                 data: new_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    color:"rgba(255, 255, 255, 0.5)",
                     fontWeight:"bolder"
                 }
             },
@@ -208,7 +208,7 @@ monlinc = function(){
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    color:"rgba(255, 255, 255, 0.5)",
                     fontWeight:"bolder"
                 }
             }]
@@ -305,7 +305,7 @@ incom = function(){
                 data: new_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    color:"rgba(255, 255, 255, 0.5)",
                     fontWeight:"bolder"
                 }
             },
@@ -316,7 +316,7 @@ incom = function(){
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    color:"rgba(255, 255, 255, 0.5)",
                     fontWeight:"bolder"
                 }
             }]
@@ -371,8 +371,9 @@ regipro = function(){
                         data: [
                             {value:a[0], name:'A栋'},
                             {value:a[1], name:'B栋'},
-                            {value:a[2],name:'C栋'},
-                            {value:a[3],name:'D栋'}
+                            {value:a[2],name:'C区'},
+                            {value:a[3],name:'D栋'},
+                            {value:a[4],name:'E区'}
                         ],
                         emphasis: {
                             itemStyle: {
@@ -397,18 +398,18 @@ ratedeal = function(data){
     var a = data;
     var x = new Array();
     for(i=0;i<a.length;i++){
-        x[i] = (a[i].rate_c / 43).toFixed(2);
+        x[i] = (a[i].rate_c / 73).toFixed(2);
     }
     return x;
 }
 
 //出租率同比
 rateComp = function(){
-    var for_year = $('#global_year_choose option:selected').val()-1;
-    var year = $('#global_year_choose option:selected').val();
     var current_month = new Array();
     var new_data = new Array();
     var old_data = new Array();
+    var for_year = $('#global_year_choose option:selected').val()-1;
+    var year = $('#global_year_choose option:selected').val();
     var url1 = "/api/v1/globalanalysis/renRateCompar?year=" +year;
     var url2 = "/api/v1/globalanalysis/renRateCompar?year=" +for_year;
     console.log(url1);
@@ -417,26 +418,22 @@ rateComp = function(){
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var new_data = ratedeal(data);
+            new_data = ratedeal(data);
             console.log(new_data)
-//            for (i = 0; i<new_data.length; i++){
-//                current_month[i] = i+1;
-//            }
-            console.log(current_month)
-            }
-        else {
-            alert("NO DATA")
-        }
-    });
-
-     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
-        if(status == 'success'){
-            console.log(data)
-            old_data = ratedeal(data);
-            for (i = 0; i<new_data.length; i++){
+            for (i = 0;i<new_data.length;i++){
                 current_month[i] = i+1;
             }
             console.log(current_month)
+            }
+        else {
+            alert("NO DATA")            //避免中文输入
+        }
+    });
+
+    $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
+        if(status == 'success'){
+            console.log(data)
+            old_data = ratedeal(data);
             console.log(old_data)
             console.log(new_data)
 
@@ -478,6 +475,12 @@ rateComp = function(){
                     fontSize:10
                 }
             },
+            legend: {
+                 show:true,
+                 type:"plain",
+                 right:"4%",
+                 orient:"vertical"
+            },
             series: [
             {
                 name: year,
@@ -486,7 +489,8 @@ rateComp = function(){
                 data: new_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    position: "top",
+                    color:"rgba(0,0,205,1)",
                     fontWeight:"bolder"
                 }
             },
@@ -497,13 +501,16 @@ rateComp = function(){
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(86, 72, 72, 1)",
+                    position: "bottom",
+                    color:"rgba(220,20,60, 1)",
                     fontWeight:"bolder"
                 }
-            }
-            ]
+            }]
         };
         myChart.setOption(option);
+        }
+        else {
+            alert("无数据")
         }
     });
 }
