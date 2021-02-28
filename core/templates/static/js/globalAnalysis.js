@@ -398,7 +398,16 @@ ratedeal = function(data){
     var a = data;
     var x = new Array();
     for(i=0;i<a.length;i++){
-        x[i] = (a[i].rate_c / 73).toFixed(2);
+        x[i] = (a[i].rate_c / 77).toFixed(2);
+    }
+    return x;
+}
+
+old_ratedeal = function(data){
+    var a = data;
+    var x = new Array();
+    for(i=0;i<a.length;i++){
+        x[i] = (a[i].rate_c / 43).toFixed(2);
     }
     return x;
 }
@@ -433,7 +442,7 @@ rateComp = function(){
     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
-            old_data = ratedeal(data);
+            old_data = old_ratedeal(data);
             console.log(old_data)
             console.log(new_data)
 
