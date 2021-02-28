@@ -115,7 +115,7 @@ var aveRoomPri = function () {
     });
 }
 
-//这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计 hahh
+//这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
 var monthCome = function () {
     var new_data = new Array();
     var old_data = new Array();
@@ -434,7 +434,7 @@ var roomNumb = function (region) {
     $.get(url, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var a = data['count(building)'];
+            var a = data['count(building)']+1;
             console.log(a)
             var totalIncomeHtml = "<h4>" + region + "栋房间数：" + a + "间</h4>";
             $("#roomNumb").html(totalIncomeHtml);
