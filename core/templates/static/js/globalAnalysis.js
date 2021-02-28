@@ -435,7 +435,7 @@ rateComp = function(){
             console.log(current_month)
             }
         else {
-            alert("NO DATA")            //避免中文输入
+            alert("NO DATA")            //避免中文输入哈哈哈
         }
     });
 
