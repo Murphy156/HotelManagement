@@ -17,7 +17,7 @@ import logging.config
 
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
-#
+
 regionEchart = Blueprint('RegionEchart ', __name__)
 api = Api(regionEchart)
 
@@ -125,7 +125,7 @@ class RegionEchart(Resource):
         data = roomNum[0]
         return jsonify(data)
 
-    # 房屋出租率
+    # 房屋出租率hah
     def roRentRate(self):
         region = request.args.get("region")
         # 这里取出的是某区域的全部房间数

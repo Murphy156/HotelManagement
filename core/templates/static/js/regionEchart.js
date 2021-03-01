@@ -117,21 +117,43 @@ var aveRoomPri = function () {
 
 //这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
 var monthCome = function () {
+    var new_data = new Array();
+    var old_data = new Array();
+    var current_month = new Array();
     var region = $('#region option:selected').val();
     var year = $('#texyear option:selected').val();
-    var url = "/api/v1/region/regMonInc?region=" + region + "&year=" + year;
-    console.log(url);
+    var for_year = $('#texyear option:selected').val()-1;
+    var url1 = "/api/v1/region/regMonInc?region=" + region + "&year=" + year;
+    var url2 = "/api/v1/region/regMonInc?region=" + region + "&year=" + for_year;
+    console.log(url1);
+    console.log(url2);
 
-    $.get(url, function (data, status) {
+    $.get(url1,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            new_data = regiMon2(data);
+            console.log(new_data)
+            for (var i = 0;i<new_data.length;i++){
+                current_month[i] = i+1;
+            }
+            console.log(current_month)
+            }
+        else {
+            alert("NO DATA")
+        }
+    });
+
+    $.get(url2, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var mon = regiMon2(data); //mon是每月收入
-            console.log(mon)
-            var x = new Array();
-            for (var i = 0; i < mon.length; i++) {
-                x[i] = i + 1;
-            }
-            console.log(x)
+            old_data = regiMon2(data); //mon是每月收入
+            console.log(old_data)
+             console.log(new_data)
+//            var x = new Array();
+//            for (var i = 0; i < mon.length; i++) {
+//                x[i] = i + 1;
+//            }
+//            console.log(x)
             var myChart = echarts.init(document.getElementById('monthcome'));
             var option = {
                 backgroundColor: "#F0FFFF",
@@ -157,7 +179,7 @@ var monthCome = function () {
                 },
                 xAxis: {
                     type: "category",
-                    data: x,
+                    data: current_month,
                     axisLabel: {
                         show: true,
                         color: "rgba(86, 72, 72, 1)",
@@ -174,21 +196,27 @@ var monthCome = function () {
                     }
                 },
                 series: [{
-                    name: '每月收入',
-                    type: 'bar',
-                    data: mon,
-                    color: "rgba(234, 149, 13, 1)"
-                },
-                    {
-                        name: '每月收入',
-                        type: 'line',
-                        data: mon,
-                        label: {
-                            show: true,
-                            color: "rgba(86, 72, 72, 1)",
-                            fontWeight: "bolder"
-                        }
-                    }]
+                name: year,
+                color:'#003366',
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color:"rgba(255, 255, 255, 0.5)",
+                    fontWeight:"bolder"
+                }
+            },
+            {
+                name: for_year,
+                color:'#e5323e',
+                type: 'bar',
+                data: old_data,
+                label:{
+                    show: true,
+                    color:"rgba(255, 255, 255, 0.5)",
+                    fontWeight:"bolder"
+                }
+            }]
             };
             myChart.setOption(option);
         }

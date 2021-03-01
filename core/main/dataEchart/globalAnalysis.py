@@ -170,7 +170,7 @@ class GlobalAnalysis(Resource):
     def renRateCompar(self):
         year = request.args.get("year")
         B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
-        LOG.info(f"sql is : {B_sql}")
+        LOG.info(f"renratecomper sql is : {B_sql}")
         # data1这里返回的是有多少个月
         dat1 = self._common.db.execute(B_sql)
         LOG.info("dat1 : " + str(dat1))
