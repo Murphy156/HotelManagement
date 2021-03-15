@@ -83,7 +83,7 @@ class GlobalAnalysis(Resource):
     def rentIncome(self):
         # 这里接入年份选择的数据
         year = request.args.get("year")
-        s_sql = f"select year ,sum(ref_rent) as sum_rent from monthly where year = '{year}'"
+        s_sql = f"select year ,sum(rent)-sum(w_c)-sum(e_c) as sum_rent from monthly where year = '{year}'"
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
@@ -144,7 +144,7 @@ class GlobalAnalysis(Resource):
     # 收入对比
     def reveCompar(self):
         year = request.args.get("year")
-        s_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where year = "{year}" group by month'
+        s_sql = f'select month ,sum(rent)-sum(w_c)-sum(e_c) as sum_rent from monthly where year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("reveComper1111111: " + str(data1))
