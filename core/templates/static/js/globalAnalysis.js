@@ -53,14 +53,15 @@ rentinc = function(){
 
 // 这里返回可租房间数
 roomqual = function(){
-    var url = "/api/v1/globalanalysis/roomQuantity";
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/roomQuantity?year="+year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
             var a = data;//直接返回房间数
-            var numb = "<h4>可租房间：" + a + "间</h4>";
+            var numb = "<h4>可租房间：" + a + "/73间</h4>";
             $("#room_Number").html(numb);
         }
         else {
@@ -71,14 +72,15 @@ roomqual = function(){
 
 // 这里返回可租商铺数
 shopqual = function(){
-    var url = "/api/v1/globalanalysis/shopQuantity";
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/shopQuantity?year="+year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h4>可租铺位：" + a + "间</h4>";
+            var numb = "<h4>可租铺位：" + a + "/4间</h4>";
             $("#shop_Number").html(numb);
         }
         else {

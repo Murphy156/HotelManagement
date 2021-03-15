@@ -92,7 +92,17 @@ class GlobalAnalysis(Resource):
 
     # 可租房间数,返回的是一个数字
     def roomQuantity(self):
-        A_sql = f"select count(*) as total_room from room_information where is_shop = 'N'"
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"renratecomper sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
+        LOG.info("dat1 : " + str(dat1))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        month = data1['nums']
+        LOG.info("numb : " + str(month))
+        A_sql = f"select count(*)-2 as total_room from monthly where year = '{year}' and month = '{month}' and rent != 0 and building != 'C'"
         LOG.info(f"sql is : {A_sql}")
         res = self._common.db.execute(A_sql)
         LOG.info("A_sql result is : " + str(res))
@@ -101,12 +111,23 @@ class GlobalAnalysis(Resource):
 
     # 可租铺位，返回的是一个数字
     def shopQuantity(self):
-        sql = f"select count(building) from room_information where is_shop = 'Y'"
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"renratecomper sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
+        LOG.info("dat1 : " + str(dat1))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        month = data1['nums']
+        LOG.info("numb : " + str(month))
+
+        sql = f"select 4-count(*) as tol from monthly where year = '{year}' and month = '{month}' and building = 'B' and room = '101' and room = '102' and rent != 0 and building = 'C' and room = '1' and room = '3' ;"
         LOG.info(f"sql is : {sql}")
         data = self._common.db.execute(sql)
         LOG.info("data : " + str(data))
-        c = data[0]
-        dat = c['count(building)']
+
+        dat = data[0]['tol']
         LOG.info("dat : " + str(dat))
         return jsonify(dat)
 
