@@ -38,10 +38,12 @@ class RegionEchart(Resource):
             return self.regMonInc()
         elif (operation == 'incClafi'):
             return self.incClafi()
-        elif (operation == 'roomNumb'):
-            return self.roomNumb()
+        elif (operation == 'roomNumb_ok'):
+            return self.roomNumb_ok()
         elif (operation == 'roRentRate'):
             return self.roRentRate()
+        elif (operation == 'roomNumb_tol'):
+            return self.roomNumb_tol()
 
 
 
@@ -56,10 +58,12 @@ class RegionEchart(Resource):
             return self.regMonInc()
         elif (operation == 'incClafi'):
             return self.incClafi()
-        elif (operation == 'roomNumb'):
+        elif (operation == 'roomNumb_ok'):
             return self.roomNumb()
         elif (operation == 'roRentRate'):
             return self.roRentRate()
+        elif (operation == 'roomNumb_tol'):
+            return self.roomNumb_tol()
 
 
     # 某区域的年总收入数值-----------------------------------------------------------------------------------------（实现函数）
@@ -115,41 +119,56 @@ class RegionEchart(Resource):
         }
         return jsonify(res)
 
-    # 可出租房间数
-    def roomNumb(self):
+    # 某区域已租出去的房间数
+    def roomNumb_ok(self):
         region = request.args.get("region")
-        sql = f"select count(building) from room_information where state = 'on' and building = '{region}' "
-        LOG.info(f"sql is : {sql}")
-        roomNum = self._common.db.execute(sql)
-        LOG.info("data : " + str(roomNum))
-        data = roomNum[0]
-        return jsonify(data)
+        year = request.args.get("year")
+        month = request.args.get("month")
 
-    # 房屋出租率hah
+        # 这里可以计算出某区域的已租出去的房间数
+        sql1 = f"select count(*) as tol_ok from monthly where year = '{year}' and building = '{region}' and month = '{month}' and rent != 0 ;"
+        LOG.info(f"sql1 is : {sql1}")
+        data1 = self._common.db.execute(sql1)
+        LOG.info("data : " + str(data1))
+        room_ok = data1[0]['tol_ok']
+
+        return jsonify(room_ok)
+
+    # 某区域的总房间数
+    def roomNumb_tol(self):
+        region = request.args.get("region")
+
+        # 这里计算出某区域的房间总数
+        sql2 = f"select count(*) as tol_num from room_information where building = '{region}';"
+        data2 = self._common.db.execute(sql2)
+        room_num = data2[0]['tol_num']
+#        LOG.info("tol_num:"+room_num)
+        return jsonify(room_num)
+
+    # 房屋出租率
     def roRentRate(self):
         region = request.args.get("region")
-        # 这里取出的是某区域的全部房间数
-        A_sql = f"select count(building) from room_information where building = '{region}'"
-        LOG.info(f"sql is : {A_sql}")
-        data1 = self._common.db.execute(A_sql)
-        LOG.info("data1 : " + str(data1))
-        a = data1[0]
-        dat1 = a['count(building)']
-        LOG.info("dat1 : " + str(dat1))
-        # 这里取出的是某区域现在在租的房间数
-        B_sql = f"select count(building) from room_information where state = 'on' and building = '{region}' "
-        LOG.info(f"sql is : {B_sql}")
-        data2 = self._common.db.execute(B_sql)
-        LOG.info("data1 : " + str(data2))
-        b = data2[0]
-        dat2 = b['count(building)']
-        LOG.info("dat2 : " + str(dat2))
-        # 这里是计算出租率的
-        rat = dat2 / dat1*100
-        LOG.info("rat : " + str(rat))
-        rat1 = round(rat)
-        rate = str(rat1) + '%'
-        LOG.info("rate : " + str(rate))
+        year = request.args.get("year")
+        month = request.args.get("month")
+
+        # 这里可以计算出某区域的已租出去的房间数
+        sql1 = f"select count(*) as tol_ok from monthly where year = '{year}' and building = '{region}' and month = '{month}' and rent != 0;"
+        LOG.info(f"sql is : {sql1}")
+        data1 = self._common.db.execute(sql1)
+        LOG.info("data : " + str(data1))
+        room_ok = data1[0]['tol_ok']
+
+        # 这里计算出某区域的房间总数
+        sql2 = f"select count(*) as tol_num from room_information where building = '{region}';"
+        LOG.info(f"sql is : {sql2}")
+        data2 = self._common.db.execute(sql2)
+        room_num = data2[0]['tol_num']
+
+        # 计算出租率
+        current_month_rate = room_ok / room_num * 100
+        current_month_rate = round(current_month_rate)
+        current_month_rate = str(current_month_rate) + '%'
+        return jsonify(current_month_rate)
         return jsonify(rate)
 
 

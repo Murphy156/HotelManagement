@@ -83,7 +83,7 @@ class GlobalAnalysis(Resource):
     def rentIncome(self):
         # 这里接入年份选择的数据
         year = request.args.get("year")
-        s_sql = f"select year ,sum(ref_rent) as sum_rent from monthly where year = '{year}'"
+        s_sql = f"select year ,sum(rent)-sum(w_c)-sum(e_c) as sum_rent from monthly where year = '{year}'"
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
@@ -92,7 +92,17 @@ class GlobalAnalysis(Resource):
 
     # 可租房间数,返回的是一个数字
     def roomQuantity(self):
-        A_sql = f"select count(*) as total_room from room_information where is_shop = 'N'"
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"renratecomper sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
+        LOG.info("dat1 : " + str(dat1))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        month = data1['nums']
+        LOG.info("numb : " + str(month))
+        A_sql = f"select count(*)-2 as total_room from monthly where year = '{year}' and month = '{month}' and rent != 0 and building != 'C'"
         LOG.info(f"sql is : {A_sql}")
         res = self._common.db.execute(A_sql)
         LOG.info("A_sql result is : " + str(res))
@@ -101,39 +111,45 @@ class GlobalAnalysis(Resource):
 
     # 可租铺位，返回的是一个数字
     def shopQuantity(self):
-        sql = f"select count(building) from room_information where is_shop = 'Y'"
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"renratecomper sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
+        LOG.info("dat1 : " + str(dat1))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        month = data1['nums']
+        LOG.info("numb : " + str(month))
+
+        sql = f"select 4-count(*) as tol from monthly where year = '{year}' and month = '{month}' and building = 'B' and room = '101' and room = '102' and rent != 0 and building = 'C' and room = '1' and room = '3' ;"
         LOG.info(f"sql is : {sql}")
         data = self._common.db.execute(sql)
         LOG.info("data : " + str(data))
-        c = data[0]
-        dat = c['count(building)']
+
+        dat = data[0]['tol']
         LOG.info("dat : " + str(dat))
         return jsonify(dat)
 
-    # 当前出租率
+
+    #当前出租率
     def rentalRate(self):
-        # 这里计算的是已经出租的房间数
-        A_sql = f"select count(building) from room_information where state = 'on' "
-        LOG.info(f"sql is : {A_sql}")
-        data1 = self._common.db.execute(A_sql)
-        LOG.info("data1 : " + str(data1))
-        a = data1[0]
-        dat1 = a['count(building)']
+        year = request.args.get("year")
+        B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
+        LOG.info(f"renratecomper sql is : {B_sql}")
+        # data1这里返回的是有多少个月
+        dat1 = self._common.db.execute(B_sql)
         LOG.info("dat1 : " + str(dat1))
-        # 这里计算的是全部的房间数
-        B_sql = f"select count(building) from room_information "
-        LOG.info(f"sql is : {B_sql}")
-        data2 = self._common.db.execute(B_sql)
-        LOG.info("data2 : " + str(data2))
-        b = data2[0]
-        dat2 = b['count(building)']
-        LOG.info("dat2 : " + str(dat2))
-        # 这里计算的是出租率
-        rat = dat1/dat2*100
-        LOG.info("rat : " + str(rat))
-        rat1 = round(rat)
-        rate = str(rat1) + '%'
-        LOG.info("rate : " + str(rate))
+        data1 = dat1[0]
+        LOG.info("data1 : " + str(data1))
+        numb = data1['nums']
+        LOG.info("numb : " + str(numb))
+        A_sql = f'select count(*) as rate_c from (SELECT a.building, a.room, b.rent,a.ext_1 FROM room_information a LEFT JOIN (select * from monthly where month = "{numb}" AND year = "{year}")  b ON a.building = b.building and a.room = b.room ) a where a.rent is not null and a.rent > 0'
+        LOG.info(f"rent rate sql is : {A_sql}")
+        a = self._common.db.execute(A_sql)
+        rate = a[0]
+        LOG.info("ratetest111111111111 : " + str(rate))
+
         return jsonify(rate)
 
     # 全部物业总收入中按月收入分析
@@ -149,7 +165,7 @@ class GlobalAnalysis(Resource):
     # 收入对比
     def reveCompar(self):
         year = request.args.get("year")
-        s_sql = f'select month ,sum(ref_rent) as sum_rent from monthly where year = "{year}" group by month'
+        s_sql = f'select month ,sum(rent)-sum(w_c)-sum(e_c) as sum_rent from monthly where year = "{year}" group by month'
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("reveComper1111111: " + str(data1))
@@ -185,7 +201,7 @@ class GlobalAnalysis(Resource):
             a = self._common.db.execute(A_sql)
             rent_rate = a[0]
             rate.append(rent_rate)
-        LOG.info("rate : " + str(rate))
+        LOG.info("ratetest111111111111 : " + str(rate))
 
         return jsonify(rate)
 

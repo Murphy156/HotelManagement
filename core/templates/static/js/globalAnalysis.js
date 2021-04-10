@@ -53,14 +53,15 @@ rentinc = function(){
 
 // 这里返回可租房间数
 roomqual = function(){
-    var url = "/api/v1/globalanalysis/roomQuantity";
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/roomQuantity?year="+year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
             var a = data;//直接返回房间数
-            var numb = "<h4>可租房间：" + a + "间</h4>";
+            var numb = "<h4>可租房间：" + a + "/73间</h4>";
             $("#room_Number").html(numb);
         }
         else {
@@ -71,14 +72,15 @@ roomqual = function(){
 
 // 这里返回可租商铺数
 shopqual = function(){
-    var url = "/api/v1/globalanalysis/shopQuantity";
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/shopQuantity?year="+year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h4>可租铺位：" + a + "间</h4>";
+            var numb = "<h4>可租铺位：" + a + "/4间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
@@ -87,17 +89,26 @@ shopqual = function(){
     });
 }
 
+current_rate = function(data){
+    var a = data;
+    var x = (a.rate_c / 77).toFixed(2);
+    return x;
+}
 
 // 这里返回当前出租率
 onrent = function(){
-    var url = "/api/v1/globalanalysis/rentalRate";
+    var year = $('#global_year_choose option:selected').val();
+    var url = "/api/v1/globalanalysis/rentalRate?year="+year;
     console.log(url);
 
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
-            var a = data;//这里直接返回出租率
-            var numb = "<h4>当前出租率：" + a + "</h4>";
+            var a = current_rate(data) * 100
+            console.log(a)
+
+//            var a = data;//这里直接返回出租率
+            var numb = "<h4>当前出租率：" + a + "%" + "</h4>";
             $("#rate").html(numb);
         }
         else {

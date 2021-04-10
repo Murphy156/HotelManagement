@@ -412,7 +412,9 @@ var incClaFi = function () {
 //这里返回的是出租率
 var rentAlRate = function () {
     var region = $('#region option:selected').val();
-    var url = "/api/v1/region/roRentRate?region=" + region;
+    var month  = $('#texmonth option:selected').val();
+    var year = $('#texyear option:selected').val();
+    var url = "/api/v1/region/roRentRate?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url);
 
     $.get(url, function (data, status) {
@@ -425,18 +427,33 @@ var rentAlRate = function () {
     });
 }
 
-//这里返回的是某区域的房间数
+//这里返回的是某区域的已租出去的房间数
 var roomNumb = function (region) {
+    var have_rent;
+    var all_room;
     var region = $('#region option:selected').val();
-    var url = "/api/v1/region/roomNumb?region=" + region;
-    console.log(url);
+    var month  = $('#texmonth option:selected').val();
+    var year = $('#texyear option:selected').val();
+    var url1 = "/api/v1/region/roomNumb_ok?region=" + region + "&year=" + year + "&month=" + month;
+    console.log(url1);
+    var url2 = "/api/v1/region/roomNumb_tol?region=" + region;
+    console.log(url2);
 
-    $.get(url, function (data, status) {
+    $.get(url1, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            var a = data['count(building)'];
-            console.log(a)
-            var totalIncomeHtml = "<h4>" + region + "栋房间数：" + a + "间</h4>";
+            have_rent = data;
+            console.log(have_rent)
+        }
+    });
+
+    $.get(url2, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            all_room = data;
+            console.log(all_room)
+            console.log(have_rent)
+            var totalIncomeHtml = "<h4>" + region + "栋房间数：" + have_rent + "/" + all_room + "间</h4>";
             $("#roomNumb").html(totalIncomeHtml);
         }
     });
