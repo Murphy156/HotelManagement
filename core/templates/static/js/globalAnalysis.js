@@ -80,7 +80,7 @@ shopqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h4>可租铺位：" + a + "/4间</h4>";
+            var numb = "<h4>可租铺位：" + a + "/5间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
@@ -91,7 +91,7 @@ shopqual = function(){
 
 current_rate = function(data){
     var a = data;
-    var x = (a.rate_c / 77).toFixed(2);
+    var x = (a.rate_c / 78).toFixed(2);
     return x;
 }
 
@@ -409,7 +409,7 @@ ratedeal = function(data){
     var a = data;
     var x = new Array();
     for(i=0;i<a.length;i++){
-        x[i] = (a[i].rate_c / 77).toFixed(2);
+        x[i] = (a[i].rate_c / 78).toFixed(2);
     }
     return x;
 }
@@ -446,7 +446,7 @@ rateComp = function(){
             console.log(current_month)
             }
         else {
-            alert("NO DATA")            //避免中文输入哈哈哈
+            alert("NO DATA")            //避免中文输入
         }
     });
 

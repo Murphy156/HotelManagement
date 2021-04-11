@@ -122,7 +122,7 @@ class GlobalAnalysis(Resource):
         month = data1['nums']
         LOG.info("numb : " + str(month))
 
-        sql = f"select 4-count(*) as tol from monthly where year = '{year}' and month = '{month}' and building = 'B' and room = '101' and room = '102' and rent != 0 and building = 'C' and room = '1' and room = '3' ;"
+        sql = f"select 5-count(*) as tol from monthly where year = '{year}' and month = '{month}' and building = 'B' and room = '101' and room = '102' and rent != 0 and building = 'C' and room = '1' and room = '3' and room = '2';"
         LOG.info(f"sql is : {sql}")
         data = self._common.db.execute(sql)
         LOG.info("data : " + str(data))
