@@ -138,7 +138,7 @@ monlinc = function(){
     console.log(url1);
     console.log(url2);
 
-    $.ajaxSettings.async = false;
+
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -154,7 +154,7 @@ monlinc = function(){
         }
     });
 
-
+    $.ajaxSettings.async = false;
     $.get(url2,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -248,7 +248,7 @@ incom = function(){
     console.log(url1);
     console.log(url2);
 
-    $.ajaxSettings.async = false;
+
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -264,7 +264,7 @@ incom = function(){
         }
     });
 
-
+    $.ajaxSettings.async = false;
     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
