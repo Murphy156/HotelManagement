@@ -109,7 +109,7 @@ class GlobalAnalysis(Resource):
         total_room = res[0]['total_room']
         return jsonify(total_room)
 
-    # 可租铺位，返回的是一个数字
+    # 可租铺位，返回的是一个数字111
     def shopQuantity(self):
         year = request.args.get("year")
         B_sql = f"select count(month) as nums from monthly where year = '{year}' and building = 'A' AND room = '101'"
