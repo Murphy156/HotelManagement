@@ -138,6 +138,7 @@ monlinc = function(){
     console.log(url1);
     console.log(url2);
 
+    $.ajaxSettings.async = false;
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -152,6 +153,7 @@ monlinc = function(){
             alert("NO DATA")
         }
     });
+
 
     $.get(url2,function(data,status){
         if(status == 'success'){
@@ -230,6 +232,7 @@ monlinc = function(){
             alert("无数据")
         }
     });
+    $.ajaxSettings.async = true;
 }
 
 
@@ -245,6 +248,7 @@ incom = function(){
     console.log(url1);
     console.log(url2);
 
+    $.ajaxSettings.async = false;
     $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -259,6 +263,7 @@ incom = function(){
             alert("NO DATA")            //避免中文输入
         }
     });
+
 
     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
@@ -338,6 +343,7 @@ incom = function(){
             alert("无数据")
         }
     });
+    $.ajaxSettings.async = true;
 }
 
 
