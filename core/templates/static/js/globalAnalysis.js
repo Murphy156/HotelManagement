@@ -126,6 +126,15 @@ totalinc = function(data){
     return x;
 }
 
+//这里取出的是每个数据对应的月份数
+var tol_month = function (data){
+    var a = data;
+    var x = new Array();
+    for (var i = 0;i<a.length;i++){
+        x[i] = a[i].month;
+    }
+    return x;
+}
 // 这里返回业全部物总收入中按月收入分析
 monlinc = function(){
     var new_data = new Array();
@@ -139,26 +148,27 @@ monlinc = function(){
     console.log(url2);
 
 
-    $.get(url1,function(data,status){
+    $.get(url2,function(data,status){
         if(status == 'success'){
             console.log(data)
-            new_data = totalinc(data);
-            console.log(new_data)
-            for (i = 0;i<new_data.length;i++){
-                current_month[i] = i+1;
-            }
-            console.log(current_month)
+            old_data = totalinc(data);
+            console.log(old_data)
+//            for (i = 0;i<new_data.length;i++){
+//                current_month[i] = i+1;
+//            }
+//            console.log(current_month)
             }
         else {
             alert("NO DATA")
         }
     });
 
-    $.ajaxSettings.async = false;
-    $.get(url2,function(data,status){
+    $.ajaxSettings.async = true;
+    $.get(url1,function(data,status){
         if(status == 'success'){
             console.log(data)
-            old_data = totalinc(data);
+            new_data = totalinc(data);
+            current_month = tol_month(data);
             console.log(old_data)
             console.log(new_data)
 
@@ -232,7 +242,7 @@ monlinc = function(){
             alert("无数据")
         }
     });
-    $.ajaxSettings.async = true;
+    $.ajaxSettings.async = false;
 }
 
 
@@ -249,26 +259,23 @@ incom = function(){
     console.log(url2);
 
 
-    $.get(url1,function(data,status){
+    $.get(url2,function(data,status){
         if(status == 'success'){
             console.log(data)
-            new_data = totalinc(data);
-            console.log(new_data)
-            for (i = 0;i<new_data.length;i++){
-                current_month[i] = i+1;
-            }
-            console.log(current_month)
+            old_data = totalinc(data);
+            console.log(old_data)
             }
         else {
             alert("NO DATA")            //避免中文输入
         }
     });
 
-    $.ajaxSettings.async = false;
-    $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
+    $.ajaxSettings.async = true;
+    $.get(url1,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
-            old_data = totalinc(data);
+            new_data = totalinc(data);
+            current_month = tol_month(data);
             console.log(old_data)
             console.log(new_data)
 
@@ -343,7 +350,7 @@ incom = function(){
             alert("无数据")
         }
     });
-    $.ajaxSettings.async = true;
+    $.ajaxSettings.async = false;
 }
 
 
@@ -455,7 +462,7 @@ rateComp = function(){
             alert("NO DATA")            //避免中文输入
         }
     });
-    $.ajaxSettings.async = false;
+    $.ajaxSettings.async = true;
     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
@@ -539,5 +546,5 @@ rateComp = function(){
             alert("无数据")
         }
     });
-    $.ajaxSettings.async = true;
+    $.ajaxSettings.async = false;
 }

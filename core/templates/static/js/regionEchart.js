@@ -155,7 +155,7 @@ var monthCome = function () {
         }
     });
 
-    $.ajaxSettings.async = false;
+    $.ajaxSettings.async = true;
     $.get(url1, function (data, status) {
         if (status == 'success') {
             console.log(data)
@@ -231,7 +231,7 @@ var monthCome = function () {
             myChart.setOption(option);
         }
     });
-    $.ajaxSettings.async = true;
+    $.ajaxSettings.async = false;
 }
 
 //这里返回的是 按月房租（专用于incClaFi（））
@@ -465,7 +465,7 @@ var roomNumb = function (region) {
             console.log(have_rent)
         }
     });
-    $.ajaxSettings.async = false;
+    $.ajaxSettings.async = true;
     $.get(url2, function (data, status) {
         if (status == 'success') {
             console.log(data)
@@ -476,5 +476,5 @@ var roomNumb = function (region) {
             $("#roomNumb").html(totalIncomeHtml);
         }
     });
-    $.ajaxSettings.async = true;
+    $.ajaxSettings.async = false;
 }
