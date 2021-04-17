@@ -455,7 +455,7 @@ rateComp = function(){
             alert("NO DATA")            //避免中文输入
         }
     });
-
+    $.ajaxSettings.async = false;
     $.get(url2,function(data,status){   //jquary中的get函数只能在其内部获取
         if(status == 'success'){
             console.log(data)
@@ -539,4 +539,5 @@ rateComp = function(){
             alert("无数据")
         }
     });
+    $.ajaxSettings.async = true;
 }
