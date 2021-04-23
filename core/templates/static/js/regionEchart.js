@@ -143,7 +143,7 @@ var monthCome = function () {
     $.get(url2,function(data,status){
         if(status == 'success'){
             console.log(data)
-            old_data_data = regiMon2(data);
+            old_data = regiMon2(data);
             console.log(old_data)
             for (var i = 0;i<new_data.length;i++){
                 current_month[i] = i+1;
