@@ -50,6 +50,17 @@ var regiMon2 = function (data) {
     return y;
 }
 
+//这里取出的是每个数据对应的月份数
+
+var tol_month = function (data){
+    var a = data;
+    var x = new Array();
+    for (var i = 0;i<a.length;i++){
+        x[i] = a[i].month;
+    }
+    return x;
+}
+
 // 得到的数据是 某年某区域 1、年总收入，2、每月收入
 var yearIncome = function () {
     var region = $('#region option:selected').val();
@@ -117,6 +128,7 @@ var aveRoomPri = function () {
 
 //这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
 var monthCome = function () {
+    var tolmonth = new Array();
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
@@ -128,11 +140,11 @@ var monthCome = function () {
     console.log(url1);
     console.log(url2);
 
-    $.get(url1,function(data,status){
+    $.get(url2,function(data,status){
         if(status == 'success'){
             console.log(data)
-            new_data = regiMon2(data);
-            console.log(new_data)
+            old_data = regiMon2(data);
+            console.log(old_data)
             for (var i = 0;i<new_data.length;i++){
                 current_month[i] = i+1;
             }
@@ -143,17 +155,15 @@ var monthCome = function () {
         }
     });
 
-    $.get(url2, function (data, status) {
+    $.ajaxSettings.async = true;
+    $.get(url1, function (data, status) {
         if (status == 'success') {
             console.log(data)
-            old_data = regiMon2(data); //mon是每月收入
+            new_data = regiMon2(data); //mon是每月收入
+            tolmonth = tol_month(data);
+            console.log(tolmonth)
             console.log(old_data)
-             console.log(new_data)
-//            var x = new Array();
-//            for (var i = 0; i < mon.length; i++) {
-//                x[i] = i + 1;
-//            }
-//            console.log(x)
+            console.log(new_data)
             var myChart = echarts.init(document.getElementById('monthcome'));
             var option = {
                 backgroundColor: "#F0FFFF",
@@ -179,7 +189,7 @@ var monthCome = function () {
                 },
                 xAxis: {
                     type: "category",
-                    data: current_month,
+                    data: tolmonth,
                     axisLabel: {
                         show: true,
                         color: "rgba(86, 72, 72, 1)",
@@ -221,6 +231,7 @@ var monthCome = function () {
             myChart.setOption(option);
         }
     });
+    $.ajaxSettings.async = false;
 }
 
 //这里返回的是 按月房租（专用于incClaFi（））
@@ -260,8 +271,20 @@ var water = function (data) {
     }
     return y;
 }
+
+//这里是专用于分类的对应月份
+
+var tol_month1 = function(data){
+    var a = data;
+    var x = new Array();
+    for (var i = 0;i<a.length/3;i++){
+        x[i] = a[i].month;
+    }
+    return x;
+}
 //这里得到的数据是收入分类占比
 var incClaFi = function () {
+    var tolmonth = Array();
     var region = $('#region option:selected').val();
     var year = $('#texyear option:selected').val();
     var url = "/api/v1/region/incClafi?region=" + region + "&year=" + year;
@@ -276,11 +299,7 @@ var incClaFi = function () {
             console.log(elec_c)
             var wate_c = water(data);//这里返回的是按月水费收入
             console.log(wate_c)
-            var x = new Array();
-            for (var i = 0; i < rent.length; i++) {
-                x[i] = i + 1;
-            }
-            console.log(x)
+            tolmonth = tol_month1(data)
             var myChart = echarts.init(document.getElementById('incClafi'));
             var option = {
                 backgroundColor: "#F0FFFF",
@@ -312,7 +331,7 @@ var incClaFi = function () {
                 },
                 xAxis: {
                     type: 'category',
-                    data: x,
+                    data: tolmonth,
                     axisLabel: {
                         show: true,
                         color: "rgba(86, 72, 72, 1)",
@@ -446,7 +465,7 @@ var roomNumb = function (region) {
             console.log(have_rent)
         }
     });
-
+    $.ajaxSettings.async = true;
     $.get(url2, function (data, status) {
         if (status == 'success') {
             console.log(data)
@@ -457,4 +476,5 @@ var roomNumb = function (region) {
             $("#roomNumb").html(totalIncomeHtml);
         }
     });
+    $.ajaxSettings.async = false;
 }

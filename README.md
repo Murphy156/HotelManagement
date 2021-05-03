@@ -68,6 +68,16 @@ bash /data/opt/HotelManagement/bin/stop.sh
   - 跑通后 再运行 脚本程序
   - 完成网站的部署
   - 如遇无法打开网页的问题，什么信息都没有反馈的情况，去开服务器的网络安全组有没有对 all的TCP的规则
+
+
+- 常见问题
+  - 如何开启、关闭、重启nginx
+    - 开启：sudo systemctl start nginx
+    - 停止：sudo systemctl stop nginx
+    - 重启：sudo systemctl reload nginx
+    - 查看状态：sudo systemctl status nginx
+    - 强制重启：sudo systemctl restart nginx
+    
 ```
 ## 相关文档
 ```
