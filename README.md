@@ -79,6 +79,23 @@ bash /data/opt/HotelManagement/bin/stop.sh
     - 强制重启：sudo systemctl restart nginx
     
 ```
+## 关于在github上新建一个库并且把本地的工程文件关联到这个库的方法
+```
+- 方法
+  - 首先先在本地的终端 git init //初始化
+  - 然后再用命令 ： git remote add origin git地址 // 添加远端库
+  - 要注意的是提交时要看看对应的分支是否是正确的
+```
+
+## 关于在同一台服务器上部署多个不同的站点
+```
+- 方法
+  - 这种工作一般交给nginx来进行部署
+  - 首先要改好代码后端的端口，然后再nginx中的conf.d添加相应的信息
+  - 然后要注意解析一下不同的监听端口，在安全组中解析
+    
+```
+
 ## 相关文档
 ```
 后续补充
