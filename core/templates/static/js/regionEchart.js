@@ -126,7 +126,7 @@ var aveRoomPri = function () {
     });
 }
 
-// 处理前一年多出来的数据
+// 处理前一年多出来的数据!
 var deal_over = function(data1,data2){
     var old_data = data1;
     var current_tol_month = data2;
