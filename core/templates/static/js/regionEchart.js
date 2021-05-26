@@ -126,6 +126,20 @@ var aveRoomPri = function () {
     });
 }
 
+// 处理前一年多出来的数据
+var deal_over = function(data1,data2){
+    var old_data = data1;
+    var current_tol_month = data2;
+    var x = new Array();
+    console.log(old_data)
+    for (var i = 0;i<current_tol_month.length;i++){
+        x[i] = old_data[i];
+    }
+    console.log(x)
+    return x;
+}
+
+
 //这里得到的数据是按月收入，某区域，某年：1、每个月的收入统计
 var monthCome = function () {
     var tolmonth = new Array();
@@ -145,10 +159,6 @@ var monthCome = function () {
             console.log(data)
             old_data = regiMon2(data);
             console.log(old_data)
-            for (var i = 0;i<new_data.length;i++){
-                current_month[i] = i+1;
-            }
-            console.log(current_month)
             }
         else {
             alert("NO DATA")
@@ -161,6 +171,7 @@ var monthCome = function () {
             console.log(data)
             new_data = regiMon2(data); //mon是每月收入
             tolmonth = tol_month(data);
+            old_data = deal_over(old_data,current_month);
             console.log(tolmonth)
             console.log(old_data)
             console.log(new_data)

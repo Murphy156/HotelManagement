@@ -22,7 +22,7 @@ from openpyxl import load_workbook
 
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
-#
+
 tenantManagement = Blueprint('TenantManagement', __name__)
 api = Api(tenantManagement)
 

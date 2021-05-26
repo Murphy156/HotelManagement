@@ -27,6 +27,7 @@ USREINFO_HEADER = {
     'contact': '联系电话'
 }
 
+
 class UnitEchart(Resource):
 
     def __init__(self):
@@ -174,8 +175,6 @@ class UnitEchart(Resource):
         LOG.info("data : " + str(data))
         return jsonify(data)
 
-
-
     # 获取入住人信息数据
     def getUserInfo(self):
         region = request.args.get("region")
@@ -203,7 +202,7 @@ class UnitEchart(Resource):
         rows = []
         #
         for user in userInfo:
-#            user['CreateTime'] = str(user['CreateTime'])
+            #            user['CreateTime'] = str(user['CreateTime'])
             row = {}
             for key, value in USREINFO_HEADER.items():
                 row[key] = user[key]
@@ -214,12 +213,6 @@ class UnitEchart(Resource):
             'body': rows
         }
         return outputData
-
-
-
-
-
-
 
 
 api.add_resource(UnitEchart, '/unit/<operation>')

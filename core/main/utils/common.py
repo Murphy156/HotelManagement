@@ -15,6 +15,7 @@ import xlrd
 from core.main.utils.db.db_helper import *
 import logging.config
 import yaml
+
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
 

@@ -8,9 +8,9 @@
 from flask import Flask, render_template
 
 
-
 app = Flask(__name__, template_folder='templates/', static_folder='templates/static')
 app.config['JSON_SORT_KEYS'] = False
+
 @app.route('/dataManagement/tenantManagement')
 def userManagement():
     return render_template('tenantManagement.html')
@@ -22,6 +22,10 @@ def roomManagement():
 @app.route('/dataManagement/monthlyManagement')
 def monthlyManagement():
     return render_template('monthlyManagement.html')
+
+@app.route('/dataManagement/errorData')
+def errorData():
+    return render_template('errorData.html')
 
 @app.route('/dataEchart/globalAnalysis')
 def globalAnalysis():
@@ -61,6 +65,9 @@ if __name__ == '__main__':
 
     from core.main.dataManagement.monthlyManagement import monthlyManagement
     app.register_blueprint(monthlyManagement, url_prefix='/api/v1')
+
+    # from core.main.dataManagement.errorData import errorData
+    # app.register_blueprint(errorData, url_prefix='/api/v1')
 
     from core.main.dataEchart.regionEchart import regionEchart
     app.register_blueprint(regionEchart, url_prefix='/api/v1')
