@@ -132,6 +132,7 @@ var deal_over = function(data1,data2){
     var current_tol_month = data2;
     var x = new Array();
     console.log(old_data)
+    console.log(current_tol_month)
     for (var i = 0;i<current_tol_month.length;i++){
         x[i] = old_data[i];
     }
@@ -151,8 +152,6 @@ var monthCome = function () {
     var for_year = $('#texyear option:selected').val()-1;
     var url1 = "/api/v1/region/regMonInc?region=" + region + "&year=" + year;
     var url2 = "/api/v1/region/regMonInc?region=" + region + "&year=" + for_year;
-    console.log(url1);
-    console.log(url2);
 
     $.get(url2,function(data,status){
         if(status == 'success'){
@@ -171,7 +170,7 @@ var monthCome = function () {
             console.log(data)
             new_data = regiMon2(data); //mon是每月收入
             tolmonth = tol_month(data);
-            old_data = deal_over(old_data,current_month);
+            old_data = deal_over(old_data,tolmonth);
             console.log(tolmonth)
             console.log(old_data)
             console.log(new_data)
