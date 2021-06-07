@@ -222,8 +222,10 @@ var monthCome = function () {
                 data: new_data,
                 label:{
                     show: true,
-                    color:"rgba(255, 255, 255, 0.5)",
-                    fontWeight:"bolder"
+                    color:"rgba(0,0,0,1)",
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
                 }
             },
             {
@@ -233,8 +235,10 @@ var monthCome = function () {
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(255, 255, 255, 0.5)",
-                    fontWeight:"bolder"
+                    color:"rgba(255,0,0,1)",
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
                 }
             }]
             };
