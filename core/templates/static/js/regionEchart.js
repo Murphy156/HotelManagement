@@ -215,27 +215,27 @@ var monthCome = function () {
                         fontSize: 10
                     }
                 },
-                series: [{
-                name: year,
-                color:'#003366',
-                type: 'bar',
-                data: new_data,
-                label:{
-                    show: true,
-                    color:"rgba(0,0,0,1)",
-                    fontWeight:"bolder",
-                    position: "top",
-                    fontSize: 12
-                }
-            },
+                series: [
             {
                 name: for_year,
-                color:'#e5323e',
+                color:'#003366',
                 type: 'bar',
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(255,0,0,1)",
+                    color:'#003366',
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            },{
+                name: year,
+                color:'#e5323e',
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color:'#e5323e',
                     fontWeight:"bolder",
                     position: "top",
                     fontSize: 12

@@ -8,7 +8,12 @@ show_global_data = function() {
     incom();
     regipro();
     rateComp();
+    electCompar();
+    waterCompar();
 }
+
+nowYearHistogramColor = '#e5323e';
+lastYearHistogramColor = '#003366';
 
 
 //这里返回全部物业年的总收入
@@ -61,7 +66,7 @@ roomqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;//直接返回房间数
-            var numb = "<h4>可租房间：" + a + "/73间</h4>";
+            var numb = "<h4>已租房间：" + a + "/73间</h4>";
             $("#room_Number").html(numb);
         }
         else {
@@ -80,7 +85,7 @@ shopqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h4>可租铺位：" + a + "/5间</h4>";
+            var numb = "<h4>已租铺位：" + a + "/5间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
@@ -226,27 +231,27 @@ monlinc = function(){
                     fontSize:10
                 }
             },
-            series: [{
-                name: year,
-                color:'#003366',
-                type: 'bar',
-                data: new_data,
-                label:{
-                    show: true,
-                    color:"rgba(0,0,0,1)",
-                    fontWeight:"bolder",
-                    position: "top",
-                    fontSize: 12
-                }
-            },
+            series: [
             {
                 name: for_year,
-                color:'#e5323e',
+                color:lastYearHistogramColor,
                 type: 'bar',
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(255, 0, 0, 1)",
+                    color:lastYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            },{
+                name: year,
+                color:nowYearHistogramColor,
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color:nowYearHistogramColor,
                     fontWeight:"bolder",
                     position: "top",
                     fontSize: 12
@@ -339,27 +344,27 @@ incom = function(){
                     fontSize:10
                 }
             },
-            series: [{
-                name: year,
-                color:'#003366',
-                type: 'bar',
-                data: new_data,
-                label:{
-                    show: true,
-                    color:"rgba(0,0,0,1)",
-                    fontWeight:"bolder",
-                    position: "top",
-                    fontSize: 12
-                }
-            },
+            series: [
             {
                 name: for_year,
-                color:'#e5323e',
+                color:lastYearHistogramColor,
                 type: 'bar',
                 data: old_data,
                 label:{
                     show: true,
-                    color:"rgba(255, 0, 0, 1)",
+                    color:lastYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            },{
+                name: year,
+                color:nowYearHistogramColor,
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color:nowYearHistogramColor,
                     fontWeight:"bolder",
                     position: "top",
                     fontSize: 12
@@ -539,26 +544,250 @@ rateComp = function(){
             series: [
             {
                 name: year,
-                color:'#003366',
+                color:nowYearHistogramColor,
                 type: 'line',
                 data: new_data,
                 label:{
                     show: true,
                     position: "top",
-                    color:"rgba(0,0,205,1)",
+                    color:nowYearHistogramColor,
                     fontWeight:"bolder"
                 }
             },
             {
                 name: for_year,
-                color:'#e5323e',
+                color:lastYearHistogramColor,
                 type: 'line',
                 data: old_data,
                 label:{
                     show: true,
                     position: "bottom",
-                    color:"rgba(220,20,60, 1)",
+                    color:lastYearHistogramColor,
                     fontWeight:"bolder"
+                }
+            }]
+        };
+        myChart.setOption(option);
+        }
+        else {
+            alert("无数据")
+        }
+    });
+    $.ajaxSettings.async = false;
+}
+
+// 返回电费收入对比
+electCompar = function(){
+    var new_data = new Array();
+    var old_data = new Array();
+    var current_month = new Array();
+    var year = $('#global_year_choose option:selected').val();
+    var for_year = $('#global_year_choose option:selected').val()-1;
+    var url1 = "/api/v1/globalanalysis/electCompar?year=" +year;
+    var url2 = "/api/v1/globalanalysis/electCompar?year=" +for_year;
+    console.log(url1);
+    console.log(url2);
+
+
+    $.get(url2,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            old_data = totalinc(data);
+            console.log(old_data)
+            }
+        else {
+            alert("NO DATA")            //避免中文输入
+        }
+    });
+
+    $.ajaxSettings.async = true;
+    $.get(url1,function(data,status){   //jquary中的get函数只能在其内部获取
+        if(status == 'success'){
+            console.log(data)
+            new_data = totalinc(data);
+            current_month = tol_month(data);
+            old_data = deal_over(old_data,current_month);
+            console.log(old_data)
+            console.log(new_data)
+
+
+            var myChart = echarts.init(document.getElementById('electCompar'));
+            var option = {
+            backgroundColor: "#F0FFFF",
+            title: {
+                text: '电费收入同比（元）',
+                left: "center",
+                textStyle: {
+                    fontSize: 20
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:250px;height:100px;;',
+                trigger: 'axis',
+                axisPointer: {
+                   type: "shadow"
+                }
+            },
+            legend: {
+                 show:true,
+                 type:"plain",
+                 right:"4%",
+                 orient:"vertical"
+            },
+            xAxis: {
+                type: "category",
+                data: current_month,
+                axisLabel: {
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
+                }
+            },
+            yAxis: {
+                axisLabel: {
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
+                }
+            },
+            series: [
+            {
+                name: for_year,
+                color: lastYearHistogramColor,
+                type: 'bar',
+                data: old_data,
+                label:{
+                    show: true,
+                    color: lastYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            },{
+                name: year,
+                color: nowYearHistogramColor,
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color: nowYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            }]
+        };
+        myChart.setOption(option);
+        }
+        else {
+            alert("无数据")
+        }
+    });
+    $.ajaxSettings.async = false;
+}
+
+// 返回水费收入对比
+waterCompar = function(){
+    var new_data = new Array();
+    var old_data = new Array();
+    var current_month = new Array();
+    var year = $('#global_year_choose option:selected').val();
+    var for_year = $('#global_year_choose option:selected').val()-1;
+    var url1 = "/api/v1/globalanalysis/waterCompar?year=" +year;
+    var url2 = "/api/v1/globalanalysis/waterCompar?year=" +for_year;
+    console.log(url1);
+    console.log(url2);
+
+
+    $.get(url2,function(data,status){
+        if(status == 'success'){
+            console.log(data)
+            old_data = totalinc(data);
+            console.log(old_data)
+            }
+        else {
+            alert("NO DATA")            //避免中文输入
+        }
+    });
+
+    $.ajaxSettings.async = true;
+    $.get(url1,function(data,status){   //jquary中的get函数只能在其内部获取
+        if(status == 'success'){
+            console.log(data)
+            new_data = totalinc(data);
+            current_month = tol_month(data);
+            old_data = deal_over(old_data,current_month);
+            console.log(old_data)
+            console.log(new_data)
+
+
+            var myChart = echarts.init(document.getElementById('waterCompar'));
+            var option = {
+            backgroundColor: "#F0FFFF",
+            title: {
+                text: '水费收入同比（元）',
+                left: "center",
+                textStyle: {
+                    fontSize: 20
+                }
+            },
+            tooltip: {
+                extraCssText: 'width:250px;height:100px;;',
+                trigger: 'axis',
+                axisPointer: {
+                   type: "shadow"
+                }
+            },
+            legend: {
+                 show:true,
+                 type:"plain",
+                 right:"4%",
+                 orient:"vertical"
+            },
+            xAxis: {
+                type: "category",
+                data: current_month,
+                axisLabel: {
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
+                }
+            },
+            yAxis: {
+                axisLabel: {
+                    show:true,
+                    color:"rgba(86, 72, 72, 1)",
+                    fontWeight:"bold",
+                    fontSize:10
+                }
+            },
+            series: [
+            {
+                name: for_year,
+                color: lastYearHistogramColor,
+                type: 'bar',
+                data: old_data,
+                label:{
+                    show: true,
+                    color: lastYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
+                }
+            },{
+                name: year,
+                color: nowYearHistogramColor,
+                type: 'bar',
+                data: new_data,
+                label:{
+                    show: true,
+                    color: nowYearHistogramColor,
+                    fontWeight:"bolder",
+                    position: "top",
+                    fontSize: 12
                 }
             }]
         };

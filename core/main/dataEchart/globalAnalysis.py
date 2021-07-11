@@ -45,6 +45,10 @@ class GlobalAnalysis(Resource):
             return self.rentalRate()
         elif (operation == 'reveCompar'):
             return self.reveCompar()
+        elif (operation == 'electCompar'):
+            return self.electCompar()
+        elif (operation == 'waterCompar'):
+            return self.waterCompar()
         elif (operation == 'renRateCompar'):
             return self.renRateCompar()
 
@@ -204,5 +208,25 @@ class GlobalAnalysis(Resource):
         LOG.info("ratetest111111111111 : " + str(rate))
 
         return jsonify(rate)
+
+    # 电费对比
+    def electCompar(self):
+        year = request.args.get("year")
+        sql = f'select month ,sum(e_c) as sum_rent from monthly where year = "{year}" group by month'
+        LOG.info(f"electricity sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("electCompar : " + str(res))
+        #下面代码用来表示下年数据的
+        return jsonify(res)
+
+    # 水费对比
+    def waterCompar(self):
+        year = request.args.get("year")
+        sql = f'select month ,sum(w_c) as sum_rent from monthly where year = "{year}" group by month'
+        LOG.info(f"water sql is : {sql}")
+        res = self._common.db.execute(sql)
+        LOG.info("waterCompar : " + str(res))
+        # 下面代码用来表示下年数据的
+        return jsonify(res)
 
 api.add_resource(GlobalAnalysis, '/globalanalysis/<operation>')
