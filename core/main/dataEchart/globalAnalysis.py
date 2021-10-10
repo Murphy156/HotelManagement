@@ -72,6 +72,22 @@ class GlobalAnalysis(Resource):
         elif (operation == 'renRateCompar'):
             return self.renRateCompar()
 
+    # 预测下个月 总收入
+    def predictNextMonthIncome(self):
+        sql = f"select year, month,sum(rent) as sum_rent from monthly  group by year,month order by year desc,month desc"
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        predictRent = self._common.predict_average(res)
+        return predictRent
+
+    # 预测下个月 纯房租收入
+    def predictNextMonthRentIncome(self):
+        sql = f"select year, month, sum(rent)-sum(w_c)-sum(e_c) as sum_rent from monthly  group by year,month order by year desc,month desc"
+        LOG.info(f"sql is : {sql}")
+        res = self._common.db.execute(sql)
+        predictRent = self._common.predict_average(res)
+        return predictRent
+
     # 某一年全部物业的总收入
     def allIncome(self):
         year = request.args.get("year")
@@ -79,9 +95,13 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        allIncomeRes = round((data1[0]['sum_rent'] / 10000),2)
-
-        return jsonify(allIncomeRes)
+        allIncome = round((data1[0]['sum_rent'] / 10000),2)
+        predictIncome = self.predictNextMonthIncome()
+        res = {
+            'allIncome' : allIncome,
+            'predictIncome' : predictIncome
+        }
+        return jsonify(res)
 
     # 房租收入
     def rentIncome(self):
@@ -91,8 +111,13 @@ class GlobalAnalysis(Resource):
         LOG.info(f"sql is : {s_sql}")
         data1 = self._common.db.execute(s_sql)
         LOG.info("sql result is : " + str(data1))
-        rentIncomeRes = round((data1[0]['sum_rent'] / 10000),2)
-        return jsonify(rentIncomeRes)
+        rentIncome = round((data1[0]['sum_rent'] / 10000),2)
+        predictRent = self.predictNextMonthRentIncome()
+        res = {
+            'rentIncome' : rentIncome,
+            'predictRent' : predictRent
+        }
+        return jsonify(res)
 
     # 可租房间数,返回的是一个数字
     def roomQuantity(self):

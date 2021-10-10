@@ -66,5 +66,16 @@ class Common(Resource):
         LOG.info("sql result is ： " + str(res))
         return jsonify(res)
 
+    '''
+    @desc 使用移动平均算法，预测下个月的收入
+    @:param trainData 训练数据，period 移动平均的周期数据
+    @:return dict, 返回下个月的预测收入
+    '''
+    def predict_average(self, trainData, period = 2):
+        total = 0
+        for i in range(0, period):
+            total += trainData[i]['sum_rent']
+
+        return int(total/period)
 
 api.add_resource(Common, '/common/<operation>')

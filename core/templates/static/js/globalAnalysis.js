@@ -26,7 +26,8 @@ tolincome = function(){
         if(status == 'success'){
             console.log(data)
             var totalIncome = data;//这里返回全部物业的总收入
-            var totalIncomeHtml = "<h4>总收入：" + totalIncome + " 万元</h4>";
+            var totalIncomeHtml = "<h4>总收入：<font color='#FF0000'>" + totalIncome['allIncome'] + " 万元</font></h4>";
+            totalIncomeHtml += "<h5>预测下月总收入：" + totalIncome['predictIncome'] + " 元</h5>";
             $("#global_total_income").html(totalIncomeHtml);
 
         }
@@ -47,7 +48,8 @@ rentinc = function(){
             console.log(data)
             var toltal = data;//这里返回房租的总收入
             console.log(toltal)
-            var toltalHtml = "<h4>房租收入：" + toltal + " 万元</h4>";
+            var toltalHtml = "<h4>房租收入：<font color='#FF0000'>" + toltal['rentIncome'] + " 万元</font></h4>";
+            toltalHtml += "<h5>预测下月房租收入：" + toltal['predictRent'] + " 元</h5>";
             $("#global_rent_income").html(toltalHtml);
         }
         else {
