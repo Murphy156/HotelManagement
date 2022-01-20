@@ -1,5 +1,10 @@
 "use strict"
 var show_unit_data = function () {
+    getyearNum();
+    setTimeout(show_unit_data_2,2000);
+}
+
+var show_unit_data_2 = function () {
     var room = $('#roomNum').val();
     if (room != "please"){
         roYeIn();
@@ -16,11 +21,29 @@ var show_unit_data = function () {
     }
 }
 
+var getyearNum = function () {
+    var url = "/api/v1/common/getyeartotally";
+    console.log(url);
+    $.get(url, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            var yearNumList = data.data
+            var optionstring
+            for (var item in yearNumList) {
+                optionstring += "<option value=\"" + yearNumList[item] + "\" >" + yearNumList[item] + "</option>";
+            }
+            $("#yearNum").html(optionstring);
+        } else {
+            alert("无数据")
+        }
+    });
+}
+
 //这里得到的数据是某一区域，某一年，某一房间号：年总收入
 var roYeIn = function () {
     var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/unit/roomAllInc?region=" + region + "&year=" + year + "&room=" + room;
     console.log(url);
 
@@ -56,8 +79,8 @@ var monRen = function () {
 // 这里得到的数据是某一区域，某一房间，某一时间的用电量
 var monelectricity = function () {
     var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
+    var year = $('#yearNum').val();
     var month = $('#monthData option:selected').val();
     var url = "/api/v1/unit/elecConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
@@ -81,8 +104,8 @@ var monelectricity = function () {
 // 这里得到的数据是某一区域，某一房间，某一时间的用水量
 var monWater = function () {
     var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
+    var year = $('#yearNum').val();
     var month = $('#monthData option:selected').val();
     var url = "/api/v1/unit/waterConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log(url);
@@ -107,8 +130,8 @@ var monWater = function () {
 //返回某一区域，某一房间，某一时间的房屋闲置天数
 var idleDay = function () {
     var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
+    var year = $('#yearNum').val();
     var month = $('#monthData option:selected').val();
     var url = "/api/v1/unit/waterConsum?region=" + region + "&year=" + year + "&room=" + room + "&month=" + month;
     console.log("[API]get room idle day : " + url);
@@ -175,8 +198,8 @@ var water = function (data) {
 // 这里得到的数据是某一区域，某一房间，某一年，全年各月的：1用水，2、用电，3、房租收入
 var roIncClafi = function () {
     var region = $('#region option:selected').val();
-    var year = $('#yearDate option:selected').val();
     var room = $('#roomNum').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/unit/roomincClafi?region=" + region + "&year=" + year + "&room=" + room;
     console.log(url);
 

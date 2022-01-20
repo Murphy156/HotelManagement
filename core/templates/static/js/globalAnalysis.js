@@ -1,4 +1,9 @@
-show_global_data = function() {
+var show_global_data = function() {
+    getyearNum();
+    setTimeout(show_global_data_2,2000);
+}
+
+var show_global_data_2 = function() {
     tolincome();
     rentinc();
     roomqual();
@@ -10,18 +15,38 @@ show_global_data = function() {
     rateComp();
     electCompar();
     waterCompar();
+
 }
+
 
 nowYearHistogramColor = '#e5323e';
 lastYearHistogramColor = '#003366';
 
+// 获取总共年份
+var getyearNum = function () {
+    var url = "/api/v1/common/getyeartotally";
+    console.log(url);
+    $.get(url, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            var yearNumList = data.data
+            var optionstring
+            for (var item in yearNumList) {
+                optionstring += "<option value=\"" + yearNumList[item] + "\" >" + yearNumList[item] + "</option>";
+            }
+            $("#yearNum").html(optionstring);
+        } else {
+            alert("无数据")
+        }
+    });
+}
 
 //这里返回全部物业年的总收入
 tolincome = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
+    console.log(year);
     var url = "/api/v1/globalanalysis/allIncome?year=" +year;
     console.log(url);
-
     $.get(url,function(data,status){
         if(status == 'success'){
             console.log(data)
@@ -39,7 +64,7 @@ tolincome = function(){
 
 // 这里返回纯房租年总收入
 rentinc = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/rentIncome?year=" +year;
     console.log(url);
 
@@ -60,7 +85,7 @@ rentinc = function(){
 
 // 这里返回可租房间数
 roomqual = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/roomQuantity?year="+year;
     console.log(url);
 
@@ -79,7 +104,7 @@ roomqual = function(){
 
 // 这里返回可租商铺数
 shopqual = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/shopQuantity?year="+year;
     console.log(url);
 
@@ -104,7 +129,7 @@ current_rate = function(data){
 
 // 这里返回当前出租率
 onrent = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/rentalRate?year="+year;
     console.log(url);
 
@@ -162,8 +187,8 @@ monlinc = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
-    var year = $('#global_year_choose option:selected').val();
-    var for_year = $('#global_year_choose option:selected').val()-1;
+    var year = $('#yearNum').val();
+    var for_year = $('#yearNum').val()-1;
     var url1 = "/api/v1/globalanalysis/allIncomeMon?year=" +year;
     var url2 = "/api/v1/globalanalysis/allIncomeMon?year=" +for_year;
     console.log(url1);
@@ -275,8 +300,8 @@ incom = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
-    var year = $('#global_year_choose option:selected').val();
-    var for_year = $('#global_year_choose option:selected').val()-1;
+    var year = $('#yearNum').val();
+    var for_year = $('#yearNum').val()-1;
     var url1 = "/api/v1/globalanalysis/reveCompar?year=" +year;
     var url2 = "/api/v1/globalanalysis/reveCompar?year=" +for_year;
     console.log(url1);
@@ -385,7 +410,7 @@ incom = function(){
 
 // 这里返回各区域收入对比
 regipro = function(){
-    var year = $('#global_year_choose option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/regionCompar?year=" +year;
     console.log(url);
 
@@ -470,8 +495,8 @@ rateComp = function(){
     var current_month = new Array();
     var new_data = new Array();
     var old_data = new Array();
-    var for_year = $('#global_year_choose option:selected').val()-1;
-    var year = $('#global_year_choose option:selected').val();
+    var for_year = $('#yearNum').val()-1;
+    var year = $('#yearNum').val();
     var url1 = "/api/v1/globalanalysis/renRateCompar?year=" +year;
     var url2 = "/api/v1/globalanalysis/renRateCompar?year=" +for_year;
     console.log(url1);
@@ -583,8 +608,8 @@ electCompar = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
-    var year = $('#global_year_choose option:selected').val();
-    var for_year = $('#global_year_choose option:selected').val()-1;
+    var year = $('#yearNum').val();
+    var for_year = $('#yearNum').val()-1;
     var url1 = "/api/v1/globalanalysis/electCompar?year=" +year;
     var url2 = "/api/v1/globalanalysis/electCompar?year=" +for_year;
     console.log(url1);
@@ -695,8 +720,8 @@ waterCompar = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
-    var year = $('#global_year_choose option:selected').val();
-    var for_year = $('#global_year_choose option:selected').val()-1;
+    var year = $('#yearNum').val();
+    var for_year = $('#yearNum').val()-1;
     var url1 = "/api/v1/globalanalysis/waterCompar?year=" +year;
     var url2 = "/api/v1/globalanalysis/waterCompar?year=" +for_year;
     console.log(url1);
@@ -801,3 +826,4 @@ waterCompar = function(){
     });
     $.ajaxSettings.async = false;
 }
+

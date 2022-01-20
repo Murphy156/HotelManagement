@@ -51,6 +51,8 @@ class GlobalAnalysis(Resource):
             return self.waterCompar()
         elif (operation == 'renRateCompar'):
             return self.renRateCompar()
+        elif (operation == 'get_current_year'):
+            return self.get_current_year()
 
     def post(self, operation):
         if (operation == 'allIncome'):
@@ -71,6 +73,8 @@ class GlobalAnalysis(Resource):
             return self.reveCompar()
         elif (operation == 'renRateCompar'):
             return self.renRateCompar()
+        elif (operation == 'get_current_year'):
+            return self.get_current_year()
 
     # 预测下个月 总收入
     def predictNextMonthIncome(self):
@@ -253,5 +257,8 @@ class GlobalAnalysis(Resource):
         LOG.info("waterCompar : " + str(res))
         # 下面代码用来表示下年数据的
         return jsonify(res)
+
+
+
 
 api.add_resource(GlobalAnalysis, '/globalanalysis/<operation>')

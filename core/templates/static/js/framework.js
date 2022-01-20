@@ -1,5 +1,11 @@
 "use strict"
 
+
+var show_first = function(){
+    getUniRoomNum();
+    getyearNum();
+}
+
 //页面左侧菜单栏
 function initTree() {
     var navWrap = document.getElementById("olTree");
@@ -63,6 +69,7 @@ var getRoomNum = function () {
         }
     });
 }
+
 //获取单元分析的房间号
 var getUniRoomNum = function () {
     var region = $('#region option:selected').val();
@@ -73,9 +80,9 @@ var getUniRoomNum = function () {
         if (status == 'success') {
             console.log(data)
             var roomNumList = data.data
-            var optionstring = '<option selected="selected" value="please">请选择</option>'
+            var optionstring = '<option selected="selected" value = "please">请选择</option>'
             for (var item in roomNumList) {
-                optionstring += "<option value=\"" + roomNumList[item] + "\" >" + roomNumList[item] + "</option>";
+                 optionstring += "<option value=\"" + roomNumList[item] + "\" >" + roomNumList[item] + "</option>";
             }
             $("#roomNum").html(optionstring);
         } else {
@@ -83,6 +90,26 @@ var getUniRoomNum = function () {
         }
     });
 }
+
+// 获取总共年份
+var getyearNum = function () {
+    var url = "/api/v1/common/getyeartotally";
+    console.log(url);
+    $.get(url, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            var yearNumList = data.data
+            var optionstring
+            for (var item in yearNumList) {
+                optionstring += "<option value=\"" + yearNumList[item] + "\" >" + yearNumList[item] + "</option>";
+            }
+            $("#yearNum").html(optionstring);
+        } else {
+            alert("无数据")
+        }
+    });
+}
+
 
 // 生成动态表格
 function dynamic_table(rawData, operationBtn) {

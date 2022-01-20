@@ -15,7 +15,7 @@
     <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
-<body onload="getUniRoomNum()">
+<body onload="show_first()" >
 <div class="container-fluid" style="background:aliceblue">
     <h1>神策-管理系统</h1>
     <div class="row">
@@ -49,10 +49,7 @@
             <div class="row" id="regionChoose">
                 <div class="col-12">
                     <b>年份</b>
-                    <select name="year" id="yearDate">
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
+                    <select name="yearNum" id="yearNum" required>
                     </select>
                     <b>月份</b>
                     <select name="month" id="monthData">
@@ -79,8 +76,6 @@
                     </select>
                     <b>房间号</b>
                     <select name="roomNum" id="roomNum" required>
-                        <option selected="selected">请选择</option>
-                        <option></option>
                     </select>
                     <input type="button" value="查询" onclick="show_unit_data()">
                 </div>

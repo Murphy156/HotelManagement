@@ -1,5 +1,9 @@
 "use strict"
 var show_region_data = function () {
+    getyearNum();
+    setTimeout(show_region_data_2,2000);
+}
+var show_region_data_2 = function () {
     yearIncome();
     nowIncome();
     aveRoomPri();
@@ -9,6 +13,24 @@ var show_region_data = function () {
     incClaFi();
 }
 
+// 获取总共年份
+var getyearNum = function () {
+    var url = "/api/v1/common/getyeartotally";
+    console.log(url);
+    $.get(url, function (data, status) {
+        if (status == 'success') {
+            console.log(data)
+            var yearNumList = data.data
+            var optionstring
+            for (var item in yearNumList) {
+                optionstring += "<option value=\"" + yearNumList[item] + "\" >" + yearNumList[item] + "</option>";
+            }
+            $("#yearNum").html(optionstring);
+        } else {
+            alert("无数据")
+        }
+    });
+}
 
 // 这里返回一个收入总数
 var sum = function (data) {
@@ -64,7 +86,7 @@ var tol_month = function (data){
 // 得到的数据是 某年某区域 1、年总收入，2、每月收入
 var yearIncome = function () {
     var region = $('#region option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var url1 = "/api/v1/region/yearIncome?region=" + region + "&year=" + year;
     console.log(url1);
 
@@ -84,7 +106,7 @@ var yearIncome = function () {
 //这里得到的数据是 某一区域，某一年：1、当月总收入，2、当月总电费，3、当月总水费
 var nowIncome = function () {
     var region = $('#region option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var month = $('#texmonth option:selected').val();
     var url = "/api/v1/region/allMonth?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url);
@@ -106,7 +128,7 @@ var nowIncome = function () {
 //这里得到的数据是 某一区域，某一年，某一月：1、某月客房均价
 var aveRoomPri = function () {
     var region = $('#region option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var month = $('#texmonth option:selected').val();
     var url = "/api/v1/region/aveHousePri?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url);
@@ -148,8 +170,8 @@ var monthCome = function () {
     var old_data = new Array();
     var current_month = new Array();
     var region = $('#region option:selected').val();
-    var year = $('#texyear option:selected').val();
-    var for_year = $('#texyear option:selected').val()-1;
+    var year = $('#yearNum').val();
+    var for_year = $('#yearNum').val()-1;
     var url1 = "/api/v1/region/regMonInc?region=" + region + "&year=" + year;
     var url2 = "/api/v1/region/regMonInc?region=" + region + "&year=" + for_year;
 
@@ -300,7 +322,7 @@ var tol_month1 = function(data){
 var incClaFi = function () {
     var tolmonth = Array();
     var region = $('#region option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/region/incClafi?region=" + region + "&year=" + year;
     console.log(url);
 
@@ -446,7 +468,7 @@ var incClaFi = function () {
 var rentAlRate = function () {
     var region = $('#region option:selected').val();
     var month  = $('#texmonth option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var url = "/api/v1/region/roRentRate?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url);
 
@@ -466,7 +488,7 @@ var roomNumb = function (region) {
     var all_room;
     var region = $('#region option:selected').val();
     var month  = $('#texmonth option:selected').val();
-    var year = $('#texyear option:selected').val();
+    var year = $('#yearNum').val();
     var url1 = "/api/v1/region/roomNumb_ok?region=" + region + "&year=" + year + "&month=" + month;
     console.log(url1);
     var url2 = "/api/v1/region/roomNumb_tol?region=" + region;

@@ -34,6 +34,8 @@ class Common(Resource):
     def get(self, operation):
         if (operation == 'getRoomNum'):
             return self.getRoomNum()
+        if (operation == 'getyeartotally'):
+            return self.getyeartotally()
     #接收post请求
     def post(self):
         pass
@@ -62,6 +64,24 @@ class Common(Resource):
             'code' : 0,
             'msg' : "success",
             'data' : roomNumDict
+        }
+        LOG.info("sql result is ： " + str(res))
+        return jsonify(res)
+
+    # 获取总共的年份
+    def getyeartotally(self):
+        sql = f"select distinct year from monthly order by year desc"
+        res = self.db.execute(sql)
+        year_list = res
+        yearNumDict = {}
+        num = 0
+        for year in year_list:
+            yearNumDict[num] = year['year']
+            num += 1
+        res = {
+            'code': 0,
+            'msg': "success",
+            'data': yearNumDict
         }
         LOG.info("sql result is ： " + str(res))
         return jsonify(res)
