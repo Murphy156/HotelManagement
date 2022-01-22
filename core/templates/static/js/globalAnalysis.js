@@ -1,6 +1,6 @@
 var show_global_data = function() {
     getyearNum();
-    setTimeout(show_global_data_2,2000);
+    setTimeout(show_global_data_2,1000);
 }
 
 var show_global_data_2 = function() {

@@ -1,7 +1,7 @@
 "use strict"
 var show_region_data = function () {
     getyearNum();
-    setTimeout(show_region_data_2,2000);
+    setTimeout(show_region_data_2,1000);
 }
 var show_region_data_2 = function () {
     yearIncome();
