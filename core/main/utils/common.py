@@ -82,7 +82,7 @@ class Common(Resource):
             yearNumDict[num] = year['year']
             num += 1
         res = {
-            'code': 1,
+            'code': 0,
             'msg': "success",
             'data': yearNumDict
         }

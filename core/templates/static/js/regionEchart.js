@@ -1,7 +1,14 @@
 "use strict"
 var show_region_data = function () {
+    var d = new Date();
+	var current_year = d.getFullYear();
+	var option_1
+    console.log(current_year);
+    option_1 = "<option value=\"" + current_year + "\" >" + current_year + "</option>";
+    $('#yearNum').html(option_1);
+    console.log($('#yearNum').html())
     getyearNum();
-    setTimeout(show_region_data_2,2000);
+    setTimeout(show_region_data_2,50);
 }
 var show_region_data_2 = function () {
     yearIncome();

@@ -1,7 +1,6 @@
 "use strict"
 var show_unit_data = function () {
     getyearNum();
-    setTimeout(show_unit_data_2,2000);
 }
 
 var show_unit_data_2 = function () {
