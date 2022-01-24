@@ -34,11 +34,14 @@ class Common(Resource):
     def get(self, operation):
         if (operation == 'getRoomNum'):
             return self.getRoomNum()
-        if (operation == 'getyeartotally'):
+        elif (operation == 'getyeartotally'):
             return self.getyeartotally()
     #接收post请求
-    def post(self):
-        pass
+    def post(self,operation):
+        if (operation == 'getRoomNum'):
+            return self.getRoomNum()
+        elif (operation == 'getyeartotally'):
+            return self.getyeartotally()
 
     #获取房间信息
     def getRoomInfo(self, region = None):
@@ -79,7 +82,7 @@ class Common(Resource):
             yearNumDict[num] = year['year']
             num += 1
         res = {
-            'code': 0,
+            'code': 1,
             'msg': "success",
             'data': yearNumDict
         }

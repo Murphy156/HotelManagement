@@ -1,28 +1,5 @@
-var show_global_data = function() {
-    getyearNum();
-    setTimeout(show_global_data_2,1000);
-}
+"use strict"
 
-var show_global_data_2 = function() {
-    tolincome();
-    rentinc();
-    roomqual();
-    shopqual();
-    onrent();
-    monlinc();
-    incom();
-    regipro();
-    rateComp();
-    electCompar();
-    waterCompar();
-
-}
-
-
-nowYearHistogramColor = '#e5323e';
-lastYearHistogramColor = '#003366';
-
-// 获取总共年份
 var getyearNum = function () {
     var url = "/api/v1/common/getyeartotally";
     console.log(url);
@@ -41,8 +18,17 @@ var getyearNum = function () {
     });
 }
 
+
+
+
+var nowYearHistogramColor = '#e5323e';
+var lastYearHistogramColor = '#003366';
+
+// 获取总共年份
+
+
 //这里返回全部物业年的总收入
-tolincome = function(){
+var tolincome = function(){
     var year = $('#yearNum').val();
     console.log(year);
     var url = "/api/v1/globalanalysis/allIncome?year=" +year;
@@ -63,7 +49,7 @@ tolincome = function(){
 }
 
 // 这里返回纯房租年总收入
-rentinc = function(){
+var rentinc = function(){
     var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/rentIncome?year=" +year;
     console.log(url);
@@ -84,7 +70,7 @@ rentinc = function(){
 }
 
 // 这里返回可租房间数
-roomqual = function(){
+var roomqual = function(){
     var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/roomQuantity?year="+year;
     console.log(url);
@@ -103,7 +89,7 @@ roomqual = function(){
 }
 
 // 这里返回可租商铺数
-shopqual = function(){
+var shopqual = function(){
     var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/shopQuantity?year="+year;
     console.log(url);
@@ -121,14 +107,14 @@ shopqual = function(){
     });
 }
 
-current_rate = function(data){
+var current_rate = function(data){
     var a = data;
     var x = (a.rate_c / 78).toFixed(2);
     return x;
 }
 
 // 这里返回当前出租率
-onrent = function(){
+var onrent = function(){
     var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/rentalRate?year="+year;
     console.log(url);
@@ -149,10 +135,10 @@ onrent = function(){
     });
 }
 
-totalinc = function(data){
+var totalinc = function(data){
     var a = data;
     var x = new Array();
-    for (i = 0;i<a.length;i++){
+    for (var i = 0;i<a.length;i++){
         x[i] = a[i].sum_rent;
     }
     return x;
@@ -182,7 +168,7 @@ var deal_over = function(data1,data2){
 }
 
 // 这里返回业全部物总收入中按月收入分析
-monlinc = function(){
+var monlinc = function(){
     var tolmonth = new Array();
     var new_data = new Array();
     var old_data = new Array();
@@ -296,7 +282,7 @@ monlinc = function(){
 
 
 // 返回纯房租收入对比
-incom = function(){
+var incom = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
@@ -409,7 +395,7 @@ incom = function(){
 
 
 // 这里返回各区域收入对比
-regipro = function(){
+var regipro = function(){
     var year = $('#yearNum').val();
     var url = "/api/v1/globalanalysis/regionCompar?year=" +year;
     console.log(url);
@@ -472,26 +458,26 @@ regipro = function(){
     });
 }
 
-ratedeal = function(data){
+var ratedeal = function(data){
     var a = data;
     var x = new Array();
-    for(i=0;i<a.length;i++){
+    for(var i=0;i<a.length;i++){
         x[i] = (a[i].rate_c / 78).toFixed(2);
     }
     return x;
 }
 
-old_ratedeal = function(data){
+var old_ratedeal = function(data){
     var a = data;
     var x = new Array();
-    for(i=0;i<a.length;i++){
+    for(var i=0;i<a.length;i++){
         x[i] = (a[i].rate_c / 43).toFixed(2);
     }
     return x;
 }
 
 //出租率同比
-rateComp = function(){
+var rateComp = function(){
     var current_month = new Array();
     var new_data = new Array();
     var old_data = new Array();
@@ -507,7 +493,7 @@ rateComp = function(){
             console.log(data)
             new_data = ratedeal(data);
             console.log(new_data)
-            for (i = 0;i<new_data.length;i++){
+            for (var i = 0;i<new_data.length;i++){
                 current_month[i] = i+1;
             }
             console.log(current_month)
@@ -604,7 +590,7 @@ rateComp = function(){
 }
 
 // 返回电费收入对比
-electCompar = function(){
+var electCompar = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
@@ -716,7 +702,7 @@ electCompar = function(){
 }
 
 // 返回水费收入对比
-waterCompar = function(){
+var waterCompar = function(){
     var new_data = new Array();
     var old_data = new Array();
     var current_month = new Array();
@@ -825,5 +811,24 @@ waterCompar = function(){
         }
     });
     $.ajaxSettings.async = false;
+}
+
+var show_global_data = function() {
+    getyearNum();
+    setTimeout(show_global_data_2,2000);
+}
+
+var show_global_data_2 = function() {
+    rentinc();
+    roomqual();
+    shopqual();
+    onrent();
+    monlinc();
+    incom();
+    regipro();
+    rateComp();
+    electCompar();
+    waterCompar();
+    tolincome();
 }
 
