@@ -124,8 +124,6 @@ var onrent = function(){
             console.log(data)
             var a = current_rate(data) * 100
             console.log(a)
-
-//            var a = data;//这里直接返回出租率
             var numb = "<h4>当前出租率：" + a + "%" + "</h4>";
             $("#rate").html(numb);
         }
@@ -471,7 +469,7 @@ var old_ratedeal = function(data){
     var a = data;
     var x = new Array();
     for(var i=0;i<a.length;i++){
-        x[i] = (a[i].rate_c / 43).toFixed(2);
+        x[i] = (a[i].rate_c / 78).toFixed(2);
     }
     return x;
 }
