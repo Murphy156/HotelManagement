@@ -135,7 +135,7 @@ class GlobalAnalysis(Resource):
         LOG.info("data1 : " + str(data1))
         month = data1['nums']
         LOG.info("numb : " + str(month))
-        A_sql = f"select count(*)-2 as total_room from monthly where year = '{year}' and month = '{month}' and rent != 0 and building != 'C'"
+        A_sql = f"select count(*) as total_room from room_information as a join (select * from monthly where year = '{year}' and month = '{month}') as b on a.building = b.building and a.room = b.room where b.rent != 0 and a.is_shop = 'N';"
         LOG.info(f"sql is : {A_sql}")
         res = self._common.db.execute(A_sql)
         LOG.info("A_sql result is : " + str(res))
@@ -155,7 +155,7 @@ class GlobalAnalysis(Resource):
         month = data1['nums']
         LOG.info("numb : " + str(month))
 
-        sql = f"select 5-count(*) as tol from monthly where year = '{year}' and month = '{month}' and building = 'B' and room = '101' and room = '102' and rent != 0 and building = 'C' and room = '1' and room = '3' and room = '2';"
+        sql = f"select count(*) as tol from room_information as a join (select * from monthly where year = '{year}' and month = '{month}') as b on a.building = b.building and a.room = b.room where b.rent != 0 and a.is_shop = 'Y';"
         LOG.info(f"sql is : {sql}")
         data = self._common.db.execute(sql)
         LOG.info("data : " + str(data))

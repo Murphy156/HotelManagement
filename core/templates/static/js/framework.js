@@ -1,10 +1,7 @@
 "use strict"
 
 
-var show_first = function(){
-    getUniRoomNum();
-    getyearNum();
-}
+
 
 //页面左侧菜单栏
 function initTree() {
@@ -191,4 +188,9 @@ String.prototype.format = function (args) {
         }
     }
     return result;
+}
+
+var show_first = function(){
+    getUniRoomNum();
+    getyearNum();
 }
