@@ -48,27 +48,27 @@ a{
 	float: left;
 	overflow: auto;
 	/*以上设置是重点必须的*/
-	background: #f8f8ee;
+	background: #020e21;
 	font-size: 12px;
 	font-family: "Microsoft Yahei", "SimSun", Arial;
-	border-right: 1px solid #D9D9D9;
-	border-top: 1px solid #D9D9D9;
+	border-right: 1px solid #020e21;
+	border-top: 1px solid #020e21;
 }
 
 .menuItem a,.menuItem a:visited {
 	padding-left: 20px;
 	width: 220px;
 	height: 32px;
-	background-color: #f8f8f8;
-	border-bottom: solid 1px #EAEAEA;
-	border-top: solid 1px #FFFFFF;
+	background-color: #020e21;
+	border-bottom: solid 1px #020e21;
+	border-top: solid 1px #020e21;
 	display: block;
 	line-height: 32px;
 	color: #000000;
 }
 
 .menuItem a:hover,.menuItem a:active {
-	background: #f2f2f2;
+	background: #020e21;
 	color: #0075c7;
 }
 
@@ -85,8 +85,8 @@ a{
 	/*以上设置是重点必须的*/
 	padding-right: 1px;
 	padding-left: 1px;
-	border-left: 1px solid #E6E6E6;
-	border-top: 1px solid #D9D9D9;
+	border-left: 1px solid #020e21;
+	border-top: 1px solid #020e21;
 	overflow: auto;
 }
 
@@ -155,4 +155,155 @@ a{
 .xifen{
 	font-weight: bold;
 	font-size: 15px;
+}
+
+/* 侧边栏基础样式 */
+.sidebar-nav .nav-link {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* 添加现代感的阴影 */
+    font-size: 16px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    padding: 10px 15px;
+	background-color: #c6d9f3;
+}
+
+.sidebar-nav .nav-item {
+    margin-top: 10px;
+}
+
+/* CSS样式 */
+.nav-item {
+    transition: transform 0.3s ease; /* 添加3D旋转的过渡效果 */
+}
+
+.nav-item:hover {
+    transform: rotateY(20deg); /* 3D旋转效果，可以根据需要调整旋转角度 */
+}
+
+
+/* 主标题样式 */
+.nav-title {
+    font-size: 22px; /* 较大字体大小 */
+    font-weight: bold;
+    padding: 10px 15px; /* 保持与其他链接一致的内边距 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+}
+
+
+
+/* 主标题悬停效果 */
+.sidebar-nav .nav-title:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+    border-radius: 5px;
+}
+
+/* 子链接缩进样式 */
+.sub-link {
+    margin-left: 20px; /* 子项缩进 */
+}
+
+/* 子链接悬停效果，可选 */
+.sidebar-nav .sub-link:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+    border-radius: 3px;
+}
+
+
+.year-select {
+    font-family: Arial, sans-serif;
+    padding: 5px 10px;
+    margin-right: 10px; /* 为按钮留出空间 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-query {
+    background-color: #007bff; /* Bootstrap 主题蓝色 */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-query:hover {
+    background-color: #0056b3; /* 悬停时的深蓝色 */
+}
+
+
+#dataAnalysisTop {
+    display: flex;
+    justify-content: space-around; /* 使各个元素均匀分布 */
+    flex-wrap: wrap; /* 在需要时换行 */
+}
+
+.data-card {
+    background-color: #e3f2fd; /* 淡蓝色背景，更加柔和 */
+    margin: 10px 1%; /* 适当的边距 */
+    padding: 20px; /* 内边距 */
+    border-radius: 10px; /* 圆角边框 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微的阴影，增加立体感 */
+    transition: transform 0.3s ease-in-out; /* 添加悬停效果 */
+}
+
+.data-card:hover {
+    /*transform: scale(1.05); !* 悬停时轻微放大 *!*/
+	transform: rotateY(20deg);
+}
+
+
+.chart-scroll-container {
+    height: 700px; /* 根据需要设置合适的高度 */
+    overflow-y: scroll; /* 在垂直方向上添加滚动条 */
+    padding: 15px; /* 内边距，确保滚动条不会与图表重叠 */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+}
+
+/* 图表容器样式 */
+.chart-container {
+    min-height: 300px; /* 确保图表有足够的高度显示 */
+    /*margin-bottom: 15px; !* 添加底部外边距以分隔图表 *!*/
+
+    /* 其他样式，如背景色、阴影等 */
+    margin: 10px 0; /* 增加上下外边距 */
+    padding: 10px; /* 内边距 */
+    background-color: #f8f9fa; /* 淡灰色背景 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+}
+
+/* 设置图标的颜色和大小 */
+.chart-container i {
+    font-size: 36px; /* 图标大小 */
+    color: #007bff; /* 图标颜色 */
+    transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
+}
+
+/* 添加悬停效果 */
+.chart-container i:hover {
+    transform: scale(1.1); /* 悬停时放大图标 */
+}
+
+.chart-container2 {
+    width: 1000px; /* 或指定一个固定的宽度 */
+    min-height: 300px; /* 确保图表有足够的高度显示 */
+    /*margin-bottom: 15px; !* 添加底部外边距以分隔图表 *!*/
+
+    /* 其他样式，如背景色、阴影等 */
+    margin: 10px 0; /* 增加上下外边距 */
+    padding: 10px; /* 内边距 */
+    background-color: #f8f9fa; /* 淡灰色背景 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+}
+
+
+.nav-link i {
+    color: #0056b3;
+}
+
+.calendar-icon {
+  color: #ffffff; /* 设置图标的颜色，可以使用任何合法的颜色值 */
 }

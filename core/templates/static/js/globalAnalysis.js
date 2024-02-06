@@ -37,8 +37,8 @@ var tolincome = function(){
         if(status == 'success'){
             console.log(data)
             var totalIncome = data;//这里返回全部物业的总收入
-            var totalIncomeHtml = "<h4>总收入：<font color='#FF0000'>" + totalIncome['allIncome'] + " 万元</font></h4>";
-            totalIncomeHtml += "<h5>预测下月总收入：" + totalIncome['predictIncome'] + " 元</h5>";
+            var totalIncomeHtml = "<i class='fas fa-coins'></i><h4>总收入：<font color='#FF0000'>" + totalIncome['allIncome'] + " 万元</font></h4>";
+            totalIncomeHtml += "<h5>预测：" + totalIncome['predictIncome'] + " 元</h5>";
             $("#global_total_income").html(totalIncomeHtml);
 
         }
@@ -59,8 +59,8 @@ var rentinc = function(){
             console.log(data)
             var toltal = data;//这里返回房租的总收入
             console.log(toltal)
-            var toltalHtml = "<h4>房租收入：<font color='#FF0000'>" + toltal['rentIncome'] + " 万元</font></h4>";
-            toltalHtml += "<h5>预测下月房租收入：" + toltal['predictRent'] + " 元</h5>";
+            var toltalHtml = "<i class='fas fa-money-bill-wave'></i><h4>房租：<font color='#FF0000'>" + toltal['rentIncome'] + " 万元</font></h4>";
+            toltalHtml += "<h5>预测：" + toltal['predictRent'] + " 元</h5>";
             $("#global_rent_income").html(toltalHtml);
         }
         else {
@@ -79,7 +79,7 @@ var roomqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;//直接返回房间数
-            var numb = "<h4>已租房间：" + a + "/73间</h4>";
+            var numb = "<i class='fas fa-bed'></i><h4>已租房间：" + a + "/73间</h4>";
             $("#room_Number").html(numb);
         }
         else {
@@ -98,7 +98,7 @@ var shopqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<h4>已租铺位：" + a + "/5间</h4>";
+            var numb = "<i class='fas fa-store'></i><h4>已租铺位：" + a + "/5间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
@@ -124,7 +124,7 @@ var onrent = function(){
             console.log(data)
             var a = current_rate(data) * 100
             console.log(a)
-            var numb = "<h4>当前出租率：" + a + "%" + "</h4>";
+            var numb = "<i class='fas fa-chart-line'></i><h4>当前出租率：" + a + "%" + "</h4>";
             $("#rate").html(numb);
         }
         else {
@@ -525,9 +525,6 @@ var rateComp = function(){
                    type: "shadow"
                 }
             },
-            legend: {
-                data:current_month
-            },
             xAxis: {
                 type: "category",
                 data: current_month,
@@ -547,6 +544,7 @@ var rateComp = function(){
                 }
             },
             legend: {
+                 data:current_month,
                  show:true,
                  type:"plain",
                  right:"4%",

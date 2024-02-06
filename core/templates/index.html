@@ -6,51 +6,98 @@
     <title>首页</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="./static/css/framework.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/framework.css">
+    <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="text/javascript" src="./static/js/framework.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.125.0/build/three.min.js"></script>
+
+
 </head>
 <body onload="initTree()">
 
-<div class="container-fluid" style="background:aliceblue">
+<div class="container-fluid" style="background:#020e21;height: 1000px">
     <h1>神策-管理系统</h1>
     <div class="row">
-        <div class="col-sm-2" style="height: 700px;margin-top: 40px;background: white">
-            <div style="margin-top: 8%;background: aliceblue">
-            <ul class="nav flex-column nav-tabs justify-content-center " id="olTree">
-                <li>
-                    <ul class="nav nav-tabs"><a id="frist" class="text-primary" data-toggle="collapse" data-target="#demo1">数据大盘</a></ul>
-                    <div id="demo1" class="collapse">
-                        <ol>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a  class="text-primary" href="/dataEchart/globalAnalysis">总体分析</a></li></ul></div>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataEchart/regionEchart">区域分析</a></li></ul></div>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataEchart/unitEchart">单元分析</a></li></ul></div>
-                        </ol>
+        <!-- 侧边栏导航栏容器 -->
+        <div class="col-12 col-sm-2 mt-4 sidebar-nav">
+            <!-- 导航列表 -->
+            <ul class="nav flex-column nav-tabs justify-content-center">
+                <!-- 数据大盘 -->
+                <li class="nav-item">
+                    <a class="nav-link text-primary nav-title" data-toggle="collapse" href="#demo1"><i class="fas fa-chart-pie"></i> 数据大盘</a>
+                    <div class="collapse" id="demo1">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/globalAnalysis"><i class="fas fa-chart-line"></i>总体分析</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/regionEchart"><i class="fas fa-map-marked"></i>区域分析</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/unitEchart"><i class="fas fa-cube"></i>单元分析</a></li>
+                        </ul>
                     </div>
                 </li>
-                <li>
-                    <div style="margin-top: 10px"><ul class="nav nav-tabs"><a id="frist2" class="text-primary" data-toggle="collapse" data-target="#demo2">数据管理</a></ul></div>
-                    <div id="demo2" class="collapse" >
-                        <ol>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/tenantManagement">用户信息管理</a></li></ul></div>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/roomManagement">房屋信息管理</a></li></ul></div>
-                            <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/monthlyManagement">每月流水信息管理</a></li></ul></div>
-                        </ol>
+                <!-- 数据管理 -->
+                <li class="nav-item">
+                    <a class="nav-link text-primary nav-title" data-toggle="collapse" href="#demo2"><i class="fas fa-database"></i> 数据管理</a>
+                    <div class="collapse" id="demo2">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/tenantManagement"><i class="fas fa-users"></i>用户信息管理</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/roomManagement"><i class="fas fa-home"></i>房屋信息管理</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/monthlyManagement"><i class="fas fa-file-invoice-dollar"></i>每月流水信息管理</a></li>
+                        </ul>
                     </div>
                 </li>
             </ul>
-            </div>
         </div>
 
-        <div class="col-sm-10">
-            <div class="row">
-                <div class="col-10" style="margin-top: 40px;margin-left: 40px;background: white;height: 700px">
-                    <h2>Welcome!</h2>
-                </div>
-            </div>
-        </div>
+<!--        <div id="earthContainer" style="width: 600px; height: 400px;"></div>-->
+<!--        <div id="earth"><img src="static/earth.webp" alt="" width="900" height="900"></div>-->
+
     </div>
 </div>
+
+
+<!--<script>-->
+<!--    var scene, camera, renderer, starSeaMesh;-->
+
+<!--    init();-->
+<!--    animate();-->
+
+<!--    function init() {-->
+<!--        // 创建场景-->
+<!--        scene = new THREE.Scene();-->
+
+<!--        // 创建相机-->
+<!--        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);-->
+<!--        camera.position.z = 5;-->
+
+<!--        // 创建渲染器-->
+<!--        renderer = new THREE.WebGLRenderer({antialias: true});-->
+<!--        renderer.setSize(window.innerWidth, window.innerHeight);-->
+<!--        document.getElementById('starSea3D').appendChild(renderer.domElement);-->
+
+<!--        // 创建平面几何体，并使用星辰大海图作为纹理-->
+<!--        var geometry = new THREE.PlaneGeometry(5, 3, 32);-->
+<!--        var textureLoader = new THREE.TextureLoader();-->
+<!--        var texture = textureLoader.load('static/star.png'); // 替换为实际图像路径-->
+<!--        var material = new THREE.MeshBasicMaterial({map: texture});-->
+<!--        starSeaMesh = new THREE.Mesh(geometry, material);-->
+
+<!--        // 将平面添加到场景中-->
+<!--        scene.add(starSeaMesh);-->
+<!--    }-->
+
+<!--    function animate() {-->
+<!--        requestAnimationFrame(animate);-->
+
+<!--        // 旋转平面以创建动态效果-->
+<!--        starSeaMesh.rotation.x += 0.005;-->
+<!--        starSeaMesh.rotation.y += 0.01;-->
+
+<!--        renderer.render(scene, camera);-->
+<!--    }-->
+<!--</script>-->
+
 </body>
 </html>

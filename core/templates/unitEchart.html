@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/framework.css">
     <link rel="stylesheet" href="../static/css/popupWindow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="text/javascript" src="../static/js/framework.js"></script>
     <script type="text/javascript" src="../static/js/unitEchart.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -16,42 +17,45 @@
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body onload="show_first()" >
-<div class="container-fluid" style="background:aliceblue">
-    <h1>神策-管理系统</h1>
+<div class="container-fluid" style="background:#020e21;height: 1000px">
+    <h1><a href="/" style="text-decoration: none; color: inherit;">神策-管理系统</a></h1>
     <div class="row">
-        <div class="col-sm-2" style="margin-top: 40px;background: white;height: 900px">
-            <div style="margin-top: 8%;background: aliceblue">
-                <ul class="nav flex-column nav-tabs justify-content-center " id="olTree">
-                    <li>
-                        <ul class="nav nav-tabs"><a id="frist" class="text-primary" data-toggle="collapse" data-target="#demo1">数据大盘</a></ul>
-                        <div id="demo1" class="collapse">
-                            <ol>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataEchart/globalAnalysis">总体分析</a></li></ul></div>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataEchart/regionEchart">区域分析</a></li></ul></div>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataEchart/unitEchart">单元分析</a></li></ul></div>
-                            </ol>
-                        </div>
-                    </li>
-                    <li>
-                        <div style="margin-top: 10px"><ul class="nav nav-tabs"><a id="frist2" class="text-primary" data-toggle="collapse" data-target="#demo2">数据管理</a></ul></div>
-                        <div id="demo2" class="collapse">
-                            <ol>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/tenantManagement">用户信息管理</a></li></ul></div>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/roomManagement">房屋信息管理</a></li></ul></div>
-                                <div class="xifen" style="margin-top: 10px"><ul class="nav nav-tabs"><li><a class="text-primary" href="/dataManagement/monthlyManagement">每月流水信息管理</a></li></ul></div>
-                            </ol>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <!-- 侧边栏导航栏容器 -->
+        <div class="col-12 col-sm-2 mt-4 sidebar-nav">
+            <!-- 导航列表 -->
+            <ul class="nav flex-column nav-tabs justify-content-center">
+                <!-- 数据大盘 -->
+                <li class="nav-item">
+                    <a class="nav-link text-primary nav-title" data-toggle="collapse" href="#demo1"><i class="fas fa-chart-pie"></i> 数据大盘</a>
+                    <div class="collapse" id="demo1">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/globalAnalysis"><i class="fas fa-chart-line"></i>总体分析</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/regionEchart"><i class="fas fa-map-marked"></i>区域分析</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataEchart/unitEchart"><i class="fas fa-cube"></i>单元分析</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- 数据管理 -->
+                <li class="nav-item">
+                    <a class="nav-link text-primary nav-title" data-toggle="collapse" href="#demo2"><i class="fas fa-database"></i> 数据管理</a>
+                    <div class="collapse" id="demo2">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/tenantManagement"><i class="fas fa-users"></i>用户信息管理</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/roomManagement"><i class="fas fa-home"></i>房屋信息管理</a></li>
+                            <li class="nav-item"><a class="nav-link text-primary sub-link" href="/dataManagement/monthlyManagement"><i class="fas fa-file-invoice-dollar"></i>每月流水信息管理</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
+
         <div class="col-sm-10" id="right">
             <div class="row" id="regionChoose">
                 <div class="col-12">
-                    <b>年份</b>
+                    <i class="fas fa-calendar calendar-icon"></i>
                     <select name="yearNum" id="yearNum" required>
                     </select>
-                    <b>月份</b>
+                    <i class="fas fa-calendar-alt calendar-icon"></i>
                     <select name="month" id="monthData">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -66,7 +70,7 @@
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select>
-                    <b>区域</b>
+                    <i class="fas fa-globe calendar-icon"></i> <!-- 添加地球图标 -->
                     <select name="region" id="region" onchange="getRoomNum()">
                         <option selected="selected" value="A">A</option>
                         <option value="B">B</option>
@@ -74,35 +78,69 @@
                         <option value="D">D</option>
                         <option value="E">E</option>
                     </select>
-                    <b>房间号</b>
+                    <i class="fas fa-door-open calendar-icon"></i> <!-- 添加房间号图标 -->
                     <select name="roomNum" id="roomNum" required>
                     </select>
                     <input type="button" value="查询" onclick="show_unit_data_2()">
                 </div>
             </div>
 
+<!--            <div class="row" id="unitDataMidd">-->
+<!--                <div class="col-2" style="background:lightblue;margin-top: 40px" id="roYearInc" onload="roYeIn()"></div>-->
+<!--                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="monRent"-->
+<!--                     onload="monRen()"></div>-->
+<!--                <div class="col-2" style="background:lightblue;margin-top: 40px" id="monEclet"-->
+<!--                     onload="monelectricity()"></div>-->
+<!--                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="monWat"-->
+<!--                     onload="monWater()"></div>-->
+<!--                <div class="col-2" style="background:lightblue;margin-top: 40px" id="idle"></div>-->
+<!--                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="curSta" onload="cursta()"></div>-->
+<!--            </div>-->
+
             <div class="row" id="unitDataMidd">
-                <div class="col-2" style="background:lightblue;margin-top: 40px" id="roYearInc" onload="roYeIn()"></div>
-                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="monRent"
-                     onload="monRen()"></div>
-                <div class="col-2" style="background:lightblue;margin-top: 40px" id="monEclet"
-                     onload="monelectricity()"></div>
-                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="monWat"
-                     onload="monWater()"></div>
-                <div class="col-2" style="background:lightblue;margin-top: 40px" id="idle"></div>
-                <div class="col-2" style="background:lightskyblue;margin-top: 40px" id="curSta" onload="cursta()"></div>
+                <div class="col-md-2 data-card" id="roYearInc"></div>
+                <div class="col-md-2 data-card" id="monRent"></div>
+                <div class="col-md-2 data-card" id="monEclet"></div>
+                <div class="col-md-2 data-card" id="monWat"></div>
+                <div class="col-md-2 data-card" id="idle"></div>
+                <div class="col-md-2 data-card" id="curSta"></div>
             </div>
 
-            <div class="row" id="unitDataBott" style="height: 100%">
-                <div class="col-6" style="height: 50%;margin-top: 10%" id="roomIncClafi" onload="roIncClafi"></div>
+            <div class="row" id="unitDataBott">
+<!--                <div class="col-6" style="height: 50%;margin-top: 10%" id="roomIncClafi" onload="roIncClafi">-->
+<!--                    -->
+<!--                </div>-->
+                <div class="col-lg-5 chart-container2" id="roomIncClafi"></div>
+
                 <div id="teInfo" class="col-6" style="margin-top: 10%;height: 500px">
                     <div style="margin-top: 10%;margin-left: 10%">
                         <table id="userInfoTbl" border="1" onload="tenantInfo()" class="table table-dark table-hover"></table>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+
+
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // 获取当前页面的URL
+            var currentUrl = window.location.href;
+
+            // 遍历导航列表的子链接
+            $(".sub-link").each(function() {
+                // 获取子链接的href属性
+                var linkUrl = $(this).attr("href");
+
+                // 如果当前页面的URL包含子链接的href，则将该子链接高亮显示
+                if (currentUrl.indexOf(linkUrl) !== -1) {
+                    $(this).addClass("active"); // 添加高亮显示的CSS类
+                }
+            });
+        });
+    </script>
 </body>
 </html>
