@@ -92,9 +92,18 @@ bash /data/opt/HotelManagement/bin/stop.sh
 - 方法
   - 这种工作一般交给nginx来进行部署
   - 首先要改好代码后端的端口，然后再nginx中的conf.d添加相应的信息
-  - 然后要注意解析一下不同的监听端口，在安全组中解析
-    
+  - 然后要注意解析一下不同的监听端口，在安全组中解析  
 ```
+
+## 如何添加域名和服务器ip绑定
+```
+- 方法
+  - 购买一个域名
+  - 将域名解析服务器的ip地址
+  - 在/etc/nginx/conf.d 目录下的roomManagement.conf 修改域名
+  - 在/etc/nginx 目录下执行 nginx -s reload 重启nginx
+```
+
 
 ## 相关文档
 ```
