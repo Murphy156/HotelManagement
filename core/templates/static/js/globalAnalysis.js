@@ -98,7 +98,7 @@ var shopqual = function(){
         if(status == 'success'){
             console.log(data)
             var a = data;// 这里直接返回商铺数
-            var numb = "<i class='fas fa-store'></i><h4>已租铺位：" + a + "/5间</h4>";
+            var numb = "<i class='fas fa-store'></i><h4>已租铺位：" + a + "/6间</h4>";
             $("#shop_Number").html(numb);
         }
         else {
