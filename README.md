@@ -12,26 +12,42 @@
 - 区域分析
 - 单元分析
 
-## 系统整体架构
-```
-后续补充
-```
-
-
-
 ## 安装手册
 ### 环境依赖
 - Python3.7+ 
 - Mysql5.7
 - Nginx1.14.0
 
+### install python3.7
+```
+# 安装依赖
+apt update && sudo apt upgrade -y
+apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+# 下载包
+wget https://mirrors.huaweicloud.com/python/3.7.17/Python-3.7.17.tgz
+
+tar -zxvf Python-3.7.17.tgz
+cd Python-3.7.17
+
+# 配置+编译
+./configure --enable-optimizations --prefix=/usr/local/python37
+# 编译（-j 后面跟数字=你的CPU核心数，比如4核写-j4，加速编译，推荐）
+make -j2
+
+ 执行安装（核心：用 altinstall 而非 install）
+sudo make altinstall
+
+# 创建python3.7的全局软链接
+sudo ln -s /usr/local/python37/bin/python3.7 /usr/bin/python3.7
+
+# 创建pip3.7的全局软链接（python3.7自带pip，无需额外安装）
+sudo ln -s /usr/local/python37/bin/pip3.7 /usr/bin/pip3.7
+
+```
+
 ### pip dependency
 ```
-pip3 install --ignore-installed PyYAML
-pip3 install PyMySQL
-pip3 install flask_restful
-pip3 install flask
-
+pip3 install -r requirements.txt
 ```
 
 ###环境初始化

@@ -1,0 +1,22 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name 117.72.43.98;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+        auth_basic "请输入账号密码访问系统";
+	auth_basic_user_file /etc/nginx/conf.d/auth/nginx_passwd;
+
+	location / {
+                proxy_pass http://localhost:8888;
+		proxy_set_header Host $host;
+        	proxy_set_header X-Real-IP $remote_addr;
+        	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       		proxy_set_header X-Forwarded-Proto $scheme;
+        	proxy_connect_timeout 60;
+        	proxy_read_timeout 600;
+	}
+
+}

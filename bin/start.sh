@@ -18,4 +18,4 @@ CURR_DIR=`cd "$CURR_DIR";pwd`
 
 export PYTHONPATH=${CURR_DIR}/..
 cd ${CURR_DIR}/../core
-nohup python3 run.py &
+nohup python3 run.py  > ../logs/start.log 2>&1 &
