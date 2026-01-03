@@ -13,7 +13,6 @@ from flask_restful import Resource, Api
 # noinspection PyUnresolvedReferences
 import json
 # noinspection PyUnresolvedReferences
-import xlrd
 # noinspection PyUnresolvedReferences
 from core.main.utils.db.db_helper import *
 # noinspection PyUnresolvedReferences
@@ -77,29 +76,6 @@ class MonthlyManagement(Resource):
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
-
-    # 问题 就是db的不适用性
-    def addMonthlyExcel(self):
-        tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
-        sheet = tenant.sheet_by_name("tenant_sheet1")
-        for i in range(2, sheet.nrows):
-            year = sheet.cell(i, 0).value
-            month = sheet.cell(i, 1).value
-            name = sheet.cell(i, 2).value
-            building = sheet.cell(i, 3).value
-            room = sheet.cell(i, 4).value
-            water = sheet.cell(i, 5).value
-            w_c = sheet.cell(i, 6).value
-            electricity = sheet.cell(i, 7).value
-            e_c = sheet.cell(i, 8).value
-            ref_rent = sheet.cell(i, 9).value
-            rent = sheet.cell(i, 10).value
-            value = (year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent)
-            sql = "INSERT INTO monthly(year, month, name, building, room, water, w_c, electricity, e_c, rent, ref_rent) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            LOG.info(f"sql is : {sql}")
-            res = self._common.db.execute(sql, value)
-            LOG.info("sql result is : " + str(res))
-
 
     # 提交的问题
     def deleteMonthly(self):

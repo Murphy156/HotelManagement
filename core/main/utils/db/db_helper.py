@@ -12,7 +12,6 @@ import traceback
 import pymysql
 import logging
 # noinspection PyUnresolvedReferences
-import xlrd
 LOG = logging.getLogger(name="rotatingFileLogger")
 
 #

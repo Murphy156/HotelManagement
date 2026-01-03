@@ -11,14 +11,10 @@ from flask import Blueprint
 from flask_restful import Resource, Api
 import json
 # noinspection PyUnresolvedReferences
-import xlrd
 from core.main.utils.db.db_helper import *
 from core.main.utils.common import Common
 import logging.config
-# noinspection PyUnresolvedReferences
-from django.shortcuts import render
-# noinspection PyUnresolvedReferences
-from openpyxl import load_workbook
+
 
 logging.config.fileConfig("../conf/logging.conf")
 LOG = logging.getLogger(name="rotatingFileLogger")
@@ -76,33 +72,6 @@ class TenantManagement(Resource):
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
-
-
-
-    # 问题 就是db的不适用性
-    def importUser(self):
-        #tenant = xlrd.open_workbook(r'D:\house\roomManagement\core\COPY.xlsx')
-        uploadedFile = request.files.get('file')
-        #f = xlrd.open_workbook(uploadedFile)
-        tenant = load_workbook(uploadedFile)
-        sheet = tenant.sheet_by_name("tenant_sheet1")
-        for i in range(2, sheet.nrows):
-            name = sheet.cell(i, 0).value
-            building = sheet.cell(i, 1).value
-            room = sheet.cell(i, 2).value
-            rent = sheet.cell(i, 3).value
-            deposit = sheet.cell(i, 4).value
-            idcard = sheet.cell(i, 5).value
-            check_in = sheet.cell(i, 6).value
-            check_out = sheet.cell(i, 7).value
-            contact = sheet.cell(i, 8).value
-            living_number = sheet.cell(i, 9).value
-            value = (name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number)
-            sql = "INSERT INTO tenant(name, building, room, rent, deposit, idcard, check_in, check_out, contact, living_number) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            LOG.info(f"sql is : {sql}")
-            res = self._common.db.execute(sql, value)
-            LOG.info("sql result is : " + str(res))
-
 
     # 提交的问题
     def deleteUser(self):

@@ -1,0 +1,4 @@
+PyYAML~=6.0.3
+PyMySQL~=1.1.2
+flask_restful
+flask~=3.1.2

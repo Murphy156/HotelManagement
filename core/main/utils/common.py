@@ -11,7 +11,6 @@ from flask import Flask, request,jsonify
 from flask import Blueprint,views
 from flask_restful import Resource, Api
 # noinspection PyUnresolvedReferences
-import xlrd
 from core.main.utils.db.db_helper import *
 import logging.config
 import yaml

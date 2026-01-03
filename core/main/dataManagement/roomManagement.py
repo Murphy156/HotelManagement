@@ -12,7 +12,6 @@ from flask import Blueprint
 from flask_restful import Resource, Api
 import json
 # noinspection PyUnresolvedReferences
-import xlrd
 # noinspection PyUnresolvedReferences
 from core.main.utils.db.db_helper import *
 # noinspection PyUnresolvedReferences
@@ -72,25 +71,6 @@ class RoomManagement(Resource):
         LOG.info(f"sql is : {sql}")
         res = self._common.db.execute(sql, data)
         LOG.info("sql result is : " + str(res))
-
-    def addRoomExcel(self):
-        room = xlrd.open_workbook(r'D:\house\roomManagement\core\room_information.xlsx')
-        sheet = room.sheet_by_name("room_sheet1")
-        for i in range(2, sheet.nrows):
-            building = sheet.cell(i, 0).value
-            room = sheet.cell(i, 1).value
-            area = sheet.cell(i, 2).value
-            air_condition = sheet.cell(i, 3).value
-            heater = sheet.cell(i, 4).value
-            other = sheet.cell(i, 5).value
-            rent = sheet.cell(i, 6).value
-            remark = sheet.cell(i, 7).value
-            state = sheet.cell(i, 8).value
-            value = (building, room, area, air_condition, heater, other, rent, remark, state)
-            sql = "INSERT INTO room_information(building, room, area, air_condition, heater, other, rent, remark, state) VALUE (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            LOG.info(f"sql is : {sql}")
-            res = self._common.db.execute(sql, value)
-            LOG.info("sql result is : " + str(res))
 
         # 提交的问题
     def deleteRoom(self):

@@ -13,7 +13,6 @@ from flask_restful import Resource, Api
 # noinspection PyUnresolvedReferences
 import json
 # noinspection PyUnresolvedReferences
-import xlrd
 # noinspection PyUnresolvedReferences
 from core.main.utils.db.db_helper import *
 # noinspection PyUnresolvedReferences
